@@ -630,69 +630,314 @@ footer{background:#060d1e;padding:80px 8% 40px;color:rgba(255,255,255,.6);}
 .footer-btm-links a:hover{color:rgba(255,255,255,.6);}
 
 /* ─── RESPONSIVE ──────────────────────────── */
-@media(max-width:1200px){
-  .who-grid,.impact-layout{grid-template-columns:1fr;gap:60px;}
-  .who-stats-card{position:relative;left:0;bottom:0;margin-top:32px;min-width:unset;}
-  .vm-grid{grid-template-columns:1fr;}
-  .why-blocks{grid-template-columns:1fr 1fr;gap:2px;}
-  .why-block:nth-child(3){border-left:none;}
-  .values-track{grid-template-columns:1fr 1fr 1fr;row-gap:56px;}
-  .values-track::before,.values-track::after{display:none;}
-  .footer-top{grid-template-columns:1fr 1fr;}
-  .chip-diagram{width:560px;height:560px;}
-  .eco-node:nth-child(1){top:10px;}
+/* ===============================
+   1200px
+================================*/
+@media (max-width:1200px){
+
+.container{
+    padding:0 35px;
 }
-@media(max-width:900px){
-  .why-blocks{grid-template-columns:1fr 1fr;}
-  .values-track{grid-template-columns:1fr 1fr;}
-  .impact-layout{grid-template-columns:1fr;}
-  .hero-content h1{font-size:52px;letter-spacing:-2.5px;}
-  .chip-diagram{width:420px;height:420px;}
-  .chip-center{width:130px;height:130px;}
-  .eco-node{width:120px;height:64px;}
+
+.hero-content h1{
+    font-size:58px;
 }
-@media(max-width:768px){
-  .container{padding:0 20px;}
-  .menu{display:none;}
-  .hamburger{display:flex;}
-  .actions{display:none;}
-  .hero-top-strip{padding:0 4%;}
-  .hts-breadcrumb{display:none;}
-  .about-hero{height:340px;margin-top:132px;}
-  .hero-content h1{font-size:40px;letter-spacing:-2px;}
-  .hero-bottom-nav{justify-content:flex-start;overflow-x:auto;}
-  .hero-bottom-nav::-webkit-scrollbar{display:none;}
-  .hbn-link{padding:0 18px;font-size:12px;flex-shrink:0;}
-  .who-section,.ecosystem-section,.vm-section,.why-section,.values-section,.impact-section{padding:80px 5%;}
-  .who-left h2,.vm-header h2,.why-header h2,.values-header h2,.eco-header h2{font-size:36px;}
-  .impact-header-l h2{font-size:34px;}
-  .who-img-wrap{height:340px;}
-  .vm-panel{padding:40px 32px;}
-  .vm-panel h3{font-size:28px;}
-  .why-blocks{grid-template-columns:1fr;}
-  .why-block{border-left:none;border-top:1px solid rgba(255,255,255,.06);}
-  .why-block:first-child{border-top:none;}
-  .values-track{grid-template-columns:1fr;}
-  .wsc-item:nth-child(n){border:none;}
-  .chip-diagram{width:320px;height:320px;}
-  .chip-center{width:100px;height:100px;}
-  .eco-node{width:100px;height:56px;}
-  .eco-node span{font-size:10px;}
-  .cta-glass{padding:48px 28px;}
-  .cta-glass h2{font-size:36px;}
-  .cta-buttons{flex-direction:column;align-items:center;}
-  .btn-cta,.btn-outline{width:100%;justify-content:center;}
-  .footer-top{grid-template-columns:1fr;}
-  .footer-bottom{flex-direction:column;text-align:center;}
-  .is-num{font-size:48px;}
-  .wsc-num{font-size:28px;}
-  .who-stats-card{grid-template-columns:1fr 1fr 1fr;padding:24px 20px;gap:16px;}
+
+.who-grid,
+.impact-layout{
+    grid-template-columns:1fr;
+    gap:70px;
 }
-@media(max-width:480px){
-  .who-stats-card{grid-template-columns:1fr;gap:20px;text-align:center;}
-  .hero-content h1{font-size:32px;}
-  .impact-stat{flex-direction:column;gap:8px;align-items:flex-start;}
+
+.vm-grid{
+    grid-template-columns:1fr;
 }
+
+.footer-top{
+    grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+
+/* ===============================
+   992px
+================================*/
+
+@media (max-width:992px){
+
+.menu{
+    display:none;
+}
+
+.actions{
+    display:none;
+}
+
+.hamburger{
+    display:flex;
+}
+
+.container{
+    padding:0 25px;
+}
+
+.hero-content h1{
+    font-size:48px;
+}
+
+.hero-content p{
+    font-size:15px;
+}
+
+.who-left h2,
+.vm-header h2,
+.eco-header h2,
+.values-header h2,
+.why-header h2{
+    font-size:42px;
+}
+
+.footer-top{
+    grid-template-columns:1fr;
+}
+
+}
+
+
+/* ===============================
+   768px
+================================*/
+
+@media (max-width:768px){
+
+.header{
+    height:90px;
+}
+
+.hero-top-strip{
+
+    top:90px;
+    height:42px;
+}
+
+.about-hero{
+
+    margin-top:132px;
+    height:280px;
+}
+
+.hero-content{
+
+    left:20px;
+    right:20px;
+}
+
+.hero-content h1{
+
+    font-size:36px;
+}
+
+.hero-content p{
+
+    font-size:14px;
+    max-width:100%;
+}
+
+/* IMPORTANT */
+
+.hero-bottom-nav{
+
+    position:sticky;
+    top:132px;
+
+    overflow-x:auto;
+    overflow-y:hidden;
+
+    justify-content:flex-start;
+
+    white-space:nowrap;
+
+    -webkit-overflow-scrolling:touch;
+
+    scrollbar-width:none;
+}
+
+.hero-bottom-nav::-webkit-scrollbar{
+
+    display:none;
+}
+
+.hbn-link{
+
+    flex:0 0 auto;
+
+    padding:0 22px;
+
+    height:52px;
+
+    font-size:13px;
+}
+
+.who-section,
+.ecosystem-section,
+.vm-section,
+.why-section,
+.values-section,
+.impact-section{
+
+    padding:70px 20px;
+}
+
+.who-left h2,
+.vm-header h2,
+.eco-header h2,
+.values-header h2,
+.why-header h2{
+
+    font-size:32px;
+}
+
+.who-img-wrap{
+
+    height:320px;
+}
+
+.chip-diagram{
+
+    width:320px;
+    height:320px;
+}
+
+.chip-center{
+
+    width:100px;
+    height:100px;
+}
+
+.eco-node{
+
+    width:95px;
+    height:55px;
+}
+
+.vm-panel{
+
+    padding:35px 25px;
+}
+
+.vm-panel h3{
+
+    font-size:28px;
+}
+
+.why-blocks{
+
+    grid-template-columns:1fr;
+}
+
+.values-track{
+
+    grid-template-columns:1fr;
+}
+
+.footer-bottom{
+
+    flex-direction:column;
+}
+
+}
+
+
+/* ===============================
+   576px
+================================*/
+
+@media (max-width:576px){
+
+.logo img{
+
+    height:50px;
+}
+
+.hero-content h1{
+
+    font-size:30px;
+}
+
+.hero-content p{
+
+    font-size:13px;
+}
+
+.hero-bottom-nav{
+
+    top:132px;
+}
+
+.hbn-link{
+
+    font-size:12px;
+
+    padding:0 18px;
+}
+
+.who-left h2{
+
+    font-size:28px;
+}
+
+.vm-header h2,
+.eco-header h2,
+.values-header h2,
+.why-header h2{
+
+    font-size:28px;
+}
+
+.cta-glass{
+
+    padding:40px 20px;
+}
+
+.cta-glass h2{
+
+    font-size:30px;
+}
+
+}
+
+
+/* ===============================
+   400px
+================================*/
+
+@media (max-width:400px){
+
+.hero-content h1{
+
+    font-size:26px;
+}
+
+.hero-content p{
+
+    font-size:12px;
+}
+
+.hbn-link{
+
+    padding:0 16px;
+
+    font-size:11px;
+}
+
+.logo img{
+
+    height:42px;
+}
+
+}
+
 </style>
 </head>
 <body>

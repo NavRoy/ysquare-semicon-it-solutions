@@ -327,6 +327,8 @@ floatGlow 8s ease-in-out infinite;
   align-items:center;
   overflow:hidden;
   background:#fff;
+
+  padding-top:70px;
 }
 
 /* grid + glow background */
@@ -1805,6 +1807,40 @@ Industry-focused internship tracks aligned with real engineering teams.
 
 </section>
 <style>
+
+  @media (max-width:768px){
+
+.hero-top-strip{
+    position:fixed;
+    top:90px;
+}
+
+
+
+.hero-bottom-nav{
+    position:fixed;
+    top:132px;
+    left:0;
+    right:0;
+    width:100%;
+    z-index:997;
+
+    background:rgba(8,22,49,.96);
+    backdrop-filter:blur(18px);
+
+    border-top:1px solid rgba(255,255,255,.08);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.internship-hero{
+    margin-top:184px;
+}
+
+.hero-bottom-nav::-webkit-scrollbar{
+    display:none;
+}
+
+}
   .track-showcase{
 padding:100px 8%;
 background:#fff;
@@ -2204,6 +2240,59 @@ padding:32px;
     </div>
   </div>
 </section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="images/y-square-logo.png" alt="YSQUARE">
+      <p>Engineering the future of semiconductor and IT solutions — from silicon to software, for the world's most innovation-driven enterprises.</p>
+      <div class="footer-green">🌱 Carbon Neutral Operations</div>
+      <div class="footer-social">
+        <a href="#" class="f-icon">in</a>
+        <a href="#" class="f-icon">tw</a>
+        <a href="#" class="f-icon">yt</a>
+        <a href="#" class="f-icon">gh</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Digital Engineering</a></li>
+        <li><a href="#">Software Engineering</a></li>
+        <li><a href="#">Embedded Engineering</a></li>
+        <li><a href="#">Semiconductor Engineering</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About YSQUARE</a></li>
+        <li><a href="#">Leadership</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Internships</a></li>
+        <li><a href="#">Insights</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <span class="nl-label">Stay Informed</span>
+      <p style="font-size:13px;color:rgba(255,255,255,.4);margin-bottom:16px;line-height:1.6;">Engineering insights and updates straight to your inbox.</p>
+      <div class="nl-form">
+        <input type="email" placeholder="your@email.com">
+        <button>Subscribe</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 YSQUARE Semicon IT Solutions. All rights reserved.</p>
+    <div class="footer-btm-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Cookie Settings</a>
+    </div>
+  </div>
+</footer>
 
 <!-- ─── JS ─────────────────────────────────────────── -->
 <script>
