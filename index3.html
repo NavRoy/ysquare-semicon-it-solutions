@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YSQUARE Semicon</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  background:#fff;
+}
+
+
+/* PRIMARY BRAND COLOR */
+:root {
+  --primary: #0ea5e9;      /* blue */
+  --primary-dark: #0369a1; /* deep tech blue */
+}
+
+/* ================= HEADER ================= */
+.header{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(255,255,255,0.9);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid #eee;
+  z-index:999;
+  transition:0.3s;
+}
+
+.header.scrolled{
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.container{
+  width:100%;
+  padding:0 60px;
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:90px;
+   grid-template-columns: auto 1fr auto;
+}
+
+.menu{
+  display:flex;
+  align-items:center;
+  gap:28px;
+  margin-left:auto;
+}
+
+.nav{
+  position:relative;
+}
+
+/* LOGO */
+.logo img{
+  height:68px;
+}
+
+/* MENU */
+.menu{
+  display:flex;
+  align-items:center;
+}
+
+.menu a,
+.menu-item span{
+  margin:0 26px;
+  text-decoration:none;
+  color:#222;
+  font-weight:600;
+  cursor:pointer;
+  position:relative;
+   font-size:15px;
+  letter-spacing:0.3px;
+}
+
+/* underline */
+.menu a::after,
+.menu-item span::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0%;
+  height:2px;
+  background:var(--primary);
+  transition:0.3s;
+}
+
+.menu a:hover::after,
+.menu-item:hover span::after{
+  width:100%;
+}
+
+/* ================= DROPDOWN ================= */
+.menu-item{
+  position:relative;
+}
+
+.dropdown{
+  position:absolute;
+  top:100%;
+  left:0;
+  width:720px;
+  height:280px;
+  display:flex;
+  background:#fff;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,0.12);
+
+  opacity:0;
+  transform:translateY(15px);
+  pointer-events:none;
+  transition:0.3s;
+}
+
+.menu-item:hover .dropdown{
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
+
+/* LEFT */
+.dropdown-left{
+  width:40%;
+  background:#f7f7f7;
+  padding:20px;
+}
+
+.dropdown-left li{
+  list-style:none;
+  padding:10px 0;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.dropdown-left li:hover{
+  color:#6c2bd9;
+  transform:translateX(5px);
+}
+
+/* RIGHT */
+.dropdown-right{
+  width:60%;
+  position:relative;
+}
+
+.dropdown-right img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.dropdown-overlay{
+  position:absolute;
+  bottom:15px;
+  left:15px;
+  right:15px;
+  background:rgba(255,255,255,0.9);
+  padding:8px 12px;
+  border-radius:6px;
+  font-weight:600;
+}
+
+
+.header{
+  border-bottom:1px solid rgba(0,0,0,0.06);
+  box-shadow:0 4px 20px rgba(0,0,0,0.04);
+}
+
+
+.menu a,
+.menu-item span{
+  transition: all 0.25s ease;
+}
+
+.menu a:hover,
+.menu-item:hover span{
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+/* ACTIONS */
+.actions{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-left:20px;
+}
+
+.actions{
+  min-width:120px;
+  justify-content:flex-end;
+}
+
+/* ================= HERO ================= */
+.hero{
+  display:flex;
+  align-items:center;
+  min-height:100vh;
+  padding:120px 8% 60px;
+  background:linear-gradient(120deg,#ffffff,#eef6ff);
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  width:900px;
+  height:900px;
+ background: radial-gradient(circle, rgba(14,165,233,0.18), transparent 60%);
+  top:-250px;
+  right:-250px;
+  filter:blur(40px);
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+  opacity:0.2;
+  pointer-events:none;
+}
+
+.hero{
+  background:
+    radial-gradient(circle at 20% 20%, rgba(14,165,233,0.12), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(3,105,161,0.1), transparent 40%),
+    linear-gradient(120deg,#ffffff,#eef6ff);
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  width:700px;
+  height:700px;
+ background: radial-gradient(circle, rgba(14,165,233,0.12), transparent 60%);
+  bottom:-200px;
+  left:-200px;
+  filter:blur(50px);
+}
+
+@keyframes floatImage {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+
+
+.hero-left{
+  flex:1;
+  z-index:2;
+}
+
+.hero h1{
+  line-height:1.05;
+  letter-spacing:-2px;
+}
+
+.hero h1{
+  font-size:72px;
+  font-weight:700;
+  letter-spacing:-2.5px;
+}
+
+.hero h1 span{
+  color:#222;
+  font-weight:600;
+}
+
+.hero-left a{
+  margin-right:12px;
+}
+
+.hero-img-wrap{
+  transition: transform 0.4s ease;
+}
+
+
+
+.hero-left {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero p{
+  color:#555;
+  max-width:520px;
+  margin-bottom:30px;
+}
+
+.hero-left:hover{
+  transform: translateY(-2px);
+  transition:0.3s;
+}
+
+.menu a{
+  font-size:14.5px;
+  font-weight:600;
+  letter-spacing:0.4px;
+}
+
+.primary{
+    background: linear-gradient(135deg,#0ea5e9,#0369a1);
+  box-shadow: 0 10px 30px rgba(14,165,233,0.3);
+  border-radius:10px;
+  color:#fff;
+  padding:14px 28px;
+  border-radius:8px;
+  font-weight:500;
+  text-decoration:none;
+  transition:0.2s;
+}
+
+.primary:hover{
+  background:#0369a1;
+}
+
+/* glow effect */
+
+
+.primary:hover::before {
+  transform: translateX(100%);
+}
+
+.primary:hover {
+  transform: translateY(-3px);
+}
+
+/* secondary modern */
+.secondary {
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 14px 28px;
+  border-radius: 40px;
+  text-decoration: none;
+  color: #222;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+
+    background:#fff;
+  border:1px solid rgba(0,0,0,0.08);
+  box-shadow:0 4px 12px rgba(0,0,0,0.04);
+}
+
+.hero-left{
+  animation: fadeUp 0.8s ease;
+}
+
+.hero-right{
+  animation: fadeUp 1s ease;
+}
+
+.hero-right img{
+  filter: contrast(1.05) saturate(1.05);
+}
+
+.hero-right::after{
+  content:"";
+  position:absolute;
+  width:600px;
+  height:400px;
+  background:linear-gradient(135deg, rgba(14,165,233,0.15), transparent);
+  border-radius:30px;
+  right:0;
+  z-index:-1;
+}
+
+.secondary:hover {
+  background: #f5f3ff;
+  border-color: #6c2bd9;
+}
+.hero-right{
+  position: relative;
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.hero-left{
+  border-left:3px solid #0ea5e9;
+  padding-left:28px;
+}
+
+.hero-left .tag{
+  display:block;
+  margin-bottom:10px;
+  color:#666;
+  letter-spacing:1px;
+}
+@keyframes sweep {
+  0% { left: -100%; }
+  100% { left: 150%; }
+}
+
+/* push image out */
+.hero-img-wrap{
+  transform: translateX(20px);
+}
+.hero-img-wrap{
+  position:relative;
+}
+
+
+
+
+
+.hero-right img {
+  width: 650px;
+  border-radius: 20px;
+  box-shadow: 0 40px 120px rgba(0,0,0,0.25);
+  transition: transform 0.4s ease;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 6vw, 72px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -2px;
+}
+
+.hero h1 span {
+  background: linear-gradient(135deg,#0ea5e9,#0369a1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-img-wrap {
+  animation: floatImage 6s ease-in-out infinite;
+}
+.hero-img-wrap:hover img {
+  transform: scale(1.05);
+}
+.hero h1 {
+  text-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.hero-slide {
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.primary::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+  transform: translateX(-100%);
+}
+
+.primary:hover::after {
+  transform: translateX(100%);
+  transition: 0.6s;
+}
+
+.hero-img-wrap{
+  position:relative;
+ width: 620px;
+  height: 480px;
+  background: #f5f5f5;
+  border-radius: 20px;
+  overflow: hidden;
+   transform: translateX(80px);
+}
+
+.hero-right::before{
+  content:"";
+  position:absolute;
+  width:500px;
+  height:500px;
+  background: radial-gradient(circle, rgba(14,165,233,0.15), transparent 60%);
+  right:50px;
+  top:50px;
+  z-index:0;
+}
+
+.hero-slide{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:20px;
+
+  opacity:0;
+  transform: scale(1.1);
+  transition: all 1.2s ease;
+}
+
+.hero-slide.active{
+  opacity:1;
+  transform: scale(1);
+}
+
+.hero h1 span{
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  -webkit-background-clip:text;
+
+}
+.hero h1 span{
+  font-weight:500;
+  color:#555;
+  background:none;
+  -webkit-text-fill-color:unset;
+}
+
+/* Large desktops */
+@media (max-width: 1400px) {
+  .container { padding: 0 40px; }
+}
+
+/* Laptops */
+@media (max-width: 1200px) {
+  .hero h1 { font-size: 56px; }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .menu { display: none; }
+  .hamburger { display: flex; }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-img-wrap {
+    transform: none;
+    margin-top: 30px;
+    width: 100%;
+    height: 300px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 36px; }
+  .hero p { font-size: 14px; }
+
+  .actions {
+    display: none;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .hero {
+    padding: 100px 20px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:900px){
+
+  .menu{
+    display:none;
+  }
+
+  .hero{
+    flex-direction:column;
+    text-align:center;
+    padding:120px 20px;
+  }
+
+.hero{
+  background: linear-gradient(120deg,#ffffff,#eef6ff);
+}
+
+
+.menu a,
+.menu-item span {
+  transition: all 0.25s ease;
+}
+
+.menu a:hover,
+.menu-item:hover span {
+  color: #6c2bd9;
+  transform: translateY(-1px);
+}
+
+  .hero h1{
+    font-size:40px;
+  }
+
+  .hero-right img{
+    width:90%;
+    margin-top:30px;
+  }
+
+  .hero-right img{
+  border-radius:12px;
+  box-shadow:0 80px 200px rgba(0,0,0,0.3);
+}
+
+  .dropdown{
+    display:none;
+  }
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 22px;
+  height: 2px;
+  background: #222;
+  transition: 0.3s;
+}
+
+/* MOBILE */
+@media(max-width: 900px) {
+
+  .menu {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+.mobile-menu {
+  position: fixed;
+  top: 90px;
+  left: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(20px);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  transform: translateY(-20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+  z-index: 1000;
+}
+
+.mobile-menu.active {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+  .mobile-menu.active {
+    display: flex;
+  }
+
+  .mobile-menu a {
+    text-decoration: none;
+    color: #222;
+    font-weight: 500;
+  }
+}
+
+.hero {
+  display:flex;
+  align-items:center;
+  min-height:100vh;
+  padding:120px 8% 60px;
+
+  background:
+    radial-gradient(circle at 20% 20%, rgba(14,165,233,0.15), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(3,105,161,0.12), transparent 40%),
+    linear-gradient(120deg,#ffffff,#eef6ff);
+}
+.hero h1 small{
+  font-size:28px;
+  font-weight:400;
+  color:#666;
+}
+
+.dropdown-left {
+  width: 45%;
+  background: #f9fafb;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.dropdown-group {
+  margin-bottom: 20px;
+}
+
+.dropdown-group h4 {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.dropdown-group ul {
+  list-style: none;
+}
+
+.dropdown-group li {
+  padding: 8px 0;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.dropdown-group li:hover {
+  color: var(--primary);
+  transform: translateX(5px);
+}
+</style>
+</head>
+
+<body>
+
+<header class="header" id="header">
+  <div class="container nav">
+
+    <div class="logo">
+      <img src="it-logo.png">
+    </div>
+
+    <nav class="menu">
+
+      <div class="menu-item">
+        <span>Who we are ▾</span>
+        <div class="dropdown">
+          <div class="dropdown-left">
+            <ul>
+              <li data-img="https://images.unsplash.com/photo-1521737604893-d14cc237f11d" data-text="Our Leadership">Leadership</li>
+              <li data-img="https://images.unsplash.com/photo-1492724441997-5dc865305da7" data-text="Our Culture">Culture</li>
+              <li data-img="https://images.unsplash.com/photo-1507679799987-c73779587ccf" data-text="Global Presence">Global Presence</li>
+            </ul>
+          </div>
+          <div class="dropdown-right">
+            <img id="who-img" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
+            <div class="dropdown-overlay" id="who-text">Our Leadership</div>
+          </div>
+        </div>
+      </div>
+
+<div class="menu-item">
+  <span>What we do ▾</span>
+
+  <div class="dropdown">
+
+    <!-- LEFT SIDE -->
+    <div class="dropdown-left">
+
+      <!-- GROUP 1 -->
+      <div class="dropdown-group">
+        <h4>Engineering Services</h4>
+        <ul>
+          <li data-img="https://images.unsplash.com/photo-1518770660439-4636190af475" data-text="Digital Engineering">Digital Engineering</li>
+          <li data-img="https://images.unsplash.com/photo-1555949963-aa79dcee981c" data-text="Software Engineering">Software Engineering</li>
+          <li data-img="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0" data-text="Embedded Engineering">Embedded Engineering</li>
+          <li data-img="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" data-text="Silicon Engineering">Silicon Engineering</li>
+        </ul>
+      </div>
+
+      <!-- GROUP 2 -->
+      <div class="dropdown-group">
+        <h4>Industrial & Operations</h4>
+        <ul>
+          <li data-img="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" data-text="Operations & Supply Chain">Operations & Supply Chain</li>
+          <li data-img="https://images.unsplash.com/photo-1460925895917-afdab827c52f" data-text="Product Lifecycle Management">Product Lifecycle Management</li>
+          <li data-img="https://images.unsplash.com/photo-1581090700227-4c4d47a2d1d1" data-text="EPCM">Engineering Procurement Construction</li>
+          <li data-img="https://images.unsplash.com/photo-1581093458791-9d15482442f9" data-text="Controls Engineering">Controls Engineering</li>
+          <li data-img="https://images.unsplash.com/photo-1519389950473-47ba0277781c" data-text="Testing & Automation">Testing & Automation</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="dropdown-right">
+      <img id="service-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475">
+      <div class="dropdown-overlay" id="service-text">Digital Engineering</div>
+    </div>
+
+  </div>
+</div>
+
+      <a href="#">Insights</a>
+      <a href="#">Careers</a>
+      <a href="#">Contact us</a>
+
+
+
+    </nav>
+
+          <button class="hamburger" id="hamburger">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+    <div class="actions">🌐 EN 🔍</div>
+
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <a href="#">Who we are</a>
+  <a href="#">What we do</a>
+  <a href="#">Insights</a>
+  <a href="#">Careers</a>
+  <a href="#">Contact</a>
+</div>
+
+<section class="hero">
+
+  <div class="hero-left">
+    <span class="tag">YSQUARE SEMICON IT SOLUTIONS</span>
+
+<h1>
+  Accelerating <br>
+  <span>Innovation</span><br>
+  <small>Through Engineering Excellence</small>
+</h1>
+
+    <p>
+      Delivering next-generation semiconductor and IT solutions for global enterprises.
+    </p>
+
+    <a href="#" class="primary">Explore Services</a>
+    <a href="#" class="secondary">Our Insights</a>
+  </div>
+
+  <div class="hero-right">
+<div class="hero-img-wrap">
+ <img class="hero-slide active" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&auto=format&fit=crop">
+<img class="hero-slide" src="https://images.unsplash.com/photo-1581090700227-4c4d47a2d1d1?w=1200&auto=format&fit=crop">
+<img class="hero-slide" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&auto=format&fit=crop">
+</div>
+  </div>
+
+</section>
+
+<section class="enterprise">
+
+  <div class="enterprise-container">
+
+    <!-- LEFT SIDE -->
+    <div class="enterprise-left">
+      <h2>Our Capabilities</h2>
+
+      <ul>
+        <li class="active" data-img="https://images.unsplash.com/photo-1518770660439-4636190af475" data-text="Digital Engineering Solutions">Digital</li>
+        <li data-img="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0" data-text="Advanced Engineering Services">Engineering</li>
+        <li data-img="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" data-text="Smart Manufacturing">Manufacturing</li>
+        <li data-img="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" data-text="Semiconductor Innovation">Semiconductor</li>
+        <li data-img="https://images.unsplash.com/photo-1460925895917-afdab827c52f" data-text="Data & AI Solutions">AI & Data</li>
+      </ul>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="enterprise-right">
+      <img id="enterprise-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475">
+      <div class="enterprise-overlay" id="enterprise-text">
+        Digital Engineering Solutions
+      </div>
+    </div>
+
+  </div>
+
+</section>
+<style>
+  /* ================= ENTERPRISE SECTION ================= */
+
+.enterprise{
+  padding:100px 8%;
+  background:#fff;
+}
+
+.enterprise-container{
+  display:flex;
+  gap:60px;
+  align-items:center;
+}
+
+/* LEFT */
+.enterprise-left{
+  width:35%;
+}
+
+.enterprise-left h2{
+  font-size:34px;
+  margin-bottom:30px;
+}
+
+.enterprise-left ul{
+  list-style:none;
+}
+
+.enterprise-left li{
+  padding:14px 0;
+  font-size:18px;
+  color:#666;
+  cursor:pointer;
+  transition:0.3s;
+  border-left:3px solid transparent;
+  padding-left:15px;
+}
+
+.enterprise-left li:hover{
+  color:#000;
+  transform:translateX(5px);
+}
+
+.enterprise-left li.active{
+  color:#000;
+  font-weight:600;
+  border-left:3px solid var(--primary);
+}
+
+/* RIGHT */
+.enterprise-right{
+  width:65%;
+  position:relative;
+}
+
+.enterprise-right img{
+  width:100%;
+  height:420px;
+  object-fit:cover;
+  border-radius:16px;
+  box-shadow:0 30px 80px rgba(0,0,0,0.2);
+}
+
+/* overlay */
+.enterprise-overlay{
+  position:absolute;
+  bottom:20px;
+  left:20px;
+  background:rgba(255,255,255,0.9);
+  padding:12px 18px;
+  border-radius:8px;
+  font-weight:600;
+  backdrop-filter:blur(10px);
+}
+</style>
+<script>
+  document.querySelectorAll(".enterprise-left li").forEach(item=>{
+  item.addEventListener("mouseenter",()=>{
+
+    // remove active
+    document.querySelectorAll(".enterprise-left li").forEach(li=>{
+      li.classList.remove("active");
+    });
+
+    item.classList.add("active");
+
+    // change image + text
+    document.getElementById("enterprise-img").src = item.dataset.img;
+    document.getElementById("enterprise-text").innerText = item.dataset.text;
+  });
+});
+</script>
+
+<script>
+window.addEventListener("scroll", function() {
+  document.getElementById("header").classList.toggle("scrolled", window.scrollY > 20);
+});
+
+document.querySelectorAll(".menu-item:nth-child(1) li").forEach(item=>{
+  item.addEventListener("mouseenter",()=>{
+    document.getElementById("who-img").src=item.dataset.img;
+    document.getElementById("who-text").innerText=item.dataset.text;
+  });
+});
+
+document.querySelectorAll(".menu-item:nth-child(2) li").forEach(item=>{
+  item.addEventListener("mouseenter",()=>{
+    document.getElementById("service-img").src=item.dataset.img;
+    document.getElementById("service-text").innerText=item.dataset.text;
+  });
+});
+</script>
+<script>
+const hamburger = document.getElementById("hamburger");
+const mobileMenu = document.querySelector(".mobile-menu");
+
+hamburger.addEventListener("click", () => {
+  mobileMenu.classList.toggle("active");
+});
+</script>
+
+<script>
+let slides = document.querySelectorAll(".hero-slide");
+let i = 0;
+
+setInterval(()=>{
+  slides[i].classList.remove("active");
+  i = (i + 1) % slides.length;
+  slides[i].classList.add("active");
+}, 4000);
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ysquare Semicon IT Solutions (OPC) Pvt Ltd</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --navy:    #080f1e;
+  --navy2:   #0d1a30;
+  --blue:    #1255cc;
+  --blue2:   #1a6dff;
+  --sky:     #3b9eff;
+  --sky2:    #7ec8ff;
+  --bg:      #f0f4fa;
+  --bg2:     #e6edf8;
+  --white:   #ffffff;
+  --text:    #0d1b2e;
+  --muted:   #5a7090;
+  --border:  #d8e4f0;
+  --border2: #eaf0f8;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; }
+
+/* ══════════════════ UTILITY BAR ══════════════════ */
+.utility-bar {
+  background: var(--navy); height: 38px;
+  display: flex; align-items: center; padding: 0 56px;
+  justify-content: space-between;
+}
+.ub-left, .ub-right { display: flex; align-items: center; gap: 20px; }
+.ub-item {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11.5px; font-weight: 500; color: rgba(255,255,255,0.52);
+  text-decoration: none; transition: color 0.2s;
+}
+.ub-item:hover { color: rgba(255,255,255,0.9); }
+.ub-sep { width: 1px; height: 12px; background: rgba(255,255,255,0.12); }
+.ub-badge {
+  background: rgba(26,109,255,0.22); border: 1px solid rgba(26,109,255,0.38);
+  border-radius: 20px; padding: 2px 10px;
+  font-size: 10.5px; font-weight: 600; color: var(--sky2); letter-spacing: 0.06em;
+}
+.ub-new {
+  background: linear-gradient(135deg,#16a34a,#15803d);
+  border-radius: 20px; padding: 2px 10px;
+  font-size: 10.5px; font-weight: 700; color: #fff; letter-spacing: 0.06em;
+}
+
+/* ══════════════════ HEADER ══════════════════ */
+header {
+  position: sticky; top: 0; z-index: 300;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border-bottom: 1px solid rgba(10,22,40,0.07);
+  box-shadow: 0 1px 0 rgba(10,22,40,0.05), 0 4px 28px rgba(10,22,40,0.05);
+}
+.nav-wrap {
+  max-width: 1400px; margin: 0 auto; height: 70px;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 48px;
+}
+.logo { display: flex; align-items: center; flex-shrink: 0; }
+.logo img { height: 44px; width: auto; display: block; }
+nav { display: flex; align-items: center; }
+.nav-item { position: relative; }
+.nav-link {
+  display: flex; align-items: center; gap: 4px;
+  padding: 8px 14px; font-size: 13.5px; font-weight: 500;
+  color: var(--muted); text-decoration: none; border-radius: 8px;
+  transition: color 0.18s, background 0.18s; white-space: nowrap; position: relative;
+}
+.nav-link::after {
+  content: ''; position: absolute; bottom: -6px; left: 50%;
+  width: 0; height: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--sky));
+  transition: all .28s; transform: translateX(-50%);
+}
+.nav-link:hover { color: var(--navy); background: var(--bg); }
+.nav-link:hover::after { width: 65%; }
+.nav-link svg { width: 12px; height: 12px; transition: transform 0.22s; }
+.nav-item:hover > .nav-link svg { transform: rotate(180deg); }
+
+.mega-drop {
+  position: absolute; top: calc(100% + 14px); left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  background: #fff; border: 1px solid var(--border); border-radius: 16px;
+  box-shadow: 0 24px 64px rgba(10,22,40,0.13); padding: 10px; width: 300px;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity 0.22s, transform 0.22s, visibility 0.22s;
+}
+.mega-drop::before {
+  content: ''; position: absolute; top: -6px; left: 50%; transform: translateX(-50%);
+  width: 12px; height: 12px; background: #fff; border: 1px solid var(--border);
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+}
+.nav-item:hover .mega-drop { opacity: 1; visibility: visible; pointer-events: all; transform: translateX(-50%) translateY(0); }
+.md-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 12px; border-radius: 10px; text-decoration: none; transition: background 0.15s;
+}
+.md-item:hover { background: var(--bg); }
+.md-ico {
+  width: 36px; height: 36px; border-radius: 9px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 16px;
+  background: linear-gradient(135deg, var(--bg), var(--bg2)); border: 1px solid var(--border);
+}
+.md-label { font-size: 13.5px; font-weight: 600; color: var(--text); }
+.md-desc { font-size: 11.5px; color: var(--muted); margin-top: 1px; }
+.nav-actions { display: flex; align-items: center; gap: 10px; }
+.na-link {
+  font-size: 13.5px; font-weight: 500; color: var(--muted);
+  text-decoration: none; padding: 8px 12px; border-radius: 8px; transition: color 0.18s, background 0.18s;
+}
+.na-link:hover { color: var(--navy); background: var(--bg); }
+.na-btn {
+  display: flex; align-items: center; gap: 7px; padding: 9px 22px; border-radius: 9px;
+  font-size: 13.5px; font-weight: 700; text-decoration: none;
+  background: var(--navy); color: #fff;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  box-shadow: 0 2px 12px rgba(10,22,40,0.22);
+}
+.na-btn:hover { background: var(--blue); box-shadow: 0 4px 20px rgba(26,109,255,0.35); transform: translateY(-1px); }
+
+/* ══════════════════ HERO ══════════════════ */
+.hero {
+  position: relative; min-height: calc(100vh - 108px);
+  display: grid; grid-template-columns: 1fr 1fr; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: -150px; right: -150px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(59,158,255,0.18), transparent 70%);
+  filter: blur(100px); z-index: 1; pointer-events: none;
+}
+.hero-left {
+  position: relative; display: flex; flex-direction: column; justify-content: center;
+  padding: 80px 56px 80px 80px; z-index: 2; background: #fff;
+}
+.hero-left::after {
+  content: ''; position: absolute; top: 0; right: -80px; bottom: 0; width: 160px;
+  background: #fff; clip-path: polygon(0 0, 0% 100%, 100% 100%); z-index: 3;
+}
+.hleft-bg {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(18,85,204,0.055) 1px, transparent 1px);
+  background-size: 32px 32px; pointer-events: none;
+}
+.hero-right { position: relative; overflow: hidden; }
+.hero-img {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1400&q=85&fit=crop&crop=center') center/cover no-repeat;
+}
+.hero-img-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(250deg, rgba(8,15,30,0.05) 0%, rgba(8,15,30,0.2) 55%, rgba(8,15,30,0.6) 100%);
+}
+/* circuit overlay */
+.hero-right::before {
+  content: ''; position: absolute; inset: 0; z-index: 2;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M10 0v10h10M50 0v10h-10M0 10h10M60 10h-10M0 50h10M60 50h-10M10 60v-10h10M50 60v-10h-10' stroke='rgba(59,158,255,0.12)' fill='none' stroke-width='1'/%3E%3C/svg%3E");
+  opacity: 0.6;
+}
+.float-stats {
+  position: absolute; bottom: 44px; left: -20px;
+  display: flex; flex-direction: column; gap: 11px; z-index: 10;
+}
+.fstat {
+  background: rgba(255,255,255,0.62); backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.75); border-radius: 14px;
+  padding: 13px 20px; display: flex; align-items: center; gap: 13px;
+  min-width: 210px; box-shadow: 0 16px 48px rgba(8,15,30,0.18), inset 0 1px rgba(255,255,255,0.6);
+  animation: slideIn 0.6s cubic-bezier(.22,1,.36,1) both;
+}
+.fstat:nth-child(1) { animation-delay: 0.5s; }
+.fstat:nth-child(2) { animation-delay: 0.7s; }
+.fstat:nth-child(3) { animation-delay: 0.9s; }
+@keyframes slideIn { from { opacity:0; transform:translateX(-30px); } to { opacity:1; transform:translateX(0); } }
+.fstat-ico { width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 19px; }
+.fstat-ico.blue { background: rgba(18,85,204,0.1); }
+.fstat-ico.sky  { background: rgba(59,158,255,0.12); }
+.fstat-ico.navy { background: rgba(8,15,30,0.08); }
+.fstat-num { font-family:'Bricolage Grotesque',sans-serif; font-size:1.3rem; font-weight:800; color:var(--navy); line-height:1; }
+.fstat-lbl { font-size:11.5px; color:var(--muted); margin-top:2px; }
+
+/* HERO content */
+.hero-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 5px 14px 5px 6px; border-radius: 100px;
+  border: 1px solid rgba(18,85,204,0.2); background: rgba(18,85,204,0.05);
+  margin-bottom: 26px; width: fit-content;
+}
+.pill-dot {
+  width: 22px; height: 22px; border-radius: 50%; background: var(--blue2);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.pill-dot svg { width: 11px; height: 11px; color: #fff; }
+.pill-text { font-size: 12px; font-weight: 600; color: var(--blue); letter-spacing: 0.04em; }
+
+.hero-h1 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(2.1rem, 3.7vw, 3.7rem);
+  font-weight: 800; line-height: 1.08; letter-spacing: -0.03em;
+  color: var(--navy); margin-bottom: 22px;
+}
+.hero-h1 .grad {
+  background: linear-gradient(125deg, var(--blue) 0%, var(--sky) 55%, var(--sky2) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  background-size: 200% 200%; animation: gradMove 4s ease-in-out infinite;
+  position: relative; overflow: hidden;
+}
+.hero-h1 .grad::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+  animation: textShine 5s infinite;
+}
+@keyframes gradMove  { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+@keyframes textShine { from{transform:translateX(-100%)} to{transform:translateX(100%)} }
+
+.hero-p {
+  font-size: 1.05rem; font-weight: 400; color: var(--muted); line-height: 1.82;
+  max-width: 510px; margin-bottom: 38px;
+}
+.hero-cta { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+.cta-main {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 30px; border-radius: 10px; background: var(--navy); color: #fff;
+  font-size: 14px; font-weight: 700; text-decoration: none;
+  box-shadow: 0 4px 20px rgba(8,15,30,0.25); position: relative; overflow: hidden;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+.cta-main::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.22), transparent);
+  transform: translateX(-100%); transition: transform 0.6s;
+}
+.cta-main:hover { background: var(--blue); box-shadow: 0 8px 28px rgba(26,109,255,0.4); transform: translateY(-2px); }
+.cta-main:hover::after { transform: translateX(100%); }
+.cta-main svg { transition: transform 0.25s; }
+.cta-main:hover svg { transform: translateX(4px); }
+.cta-sec {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 13px 26px; border-radius: 10px; border: 1.5px solid var(--border);
+  color: var(--text); font-size: 14px; font-weight: 600; text-decoration: none;
+  transition: border-color 0.18s, background 0.18s, color 0.18s;
+}
+.cta-sec:hover { border-color: var(--blue); background: rgba(18,85,204,0.04); color: var(--blue); }
+.hero-stats {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: var(--bg);
+}
+.hs { padding: 17px 18px; border-right: 1px solid var(--border); }
+.hs:last-child { border-right: none; }
+.hs-num { font-family:'Bricolage Grotesque',sans-serif; font-size:1.7rem; font-weight:800; color:var(--navy); line-height:1; margin-bottom:4px; }
+.hs-num span { color: var(--blue2); }
+.hs-lbl { font-size: 11.5px; font-weight: 500; color: var(--muted); letter-spacing: 0.03em; }
+
+/* Entrance anims */
+.hero-pill  { animation: fadeUp 0.7s 0.1s both; }
+.hero-h1    { animation: fadeUp 0.7s 0.2s both; }
+.hero-p     { animation: fadeUp 0.7s 0.32s both; }
+.hero-cta   { animation: fadeUp 0.7s 0.44s both; }
+.hero-stats { animation: fadeUp 0.7s 0.56s both; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+
+/* ══════════════════ TRUST BAND ══════════════════ */
+.trust-band {
+  background: var(--navy); padding: 0 80px; height: 58px;
+  display: flex; align-items: center; gap: 32px; overflow: hidden;
+}
+.tb-label { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.32); letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; }
+.tb-line { flex: 0 0 1px; height: 18px; background: rgba(255,255,255,0.12); }
+.tb-track { flex: 1; overflow: hidden; }
+.tb-logos {
+  display: flex; align-items: center; gap: 60px;
+  animation: logoScroll 22s linear infinite; width: max-content;
+}
+@keyframes logoScroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+.tb-logo { font-family:'Bricolage Grotesque',sans-serif; font-size:13px; font-weight:700; color:rgba(255,255,255,0.32); letter-spacing:0.08em; text-transform:uppercase; white-space:nowrap; }
+
+/* ══════════════════ SECTION COMMON ══════════════════ */
+.section-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--blue); margin-bottom: 16px;
+}
+.section-label::before { content:''; width:24px; height:2px; background:var(--blue); border-radius:2px; }
+.section-h2 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  font-weight: 800; letter-spacing: -0.025em;
+  color: var(--navy); line-height: 1.1; margin-bottom: 16px;
+}
+.section-sub { font-size: 1.05rem; color: var(--muted); line-height: 1.75; max-width: 560px; }
+
+/* ══════════════════ SERVICES SECTION ══════════════════ */
+.services-sec {
+  padding: 100px 0; background: var(--white); position: relative; overflow: hidden;
+}
+.services-sec::before {
+  content: ''; position: absolute; top: -100px; left: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(18,85,204,0.06), transparent 70%);
+  pointer-events: none;
+}
+.container { max-width: 1360px; margin: 0 auto; padding: 0 80px; }
+.services-head { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 56px; flex-wrap: wrap; gap: 24px; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.svc-card {
+  background: var(--white); border: 1px solid var(--border2);
+  border-radius: 20px; padding: 36px 32px;
+  position: relative; overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+  cursor: default;
+}
+.svc-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--sky));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.35s;
+}
+.svc-card:hover { box-shadow: 0 20px 60px rgba(8,15,30,0.1); transform: translateY(-4px); border-color: var(--border); }
+.svc-card:hover::before { transform: scaleX(1); }
+.svc-card-ico {
+  width: 56px; height: 56px; border-radius: 14px;
+  background: var(--bg); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; margin-bottom: 22px;
+  transition: background 0.2s;
+}
+.svc-card:hover .svc-card-ico { background: rgba(18,85,204,0.08); }
+.svc-card-title { font-family:'Bricolage Grotesque',sans-serif; font-size:1.15rem; font-weight:700; color:var(--navy); margin-bottom:10px; }
+.svc-card-desc { font-size:14px; color:var(--muted); line-height:1.75; margin-bottom:22px; }
+.svc-card-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 600; color: var(--blue); text-decoration: none;
+  transition: gap 0.2s;
+}
+.svc-card-link:hover { gap: 10px; }
+.svc-card-link svg { width: 14px; height: 14px; }
+.svc-card.featured {
+  background: var(--navy); border-color: var(--navy);
+  color: #fff;
+}
+.svc-card.featured .svc-card-ico { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.15); }
+.svc-card.featured .svc-card-title { color: #fff; }
+.svc-card.featured .svc-card-desc { color: rgba(255,255,255,0.6); }
+.svc-card.featured .svc-card-link { color: var(--sky2); }
+.svc-card.featured::before { background: linear-gradient(90deg, var(--sky2), var(--sky)); }
+.link-all {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13.5px; font-weight: 600; color: var(--blue);
+  text-decoration: none; border: 1.5px solid var(--border);
+  padding: 10px 22px; border-radius: 9px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.link-all:hover { border-color: var(--blue); background: rgba(18,85,204,0.04); }
+
+/* ══════════════════ WHY US ══════════════════ */
+.why-sec {
+  padding: 100px 0; background: var(--bg);
+  position: relative; overflow: hidden;
+}
+.why-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.why-img-wrap { position: relative; }
+.why-img {
+  width: 100%; aspect-ratio: 4/3; border-radius: 24px; overflow: hidden;
+  box-shadow: 0 32px 80px rgba(8,15,30,0.16);
+}
+.why-img img { width:100%; height:100%; object-fit:cover; display:block; }
+/* floating badge on image */
+.why-badge {
+  position: absolute; bottom: -20px; right: -20px;
+  background: var(--white); border-radius: 18px;
+  padding: 20px 24px; box-shadow: 0 20px 50px rgba(8,15,30,0.14);
+  border: 1px solid var(--border2);
+  min-width: 180px;
+}
+.wb-num { font-family:'Bricolage Grotesque',sans-serif; font-size:2rem; font-weight:800; color:var(--navy); }
+.wb-num span { color: var(--blue2); }
+.wb-lbl { font-size:12px; color:var(--muted); margin-top:3px; }
+.why-list { display: flex; flex-direction: column; gap: 22px; margin-top: 40px; }
+.why-item {
+  display: flex; gap: 18px; align-items: flex-start;
+  padding: 20px 22px; background: var(--white); border-radius: 14px;
+  border: 1px solid var(--border2);
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.why-item:hover { box-shadow: 0 8px 32px rgba(8,15,30,0.08); transform: translateX(4px); }
+.wi-ico {
+  width: 44px; height: 44px; border-radius: 11px; flex-shrink: 0;
+  background: rgba(18,85,204,0.08); border: 1px solid rgba(18,85,204,0.15);
+  display: flex; align-items: center; justify-content: center; font-size: 20px;
+}
+.wi-title { font-family:'Bricolage Grotesque',sans-serif; font-size:15px; font-weight:700; color:var(--navy); margin-bottom:5px; }
+.wi-desc { font-size:13.5px; color:var(--muted); line-height:1.65; }
+
+/* ══════════════════ HOW WE WORK ══════════════════ */
+.process-sec { padding: 100px 0; background: var(--white); }
+.process-head { text-align: center; margin-bottom: 64px; }
+.process-head .section-label { justify-content: center; }
+.process-head .section-label::before { display: none; }
+.process-head .section-sub { margin: 0 auto; }
+.steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+.steps-grid::before {
+  content: ''; position: absolute; top: 36px; left: 12.5%; right: 12.5%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), var(--border), var(--border), transparent);
+  z-index: 0;
+}
+.step {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 0 24px; position: relative; z-index: 1;
+}
+.step-num {
+  width: 72px; height: 72px; border-radius: 50%;
+  border: 2px solid var(--border); background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 1.4rem; font-weight: 800; color: var(--navy);
+  margin-bottom: 24px; position: relative;
+  transition: background 0.25s, border-color 0.25s;
+}
+.step:hover .step-num { background: var(--blue); border-color: var(--blue); color: #fff; }
+.step-ico { font-size: 22px; margin-bottom: 14px; }
+.step-title { font-family:'Bricolage Grotesque',sans-serif; font-size:16px; font-weight:700; color:var(--navy); margin-bottom:10px; }
+.step-desc { font-size:13.5px; color:var(--muted); line-height:1.7; }
+
+/* ══════════════════ INDUSTRIES ══════════════════ */
+.industries-sec {
+  padding: 100px 0;
+  background: var(--navy);
+  position: relative; overflow: hidden;
+}
+.industries-sec::before {
+  content: ''; position: absolute; bottom: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(26,109,255,0.18), transparent 70%);
+  filter: blur(80px);
+}
+.industries-head { margin-bottom: 56px; }
+.industries-head .section-label { color: var(--sky2); }
+.industries-head .section-label::before { background: var(--sky2); }
+.industries-head .section-h2 { color: #fff; }
+.industries-head .section-sub { color: rgba(255,255,255,0.55); }
+.ind-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.ind-card {
+  position: relative; overflow: hidden; border-radius: 18px;
+  aspect-ratio: 4/3; cursor: default;
+  transition: transform 0.3s;
+}
+.ind-card:hover { transform: scale(1.02); }
+.ind-card img { width:100%; height:100%; object-fit:cover; display:block; filter: brightness(0.6); transition: filter 0.3s; }
+.ind-card:hover img { filter: brightness(0.45); }
+.ind-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(0deg, rgba(8,15,30,0.85) 0%, transparent 60%);
+}
+.ind-content {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 24px 24px 22px;
+}
+.ind-ico { font-size: 24px; margin-bottom: 8px; display: block; }
+.ind-title { font-family:'Bricolage Grotesque',sans-serif; font-size:1.1rem; font-weight:700; color:#fff; margin-bottom:4px; }
+.ind-desc { font-size:12.5px; color:rgba(255,255,255,0.6); }
+.ind-card.large { grid-column: span 2; }
+.ind-card.large .ind-title { font-size: 1.3rem; }
+
+/* ══════════════════ CTA BAND ══════════════════ */
+.cta-band {
+  padding: 90px 0; background: var(--white);
+  position: relative; overflow: hidden;
+}
+.cta-band::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(18,85,204,0.04) 0%, rgba(59,158,255,0.04) 100%);
+}
+.cta-inner {
+  max-width: 860px; margin: 0 auto; text-align: center;
+  padding: 0 80px; position: relative;
+}
+.cta-inner .section-label { justify-content: center; }
+.cta-inner .section-label::before { display: none; }
+.cta-band-h2 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 800;
+  letter-spacing: -0.025em; color: var(--navy);
+  margin-bottom: 18px; line-height: 1.1;
+}
+.cta-band-p { font-size: 1.05rem; color: var(--muted); line-height: 1.75; margin-bottom: 40px; }
+.cta-band-btns { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+.cta-band-btn-p {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 15px 34px; border-radius: 10px; background: var(--navy); color: #fff;
+  font-size: 14.5px; font-weight: 700; text-decoration: none;
+  box-shadow: 0 4px 20px rgba(8,15,30,0.22);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+.cta-band-btn-p:hover { background: var(--blue); box-shadow: 0 8px 30px rgba(26,109,255,0.38); transform: translateY(-2px); }
+.cta-band-btn-s {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 14px 30px; border-radius: 10px; border: 1.5px solid var(--border);
+  font-size: 14.5px; font-weight: 600; color: var(--text); text-decoration: none;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+.cta-band-btn-s:hover { border-color: var(--blue); color: var(--blue); background: rgba(18,85,204,0.04); }
+
+/* ══════════════════ FOOTER ══════════════════ */
+footer {
+  background: var(--navy); padding: 72px 0 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
+.footer-brand .footer-logo img { height: 42px; width: auto; display: block; margin-bottom: 20px; }
+.footer-brand-desc { font-size: 13.5px; color: rgba(255,255,255,0.45); line-height: 1.8; max-width: 280px; margin-bottom: 24px; }
+.footer-social { display: flex; gap: 10px; }
+.fsoc {
+  width: 36px; height: 36px; border-radius: 9px;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.5); font-size: 14px; text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.fsoc:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+.footer-col-title { font-family:'Bricolage Grotesque',sans-serif; font-size:13.5px; font-weight:700; color:#fff; margin-bottom:20px; letter-spacing:0.02em; }
+.footer-links { display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-size:13.5px; color:rgba(255,255,255,0.45); text-decoration:none; transition:color 0.2s; }
+.footer-links a:hover { color: rgba(255,255,255,0.9); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 22px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+}
+.footer-copy { font-size: 12.5px; color: rgba(255,255,255,0.3); }
+.footer-bottom-links { display: flex; gap: 24px; }
+.footer-bottom-links a { font-size:12.5px; color:rgba(255,255,255,0.3); text-decoration:none; transition:color 0.2s; }
+.footer-bottom-links a:hover { color: rgba(255,255,255,0.7); }
+
+/* ══════════════════ RESPONSIVE ══════════════════ */
+@media (max-width: 1100px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .hero-left::after { display: none; }
+  .hero-left { padding: 64px 40px; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .why-inner { grid-template-columns: 1fr; }
+  .why-img-wrap { display: none; }
+  .steps-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+  .steps-grid::before { display: none; }
+  .ind-grid { grid-template-columns: repeat(2, 1fr); }
+  .ind-card.large { grid-column: span 2; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 780px) {
+  .utility-bar { display: none; }
+  .nav-wrap { padding: 0 20px; }
+  nav { display: none; }
+  .na-link { display: none; }
+  .hero-left { padding: 56px 24px; }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+  .container { padding: 0 24px; }
+  .trust-band { padding: 0 24px; }
+  .services-sec, .why-sec, .process-sec, .industries-sec, .cta-band { padding: 64px 0; }
+  .services-grid, .ind-grid { grid-template-columns: 1fr; }
+  .ind-card.large { grid-column: span 1; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .cta-inner { padding: 0 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- UTILITY BAR -->
+<div class="utility-bar">
+  <div class="ub-left">
+    <a href="tel:+919876543210" class="ub-item">
+      <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.22 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+      +91 98765 43210
+    </a>
+    <div class="ub-sep"></div>
+    <a href="mailto:info@ysquaresemicon.com" class="ub-item">
+      <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      info@ysquaresemicon.com
+    </a>
+  </div>
+  <div class="ub-right">
+    <span class="ub-new">🚀 Launched Dec 2025</span>
+    <div class="ub-sep"></div>
+    <span class="ub-badge">🇮🇳 Vizianagaram, Andhra Pradesh</span>
+    <div class="ub-sep"></div>
+    <a href="#" class="ub-item">Careers</a>
+    <div class="ub-sep"></div>
+    <a href="#" class="ub-item">Support</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="nav-wrap">
+    <a href="#" class="logo">
+      <img src="ysquare-logo.png" alt="Ysquare Semicon IT Solutions"/>
+    </a>
+    <nav>
+      <div class="nav-item">
+        <a href="#" class="nav-link active">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <div class="mega-drop">
+          <a href="#" class="md-item"><span class="md-ico">🔬</span><div><div class="md-label">Semiconductor Design</div><div class="md-desc">VLSI, IC Layout & Verification</div></div></a>
+          <a href="#" class="md-item"><span class="md-ico">💡</span><div><div class="md-label">Embedded Systems</div><div class="md-desc">Firmware, RTOS & BSP Dev</div></div></a>
+          <a href="#" class="md-item"><span class="md-ico">☁️</span><div><div class="md-label">Cloud & DevOps</div><div class="md-desc">AWS, Azure & GCP Solutions</div></div></a>
+          <a href="#" class="md-item"><span class="md-ico">🔗</span><div><div class="md-label">IoT Engineering</div><div class="md-desc">Connected Platform Solutions</div></div></a>
+          <a href="#" class="md-item"><span class="md-ico">🛡️</span><div><div class="md-label">Cybersecurity</div><div class="md-desc">Enterprise Security & Compliance</div></div></a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="nav-link">Industries <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <div class="mega-drop">
+          <a href="#" class="md-item"><span class="md-ico">🏭</span><div><div class="md-label">Manufacturing</div><div class="md-desc">Smart factory solutions</div></div></a>
+          <a href="#" class="md-item"><span class="md-ico">🚗</span><div><div class="md-label">Automotive</div><div class="md-desc">EV & ADAS Engineering</div></div></a>
+          <a href="#" class="md-item"><span class="md-ico">🏥</span><div><div class="md-label">Healthcare & MedTech</div><div class="md-desc">Medical device software</div></div></a>
+          <a href="#" class="md-item"><span class="md-ico">⚡</span><div><div class="md-label">Energy & Utilities</div><div class="md-desc">Smart grid & monitoring</div></div></a>
+          <a href="#" class="md-item"><span class="md-ico">📡</span><div><div class="md-label">Telecom & Networks</div><div class="md-desc">5G & connectivity</div></div></a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="#" class="nav-link">Solutions</a></div>
+      <div class="nav-item"><a href="#" class="nav-link">About Us</a></div>
+      <div class="nav-item"><a href="#" class="nav-link">Insights</a></div>
+    </nav>
+    <div class="nav-actions">
+      <a href="#" class="na-link">Client Login</a>
+      <a href="#" class="na-btn">Get a Quote <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hleft-bg"></div>
+    <div class="hero-pill">
+      <span class="pill-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      <span class="pill-text">Incorporated Dec 2025 · Vizianagaram, AP · OPC Pvt Ltd</span>
+    </div>
+    <h1 class="hero-h1">
+      Next-Gen <span class="grad">Semiconductor</span><br>
+      &amp; IT Solutions Built<br>
+      for Tomorrow
+    </h1>
+    <p class="hero-p">
+      Born in December 2025, Ysquare Semicon IT Solutions is a new-generation technology company delivering cutting-edge semiconductor design, embedded engineering, and enterprise IT services to businesses ready to lead the future.
+    </p>
+    <div class="hero-cta">
+      <a href="#" class="cta-main">
+        Explore Services
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#" class="cta-sec">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+        Watch Demo
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hs"><div class="hs-num">10<span>+</span></div><div class="hs-lbl">Services Offered</div></div>
+      <div class="hs"><div class="hs-num">5<span>+</span></div><div class="hs-lbl">Industries Served</div></div>
+      <div class="hs"><div class="hs-num">Dec<span>'25</span></div><div class="hs-lbl">Officially Launched</div></div>
+      <div class="hs"><div class="hs-num">100<span>%</span></div><div class="hs-lbl">Client Focus</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img"></div>
+    <div class="hero-img-overlay"></div>
+    <div class="float-stats">
+      <div class="fstat">
+        <div class="fstat-ico blue">🔬</div>
+        <div><div class="fstat-num">Chip-Level</div><div class="fstat-lbl">Semiconductor Design</div></div>
+      </div>
+      <div class="fstat">
+        <div class="fstat-ico sky">⚡</div>
+        <div><div class="fstat-num">Full-Stack</div><div class="fstat-lbl">Embedded Engineering</div></div>
+      </div>
+      <div class="fstat">
+        <div class="fstat-ico navy">🌐</div>
+        <div><div class="fstat-num">Enterprise</div><div class="fstat-lbl">IT Transformation</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAND (scrolling) -->
+<div class="trust-band">
+  <span class="tb-label">Technologies</span>
+  <div class="tb-line"></div>
+  <div class="tb-track">
+    <div class="tb-logos">
+      <span class="tb-logo">VLSI Design</span>
+      <span class="tb-logo">ARM Architecture</span>
+      <span class="tb-logo">RTOS</span>
+      <span class="tb-logo">AWS</span>
+      <span class="tb-logo">Azure</span>
+      <span class="tb-logo">IoT Platforms</span>
+      <span class="tb-logo">PCB Design</span>
+      <span class="tb-logo">FPGAs</span>
+      <span class="tb-logo">Cybersecurity</span>
+      <span class="tb-logo">VLSI Design</span>
+      <span class="tb-logo">ARM Architecture</span>
+      <span class="tb-logo">RTOS</span>
+      <span class="tb-logo">AWS</span>
+      <span class="tb-logo">Azure</span>
+      <span class="tb-logo">IoT Platforms</span>
+      <span class="tb-logo">PCB Design</span>
+      <span class="tb-logo">FPGAs</span>
+      <span class="tb-logo">Cybersecurity</span>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services-sec" id="services">
+  <div class="container">
+    <div class="services-head">
+      <div>
+        <div class="section-label">What We Do</div>
+        <h2 class="section-h2">End-to-End Technology<br>Solutions for Every Scale</h2>
+      </div>
+      <a href="#" class="link-all">View All Services <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card">
+        <div class="svc-card-ico">🔬</div>
+        <div class="svc-card-title">Semiconductor Design</div>
+        <div class="svc-card-desc">From RTL design to physical verification — we deliver robust VLSI and IC design solutions for next-generation chips and SoCs.</div>
+        <a href="#" class="svc-card-link">Learn More <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-ico">💡</div>
+        <div class="svc-card-title">Embedded Systems</div>
+        <div class="svc-card-desc">Custom firmware, RTOS integration, BSP development, and driver engineering for embedded hardware across all major platforms.</div>
+        <a href="#" class="svc-card-link">Learn More <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="svc-card featured">
+        <div class="svc-card-ico">🚀</div>
+        <div class="svc-card-title">Enterprise IT Solutions</div>
+        <div class="svc-card-desc">Full-spectrum digital transformation — cloud migration, ERP, DevOps pipelines, and scalable IT infrastructure for modern enterprises.</div>
+        <a href="#" class="svc-card-link">Learn More <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-ico">☁️</div>
+        <div class="svc-card-title">Cloud & DevOps</div>
+        <div class="svc-card-desc">Architect, deploy, and manage cloud-native applications on AWS, Azure and GCP with CI/CD automation and infrastructure-as-code.</div>
+        <a href="#" class="svc-card-link">Learn More <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-ico">🔗</div>
+        <div class="svc-card-title">IoT Engineering</div>
+        <div class="svc-card-desc">End-to-end IoT platform development — from sensor hardware to cloud dashboards — enabling smart, connected industrial systems.</div>
+        <a href="#" class="svc-card-link">Learn More <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-card-ico">🛡️</div>
+        <div class="svc-card-title">Cybersecurity</div>
+        <div class="svc-card-desc">Protect your digital infrastructure with comprehensive security audits, threat intelligence, compliance frameworks, and real-time monitoring.</div>
+        <a href="#" class="svc-card-link">Learn More <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-sec" id="about">
+  <div class="container">
+    <div class="why-inner">
+      <div class="why-img-wrap">
+        <div class="why-img">
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=900&q=85&fit=crop&crop=center" alt="Team at work"/>
+        </div>
+        <div class="why-badge">
+          <div class="wb-num">Dec <span>'25</span></div>
+          <div class="wb-lbl">Founded & Operational</div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">Why Choose Us</div>
+        <h2 class="section-h2">A Fresh Vision for a<br>Complex Industry</h2>
+        <p class="section-sub" style="margin-bottom:0">We launched Ysquare Semicon IT Solutions in December 2025 with one mission — to bring world-class semiconductor and IT expertise to businesses who demand precision, agility, and innovation.</p>
+        <div class="why-list">
+          <div class="why-item">
+            <div class="wi-ico">🎯</div>
+            <div><div class="wi-title">Built for the Future</div><div class="wi-desc">Founded in 2025, we bring the latest methodologies, tools, and thinking — no legacy baggage, only forward-looking solutions.</div></div>
+          </div>
+          <div class="why-item">
+            <div class="wi-ico">⚙️</div>
+            <div><div class="wi-title">Deep Technical Expertise</div><div class="wi-desc">Our team brings decades of combined experience in VLSI, embedded systems, cloud architecture, and enterprise IT.</div></div>
+          </div>
+          <div class="why-item">
+            <div class="wi-ico">🤝</div>
+            <div><div class="wi-title">Client-First Always</div><div class="wi-desc">We treat every project as a long-term partnership — full transparency, dedicated support, and measurable outcomes.</div></div>
+          </div>
+          <div class="why-item">
+            <div class="wi-ico">🌍</div>
+            <div><div class="wi-title">Global Reach, Local Heart</div><div class="wi-desc">Proudly headquartered in Vizianagaram, AP — serving clients across India and international markets with equal dedication.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section class="process-sec">
+  <div class="container">
+    <div class="process-head">
+      <div class="section-label">Our Process</div>
+      <h2 class="section-h2">How We Deliver Excellence</h2>
+      <p class="section-sub">A structured, transparent approach that ensures quality, speed, and alignment at every step of your project.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-ico">🔍</div>
+        <div class="step-title">Discover & Define</div>
+        <div class="step-desc">We start by understanding your business goals, technical requirements, and constraints to define a clear scope and success criteria.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-ico">📐</div>
+        <div class="step-title">Design & Architect</div>
+        <div class="step-desc">Our engineers design robust, scalable solutions — from chip architecture to system-level software design, vetted before a single line of code.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-ico">🛠️</div>
+        <div class="step-title">Build & Validate</div>
+        <div class="step-desc">We develop, test, and validate with rigorous QA processes ensuring every deliverable meets industry standards and your expectations.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-ico">🚀</div>
+        <div class="step-title">Deploy & Support</div>
+        <div class="step-desc">Seamless deployment with full documentation, handover training, and ongoing maintenance support — so you're never left alone post-launch.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="industries-sec" id="industries">
+  <div class="container">
+    <div class="industries-head">
+      <div class="section-label">Industries We Serve</div>
+      <h2 class="section-h2">Powering Innovation<br>Across Sectors</h2>
+      <p class="section-sub">From factory floors to hospital corridors — our technology solutions are purpose-built for the industries that drive the world forward.</p>
+    </div>
+    <div class="ind-grid">
+      <div class="ind-card large">
+        <img src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=900&q=80&fit=crop" alt="Manufacturing"/>
+        <div class="ind-overlay"></div>
+        <div class="ind-content">
+          <span class="ind-ico">🏭</span>
+          <div class="ind-title">Manufacturing & Industry 4.0</div>
+          <div class="ind-desc">Smart automation, IIoT, and embedded control systems for the modern factory</div>
+        </div>
+      </div>
+      <div class="ind-card">
+        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=80&fit=crop" alt="Automotive"/>
+        <div class="ind-overlay"></div>
+        <div class="ind-content">
+          <span class="ind-ico">🚗</span>
+          <div class="ind-title">Automotive & EV</div>
+          <div class="ind-desc">ADAS, EV powertrain & automotive software</div>
+        </div>
+      </div>
+      <div class="ind-card">
+        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=600&q=80&fit=crop" alt="Healthcare"/>
+        <div class="ind-overlay"></div>
+        <div class="ind-content">
+          <span class="ind-ico">🏥</span>
+          <div class="ind-title">Healthcare & MedTech</div>
+          <div class="ind-desc">Medical device software & regulatory compliance</div>
+        </div>
+      </div>
+      <div class="ind-card">
+        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80&fit=crop" alt="Energy"/>
+        <div class="ind-overlay"></div>
+        <div class="ind-content">
+          <span class="ind-ico">⚡</span>
+          <div class="ind-title">Energy & Utilities</div>
+          <div class="ind-desc">Smart grid, renewables & energy monitoring</div>
+        </div>
+      </div>
+      <div class="ind-card">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80&fit=crop" alt="Telecom"/>
+        <div class="ind-overlay"></div>
+        <div class="ind-content">
+          <span class="ind-ico">📡</span>
+          <div class="ind-title">Telecom & Networks</div>
+          <div class="ind-desc">5G, network infrastructure & connectivity</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="cta-inner">
+    <div class="section-label">Get Started</div>
+    <h2 class="cta-band-h2">Ready to Build Something<br>Extraordinary?</h2>
+    <p class="cta-band-p">Whether you need a chip designed from scratch, an embedded system engineered, or your entire IT infrastructure modernized — we're ready. Let's talk about your vision.</p>
+    <div class="cta-band-btns">
+      <a href="#" class="cta-band-btn-p">
+        Schedule a Free Consultation
+        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#" class="cta-band-btn-s">View Our Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="ysquare-logo.png" alt="Ysquare Semicon IT Solutions"/></div>
+        <p class="footer-brand-desc">Ysquare Semicon IT Solutions (OPC) Pvt Ltd — a next-generation technology company delivering semiconductor design, embedded engineering, and enterprise IT solutions. Incorporated December 2025, Vizianagaram, Andhra Pradesh.</p>
+        <div class="footer-social">
+          <a href="#" class="fsoc">in</a>
+          <a href="#" class="fsoc">𝕏</a>
+          <a href="#" class="fsoc">yt</a>
+          <a href="#" class="fsoc">gh</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <div class="footer-links">
+          <a href="#">Semiconductor Design</a>
+          <a href="#">Embedded Systems</a>
+          <a href="#">Enterprise IT</a>
+          <a href="#">Cloud & DevOps</a>
+          <a href="#">IoT Engineering</a>
+          <a href="#">Cybersecurity</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <div class="footer-links">
+          <a href="#">About Us</a>
+          <a href="#">Our Team</a>
+          <a href="#">Careers</a>
+          <a href="#">Insights / Blog</a>
+          <a href="#">Press & Media</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-links">
+          <a href="#">Vizianagaram, AP 535001</a>
+          <a href="tel:+919876543210">+91 98765 43210</a>
+          <a href="mailto:info@ysquaresemicon.com">info@ysquaresemicon.com</a>
+          <a href="#">Get Directions</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Ysquare Semicon IT Solutions (OPC) Pvt Ltd. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

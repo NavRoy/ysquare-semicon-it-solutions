@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YSQUARE Semicon IT Solutions – Internships</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ─── RESET & ROOT ───────────────────────────────────────────── */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+body{background:#fff;overflow-x:hidden;}
+:root{
+  --primary:#0ea5e9;
+  --primary-dark:#0369a1;
+  --green:#10b981;
+  --green-light:#d1fae5;
+  --dark:#0a0f1e;
+  --text:#222;
+  --muted:#64748b;
+  --border:rgba(0,0,0,0.07);
+}
+
+/* ─── HEADER (ORIGINAL – UNTOUCHED) ─────────────────────────── */
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:#fff;border-bottom:1px solid var(--border);padding:0 4%;}
+.nav{display:flex;align-items:center;height:70px;gap:40px;}
+.logo img{height:38px;}
+.menu{display:flex;align-items:center;gap:32px;margin-left:auto;}
+.menu a{color:#374151;font-size:14px;font-weight:500;text-decoration:none;}
+.menu-item{position:relative;cursor:pointer;}
+.menu-item>span{color:#374151;font-size:14px;font-weight:500;}
+.dropdown{display:none;position:absolute;top:100%;left:0;background:#fff;box-shadow:0 20px 60px rgba(0,0,0,.12);border-radius:12px;overflow:hidden;width:640px;display:none;}
+.menu-item:hover .dropdown{display:flex;}
+.dropdown-left{padding:30px;flex:1;}
+.dropdown-left ul{list-style:none;}
+.dropdown-left li{padding:10px 14px;border-radius:8px;cursor:pointer;font-size:14px;color:#374151;}
+.dropdown-left li:hover{background:#f8fafc;color:var(--primary);}
+.dropdown-group h4{font-size:11px;font-weight:700;letter-spacing:1.5px;color:#94a3b8;margin-bottom:10px;padding-left:14px;}
+.dropdown-group{margin-bottom:20px;}
+.dropdown-right{width:220px;position:relative;overflow:hidden;}
+.dropdown-right img{width:100%;height:100%;object-fit:cover;}
+.dropdown-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.7),transparent);color:#fff;font-size:14px;font-weight:600;padding:20px 16px;}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;}
+.hamburger span{width:22px;height:2px;background:#374151;display:block;}
+.actions{color:#374151;font-size:14px;margin-left:16px;}
+
+/* ─── HERO (ORIGINAL – UNTOUCHED) ───────────────────────────── */
+.internship-hero{position:relative;height:600px;margin-top:70px;overflow:hidden;}
+.internship-hero img{width:100%;height:100%;object-fit:cover;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,7,18,.95) 0%,rgba(3,7,18,.82) 38%,rgba(3,7,18,.55) 65%,rgba(3,7,18,.25) 100%);}
+.hero-content{position:absolute;left:8%;top:50%;transform:translateY(-50%);max-width:600px;z-index:5;}
+.hero-tag{display:inline-block;color:#38bdf8;font-size:14px;font-weight:700;letter-spacing:2px;margin-bottom:20px;}
+.hero-content h1{font-size:76px;line-height:.95;letter-spacing:-3px;font-weight:900;color:#fff;margin-bottom:28px;}
+.hero-content p{max-width:650px;line-height:1.8;color:rgba(255,255,255,.75);}
+.hero-breadcrumb{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:50px;background:rgba(255,255,255,.08);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.1);margin-bottom:35px;}
+.hero-breadcrumb a{color:rgba(255,255,255,.75);text-decoration:none;}
+.hero-breadcrumb span{color:#38bdf8;}
+.hero-breadcrumb .active{color:#fbbf24;}
+.hero-accent{width:80px;height:4px;background:linear-gradient(90deg,#0ea5e9,transparent);margin-bottom:30px;}
+.hero-content h1 span{color:#38bdf8;}
+.internship-hero::before{content:"";position:absolute;left:-200px;top:-100px;width:700px;height:700px;background:radial-gradient(circle,rgba(14,165,233,.18),transparent 70%);z-index:2;}
+.hero-content::before{content:"";position:absolute;left:-120px;top:-120px;width:350px;height:350px;background:radial-gradient(circle,rgba(14,165,233,.18),transparent 70%);z-index:-1;}
+.internship-hero img{animation:heroZoom 15s ease-in-out infinite alternate;}
+@keyframes heroZoom{from{transform:scale(1);}to{transform:scale(1.08);}}
+.internship-hero::after{content:"";position:absolute;right:-200px;top:-150px;width:600px;height:600px;background:radial-gradient(circle,rgba(14,165,233,.15),transparent 70%);z-index:1;}
+
+/* ══════════════════════════════════════════════════════════════
+   SECTION 1 – INTERNSHIP DOMAINS  (interactive left-nav + right panel)
+══════════════════════════════════════════════════════════════ */
+.domains-section{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:100vh;
+  background:#fff;
+}
+
+/* Left column */
+.domains-nav{
+  padding:100px 7% 100px 8%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  border-right:1px solid #e5e7eb;
+  position:sticky;
+  top:70px;
+  max-height:calc(100vh - 70px);
+}
+
+.domains-nav .label{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2.5px;
+  color:var(--primary);
+  margin-bottom:24px;
+  text-transform:uppercase;
+}
+
+.domains-nav h2{
+  font-size:46px;
+  font-weight:800;
+  line-height:1.1;
+  color:#0f172a;
+  letter-spacing:-1.5px;
+  margin-bottom:56px;
+}
+
+.domain-tab{
+  display:flex;
+  align-items:flex-start;
+  gap:28px;
+  padding:30px 0;
+  border-top:1px solid #e5e7eb;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.domain-tab:last-child{border-bottom:1px solid #e5e7eb;}
+
+.domain-tab-number{
+  font-size:11px;
+  font-weight:700;
+  color:#cbd5e1;
+  padding-top:6px;
+  letter-spacing:1px;
+  min-width:28px;
+  transition:.3s;
+}
+
+.domain-tab-body{}
+
+.domain-tab-name{
+  font-size:22px;
+  font-weight:700;
+  color:#94a3b8;
+  line-height:1;
+  margin-bottom:10px;
+  transition:.3s;
+}
+
+.domain-tab-pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  opacity:0;
+  max-height:0;
+  overflow:hidden;
+  transition:opacity .4s, max-height .4s;
+}
+
+.domain-tab-pills span{
+  font-size:11px;
+  font-weight:600;
+  color:var(--primary);
+  background:#eff6ff;
+  padding:4px 10px;
+  border-radius:4px;
+  letter-spacing:.3px;
+}
+
+/* Active state */
+.domain-tab.active .domain-tab-number{color:var(--primary);}
+.domain-tab.active .domain-tab-name{color:#0f172a;font-size:28px;}
+.domain-tab.active .domain-tab-pills{opacity:1;max-height:80px;margin-top:2px;}
+.domain-tab:hover .domain-tab-name{color:#334155;}
+
+/* Right column */
+.domains-panel{
+  position:relative;
+  overflow:hidden;
+  background:#0f172a;
+}
+
+.domain-panel-item{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .6s ease, visibility .6s;
+}
+
+.domain-panel-item.active{
+  opacity:1;
+  visibility:visible;
+}
+
+.domain-panel-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform:scale(1.05);
+  transition:transform .8s ease;
+}
+
+.domain-panel-item.active img{transform:scale(1);}
+
+.domain-panel-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(3,7,18,.95) 0%, rgba(3,7,18,.4) 55%, transparent 100%);
+}
+
+.domain-panel-content{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:60px;
+}
+
+.domain-panel-content h3{
+  font-size:52px;
+  font-weight:900;
+  color:#fff;
+  letter-spacing:-2px;
+  line-height:1;
+  margin-bottom:20px;
+}
+
+.domain-panel-content p{
+  font-size:16px;
+  color:rgba(255,255,255,.65);
+  line-height:1.7;
+  max-width:400px;
+}
+
+.domain-panel-tag{
+  display:inline-block;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2px;
+  color:#38bdf8;
+  margin-bottom:18px;
+  text-transform:uppercase;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SECTION 2 – WHY CHOOSE YSQUARE
+══════════════════════════════════════════════════════════════ */
+.why-section{
+  background:#f8fafc;
+  padding:140px 8%;
+}
+
+.why-top{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:end;
+  margin-bottom:100px;
+}
+
+.why-top-left .eyebrow{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2.5px;
+  color:var(--primary);
+  text-transform:uppercase;
+  margin-bottom:20px;
+}
+
+.why-top-left h2{
+  font-size:58px;
+  font-weight:900;
+  line-height:1.05;
+  color:#0f172a;
+  letter-spacing:-2px;
+}
+
+.why-top-left h2 em{
+  font-style:normal;
+  color:var(--primary);
+}
+
+.why-top-right{
+  padding-top:20px;
+}
+
+.why-top-right p{
+  font-size:18px;
+  line-height:1.8;
+  color:#475569;
+  margin-bottom:40px;
+}
+
+.why-stat-row{
+  display:flex;
+  gap:50px;
+}
+
+.why-stat{}
+
+.why-stat .num{
+  font-size:52px;
+  font-weight:900;
+  color:#0f172a;
+  letter-spacing:-2px;
+  line-height:1;
+}
+
+.why-stat .num span{color:var(--primary);}
+
+.why-stat .lbl{
+  font-size:13px;
+  color:#64748b;
+  font-weight:500;
+  margin-top:6px;
+}
+
+/* Feature grid */
+.why-features{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  border:1px solid #e5e7eb;
+}
+
+.why-feat{
+  padding:48px 44px;
+  border-right:1px solid #e5e7eb;
+  border-bottom:1px solid #e5e7eb;
+  transition:.3s;
+  position:relative;
+  overflow:hidden;
+}
+
+.why-feat:nth-child(3n){border-right:none;}
+.why-feat:nth-child(n+4){border-bottom:none;}
+
+.why-feat::before{
+  content:"";
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:0;
+  height:2px;
+  background:var(--primary);
+  transition:width .4s ease;
+}
+
+.why-feat:hover::before{width:100%;}
+.why-feat:hover{background:#f0f9ff;}
+
+.why-feat-icon{
+  width:42px;
+  height:42px;
+  border:1.5px solid #e2e8f0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:28px;
+  border-radius:10px;
+  transition:.3s;
+}
+
+.why-feat:hover .why-feat-icon{
+  border-color:var(--primary);
+  background:#eff6ff;
+}
+
+.why-feat-icon svg{width:20px;height:20px;stroke:#64748b;}
+.why-feat:hover .why-feat-icon svg{stroke:var(--primary);}
+
+.why-feat h4{
+  font-size:20px;
+  font-weight:700;
+  color:#0f172a;
+  margin-bottom:12px;
+}
+
+.why-feat p{
+  font-size:14px;
+  line-height:1.7;
+  color:#64748b;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SECTION 3 – LEARNING JOURNEY (horizontal timeline)
+══════════════════════════════════════════════════════════════ */
+.journey-section{
+  padding:140px 8%;
+  background:#0a0f1e;
+  overflow:hidden;
+}
+
+.journey-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  margin-bottom:90px;
+}
+
+.journey-header .left .eyebrow{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2.5px;
+  color:var(--primary);
+  text-transform:uppercase;
+  margin-bottom:16px;
+}
+
+.journey-header .left h2{
+  font-size:54px;
+  font-weight:900;
+  color:#fff;
+  letter-spacing:-2px;
+  line-height:1.05;
+}
+
+.journey-header .right p{
+  font-size:16px;
+  line-height:1.8;
+  color:rgba(255,255,255,.5);
+  max-width:380px;
+  text-align:right;
+}
+
+/* Timeline track */
+.journey-track{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:0;
+  position:relative;
+}
+
+/* Connector line */
+.journey-track::before{
+  content:"";
+  position:absolute;
+  top:28px;
+  left:28px;
+  right:28px;
+  height:1px;
+  background:rgba(255,255,255,.12);
+  z-index:0;
+}
+
+.journey-step{
+  position:relative;
+  z-index:1;
+  padding:0 20px;
+}
+
+.journey-step:first-child{padding-left:0;}
+.journey-step:last-child{padding-right:0;}
+
+.journey-dot-wrap{
+  display:flex;
+  align-items:center;
+  margin-bottom:32px;
+}
+
+.journey-dot{
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.15);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#0f172a;
+  flex-shrink:0;
+  transition:.3s;
+  cursor:default;
+}
+
+.journey-step:hover .journey-dot{
+  border-color:var(--primary);
+  background:rgba(14,165,233,.12);
+}
+
+.journey-dot svg{width:22px;height:22px;stroke:rgba(255,255,255,.4);transition:.3s;}
+.journey-step:hover .journey-dot svg{stroke:var(--primary);}
+
+.journey-connector{
+  flex:1;
+  height:1px;
+  background:rgba(255,255,255,.08);
+}
+.journey-step:last-child .journey-connector{display:none;}
+
+.journey-index{
+  font-size:11px;
+  font-weight:700;
+  color:rgba(255,255,255,.2);
+  letter-spacing:2px;
+  margin-bottom:10px;
+  font-variant-numeric:tabular-nums;
+}
+
+.journey-name{
+  font-size:20px;
+  font-weight:700;
+  color:#fff;
+  margin-bottom:12px;
+  line-height:1.2;
+}
+
+.journey-desc{
+  font-size:13px;
+  line-height:1.7;
+  color:rgba(255,255,255,.42);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SECTION 4 – INTERNSHIP BENEFITS (premium dark)
+══════════════════════════════════════════════════════════════ */
+.benefits-section{
+  padding:140px 8%;
+  background:#fff;
+}
+
+.benefits-header{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:end;
+  margin-bottom:100px;
+}
+
+.benefits-header .left .eyebrow{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2.5px;
+  color:var(--primary);
+  text-transform:uppercase;
+  margin-bottom:20px;
+}
+
+.benefits-header .left h2{
+  font-size:54px;
+  font-weight:900;
+  color:#0f172a;
+  letter-spacing:-2px;
+  line-height:1.05;
+}
+
+.benefits-header .right p{
+  font-size:17px;
+  line-height:1.8;
+  color:#64748b;
+}
+
+/* Bento-style layout */
+.benefits-grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-template-rows:auto auto;
+  gap:16px;
+}
+
+.benefit-item{
+  padding:48px 44px;
+  border:1px solid #e5e7eb;
+  position:relative;
+  overflow:hidden;
+  transition:.4s;
+}
+
+.benefit-item::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:0;
+  background:linear-gradient(180deg,#0ea5e9 0%, transparent 100%);
+  opacity:.06;
+  transition:height .5s ease;
+}
+
+.benefit-item:hover{
+  border-color:#bfdbfe;
+  transform:translateY(-4px);
+  box-shadow:0 24px 48px rgba(14,165,233,.08);
+}
+
+.benefit-item:hover::after{height:100%;}
+
+/* Bento placements */
+.benefit-item:nth-child(1){grid-column:span 5;}
+.benefit-item:nth-child(2){grid-column:span 4;}
+.benefit-item:nth-child(3){grid-column:span 3;}
+.benefit-item:nth-child(4){grid-column:span 3;}
+.benefit-item:nth-child(5){grid-column:span 4;}
+.benefit-item:nth-child(6){grid-column:span 5;}
+
+.benefit-num{
+  font-size:11px;
+  font-weight:700;
+  color:#cbd5e1;
+  letter-spacing:2px;
+  margin-bottom:32px;
+  display:block;
+}
+
+.benefit-icon{
+  width:48px;
+  height:48px;
+  margin-bottom:28px;
+}
+
+.benefit-icon svg{width:28px;height:28px;stroke:#94a3b8;transition:.3s;}
+.benefit-item:hover .benefit-icon svg{stroke:var(--primary);}
+
+.benefit-item h4{
+  font-size:22px;
+  font-weight:700;
+  color:#0f172a;
+  margin-bottom:14px;
+}
+
+.benefit-item p{
+  font-size:14px;
+  line-height:1.7;
+  color:#64748b;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SECTION 5 – TECHNOLOGY ECOSYSTEM
+══════════════════════════════════════════════════════════════ */
+.tech-section{
+  background:#0f172a;
+  padding:140px 8%;
+}
+
+.tech-header{
+  margin-bottom:90px;
+}
+
+.tech-header .eyebrow{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2.5px;
+  color:var(--primary);
+  text-transform:uppercase;
+  margin-bottom:20px;
+}
+
+.tech-header h2{
+  font-size:58px;
+  font-weight:900;
+  color:#fff;
+  letter-spacing:-2px;
+  line-height:1.05;
+  max-width:600px;
+}
+
+.tech-clusters{
+  display:flex;
+  flex-direction:column;
+  gap:60px;
+}
+
+.tech-cluster{}
+
+.tech-cluster-label{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2px;
+  color:rgba(255,255,255,.25);
+  text-transform:uppercase;
+  margin-bottom:24px;
+  padding-bottom:16px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.tech-chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.tech-chip{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 22px;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:6px;
+  cursor:default;
+  transition:.3s;
+  background:rgba(255,255,255,.02);
+}
+
+.tech-chip:hover{
+  border-color:rgba(14,165,233,.5);
+  background:rgba(14,165,233,.06);
+}
+
+.tech-chip-dot{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:rgba(255,255,255,.2);
+  flex-shrink:0;
+  transition:.3s;
+}
+
+.tech-chip:hover .tech-chip-dot{background:var(--primary);}
+
+.tech-chip-name{
+  font-size:14px;
+  font-weight:600;
+  color:rgba(255,255,255,.55);
+  transition:.3s;
+}
+
+.tech-chip:hover .tech-chip-name{color:#fff;}
+
+/* ══════════════════════════════════════════════════════════════
+   SECTION 6 – FINAL CTA
+══════════════════════════════════════════════════════════════ */
+.cta-section{
+  position:relative;
+  padding:160px 8%;
+  background:#fff;
+  overflow:hidden;
+}
+
+.cta-bg-lines{
+  position:absolute;
+  inset:0;
+  opacity:.03;
+  background-image:
+    linear-gradient(#0ea5e9 1px, transparent 1px),
+    linear-gradient(90deg, #0ea5e9 1px, transparent 1px);
+  background-size:72px 72px;
+  pointer-events:none;
+}
+
+.cta-glow{
+  position:absolute;
+  top:-300px;
+  left:50%;
+  transform:translateX(-50%);
+  width:900px;
+  height:600px;
+  background:radial-gradient(ellipse,rgba(14,165,233,.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+
+.cta-inner{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:1fr 400px;
+  gap:80px;
+  align-items:center;
+}
+
+.cta-left .eyebrow{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2.5px;
+  color:var(--primary);
+  text-transform:uppercase;
+  margin-bottom:24px;
+}
+
+.cta-left h2{
+  font-size:64px;
+  font-weight:900;
+  color:#0f172a;
+  letter-spacing:-2.5px;
+  line-height:1.0;
+  margin-bottom:24px;
+}
+
+.cta-left h2 em{
+  font-style:normal;
+  color:var(--primary);
+}
+
+.cta-left p{
+  font-size:18px;
+  line-height:1.8;
+  color:#475569;
+  max-width:560px;
+}
+
+/* Right side – visual card */
+.cta-right{
+  position:relative;
+}
+
+.cta-card{
+  background:#0a0f1e;
+  padding:52px 44px;
+  border:1px solid rgba(255,255,255,.05);
+}
+
+.cta-card-top{
+  margin-bottom:36px;
+}
+
+.cta-card-eyebrow{
+  font-size:11px;
+  font-weight:700;
+  color:rgba(255,255,255,.3);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+
+.cta-card-title{
+  font-size:24px;
+  font-weight:700;
+  color:#fff;
+  line-height:1.3;
+}
+
+.cta-items{
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
+
+.cta-item{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:16px 0;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+
+.cta-item-dot{
+  width:8px;
+  height:8px;
+  background:var(--primary);
+  border-radius:50%;
+  flex-shrink:0;
+}
+
+.cta-item-text{
+  font-size:14px;
+  color:rgba(255,255,255,.6);
+  font-weight:500;
+}
+
+.cta-actions{
+  margin-top:52px;
+  display:flex;
+  gap:16px;
+}
+
+.btn-primary{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:var(--primary);
+  color:#fff;
+  font-size:14px;
+  font-weight:700;
+  padding:16px 32px;
+  letter-spacing:.3px;
+  text-decoration:none;
+  transition:.3s;
+  border:1.5px solid var(--primary);
+}
+
+.btn-primary:hover{
+  background:var(--primary-dark);
+  border-color:var(--primary-dark);
+}
+
+.btn-outline{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:transparent;
+  color:#0f172a;
+  font-size:14px;
+  font-weight:700;
+  padding:16px 32px;
+  letter-spacing:.3px;
+  text-decoration:none;
+  border:1.5px solid #e2e8f0;
+  transition:.3s;
+}
+
+.btn-outline:hover{
+  border-color:#94a3b8;
+  background:#f8fafc;
+}
+
+.btn-arrow{font-size:18px;line-height:1;}
+
+/* ─── SCROLL REVEAL ──────────────────────────────────────────── */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+.reveal-left{
+  opacity:0;
+  transform:translateX(-40px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+.reveal-left.visible{
+  opacity:1;
+  transform:translateX(0);
+}
+.reveal-right{
+  opacity:0;
+  transform:translateX(40px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+.reveal-right.visible{
+  opacity:1;
+  transform:translateX(0);
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────── */
+@media(max-width:1100px){
+  .domains-section{grid-template-columns:1fr;}
+  .domains-nav{position:static;max-height:none;padding:70px 8%;}
+  .domains-panel{height:60vw;min-height:400px;}
+  .why-top{grid-template-columns:1fr;gap:40px;}
+  .journey-track{grid-template-columns:1fr 1fr 1fr;gap:40px;}
+  .journey-track::before{display:none;}
+  .journey-connector{display:none;}
+  .benefits-grid{grid-template-columns:1fr 1fr;}
+  .benefit-item:nth-child(n){grid-column:span 1;}
+  .cta-inner{grid-template-columns:1fr;}
+}
+
+@media(max-width:768px){
+  .internship-hero{height:420px;}
+  .hero-content h1{font-size:42px;letter-spacing:-1.5px;}
+  .domains-nav h2{font-size:32px;}
+  .why-top-left h2{font-size:36px;}
+  .journey-header{flex-direction:column;align-items:flex-start;gap:20px;}
+  .journey-header .right p{text-align:left;}
+  .journey-header .left h2{font-size:36px;}
+  .journey-track{grid-template-columns:1fr 1fr;}
+  .benefits-header{grid-template-columns:1fr;}
+  .benefits-header .left h2{font-size:36px;}
+  .benefits-grid{grid-template-columns:1fr;}
+  .tech-header h2{font-size:36px;}
+  .cta-left h2{font-size:40px;}
+  .why-features{grid-template-columns:1fr 1fr;}
+  .why-feat:nth-child(3n){border-right:1px solid #e5e7eb;}
+  .why-feat:nth-child(2n){border-right:none;}
+  .why-stat-row{gap:30px;}
+  .why-stat .num{font-size:38px;}
+}
+
+@media(max-width:500px){
+  .why-features{grid-template-columns:1fr;}
+  .why-feat:nth-child(n){border-right:none;}
+  .journey-track{grid-template-columns:1fr;}
+  .cta-actions{flex-direction:column;}
+  .btn-primary,.btn-outline{justify-content:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== HEADER (ORIGINAL – UNTOUCHED) ===================== -->
+<header class="header" id="header">
+  <div class="container nav">
+    <div class="logo">
+      <img src="it-logo.png" alt="YSQUARE Semicon">
+    </div>
+    <nav class="menu">
+      <div class="menu-item">
+        <span>Who we are ▾</span>
+        <div class="dropdown">
+          <div class="dropdown-left">
+            <ul>
+              <li data-img="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&auto=format&fit=crop" data-text="Our Leadership">Leadership</li>
+              <li data-img="https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=800&auto=format&fit=crop" data-text="Our Culture">Culture</li>
+              <li data-img="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&auto=format&fit=crop" data-text="Global Presence">Global Presence</li>
+            </ul>
+          </div>
+          <div class="dropdown-right">
+            <img id="who-img" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&auto=format&fit=crop">
+            <div class="dropdown-overlay" id="who-text">Our Leadership</div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <span>What we do ▾</span>
+        <div class="dropdown">
+          <div class="dropdown-left">
+            <div class="dropdown-group">
+              <h4>Engineering Services</h4>
+              <ul>
+                <li data-img="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop" data-text="Digital Engineering">Digital Engineering</li>
+                <li data-img="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&auto=format&fit=crop" data-text="Software Engineering">Software Engineering</li>
+                <li data-img="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?w=800&auto=format&fit=crop" data-text="Embedded Engineering">Embedded Engineering</li>
+                <li data-img="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&auto=format&fit=crop" data-text="Silicon Engineering">Silicon Engineering</li>
+              </ul>
+            </div>
+            <div class="dropdown-group">
+              <h4>Industrial & Operations</h4>
+              <ul>
+                <li data-img="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop" data-text="Operations & Supply Chain">Operations & Supply Chain</li>
+                <li data-img="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop" data-text="Product Lifecycle Management">Product Lifecycle Management</li>
+                <li data-img="https://images.unsplash.com/photo-1581090700227-4c4d47a2d1d1?w=800&auto=format&fit=crop" data-text="EPCM">Engineering Procurement Construction</li>
+                <li data-img="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&auto=format&fit=crop" data-text="Testing & Automation">Testing & Automation</li>
+              </ul>
+            </div>
+          </div>
+          <div class="dropdown-right">
+            <img id="service-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop">
+            <div class="dropdown-overlay" id="service-text">Digital Engineering</div>
+          </div>
+        </div>
+      </div>
+      <a href="#">Internships</a>
+      <a href="#">Careers</a>
+      <a href="#">Contact us</a>
+    </nav>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    <div class="actions">🌐 EN 🔍</div>
+  </div>
+</header>
+
+<!-- ===================== HERO (ORIGINAL – UNTOUCHED) ===================== -->
+<section class="internship-hero">
+  <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2000&q=80" alt="">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-breadcrumb">
+      <a href="#">Home</a>
+      <span>/</span>
+      <a href="#">Careers</a>
+      <span>/</span>
+      <a href="#" class="active">Internships</a>
+    </div>
+    <div class="hero-accent"></div>
+    <span class="hero-tag">INTERNSHIPS</span>
+    <h1>Future Engineers<br>Start Here</h1>
+    <p>Gain hands-on experience through industry-focused internship programs in Artificial Intelligence, Embedded Systems, Semiconductor Engineering and VLSI Design.</p>
+  </div>
+</section>
+
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 1 – INTERNSHIP DOMAINS
+═══════════════════════════════════════════════════════ -->
+<section class="domains-section">
+
+  <!-- Left: navigation -->
+  <div class="domains-nav">
+    <div class="label reveal">Internship Domains</div>
+    <h2 class="reveal">Explore Your<br>Engineering<br>Path</h2>
+
+    <div class="domain-tab active reveal" data-domain="0">
+      <div class="domain-tab-number">01</div>
+      <div class="domain-tab-body">
+        <div class="domain-tab-name">AI &amp; Software</div>
+        <div class="domain-tab-pills">
+          <span>Python Programming</span>
+          <span>Machine Learning</span>
+          <span>Data Science</span>
+          <span>Artificial Intelligence</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="domain-tab reveal" data-domain="1">
+      <div class="domain-tab-number">02</div>
+      <div class="domain-tab-body">
+        <div class="domain-tab-name">Embedded Systems</div>
+        <div class="domain-tab-pills">
+          <span>Embedded C</span>
+          <span>Microcontrollers</span>
+          <span>IoT</span>
+          <span>RTOS</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="domain-tab reveal" data-domain="2">
+      <div class="domain-tab-number">03</div>
+      <div class="domain-tab-body">
+        <div class="domain-tab-name">VLSI Design</div>
+        <div class="domain-tab-pills">
+          <span>Physical Design</span>
+          <span>Design Verification</span>
+          <span>Physical Verification</span>
+          <span>Analog Layout</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: visual panel -->
+  <div class="domains-panel">
+
+    <div class="domain-panel-item active" data-domain="0">
+      <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1400&q=80" alt="AI & Software">
+      <div class="domain-panel-overlay"></div>
+      <div class="domain-panel-content">
+        <div class="domain-panel-tag">AI &amp; Software Engineering</div>
+        <h3>Build the<br>Intelligent<br>Future</h3>
+        <p>From Python fundamentals to production-grade machine learning systems — train where real engineering meets real impact.</p>
+      </div>
+    </div>
+
+    <div class="domain-panel-item" data-domain="1">
+      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80" alt="Embedded Systems">
+      <div class="domain-panel-overlay"></div>
+      <div class="domain-panel-content">
+        <div class="domain-panel-tag">Embedded Systems Engineering</div>
+        <h3>Program<br>the Physical<br>World</h3>
+        <p>Write firmware that runs on silicon. Work with microcontrollers, RTOS, and IoT architectures powering next-gen devices.</p>
+      </div>
+    </div>
+
+    <div class="domain-panel-item" data-domain="2">
+      <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=80" alt="VLSI Design">
+      <div class="domain-panel-overlay"></div>
+      <div class="domain-panel-content">
+        <div class="domain-panel-tag">VLSI &amp; Semiconductor Engineering</div>
+        <h3>Design at<br>the Speed<br>of Light</h3>
+        <p>Physical design, verification, and analog layout — the foundational skills behind every semiconductor that powers modern computing.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 2 – WHY CHOOSE YSQUARE
+═══════════════════════════════════════════════════════ -->
+<section class="why-section">
+
+  <div class="why-top">
+    <div class="why-top-left">
+      <div class="eyebrow reveal">Why YSQUARE</div>
+      <h2 class="reveal">Where Engineers<br>Are <em>Built</em>,<br>Not Briefed</h2>
+    </div>
+    <div class="why-top-right reveal-right">
+      <p>Our internship programs mirror the actual workflows of global engineering teams — because we believe the fastest way to learn engineering is to do engineering.</p>
+      <div class="why-stat-row">
+        <div class="why-stat">
+          <div class="num">500<span>+</span></div>
+          <div class="lbl">Interns Trained</div>
+        </div>
+        <div class="why-stat">
+          <div class="num">3</div>
+          <div class="lbl">Core Domains</div>
+        </div>
+        <div class="why-stat">
+          <div class="num">92<span>%</span></div>
+          <div class="lbl">Placement Rate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="why-features">
+
+    <div class="why-feat reveal">
+      <div class="why-feat-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0"/></svg>
+      </div>
+      <h4>Industry Mentors</h4>
+      <p>Work side-by-side with engineers who have shipped products at semiconductor and software companies globally.</p>
+    </div>
+
+    <div class="why-feat reveal">
+      <div class="why-feat-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+      </div>
+      <h4>Real-Time Projects</h4>
+      <p>No simulations. You work on actual engineering deliverables alongside YSQUARE's client project pipeline.</p>
+    </div>
+
+    <div class="why-feat reveal">
+      <div class="why-feat-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+      </div>
+      <h4>Practical Learning</h4>
+      <p>Structured curriculum mapped to industry toolchains — EDA tools, ML frameworks, embedded IDEs used in production.</p>
+    </div>
+
+    <div class="why-feat reveal">
+      <div class="why-feat-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+      </div>
+      <h4>Industry Certification</h4>
+      <p>Domain-specific certificates recognised by engineering hiring teams across India and globally.</p>
+    </div>
+
+    <div class="why-feat reveal">
+      <div class="why-feat-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      </div>
+      <h4>Career Guidance</h4>
+      <p>Resume reviews, interview preparation, and referrals to YSQUARE's partner network and client base.</p>
+    </div>
+
+    <div class="why-feat reveal">
+      <div class="why-feat-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+      </div>
+      <h4>Hands-On Experience</h4>
+      <p>Lab sessions, code reviews, tool walkthroughs, and project demos — every week, not just at the end.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 3 – LEARNING JOURNEY
+═══════════════════════════════════════════════════════ -->
+<section class="journey-section">
+
+  <div class="journey-header">
+    <div class="left">
+      <div class="eyebrow reveal">Learning Journey</div>
+      <h2 class="reveal">From Day One<br>to Certified</h2>
+    </div>
+    <div class="right">
+      <p class="reveal-right">A structured six-stage program designed to take you from applicant to industry-ready engineer.</p>
+    </div>
+  </div>
+
+  <div class="journey-track">
+
+    <div class="journey-step reveal">
+      <div class="journey-dot-wrap">
+        <div class="journey-dot">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        </div>
+        <div class="journey-connector"></div>
+      </div>
+      <div class="journey-index">01</div>
+      <div class="journey-name">Application</div>
+      <div class="journey-desc">Submit domain preference and background. Short screening call with our team.</div>
+    </div>
+
+    <div class="journey-step reveal">
+      <div class="journey-dot-wrap">
+        <div class="journey-dot">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+        </div>
+        <div class="journey-connector"></div>
+      </div>
+      <div class="journey-index">02</div>
+      <div class="journey-name">Enrollment</div>
+      <div class="journey-desc">Onboarding, tool setup, and orientation with your mentor and cohort.</div>
+    </div>
+
+    <div class="journey-step reveal">
+      <div class="journey-dot-wrap">
+        <div class="journey-dot">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        </div>
+        <div class="journey-connector"></div>
+      </div>
+      <div class="journey-index">03</div>
+      <div class="journey-name">Training</div>
+      <div class="journey-desc">Structured modules, hands-on labs, and weekly mentor sessions.</div>
+    </div>
+
+    <div class="journey-step reveal">
+      <div class="journey-dot-wrap">
+        <div class="journey-dot">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+        </div>
+        <div class="journey-connector"></div>
+      </div>
+      <div class="journey-index">04</div>
+      <div class="journey-name">Live Projects</div>
+      <div class="journey-desc">Contribute to real engineering deliverables within YSQUARE's project ecosystem.</div>
+    </div>
+
+    <div class="journey-step reveal">
+      <div class="journey-dot-wrap">
+        <div class="journey-dot">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+        </div>
+        <div class="journey-connector"></div>
+      </div>
+      <div class="journey-index">05</div>
+      <div class="journey-name">Assessment</div>
+      <div class="journey-desc">Technical evaluation, project demo, and peer review with mentor feedback.</div>
+    </div>
+
+    <div class="journey-step reveal">
+      <div class="journey-dot-wrap">
+        <div class="journey-dot">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+        </div>
+      </div>
+      <div class="journey-index">06</div>
+      <div class="journey-name">Certification</div>
+      <div class="journey-desc">Industry-recognized certification issued with project portfolio and mentor endorsement.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 4 – INTERNSHIP BENEFITS
+═══════════════════════════════════════════════════════ -->
+<section class="benefits-section">
+
+  <div class="benefits-header">
+    <div class="left">
+      <div class="eyebrow reveal">What You Gain</div>
+      <h2 class="reveal">Built for<br>Engineers<br>Who Ship</h2>
+    </div>
+    <div class="right">
+      <p class="reveal-right">Every benefit in our program is designed around one outcome: making you immediately effective in an engineering team from your first day on the job.</p>
+    </div>
+  </div>
+
+  <div class="benefits-grid">
+
+    <div class="benefit-item reveal">
+      <span class="benefit-num">01</span>
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+      </div>
+      <h4>Real Projects</h4>
+      <p>Work on deliverables from YSQUARE's live engineering engagements — not textbook case studies or synthetic exercises.</p>
+    </div>
+
+    <div class="benefit-item reveal">
+      <span class="benefit-num">02</span>
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0"/></svg>
+      </div>
+      <h4>Expert Mentorship</h4>
+      <p>Dedicated mentor from the industry — weekly check-ins, code reviews, and career guidance throughout the program.</p>
+    </div>
+
+    <div class="benefit-item reveal">
+      <span class="benefit-num">03</span>
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>
+      </div>
+      <h4>Industry Exposure</h4>
+      <p>Engage with engineering workflows, toolchains, and teams at the standard of global semiconductor and software firms.</p>
+    </div>
+
+    <div class="benefit-item reveal">
+      <span class="benefit-num">04</span>
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+      </div>
+      <h4>Certification</h4>
+      <p>Domain certification that signals verified, project-proven competence — not course completion alone.</p>
+    </div>
+
+    <div class="benefit-item reveal">
+      <span class="benefit-num">05</span>
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      </div>
+      <h4>Career Support</h4>
+      <p>Resume builds, mock interviews, and direct referral pathways into YSQUARE's hiring network and partner companies.</p>
+    </div>
+
+    <div class="benefit-item reveal">
+      <span class="benefit-num">06</span>
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      </div>
+      <h4>Technical Workshops</h4>
+      <p>Deep-dive sessions on EDA tools, ML frameworks, and embedded platforms led by practitioners — not just educators.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 5 – TECHNOLOGY ECOSYSTEM
+═══════════════════════════════════════════════════════ -->
+<section class="tech-section">
+
+  <div class="tech-header">
+    <div class="eyebrow reveal">Technology Ecosystem</div>
+    <h2 class="reveal">The Tools<br>You'll Master</h2>
+  </div>
+
+  <div class="tech-clusters">
+
+    <div class="tech-cluster reveal">
+      <div class="tech-cluster-label">AI &amp; Software</div>
+      <div class="tech-chips">
+        <div class="tech-chip"><div class="tech-chip-dot"></div><span class="tech-chip-name">Python</span></div>
+        <div class="tech-chip"><div class="tech-chip-dot"></div><span class="tech-chip-name">Machine Learning</span></div>
+        <div class="tech-chip"><div class="tech-chip-dot"></div><span class="tech-chip-name">Data Science</span></div>
+        <div class="tech-chip"><div class="tech-chip-dot"></div><span class="tech-chip-name">Artificial Intelligence</span></div>
+        <div class="tech-chip"><div class="tech-chip-dot"></div><span class="tech-chip-name">TensorFlow</span></div>
+        <div class="tech-chip"><div class="tech-chip-dot"></div><span class="tech-chip-name">Scikit-learn</span></div>
+        <div class="tech-chip"><div class="tech-chip-dot"></div><span class="tech-chip-name">NumPy / Pandas</span></div>
+      </div>
+    </div>
+
+    <div class="tech-cluster reveal">
+      <div class="tech-cluster-label">Embedded Systems</div>
+      <div class="tech-chips">
+        <div class="tech-chip"><div class="tech-chip-dot"></div><span class="tech-chip-name">Embedded C</span></div>
+        <div class="tech-chip"><div class="tech-chip-dot"></div><span class="tech-chip-name">Arduino</span></div>
+        <div class="tech-chip"><div class="tech-chip-dot"></div><span class="tech-chip-name">Raspberry Pi</span></div>
+        <div class="tech-chip"><div class="tech-chip-dot"></div><span class="tech-chip-name">IoT Protocols</span></div>
+        <div class="tech-chip"><div class="tech-chip-dot"></div><span class="tech-chip-name">RTOS</span></div>
+        <div class="tech-chip"><div class="tech-chip-dot"></div><span class="tech-chip-name">STM32</span></div>
+        <div class="tech-chip"><div class="tech-chip-dot"></div><span class="tech-chip-name">UART / SPI / I2C</span></div>
+      </div>
+    </div>
+
+    <div class="tech-cluster reveal">
+      <div class="tech-cluster-label">VLSI &amp; Semiconductor</div>
+      <div class="tech-chips">
+        <div class="tech-chip"><div class="tech-chip-dot"></div><span class="tech-chip-name">Verilog</span></div>
+        <div class="tech-chip"><div class="tech-chip-dot"></div><span class="tech-chip-name">SystemVerilog</span></div>
+        <div class="tech-chip"><div class="tech-chip-dot"></div><span class="tech-chip-name">Physical Design</span></div>
+        <div class="tech-chip"><div class="tech-chip-dot"></div><span class="tech-chip-name">Analog Layout</span></div>
+        <div class="tech-chip"><div class="tech-chip-dot"></div><span class="tech-chip-name">Design Verification</span></div>
+        <div class="tech-chip"><div class="tech-chip-dot"></div><span class="tech-chip-name">EDA Tools</span></div>
+        <div class="tech-chip"><div class="tech-chip-dot"></div><span class="tech-chip-name">Physical Verification</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 6 – FINAL CTA
+═══════════════════════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="cta-bg-lines"></div>
+  <div class="cta-glow"></div>
+
+  <div class="cta-inner">
+
+    <div class="cta-left">
+      <div class="eyebrow reveal">Apply Now</div>
+      <h2 class="reveal">Ready To Start<br>Your <em>Engineering</em><br>Journey?</h2>
+      <p class="reveal">Join YSQUARE Internship Programs and gain industry-ready skills through real-world engineering experience.</p>
+      <div class="cta-actions reveal">
+        <a href="#" class="btn-primary">Apply for Internship <span class="btn-arrow">→</span></a>
+        <a href="#" class="btn-outline">Explore Domains</a>
+      </div>
+    </div>
+
+    <div class="cta-right reveal-right">
+      <div class="cta-card">
+        <div class="cta-card-top">
+          <div class="cta-card-eyebrow">Program Highlights</div>
+          <div class="cta-card-title">What makes YSQUARE different from the rest</div>
+        </div>
+        <div class="cta-items">
+          <div class="cta-item"><div class="cta-item-dot"></div><span class="cta-item-text">Live projects from day one</span></div>
+          <div class="cta-item"><div class="cta-item-dot"></div><span class="cta-item-text">1-on-1 industry mentor assigned</span></div>
+          <div class="cta-item"><div class="cta-item-dot"></div><span class="cta-item-text">EDA & ML tool access included</span></div>
+          <div class="cta-item"><div class="cta-item-dot"></div><span class="cta-item-text">Domain certification on completion</span></div>
+          <div class="cta-item"><div class="cta-item-dot"></div><span class="cta-item-text">Direct referral to YSQUARE network</span></div>
+          <div class="cta-item"><div class="cta-item-dot"></div><span class="cta-item-text">Flexible online + offline format</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── JS ─────────────────────────────────────────────── -->
+<script>
+/* Domain tabs */
+const tabs = document.querySelectorAll('.domain-tab');
+const panels = document.querySelectorAll('.domain-panel-item');
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = tab.dataset.domain;
+    tabs.forEach(t => t.classList.remove('active'));
+    panels.forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelector(`.domain-panel-item[data-domain="${target}"]`).classList.add('active');
+  });
+});
+
+/* Scroll reveal */
+const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12 });
+
+revealEls.forEach(el => observer.observe(el));
+
+/* Header dropdown image swap */
+document.querySelectorAll('.dropdown-left li').forEach(li => {
+  li.addEventListener('mouseenter', () => {
+    const img = li.dataset.img;
+    const text = li.dataset.text;
+    const section = li.closest('.menu-item');
+    if (!img) return;
+    const imgEl = section.querySelector('[id$="-img"]');
+    const textEl = section.querySelector('[id$="-text"]');
+    if (imgEl) imgEl.src = img;
+    if (textEl) textEl.textContent = text;
+  });
+});
+</script>
+
+</body>
+</html>
