@@ -3,149 +3,1097 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us – YSQUARE Semicon IT Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-<title>Coming Soon</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="style.css">
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+/* ─── RESET ───────────────────────── */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+body{background:#fff;overflow-x:hidden;}
+:root{
+  --primary:#0ea5e9;
+  --primary-dark:#0369a1;
+  --dark:#0a0f1e;
+  --muted:#64748b;
+}
+html{scroll-behavior:smooth;}
+::selection{background:#0ea5e9;color:#fff;}
+
+/* ─── SCROLL PROGRESS ─────────────── */
+#scrollProgress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#0ea5e9,#38bdf8);z-index:99999;transition:width .1s linear;}
+
+/* ─── BREADCRUMB STRIP ─────────────── */
+.hero-top-strip{
+  position:fixed;top:110px;left:0;right:0;z-index:998;
+  background:#0b3a75;height:42px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5%;border-bottom:1px solid rgba(255,255,255,.07);
+}
+.hts-back{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s;}
+.hts-back:hover{color:#fff;}
+.hts-breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.45);font-weight:500;}
+.hts-breadcrumb a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s;}
+.hts-breadcrumb a:hover{color:#38bdf8;}
+.hts-sep{color:rgba(255,255,255,.2);font-size:10px;}
+.hts-active{color:#38bdf8;font-weight:600;}
+.hts-actions{display:flex;align-items:center;gap:4px;}
+.hts-icon{width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:none;border:none;border-radius:5px;color:rgba(255,255,255,.5);cursor:pointer;transition:.2s;}
+.hts-icon:hover{color:#fff;background:rgba(255,255,255,.08);}
+
+/* ─── HERO ─────────────────────────── */
+.about-hero{position:relative;height:300px;margin-top:132px;overflow:hidden;}
+.about-hero img{width:100%;height:100%;object-fit:cover;animation:heroZoom 15s ease-in-out infinite alternate;}
+@keyframes heroZoom{from{transform:scale(1);}to{transform:scale(1.08);}}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(2,6,23,.95) 0%,rgba(2,6,23,.82) 35%,rgba(2,6,23,.45) 70%,rgba(2,6,23,.2) 100%),
+  linear-gradient(180deg,rgba(14,165,233,.08),transparent 40%);
+}
+.hero-glow-a{
+  position:absolute;left:-150px;top:-100px;
+  width:600px;height:600px;
+  background:radial-gradient(circle,rgba(14,165,233,.2),transparent 65%);
+  pointer-events:none;z-index:2;
+  animation:floatGlow 8s ease-in-out infinite;
+}
+@keyframes floatGlow{0%{transform:translateY(0);}50%{transform:translateY(-30px);}100%{transform:translateY(0);}}
+.hero-content{position:absolute;left:5%;top:50%;transform:translateY(-50%);max-width:620px;z-index:5;}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:11px;font-weight:700;letter-spacing:2.5px;color:#38bdf8;
+  text-transform:uppercase;margin-bottom:22px;
+}
+.hero-eyebrow::before{content:"";display:block;width:28px;height:1.5px;background:#38bdf8;}
+.hero-accent{width:72px;height:3px;background:linear-gradient(90deg,#0ea5e9,transparent);margin-bottom:28px;}
+.hero-content h1{font-size:82px;line-height:.88;letter-spacing:-4px;font-weight:900;color:#fff;margin-bottom:28px;text-shadow:0 10px 40px rgba(0,0,0,.35);}
+.hero-content h1 span{color:#38bdf8;}
+.hero-content p{font-size:18px;line-height:1.8;color:rgba(255,255,255,.72);max-width:620px;}
+
+/* ─── STICKY BOTTOM NAV ────────────── */
+.hero-bottom-nav{
+  position:sticky;top:132px;z-index:997;
+  background:rgba(8,22,49,.88);backdrop-filter:blur(16px);
+  display:flex;align-items:center;justify-content:center;
+  border-top:2px solid rgba(255,255,255,.06);
+  border-bottom:1px solid rgba(0,0,0,.15);
+  box-shadow:0 4px 20px rgba(0,0,0,.2);
+}
+.hbn-link{
+  padding:0 36px;height:52px;
+  display:flex;align-items:center;
+  font-size:13px;font-weight:700;color:rgba(255,255,255,.78);
+  text-decoration:none;letter-spacing:.3px;
+  border-right:1px solid rgba(255,255,255,.12);
+  transition:.25s;position:relative;white-space:nowrap;
+}
+.hbn-link:first-child{border-left:1px solid rgba(255,255,255,.12);}
+.hbn-link:hover{color:#fff;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));}
+.hbn-link.active{color:#fff;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));}
+.hbn-link.active::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:#38bdf8;}
+
+/* ─── SHARED ATOMS ─────────────────── */
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:2.5px;color:var(--primary);text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:"";display:block;width:22px;height:1.5px;background:var(--primary);}
+.eyebrow.light{color:#38bdf8;}
+.eyebrow.light::before{background:#38bdf8;}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .85s ease,transform .85s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}
+
+/* ─── DIVIDER ───────────────────────── */
+.premium-divider{height:1px;background:linear-gradient(90deg,transparent,#e2e8f0 20%,#e2e8f0 80%,transparent);}
+
+
+
+/* ══════════════════════════════════════════
+   S1 — CONTACT EXPERIENCE
+   One floating container, form left, card right
+══════════════════════════════════════════ */
+.contact-section{
+  padding:120px 8% 140px;
+  background:#fff;
+  position:relative;overflow:hidden;
+}
+/* faint grid */
+.contact-section::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(14,165,233,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(14,165,233,.035) 1px,transparent 1px);
+  background-size:80px 80px;pointer-events:none;
+}
+.contact-section::after{
+  content:"";position:absolute;
+  width:700px;height:700px;
+  background:radial-gradient(circle,rgba(14,165,233,.07),transparent 70%);
+  top:-250px;left:50%;transform:translateX(-50%);
+  filter:blur(60px);pointer-events:none;
 }
 
-body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
-    overflow:hidden;
+/* outer floating container */
+.contact-container{
+  position:relative;z-index:1;
+  display:grid;
+  grid-template-columns:1fr 400px;
+  gap:0;
+  max-width:1160px;
+  margin:0 auto;
+  background:#fff;
+  border-radius:28px;
+  box-shadow:0 40px 100px rgba(14,165,233,.1),0 8px 32px rgba(0,0,0,.06);
+  border:1px solid rgba(14,165,233,.12);
+  overflow:visible;
+}
+/* top blue accent line */
+.contact-container::before{
+  content:"";position:absolute;
+  top:-1px;left:14%;right:14%;height:3px;
+  background:linear-gradient(90deg,transparent,var(--primary),transparent);
+  border-radius:2px;z-index:2;
 }
 
-body::before,
-body::after{
-    content:"";
-    position:absolute;
-    border-radius:50%;
-    filter:blur(120px);
-    opacity:.25;
+/* ── LEFT: form panel ── */
+.contact-form-panel{
+  padding:72px 64px 72px;
+  position:relative;
 }
 
-body::before{
-    width:350px;
-    height:350px;
-    background:#00d4ff;
-    top:-120px;
-    left:-100px;
+.cf-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:10px;font-weight:700;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--primary);
+  background:rgba(14,165,233,.08);
+  border:1px solid rgba(14,165,233,.2);
+  padding:6px 14px;
+  margin-bottom:28px;
+}
+.cf-badge::before{content:"";display:block;width:6px;height:6px;border-radius:50%;background:var(--primary);}
+
+.contact-form-panel h2{
+  font-size:clamp(32px,3vw,46px);
+  font-weight:900;
+  color:#0f172a;
+  letter-spacing:-1.8px;
+  line-height:1.08;
+  margin-bottom:14px;
+}
+.contact-form-panel>p{
+  font-size:15.5px;line-height:1.85;color:#64748b;
+  max-width:440px;margin-bottom:44px;
 }
 
-body::after{
-    width:400px;
-    height:400px;
-    background:#38bdf8;
-    bottom:-150px;
-    right:-120px;
+/* floating label form */
+.fl-form{display:grid;grid-template-columns:1fr 1fr;gap:20px 24px;}
+.fl-full{grid-column:1/-1;}
+.fl-field{position:relative;}
+.fl-field input,
+.fl-field select,
+.fl-field textarea{
+  width:100%;padding:22px 18px 10px;
+  background:#f8fafc;
+  border:1.5px solid #e2e8f0;
+  border-radius:10px;
+  font-size:15px;color:#0f172a;
+  outline:none;transition:all .3s;
+  font-family:'Inter',sans-serif;
+  appearance:none;
+}
+.fl-field select{background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:18px;padding-right:40px;}
+.fl-field textarea{resize:vertical;min-height:130px;padding-top:26px;}
+.fl-field label{
+  position:absolute;left:18px;top:50%;transform:translateY(-50%);
+  font-size:14px;color:#94a3b8;font-weight:500;
+  transition:all .25s ease;pointer-events:none;
+}
+.fl-field.textarea-field label{top:18px;transform:none;}
+.fl-field input:focus,
+.fl-field select:focus,
+.fl-field textarea:focus{
+  border-color:var(--primary);background:#fff;
+  box-shadow:0 0 0 4px rgba(14,165,233,.1);
+}
+.fl-field input:focus~label,
+.fl-field input:not(:placeholder-shown)~label,
+.fl-field select:focus~label,
+.fl-field select:not([value=""])~label,
+.fl-field textarea:focus~label,
+.fl-field textarea:not(:placeholder-shown)~label{
+  top:10px;transform:none;font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--primary);
+}
+/* keep select label always up when option selected */
+.fl-field select~label{top:10px;transform:none;font-size:11px;font-weight:700;letter-spacing:.5px;color:#94a3b8;}
+.fl-field select:focus~label{color:var(--primary);}
+
+/* submit button */
+.btn-send{
+  margin-top:8px;
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color:#fff;font-size:15px;font-weight:700;
+  padding:18px 48px;border:none;cursor:pointer;
+  box-shadow:0 12px 40px rgba(14,165,233,.4);
+  letter-spacing:.5px;border-radius:10px;
+  transition:.35s;position:relative;overflow:hidden;
+  width:100%;
+}
+.btn-send::before{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);transition:.8s;}
+.btn-send:hover::before{left:100%;}
+.btn-send:hover{transform:translateY(-3px);box-shadow:0 20px 60px rgba(14,165,233,.55);}
+.btn-send svg{width:18px;height:18px;stroke:#fff;stroke-width:2;}
+
+/* ── RIGHT: info card ── */
+.contact-info-card{
+  position:relative;
+  background:linear-gradient(150deg,#0a1628 0%,#0d1f3c 60%,#071020 100%);
+  border-radius:0 28px 28px 0;
+  padding:60px 44px;
+  overflow:hidden;
+  margin:4px 4px 4px 0;
+  border-radius:24px;
+  /* depth overlap */
+  box-shadow:20px 0 60px rgba(0,0,0,.2),inset 0 0 0 1px rgba(14,165,233,.12);
+}
+/* circuit pattern */
+.contact-info-card::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(14,165,233,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(14,165,233,.055) 1px,transparent 1px);
+  background-size:40px 40px;
+  pointer-events:none;
+}
+/* blue glow */
+.contact-info-card::after{
+  content:"";position:absolute;
+  width:350px;height:350px;border-radius:50%;
+  background:radial-gradient(circle,rgba(14,165,233,.18),transparent 70%);
+  filter:blur(50px);
+  bottom:-80px;right:-60px;pointer-events:none;
 }
 
-.card{
-    position:relative;
-    z-index:2;
-    width:90%;
-    max-width:700px;
-    background:rgba(255,255,255,.08);
-    backdrop-filter:blur(20px);
-    border:1px solid rgba(255,255,255,.15);
-    border-radius:24px;
-    padding:60px 40px;
-    text-align:center;
-    box-shadow:0 20px 50px rgba(0,0,0,.35);
+.cic-inner{position:relative;z-index:1;}
+
+.cic-label{
+  font-size:10px;font-weight:700;letter-spacing:3px;
+  color:#38bdf8;text-transform:uppercase;margin-bottom:20px;display:block;
 }
 
-.icon{
-    font-size:70px;
-    margin-bottom:20px;
+.cic-title{
+  font-size:22px;font-weight:800;color:#fff;
+  letter-spacing:-.5px;line-height:1.2;margin-bottom:36px;
 }
 
-h1{
-    color:#fff;
-    font-size:48px;
-    margin-bottom:15px;
+.cic-row{
+  display:flex;align-items:flex-start;gap:16px;
+  margin-bottom:26px;padding-bottom:26px;
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.cic-row:last-of-type{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+
+.cic-icon{
+  width:40px;height:40px;border-radius:10px;
+  background:rgba(14,165,233,.12);
+  border:1px solid rgba(14,165,233,.2);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:.35s;
+}
+.cic-row:hover .cic-icon{background:rgba(14,165,233,.22);border-color:rgba(14,165,233,.45);}
+.cic-icon svg{width:18px;height:18px;stroke:#38bdf8;stroke-width:1.6;fill:none;}
+
+.cic-row-body{}
+.cic-row-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:5px;}
+.cic-row-val{font-size:14px;font-weight:600;color:rgba(255,255,255,.88);line-height:1.55;}
+.cic-row-val a{color:#38bdf8;text-decoration:none;}
+.cic-row-val a:hover{text-decoration:underline;}
+
+/* directions button */
+.btn-directions{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(14,165,233,.15);
+  border:1px solid rgba(14,165,233,.3);
+  color:#38bdf8;font-size:12px;font-weight:700;
+  padding:12px 22px;text-decoration:none;
+  letter-spacing:.5px;margin-top:28px;
+  transition:.3s;border-radius:6px;
+  position:relative;z-index:1;
+}
+.btn-directions:hover{background:rgba(14,165,233,.25);border-color:rgba(14,165,233,.6);}
+.btn-directions svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;}
+
+/* ── Quick links at bottom of info card ── */
+.cic-links{
+  margin-top:32px;padding-top:28px;
+  border-top:1px solid rgba(255,255,255,.07);
+  display:flex;flex-direction:column;gap:10px;
+  position:relative;z-index:1;
+}
+.cic-link{
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:13px;font-weight:600;color:rgba(255,255,255,.6);
+  text-decoration:none;padding:8px 0;
+  border-bottom:1px solid rgba(255,255,255,.05);
+  transition:color .3s;
+}
+.cic-link:hover{color:#38bdf8;}
+.cic-link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;opacity:.5;transition:opacity .3s,transform .3s;}
+.cic-link:hover svg{opacity:1;transform:translateX(4px);}
+
+/* ══════════════════════════════════════════
+   S2 — MAP SECTION
+══════════════════════════════════════════ */
+.map-section{
+  padding:120px 8% 130px;
+  background:#f8fafc;
+  position:relative;overflow:hidden;
+}
+.map-header{
+  text-align:center;margin-bottom:72px;
+}
+.map-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:11px;font-weight:700;letter-spacing:2.5px;color:var(--primary);
+  text-transform:uppercase;margin-bottom:20px;
+}
+.map-eyebrow::before{content:"";display:block;width:22px;height:1.5px;background:var(--primary);}
+.map-header h2{
+  font-size:clamp(36px,4vw,56px);font-weight:900;color:#0f172a;
+  letter-spacing:-2px;line-height:1.06;margin-bottom:16px;
+}
+.map-header p{font-size:16px;color:#64748b;max-width:520px;margin:0 auto;line-height:1.8;}
+
+.map-wrap{
+  position:relative;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 32px 80px rgba(0,0,0,.12);
+  max-width:1100px;margin:0 auto;
 }
 
-h3{
-    color:#8fd3ff;
-    font-weight:500;
-    margin-bottom:25px;
+.map-wrap iframe{
+  width:100%;height:500px;border:0;display:block;
+  filter:grayscale(20%) contrast(1.05);
 }
 
-p{
-    color:#dbeafe;
-    line-height:1.8;
-    font-size:17px;
-    margin-bottom:35px;
+/* Glass card over map */
+.map-glass-card{
+  position:absolute;top:28px;left:32px;
+  width:300px;
+  background:rgba(6,13,30,.88);
+  backdrop-filter:blur(22px);
+  border:1px solid rgba(14,165,233,.18);
+  border-radius:18px;
+  padding:28px;
+  box-shadow:0 20px 60px rgba(0,0,0,.3);
 }
-
-.btn{
-    display:inline-block;
-    text-decoration:none;
-    background:#fff;
-    color:#1e3a8a;
-    padding:15px 35px;
-    border-radius:50px;
-    font-weight:600;
-    transition:.3s;
+.map-glass-card::before{
+  content:"";position:absolute;top:-1px;left:15%;right:15%;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(14,165,233,.7),transparent);
 }
-
-.btn:hover{
-    transform:translateY(-4px);
-    box-shadow:0 15px 30px rgba(255,255,255,.25);
+.mgc-label{font-size:10px;font-weight:700;letter-spacing:2.5px;color:#38bdf8;text-transform:uppercase;margin-bottom:16px;display:block;}
+.mgc-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;}
+.mgc-row:last-of-type{margin-bottom:0;}
+.mgc-icon{width:32px;height:32px;border-radius:8px;background:rgba(14,165,233,.12);border:1px solid rgba(14,165,233,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.mgc-icon svg{width:15px;height:15px;stroke:#38bdf8;stroke-width:1.8;fill:none;}
+.mgc-val{font-size:13px;color:rgba(255,255,255,.8);line-height:1.5;font-weight:500;}
+.mgc-val strong{display:block;font-size:11px;font-weight:700;letter-spacing:.8px;color:rgba(255,255,255,.35);text-transform:uppercase;margin-bottom:3px;}
+.btn-map{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--primary);color:#fff;
+  font-size:12px;font-weight:700;
+  padding:12px 20px;text-decoration:none;
+  letter-spacing:.4px;margin-top:20px;
+  width:100%;justify-content:center;
+  transition:.3s;border-radius:8px;
 }
+.btn-map:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 10px 28px rgba(14,165,233,.35);}
+.btn-map svg{width:14px;height:14px;stroke:#fff;stroke-width:2;fill:none;}
 
-@media(max-width:768px){
-
-.card{
-    padding:40px 25px;
+/* ══════════════════════════════════════════
+   S3 — FAQ
+══════════════════════════════════════════ */
+.faq-section{
+  padding:120px 8%;
+  background:#fff;
+  position:relative;overflow:hidden;
 }
-
-h1{
-    font-size:36px;
+.faq-section::before{
+  content:"";position:absolute;
+  width:600px;height:600px;
+  background:radial-gradient(circle,rgba(14,165,233,.05),transparent 70%);
+  top:-200px;right:-100px;filter:blur(60px);pointer-events:none;
 }
-
-h3{
-    font-size:20px;
+.faq-header{text-align:center;margin-bottom:72px;}
+.faq-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:11px;font-weight:700;letter-spacing:2.5px;color:var(--primary);
+  text-transform:uppercase;margin-bottom:20px;
 }
+.faq-eyebrow::before{content:"";display:block;width:22px;height:1.5px;background:var(--primary);}
+.faq-header h2{font-size:clamp(36px,4vw,52px);font-weight:900;color:#0f172a;letter-spacing:-2px;line-height:1.06;}
+.faq-list{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:0;}
 
-p{
-    font-size:15px;
+.faq-item{
+  border-top:1px solid #e9edf2;
+  overflow:hidden;
 }
+.faq-item:last-child{border-bottom:1px solid #e9edf2;}
 
+.faq-q{
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  padding:26px 0;cursor:pointer;
+  font-size:17px;font-weight:700;color:#0f172a;
+  transition:color .3s;
+  background:none;border:none;width:100%;text-align:left;
 }
+.faq-q:hover{color:var(--primary);}
+.faq-q.open{color:var(--primary);}
+
+.faq-icon{
+  width:36px;height:36px;border-radius:50%;
+  border:1.5px solid #e2e8f0;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:all .4s ease;
+}
+.faq-icon svg{width:16px;height:16px;stroke:#94a3b8;stroke-width:2;fill:none;transition:transform .4s ease;}
+.faq-q.open .faq-icon{border-color:var(--primary);background:rgba(14,165,233,.06);}
+.faq-q.open .faq-icon svg{stroke:var(--primary);transform:rotate(45deg);}
+
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height .5s cubic-bezier(.25,.46,.45,.94),padding .4s ease;
+  padding:0;
+}
+.faq-a.open{max-height:200px;padding-bottom:28px;}
+.faq-a p{font-size:15.5px;line-height:1.8;color:#64748b;padding-right:60px;}
+
+
 </style>
-
 </head>
-
 <body>
 
-<div class="card">
+<div id="scrollProgress"></div>
 
-<div class="icon">🚀</div>
+<!-- ═══════ HEADER ═══════ -->
+<header class="header" id="header">
+  <div class="container nav">
+        <div class="logo">
+    <a href="index.html">
+        <img src="images/ysquare-logo.png" alt="YSQUARE Semicon">
+    </a>
+</div>
+    <nav class="menu">
+      <div class="menu-item">
+        <span>Who we are ▾</span>
+        <div class="dropdown">
+          <div class="dropdown-left">
+            <ul>
+              <li data-img="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&auto=format&fit=crop" data-text="Our Leadership" data-link="about.html">Leadership</li>
+              <li data-img="https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=800&auto=format&fit=crop" data-text="Our Culture" data-link="about.html">Culture</li>
+              <li data-img="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&auto=format&fit=crop" data-text="Global Presence" data-link="about.html">Global Presence</li>
+            </ul>
+          </div>
+          <div class="dropdown-right">
+            <img id="who-img" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&auto=format&fit=crop">
+            <div class="dropdown-overlay" id="who-text">Our Leadership</div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <span>What we do ▾</span>
+        <div class="dropdown">
+          <div class="dropdown-left">
+            <div class="dropdown-group">
+              <h4>Engineering Services</h4>
+              <ul>
+                <li data-img="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop" data-text="Digital Engineering">Digital Engineering</li>
+                <li data-img="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&auto=format&fit=crop" data-text="Software Engineering">Software Engineering</li>
+                <li data-img="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?w=800&auto=format&fit=crop" data-text="Embedded Engineering">Embedded Engineering</li>
+                <li data-img="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&auto=format&fit=crop" data-text="Semiconductor Engineering">Semiconductor Engineering</li>
+              </ul>
+            </div>
+            <div class="dropdown-group">
+              <h4>Industries</h4>
+              <ul>
+                <li data-img="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop" data-text="Hi-Tech">Hi-Tech</li>
+                <li data-img="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop" data-text="Automotive">Automotive</li>
+                <li data-img="https://images.unsplash.com/photo-1581090700227-4c4d47a2d1d1?w=800&auto=format&fit=crop" data-text="Semiconductor">Semiconductor</li>
+              </ul>
+            </div>
+          </div>
+          <div class="dropdown-right">
+            <img id="service-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop">
+            <div class="dropdown-overlay" id="service-text">Digital Engineering</div>
+          </div>
+        </div>
+      </div>
+      <a href="internship.html">Internships</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact us</a>
+    </nav>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    <div class="actions">🌐 EN 🔍</div>
+  </div>
+</header>
 
-<h1>Coming Soon</h1>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-accordion">
+    <button class="mobile-title">Who we are <span>+</span></button>
+    <div class="mobile-submenu">
+      <a href="#">Leadership</a><a href="#">Culture</a><a href="#">Global Presence</a>
+    </div>
+  </div>
+  <div class="mobile-accordion">
+    <button class="mobile-title">What we do <span>+</span></button>
+    <div class="mobile-submenu">
+      <a href="#">Digital Engineering</a><a href="#">Software Engineering</a>
+      <a href="#">Embedded Engineering</a><a href="#">Semiconductor Engineering</a>
+      <hr><a href="#">Hi-Tech</a><a href="#">Automotive</a><a href="#">Semiconductor</a>
+    </div>
+  </div>
+  <a href="internship.html">Internships</a>
+  <a href="careers.html">Careers</a>
+  <a href="contact.html">Contact Us</a>
+</div>
 
-<h3>We're Working on Something Amazing</h3>
+<!-- ═══════ BREADCRUMB ═══════ -->
+<div class="hero-top-strip">
+  <a class="hts-back" href="/">
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    Home
+  </a>
+  <div class="hts-breadcrumb">
+    <a href="/">Home</a>
+    <span class="hts-sep">/</span>
+    <span class="hts-active">Contact Us</span>
+  </div>
+  <div class="hts-actions">
+    <button class="hts-icon" aria-label="Share">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+    </button>
+  </div>
+</div>
 
-<p>
-This page is currently under development as we work to deliver an exceptional experience.
-We're adding exciting content, enhanced features, and valuable information.
-Please check back soon to see what's new.
-</p>
+<!-- ═══════ HERO ═══════ -->
+<section class="about-hero">
+  <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1800&q=80" alt="Contact YSQUARE">
+  <div class="hero-overlay"></div>
+  <div class="hero-glow-a"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Contact Us</div>
+    <div class="hero-accent"></div>
+    <h1>Let’s talk.<br><span>We’re here to help.</span></h1>
+    <p>Have a question, opportunity, or support request? Send us a message and our team will respond quickly.</p>
+  </div>
+</section>
 
-<a href="index.html" class="btn">← Back to Home</a>
+<!-- ═══════ STICKY NAV ═══════ -->
+<nav class="hero-bottom-nav" id="heroBottomNav">
+  <a href="#contact-form" class="hbn-link active">Contact Form</a>
+  <a href="#office-info" class="hbn-link">Office Info</a>
+</nav>
+
+
+<!-- ═══════════════════════ S1 — CONTACT EXPERIENCE ═══════════════════════ -->
+<section class="contact-section" id="contact-form">
+
+  <div class="contact-container reveal">
+
+    <!-- LEFT: form -->
+    <div class="contact-form-panel">
+      <div class="cf-badge">Contact Us</div>
+      <h2>Let's Start A<br>Conversation.</h2>
+      <p>Fill in your details and one of our engineering specialists will get back to you within 24 business hours.</p>
+
+      <form class="fl-form" id="contactForm" novalidate>
+
+        <div class="fl-field">
+          <input type="text" id="firstName" name="firstName" placeholder=" " required>
+          <label for="firstName">First Name *</label>
+        </div>
+
+        <div class="fl-field">
+          <input type="text" id="lastName" name="lastName" placeholder=" " required>
+          <label for="lastName">Last Name *</label>
+        </div>
+
+        <div class="fl-field">
+          <input type="email" id="email" name="email" placeholder=" " required>
+          <label for="email">Email Address *</label>
+        </div>
+
+        <div class="fl-field">
+          <input type="tel" id="phone" name="phone" placeholder=" ">
+          <label for="phone">Phone Number</label>
+        </div>
+
+        <div class="fl-field">
+          <input type="text" id="company" name="company" placeholder=" ">
+          <label for="company">Company / Organisation</label>
+        </div>
+
+        <div class="fl-field">
+          <select id="subject" name="subject" required>
+            <option value="" disabled selected></option>
+            <option>Engineering Services</option>
+            <option>Business Partnership</option>
+            <option>Internship Programme</option>
+            <option>Career Opportunity</option>
+            <option>General Enquiry</option>
+          </select>
+          <label for="subject">Subject *</label>
+        </div>
+
+        <div class="fl-field fl-full textarea-field">
+          <textarea id="message" name="message" placeholder=" " required rows="5"></textarea>
+          <label for="message">Your Message *</label>
+        </div>
+
+        <div class="fl-full">
+          <button type="submit" class="btn-send">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Send Message
+          </button>
+          <p style="font-size:12px;color:#94a3b8;margin-top:12px;text-align:center;">Your information is kept confidential and used solely for correspondence.</p>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- RIGHT: info card -->
+    <div class="contact-info-card">
+      <div class="cic-inner">
+        <span class="cic-label">Corporate Office</span>
+        <div class="cic-title">YSQUARE Semicon<br>IT Solutions (OPC) Pvt Ltd</div>
+
+        <div class="cic-row">
+          <div class="cic-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="cic-row-body">
+            <div class="cic-row-label">Address</div>
+            <div class="cic-row-val">Vizianagaram, Andhra Pradesh — 535002<br>India</div>
+          </div>
+        </div>
+
+        <div class="cic-row">
+          <div class="cic-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>
+          </div>
+          <div class="cic-row-body">
+            <div class="cic-row-label">Phone</div>
+            <div class="cic-row-val"><a href="tel:+919876543210">+91 94403 96201</a></div>
+          </div>
+        </div>
+
+        <div class="cic-row">
+          <div class="cic-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="cic-row-body">
+            <div class="cic-row-label">Email</div>
+            <div class="cic-row-val"><a href="mailto:info@ysquaresemicon.com">careers@ysquaresemicon.com</a></div>
+          </div>
+        </div>
+
+        <div class="cic-row">
+          <div class="cic-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="cic-row-body">
+            <div class="cic-row-label">Working Hours</div>
+            <div class="cic-row-val">Mon – Sat: 9:00 AM – 6:00 PM IST<br>Sunday: Closed</div>
+          </div>
+        </div>
+
+        <!-- Quick links -->
+        <div class="cic-links">
+          <a href="internship.html" class="cic-link">
+            Internship Programmes
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="careers.html" class="cic-link">
+            Career Opportunities
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="index.html#services" class="cic-link">
+            Engineering Services
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <a href="https://maps.google.com/?q=Warangal,Telangana,India" target="_blank" rel="noopener" class="btn-directions">
+          <svg viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+          Get Directions
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════ S2 — MAP ═══════════════════════ -->
+<section class="map-section" id="office-location">
+  <div class="map-header reveal">
+    <div class="map-eyebrow">Our Location</div>
+    <h2>Visit Our Engineering Office</h2>
+    <p>Our team is based in Warangal, Telangana. We welcome in-person meetings, campus visits and engineering consultations by appointment.</p>
+  </div>
+
+  <div class="map-wrap reveal">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60980.87694843553!2d79.5465839!3d17.9689!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3345b2a47b4c43%3A0xc3dbe9fcfa6c9fd6!2sWarangal%2C%20Telangana!5e0!3m2!1sen!2sin!4v1718000000000!5m2!1sen!2sin"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="YSQUARE Office Location — Warangal">
+    </iframe>
+
+    <div class="map-glass-card">
+      <span class="mgc-label">Find Us Here</span>
+      <div class="mgc-row">
+        <div class="mgc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div class="mgc-val"><strong>Address</strong>Vizianagaram, Andhra Pradesh 535002, India</div>
+      </div>
+      <div class="mgc-row">
+        <div class="mgc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg></div>
+        <div class="mgc-val"><strong>Phone</strong>+91 94403 96201</div>
+      </div>
+      <div class="mgc-row">
+        <div class="mgc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="mgc-val"><strong>Hours</strong>Mon–Sat: 9 AM – 6 PM IST</div>
+      </div>
+      <a href="https://maps.google.com/?q=Warangal,Telangana,India" target="_blank" rel="noopener" class="btn-map">
+        <svg viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+        Open in Google Maps
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ S3 — FAQ ═══════════════════════ -->
+<section class="faq-section" id="faq">
+  <div class="faq-header reveal">
+    <div class="faq-eyebrow">Common Questions</div>
+    <h2>Frequently Asked</h2>
+  </div>
+
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        How quickly do you respond to enquiries?
+        <div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      </button>
+      <div class="faq-a" role="region">
+        <p>We respond to all contact form submissions within <strong>24 business hours</strong>. For urgent engineering enquiries, calling us directly at +91 98765 43210 will connect you with a team member immediately during business hours (Mon–Sat, 9 AM–6 PM IST).</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Can students or college groups visit the YSQUARE office?
+        <div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      </button>
+      <div class="faq-a" role="region">
+        <p>Yes — we welcome scheduled visits from engineering students and institutions. Please use the contact form above, selecting "General Enquiry", and mention your institution name and preferred dates. Our team will arrange a visit that includes a tour of our engineering labs and a discussion with our technical mentors.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Do you provide engineering consultation for companies?
+        <div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      </button>
+      <div class="faq-a" role="region">
+        <p>Yes. YSQUARE offers engineering consultation across Digital Engineering, Software Engineering, Embedded Systems and Semiconductor Engineering. Whether you need a technical feasibility review, architecture consultation or full project delivery, our domain specialists can help. Select "Engineering Services" in the contact form and our technical lead will get in touch.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        How can I apply for internships or full-time careers at YSQUARE?
+        <div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      </button>
+      <div class="faq-a" role="region">
+        <p>Internship applications can be submitted directly through our <a href="apply.php" style="color:var(--primary);font-weight:600;">Internship Application page</a>. Full-time roles are listed on our <a href="careers.html" style="color:var(--primary);font-weight:600;">Careers page</a>. You may also reach out via the contact form selecting "Internship Programme" or "Career Opportunity" and attach your resume — our HR team will respond within 48 hours.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════
+     S06 — ENTERPRISE CTA
+══════════════════════════════════════════════════════ -->
+<!-- ═════════════ UNIVERSAL CTA ═════════════ -->
+<section class="ys-cta">
+
+    <div class="ys-cta-glow"></div>
+
+<div class="ys-cta-wrapper">
+
+    <div class="ys-cta-content">
+
+        <span class="ys-cta-tag">
+            LET'S CONNECT
+        </span>
+
+        <h2>
+           Have an Idea?
+            <span>Let's Build It Together.</span>
+        </h2>
+
+        <p>
+          Speak with our engineering specialists
+and discuss your project requirements.
+        </p>
+<div class="ys-cta-buttons">
+
+    <a href="#" class="ys-cta-btn">
+        Start Your Project
+        <i class="fa-solid fa-arrow-right-long"></i>
+    </a>
+
+    <a href="#" class="ys-cta-btn ys-cta-btn-dark">
+        Explore Services
+        <i class="fa-solid fa-arrow-right-long"></i>
+    </a>
 
 </div>
 
+  
+
+</div>
+
+</section>
+
+
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="images/ysquare-logo.png" alt="YSQUARE">
+      <p>YSQUARE Semicon IT Solutions delivers innovative semiconductor, embedded systems and software engineering services that help organizations accelerate digital transformation and build future-ready technology.</p>
+      <div class="footer-badge">
+    Semiconductor • Embedded • Software
+</div>
+     
+    </div>
+<div class="footer-col">
+
+    <h4>Services</h4>
+
+    <ul>
+        <li><a href="#">Digital Engineering</a></li>
+        <li><a href="#">Software Engineering</a></li>
+        <li><a href="#">Embedded Engineering</a></li>
+        <li><a href="#">Semiconductor Engineering</a></li>
+    </ul>
+
+    <h4 class="footer-sub-heading">Industries</h4>
+
+    <ul>
+        <li><a href="#">Hi-Tech &amp; Technology</a></li>
+        <li><a href="#">Automotive &amp; Mobility</a></li>
+        <li><a href="#">Semiconductor &amp; Electronics</a></li>
+    </ul>
+
+</div>
+
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About YSQUARE</a></li>
+        <li><a href="#">Leadership</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Internships</a></li>
+        <li><a href="#">Insights</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <span class="nl-label">Get In Touch</span>
+      <p style="font-size:13px;color:rgba(255,255,255,.4);margin-bottom:16px;line-height:1.6;">Engineering solutions start with a conversation.
+Reach out to our experts today.</p>
+   <div class="footer-social">
+      <a href="#" class="f-icon">
+<i class="fa-brands fa-linkedin-in"></i>
+</a>
+
+<a href="#" class="f-icon">
+<i class="fa-brands fa-x-twitter"></i>
+</a>
+
+<a href="#" class="f-icon">
+<i class="fa-brands fa-instagram"></i>
+</a>
+
+<a href="#" class="f-icon">
+<i class="fa-brands fa-youtube"></i>
+</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 YSQUARE Semicon IT Solutions. All rights reserved.</p>
+<div class="footer-btm-links">
+
+<a href="#">Privacy Policy</a>
+
+<a href="#">Terms & Conditions</a>
+
+<a href="#">Disclaimer</a>
+
+<a href="#">Sitemap</a>
+
+</div>
+  </div>
+</footer>
+
+<script>
+/* ── Scroll reveal ─────────────────────────────── */
+const reveals = document.querySelectorAll('.reveal');
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+reveals.forEach(el => ro.observe(el));
+
+/* ── Header + progress bar ─────────────────────── */
+window.addEventListener('scroll', () => {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 20);
+  const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+  document.getElementById('scrollProgress').style.width = pct + '%';
+}, { passive: true });
+
+/* ── Bottom nav active ─────────────────────────── */
+(function(){
+  const links = document.querySelectorAll('.hbn-link');
+  const ids   = ['contact-form', 'office-location', 'faq'];
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    ids.forEach(id => {
+      const el = document.getElementById(id);
+      if(el && window.scrollY >= el.offsetTop - 220) cur = id;
+    });
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
+  }, { passive: true });
+  links.forEach(a => a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t){ e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  }));
+})();
+
+/* ── Hero CTA smooth scroll ────────────────────── */
+document.querySelectorAll('.hero-cta-btn').forEach(btn => btn.addEventListener('click', e => {
+  e.preventDefault();
+  const target = document.getElementById('contact-form');
+  if(target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}));
+
+/* ── Dropdown image swap ───────────────────────── */
+document.querySelectorAll('.dropdown-left li').forEach(li => {
+  li.addEventListener('mouseenter', () => {
+    const img = li.dataset.img, text = li.dataset.text;
+    const sec = li.closest('.menu-item');
+    if(!img) return;
+    const iEl = sec.querySelector('[id$="-img"]'), tEl = sec.querySelector('[id$="-text"]');
+    if(iEl) iEl.src = img;
+    if(tEl) tEl.textContent = text;
+  });
+});
+
+/* ── Hamburger ─────────────────────────────────── */
+const hbg = document.getElementById('hamburger'), mm = document.getElementById('mobileMenu');
+if(hbg && mm){
+  hbg.addEventListener('click', () => { hbg.classList.toggle('active'); mm.classList.toggle('active'); });
+  mm.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hbg.classList.remove('active'); mm.classList.remove('active'); }));
+}
+document.querySelectorAll('.mobile-title').forEach(btn => btn.addEventListener('click', () => btn.parentElement.classList.toggle('active')));
+
+/* ── FAQ accordion ─────────────────────────────── */
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item   = btn.parentElement;
+    const answer = item.querySelector('.faq-a');
+    const isOpen = btn.classList.contains('open');
+
+    /* close all */
+    document.querySelectorAll('.faq-q').forEach(b => {
+      b.classList.remove('open');
+      b.setAttribute('aria-expanded','false');
+      b.parentElement.querySelector('.faq-a').classList.remove('open');
+    });
+
+    /* open clicked if was closed */
+    if(!isOpen){
+      btn.classList.add('open');
+      btn.setAttribute('aria-expanded','true');
+      answer.classList.add('open');
+    }
+  });
+});
+
+/* ── Contact form — basic submit ───────────────── */
+const contactFormEl = document.getElementById('contactForm');
+if(contactFormEl){
+  contactFormEl.addEventListener('submit', function(e){
+    e.preventDefault();
+    const btn = this.querySelector('.btn-send');
+    if(!btn) return;
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.innerHTML = '✓ Message Sent — We\'ll be in touch within 24 hours.';
+      btn.style.background = 'linear-gradient(135deg,#10b981,#059669)';
+    }, 1200);
+  });
+}
+
+/* ── Hero particles canvas ─────────────────────── */
+(function(){
+  const canvas = document.getElementById('heroCanvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, pts = [];
+
+  function resize(){
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  for(let i = 0; i < 50; i++){
+    pts.push({ x:Math.random()*2000, y:Math.random()*800,
+      r:Math.random()*.9+.2, vx:(Math.random()-.5)*.14, vy:(Math.random()-.5)*.14, a:Math.random()*.35+.08 });
+  }
+
+  (function draw(){
+    ctx.clearRect(0,0,W,H);
+    pts.forEach(p => {
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(56,189,248,${p.a})`; ctx.fill();
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0) p.x=W; if(p.x>W) p.x=0;
+      if(p.y<0) p.y=H; if(p.y>H) p.y=0;
+    });
+    requestAnimationFrame(draw);
+  })();
+})();
+
+
+document.querySelectorAll(".dropdown li").forEach(item => {
+    item.addEventListener("click", () => {
+        const link = item.dataset.link;
+        if (link) {
+            window.location.href = link;
+        }
+    });
+});
+</script>
 </body>
 </html>

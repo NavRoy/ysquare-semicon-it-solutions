@@ -37,7 +37,7 @@ scroll-behavior:smooth;
 ═══════════════════════════════════════════════════ */
 .hero-top-strip {
   position: fixed;
-  top: 90px; /* sits flush under your 90px header */
+  top: 110px; /* sits flush under your 90px header */
   left: 0; right: 0;
   z-index: 998;
 background:#0b3a75;
@@ -1487,16 +1487,20 @@ height:auto;
 <!-- ===================== HEADER (ORIGINAL – UNTOUCHED) ===================== -->
 <header class="header" id="header">
   <div class="container nav">
-    <div class="logo"><img src="it-logo.png" alt="YSQUARE Semicon"></div>
+           <div class="logo">
+    <a href="index.html">
+        <img src="images/ysquare-logo.png" alt="YSQUARE Semicon">
+    </a>
+</div>
     <nav class="menu">
       <div class="menu-item">
         <span>Who we are ▾</span>
         <div class="dropdown">
           <div class="dropdown-left">
             <ul>
-              <li data-img="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&auto=format&fit=crop" data-text="Our Leadership">Leadership</li>
-              <li data-img="https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=800&auto=format&fit=crop" data-text="Our Culture">Culture</li>
-              <li data-img="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&auto=format&fit=crop" data-text="Global Presence">Global Presence</li>
+              <li data-img="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&auto=format&fit=crop" data-text="Our Leadership" data-link="about.html">Leadership</li>
+              <li data-img="https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=800&auto=format&fit=crop" data-text="Our Culture" data-link="about.html">Culture</li>
+              <li data-img="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&auto=format&fit=crop" data-text="Global Presence" data-link="about.html">Global Presence</li>
             </ul>
           </div>
           <div class="dropdown-right">
@@ -2222,48 +2226,90 @@ padding:32px;
 
 <div class="premium-divider"></div>
 
-<!-- ═══════════════════════════════════════════════════
-     SECTION 7 – FINAL CTA (glassmorphism + glow)
-═══════════════════════════════════════════════════ -->
-<section class="cta-section" id="apply">
-  <img class="cta-bg-img" src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1800&q=80" alt="Engineering facility">
-  <div class="cta-dim"></div>
-  <div class="cta-glow-a"></div>
-  <div class="cta-glow-b"></div>
 
-  <div class="cta-inner">
-    <div class="cta-glass reveal">
-      <div class="eyebrow light">Apply Now</div>
-      <h2>Start Building Your<br>Engineering Future</h2>
-      <p>Join YSQUARE Internship Programs and gain industry-ready skills through real-world engineering experience across AI, embedded systems, and semiconductor design.</p>
-      <a href="#" class="btn-cta">Apply Now <span class="btn-arrow">→</span></a>
+<!-- ══════════════════════════════════════════════════════
+     S06 — ENTERPRISE CTA
+══════════════════════════════════════════════════════ -->
+<!-- ═════════════ UNIVERSAL CTA ═════════════ -->
+<section class="ys-cta">
+
+    <div class="ys-cta-glow"></div>
+
+<div class="ys-cta-wrapper">
+
+    <div class="ys-cta-content">
+
+        <span class="ys-cta-tag">
+            START YOUR CAREER
+        </span>
+
+        <h2>
+            Launch Your Engineering
+            <span>Journey.</span>
+        </h2>
+
+        <p>
+           Gain real-world experience by working
+on industry-focused engineering projects.
+        </p>
+
+<div class="ys-cta-buttons">
+
+    <a href="#" class="ys-cta-btn">
+        Start Your Project
+        <i class="fa-solid fa-arrow-right-long"></i>
+    </a>
+
+    <a href="#" class="ys-cta-btn ys-cta-btn-dark">
+        Explore Services
+        <i class="fa-solid fa-arrow-right-long"></i>
+    </a>
+
+</div>
+
     </div>
-  </div>
+
+  
+
+</div>
+
 </section>
+
+
 
 <!-- ═══════════ FOOTER ═══════════ -->
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
-      <img src="images/y-square-logo.png" alt="YSQUARE">
-      <p>Engineering the future of semiconductor and IT solutions — from silicon to software, for the world's most innovation-driven enterprises.</p>
-      <div class="footer-green">🌱 Carbon Neutral Operations</div>
-      <div class="footer-social">
-        <a href="#" class="f-icon">in</a>
-        <a href="#" class="f-icon">tw</a>
-        <a href="#" class="f-icon">yt</a>
-        <a href="#" class="f-icon">gh</a>
-      </div>
+      <img src="images/ysquare-logo.png" alt="YSQUARE">
+      <p>YSQUARE Semicon IT Solutions delivers innovative semiconductor, embedded systems and software engineering services that help organizations accelerate digital transformation and build future-ready technology.</p>
+      <div class="footer-badge">
+    Semiconductor • Embedded • Software
+</div>
+     
     </div>
-    <div class="footer-col">
-      <h4>Services</h4>
-      <ul>
+<div class="footer-col">
+
+    <h4>Services</h4>
+
+    <ul>
         <li><a href="#">Digital Engineering</a></li>
         <li><a href="#">Software Engineering</a></li>
         <li><a href="#">Embedded Engineering</a></li>
         <li><a href="#">Semiconductor Engineering</a></li>
-      </ul>
-    </div>
+    </ul>
+
+    <h4 class="footer-sub-heading">Industries</h4>
+
+    <ul>
+        <li><a href="#">Hi-Tech &amp; Technology</a></li>
+        <li><a href="#">Automotive &amp; Mobility</a></li>
+        <li><a href="#">Semiconductor &amp; Electronics</a></li>
+    </ul>
+
+</div>
+
+
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
@@ -2276,23 +2322,44 @@ padding:32px;
       </ul>
     </div>
     <div class="footer-col">
-      <span class="nl-label">Stay Informed</span>
-      <p style="font-size:13px;color:rgba(255,255,255,.4);margin-bottom:16px;line-height:1.6;">Engineering insights and updates straight to your inbox.</p>
-      <div class="nl-form">
-        <input type="email" placeholder="your@email.com">
-        <button>Subscribe</button>
+      <span class="nl-label">Get In Touch</span>
+      <p style="font-size:13px;color:rgba(255,255,255,.4);margin-bottom:16px;line-height:1.6;">Engineering solutions start with a conversation.
+Reach out to our experts today.</p>
+   <div class="footer-social">
+      <a href="#" class="f-icon">
+<i class="fa-brands fa-linkedin-in"></i>
+</a>
+
+<a href="#" class="f-icon">
+<i class="fa-brands fa-x-twitter"></i>
+</a>
+
+<a href="#" class="f-icon">
+<i class="fa-brands fa-instagram"></i>
+</a>
+
+<a href="#" class="f-icon">
+<i class="fa-brands fa-youtube"></i>
+</a>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
     <p>© 2026 YSQUARE Semicon IT Solutions. All rights reserved.</p>
-    <div class="footer-btm-links">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Use</a>
-      <a href="#">Cookie Settings</a>
-    </div>
+<div class="footer-btm-links">
+
+<a href="#">Privacy Policy</a>
+
+<a href="#">Terms & Conditions</a>
+
+<a href="#">Disclaimer</a>
+
+<a href="#">Sitemap</a>
+
+</div>
   </div>
 </footer>
+
 
 <!-- ─── JS ─────────────────────────────────────────── -->
 <script>
@@ -2391,6 +2458,18 @@ btn.parentElement.classList.toggle('active');
 
 });
 
+});
+
+
+
+
+document.querySelectorAll(".dropdown li").forEach(item => {
+    item.addEventListener("click", () => {
+        const link = item.dataset.link;
+        if (link) {
+            window.location.href = link;
+        }
+    });
 });
 </script>
 
