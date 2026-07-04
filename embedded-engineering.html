@@ -3,149 +3,1604 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Embedded Engineering – YSQUARE Semicon IT Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-<title>Coming Soon</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ─── RESET ────────────────────────────── */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+body{background:#fff;overflow-x:hidden;}
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+:root{
+  --primary:#0ea5e9;
+  --primary-dark:#0369a1;
+  --dark:#0a0f1e;
+  --muted:#64748b;
+}
+:root{
+  --r-lg: 28px;   /* hero-scale imagery */
+  --r-md: 18px;   /* cards, panels */
+  --r-sm: 10px;   /* buttons, chips */
+}
+
+a:focus-visible, button:focus-visible{
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+html{scroll-behavior:smooth;}
+::selection{background:#0ea5e9;color:#fff;}
+
+/* ─── SCROLL PROGRESS ──────────────────── */
+#scrollProgress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#0ea5e9,#38bdf8);z-index:99999;transition:width .1s linear;}
+
+/* ─── STICKY BOTTOM NAV ─────────────────── */
+.hero-bottom-nav{
+  position:sticky;top:132px;z-index:997;
+  background:rgba(8,22,49,.88);backdrop-filter:blur(16px);
+  display:flex;align-items:center;justify-content:center;
+  border-top:2px solid rgba(255,255,255,.06);
+  border-bottom:1px solid rgba(0,0,0,.15);
+  box-shadow:0 4px 20px rgba(0,0,0,.2);
+}
+.hbn-link{
+  padding:0 36px;height:52px;
+  display:flex;align-items:center;
+  font-size:13px;font-weight:700;color:rgba(255,255,255,.78);
+  text-decoration:none;letter-spacing:.3px;
+  border-right:1px solid rgba(255,255,255,.12);
+  transition:.25s;position:relative;white-space:nowrap;
+}
+.hbn-link:first-child{border-left:1px solid rgba(255,255,255,.12);}
+.hbn-link:hover{color:#fff;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));}
+.hbn-link.active{color:#fff;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));}
+.hbn-link.active::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:#38bdf8;}
+
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+
+<div id="scrollProgress"></div>
+
+<!-- ═══════ HEADER (UNTOUCHED) ═══════ -->
+<header class="header" id="header">
+  <div class="container nav">
+        <div class="logo">
+    <a href="index.html">
+        <img src="images/ysquare-logo.png" alt="YSQUARE Semicon">
+    </a>
+</div>
+    <nav class="menu">
+      <div class="menu-item">
+        <span>Who we are ▾</span>
+        <div class="dropdown">
+          <div class="dropdown-left">
+            <ul>
+              <li data-img="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&auto=format&fit=crop" data-text="Our Leadership" data-link="about.html">Leadership</li>
+              <li data-img="https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=800&auto=format&fit=crop" data-text="Our Culture" data-link="about.html">Culture</li>
+              <li data-img="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&auto=format&fit=crop" data-text="Global Presence" data-link="about.html">Global Presence</li>
+            </ul>
+          </div>
+          <div class="dropdown-right">
+            <img id="who-img" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&auto=format&fit=crop">
+            <div class="dropdown-overlay" id="who-text">Our Leadership</div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <span>What we do ▾</span>
+        <div class="dropdown">
+          <div class="dropdown-left">
+            <div class="dropdown-group">
+               <h4>Engineering Services</h4>
+              <ul>
+                <li data-img="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop" data-text="Digital Engineering" data-link="digital-engineering.html">Digital Engineering</li>
+                <li data-img="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&auto=format&fit=crop" data-text="Software Engineering" data-link="software-engineering.html">Software Engineering</li>
+                <li data-img="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?w=800&auto=format&fit=crop" data-text="Embedded Engineering" data-link="embedded-engineering.html">Embedded Engineering</li>
+                <li data-img="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&auto=format&fit=crop" data-text="Semiconductor Engineering" data-link="semiconductor-engineering.html">Semiconductor Engineering</li>
+              </ul>
+            </div>
+            <div class="dropdown-group">
+              <h4>Industries</h4>
+              <ul>
+                <li data-img="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop" data-text="Hi-Tech" data-link="hi-tech.html">Hi-Tech</li>
+                <li data-img="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop" data-text="Automotive" data-link="automotive.html">Automotive</li>
+                <li data-img="https://images.unsplash.com/photo-1581090700227-4c4d47a2d1d1?w=800&auto=format&fit=crop" data-text="Semiconductor" data-link="semiconductor.html">Semiconductor</li>
+              </ul>
+            </div>
+          </div>
+          <div class="dropdown-right">
+            <img id="service-img" src="https://via.placeholder.com/800x600/38bdf8/ffffff?text=Embedded+Engineering">
+            <div class="dropdown-overlay" id="service-text">Embedded Engineering</div>
+          </div>
+        </div>
+      </div>
+      <a href="internship.html">Internships</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact us</a>
+    </nav>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    <div class="actions">🌐 EN 🔍</div>
+  </div>
+</header>
+
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-accordion">
+    <button class="mobile-title">Who we are <span>+</span></button>
+    <div class="mobile-submenu">
+      <a href="#">Leadership</a>
+      <a href="#">Culture</a>
+      <a href="#">Global Presence</a>
+    </div>
+  </div>
+  <div class="mobile-accordion">
+    <button class="mobile-title">What we do <span>+</span></button>
+    <div class="mobile-submenu">
+      <a href="digital-engineering.html">Digital Engineering</a>
+      <a href="software-engineering.html">Software Engineering</a>
+      <a href="embedded-engineering.html">Embedded Engineering</a>
+      <a href="semiconductor-engineering.html">Semiconductor Engineering</a>
+      <hr>
+      <a href="hi-tech.html">Hi-Tech</a>
+      <a href="automotive.html">Automotive</a>
+      <a href="semiconductor.html">Semiconductor</a>
+    </div>
+  </div>
+  <a href="internship.html">Internships</a>
+  <a href="careers.html">Careers</a>
+  <a href="contact.html">Contact Us</a>
+</div>
+
+<!-- ═══════ BREADCRUMB STRIP ═══════ -->
+<div class="hero-top-strip">
+  <a class="hts-back" href="/">
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    Home
+  </a>
+  <div class="hts-breadcrumb">
+    <a href="/">Home</a>
+    <span class="hts-sep">/</span>
+    <a href="#">Services</a>
+    <span class="hts-sep">/</span>
+    <span class="hts-active">Embedded Engineering</span>
+  </div>
+  <div class="hts-actions">
+    <button class="hts-icon" aria-label="Share">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ═══════ EMBEDDED ENGINEERING HERO ═══════ -->
+<section class="about-hero">
+  <img src="https://via.placeholder.com/1800x1000/38bdf8/ffffff?text=Embedded+Engineering" alt="Embedded engineering at YSQUARE">
+  <div class="hero-overlay"></div>
+  <div class="hero-glow-a"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Embedded Engineering</div>
+    <div class="hero-accent"></div>
+    <h1>Engineering<br><span>Reliable Embedded Systems.</span></h1>
+    <p>We design firmware, device software, and embedded platforms that power smart products with dependable performance, safety, and long-term scalability.</p>
+  </div>
+</section>
+
+<!-- ═══════ STICKY BOTTOM NAV ═══════ -->
+<nav class="hero-bottom-nav" id="heroBottomNav">
+  <a href="#Overview" class="hbn-link active">Overview</a>
+  <a href="#capabilities" class="hbn-link">Capabilities</a>
+  <a href="#stories" class="hbn-link">Success Stories</a>
+  <a href="#outcomes" class="hbn-link">Outcomes</a>
+  <a href="#contact" class="hbn-link">Contact</a>
+</nav>
+
+<script>
+    /* Sticky nav active state */
+(function(){
+  const links = document.querySelectorAll('.hbn-link');
+  const sectionIds = ['Overview','capabilities','stories','outcomes','contact'];
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id);
+      if(el && window.scrollY + 260 >= el.offsetTop) current = id;
+    });
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+  }, { passive: true });
+  links.forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if(target){ e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+})();
+
+</script>
+
+
+<!-- ==========================================
+EMBEDDED ENGINEERING OVERVIEW
+=========================================== -->
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+/* Single-card editorial — YSQUARE Engineering (45/55) */
+.ys-section {
+  padding: 60px 5%;
+  background: linear-gradient(
+180deg,
+#ffffff 0%,
+#f8fbff 100%
+);
+  display: flex;
+  justify-content: center;
 }
 
-body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
-    overflow:hidden;
+.ys-card {
+  width: 100%;
+  max-width: 1220px;
+  min-height: 440px;
+  background: linear-gradient(
+145deg,
+#ffffff,
+#fcfdff);
+  border-radius: 22px;
+  box-shadow:0 45px 120px rgba(15,23,42,.08);
+  overflow: hidden;
+  position: relative;
+  transition: transform .35s ease, box-shadow .35s ease;
+  display: grid;
+  grid-template-columns: 45% 55%;
+  gap: 0;
+
+ border:1px solid rgba(14,165,233,.08);
+
+    box-shadow:
+    0 30px 80px rgba(15,23,42,.08),
+    0 8px 24px rgba(15,23,42,.04);
+
+
+outline:
+
+1px solid rgba(14,165,233,.05);
 }
 
-body::before,
-body::after{
-    content:"";
-    position:absolute;
-    border-radius:50%;
-    filter:blur(120px);
-    opacity:.25;
+/* subtle blueprint grid overlay */
+.ys-card::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(14,165,233,.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14,165,233,.02) 1px, transparent 1px);
+  background-size: 120px 120px;
+  pointer-events:none;
+  z-index:0;
+  mix-blend-mode:normal;
+  opacity:.7;
 }
 
-body::before{
-    width:350px;
-    height:350px;
-    background:#00d4ff;
-    top:-120px;
-    left:-100px;
+/* soft blue radial glow */
+.ys-card::after{
+  content:"";
+  position:absolute;
+  width:520px;height:520px;
+  left:-80px; top:6%;
+  border-radius:50%;
+  background: radial-gradient(circle, rgba(14,165,233,.09), transparent 60%);
+  filter: blur(60px);
+  pointer-events:none;
+  z-index:0;
 }
 
-body::after{
-    width:400px;
-    height:400px;
-    background:#38bdf8;
-    bottom:-150px;
-    right:-120px;
+/* left image area */
+.ys-card .card-image{
+  position:relative;
+  z-index:1;
+  overflow:hidden;
+  display:block;
 }
 
-.card{
-    position:relative;
-    z-index:2;
-    width:90%;
-    max-width:700px;
-    background:rgba(255,255,255,.08);
-    backdrop-filter:blur(20px);
-    border:1px solid rgba(255,255,255,.15);
-    border-radius:24px;
-    padding:60px 40px;
-    text-align:center;
-    box-shadow:0 20px 50px rgba(0,0,0,.35);
+.ys-card .card-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transform: scale(1.04);
+  object-position: center;
+  transition: transform 1.1s ease;
+  filter:
+
+contrast(1.05)
+
+saturate(1.08);
 }
 
-.icon{
-    font-size:70px;
-    margin-bottom:20px;
+/* right content area */
+.ys-card .card-content{
+  position:relative;
+  z-index:1;
+  padding: 58px 60px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  background:transparent;
 }
 
-h1{
-    color:#fff;
-    font-size:48px;
-    margin-bottom:15px;
+/* Typography */
+.ys-eyebrow{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color: var(--primary);
+  margin-bottom: 14px;
 }
 
-h3{
-    color:#8fd3ff;
-    font-weight:500;
-    margin-bottom:25px;
+.ys-headline{
+  font-size:42px;
+  font-weight:800;
+  line-height:1.04;
+   color:#081b35;
+  margin:0 0 18px 0;
 }
 
-p{
-    color:#dbeafe;
-    line-height:1.8;
-    font-size:17px;
-    margin-bottom:35px;
+.ys-divider{
+  width:46px;height:2px;
+  background: linear-gradient(90deg,var(--primary),var(--primary) 60%, transparent);
+  margin-bottom:20px;
 }
 
-.btn{
-    display:inline-block;
-    text-decoration:none;
-    background:#fff;
-    color:#1e3a8a;
-    padding:15px 35px;
-    border-radius:50px;
-    font-weight:600;
-    transition:.3s;
+.ys-desc{
+  font-size:16px;
+  line-height:1.8;
+  color:#475569;
+  max-width:430px;
+  margin-bottom:28px;
 }
 
-.btn:hover{
-    transform:translateY(-4px);
-    box-shadow:0 15px 30px rgba(255,255,255,.25);
+/* CTA row */
+.ys-cta-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
 }
 
-@media(max-width:768px){
-
-.card{
-    padding:40px 25px;
+/* text CTA */
+.ys-cta1{
+  font-size:13px;
+  font-weight:700;
+  color:var(--primary);
+  text-decoration:none;
+  border-bottom:1px solid rgba(14,165,233,.25);
+  padding-bottom:4px;
+  display:inline-flex;
+  gap:10px;
+  align-items:center;
 }
 
-h1{
-    font-size:36px;
+/* circular arrow button */
+.ys-circle{
+  width:54px;height:54px;
+  border-radius:50%;
+  background:#fff;
+  border:1.5px solid rgba(15,23,42,.12);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  transition: transform .35s, box-shadow .35s, border-color .35s;
+  position:relative;
+  overflow:hidden;
+  flex-shrink:0;
 }
 
-h3{
-    font-size:20px;
+.ys-circle::before{
+  content:"";
+  position:absolute; inset:0;
+  border-radius:50%;
+  background: var(--primary);
+  transform:scale(0);
+  transition:transform .35s cubic-bezier(.25,.46,.45,.94);
 }
 
-p{
-    font-size:15px;
+.ys-circle svg{ width:18px;height:18px; stroke:#0f172a; fill:none; stroke-width:2; transition: transform .35s, stroke .35s; position:relative; z-index:1; }
+
+.ys-circle:hover::before{ transform:scale(1); }
+.ys-circle:hover{ border-color:var(--primary); box-shadow:0 8px 28px rgba(14,165,233,.18); transform:translateY(-2px); }
+.ys-circle:hover svg{ stroke:#fff; transform:translateX(3px) translateY(-3px); }
+
+/* Card hover: lift and image zoom */
+.ys-card:hover{ transform: translateY(-10px); box-shadow:0 36px 82px rgba(15,23,42,.12); }
+.ys-card:hover .card-image img{ transform: scale(1.08); }
+
+/* Responsive: tablet/mobile */
+@media (max-width: 900px){
+  .ys-card{ grid-template-columns: 1fr; min-height: auto; }
+  .ys-card .card-image{ height: 220px; }
+  .ys-card .card-content{ padding:32px; align-items:center; text-align:center; }
+  .ys-desc{ margin:0 auto 28px; }
+  .ys-cta-row{ width:100%; justify-content:center; gap:18px; }
 }
 
+@media (max-width: 480px){
+  .ys-headline{ font-size:28px; }
+  .ys-desc{ font-size:15px; max-width:100%; }
+  .ys-card{ border-radius:14px; }
+  .ys-circle{ width:48px;height:48px; }
 }
 </style>
 
-</head>
 
-<body>
 
-<div class="card">
+<section class="ys-section" aria-labelledby="ys-eng-heading" id="Overview">
+  <div class="ys-card" role="group" aria-label="YSQUARE Engineering — Built for innovation">
 
-<div class="icon">🚀</div>
+    <!-- IMAGE (left half of the single card) -->
+    <figure class="card-image" aria-hidden="false">
+      <img
+        src="https://via.placeholder.com/1600x1000/38bdf8/ffffff?text=Embedded+Systems"
+        alt="Embedded systems engineering and firmware development">
+    </figure>
 
-<h1>Coming Soon</h1>
+    <!-- CONTENT (right half of the same card) -->
+    <div class="card-content">
+      <div>
+        <div class="ys-eyebrow">EMBEDDED ENGINEERING</div>
 
-<h3>We're Working on Something Amazing</h3>
+        <h2 id="ys-eng-heading" class="ys-headline">Engineering Embedded Intelligence.</h2>
 
-<p>
-This page is currently under development as we work to deliver an exceptional experience.
-We're adding exciting content, enhanced features, and valuable information.
-Please check back soon to see what's new.
-</p>
+        <div class="ys-divider" aria-hidden="true"></div>
 
-<a href="index.html" class="btn">← Back to Home</a>
+        <p class="ys-desc">
+         YSQUARE helps teams design, validate, and optimize embedded systems for automotive, industrial, and connected products. From firmware development to hardware-software integration, we deliver dependable solutions that meet strict performance, reliability, and compliance requirements.
+        </p>
+      </div>
+
+      <div class="ys-cta-row">
+        <a href="#capabilities" class="ys-cta1">Explore Capabilities →</a>
+
+        <a href="#" class="ys-circle" aria-label="Explore Company">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <line x1="5" y1="19" x2="19" y2="5"/>
+            <polyline points="5 5 19 5 19 19"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =====================================================
+YSQUARE — EMBEDDED ENGINEERING CAPABILITIES
+===================================================== -->
+
+<section class="ys-focus-section" id="capabilities" aria-labelledby="ys-focus-heading">
+
+    <div class="ys-focus-container">
+
+        <!-- Heading -->
+
+        <div class="ys-focus-header">
+
+            <span class="ys-focus-tag">
+                EMBEDDED ENGINEERING CAPABILITIES
+            </span>
+
+            <h2>
+                Embedded Solutions
+                <span>Built for Connected Products</span>
+            </h2>
+
+          
+
+        </div>
+
+        <!-- Capability 01 -->
+
+        <div class="ys-focus-item active">
+
+            <button class="ys-focus-trigger">
+
+                <div class="ys-focus-title">
+
+                    <span class="ys-focus-count">01</span>
+
+                    <div>
+
+                        <h3>Firmware Engineering</h3>
+
+                        <p>
+                            Robust low-level software for real-time devices
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <span class="ys-focus-icon">
+                    <i class="fa-solid fa-plus"></i>
+                </span>
+
+            </button>
+
+            <div class="ys-focus-content">
+
+                <div class="ys-focus-text">
+
+                    <p>
+
+                        We build firmware and device software that runs efficiently on embedded hardware, enabling real-time responsiveness, low power consumption, and dependable product behavior.
+
+                    </p>
+
+                    <ul>
+
+                        <li>RTOS integration</li>
+
+                        <li>Board bring-up</li>
+
+                        <li>Driver development</li>
+
+                        <li>Device optimization</li>
+
+                    </ul>
+
+                    <a href="#" class="ys-focus-btn">
+
+                        Learn More
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+                <div class="ys-focus-image">
+
+                    <img
+                    src="https://via.placeholder.com/1000x700/38bdf8/ffffff?text=Firmware+Engineering"
+                    alt="Firmware Engineering">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Capability 02 -->
+
+        <div class="ys-focus-item">
+
+            <button class="ys-focus-trigger">
+
+                <div class="ys-focus-title">
+
+                    <span class="ys-focus-count">02</span>
+
+                    <div>
+
+                        <h3>Hardware-Software Integration</h3>
+
+                        <p>
+                            Seamless coordination between systems and electronics
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <span class="ys-focus-icon">
+                    <i class="fa-solid fa-plus"></i>
+                </span>
+
+            </button>
+
+            <div class="ys-focus-content">
+
+                <div class="ys-focus-text">
+
+                    <p>
+
+                        Our teams connect embedded software with hardware platforms through validation, debugging, and integration services that ensure the full system behaves as intended.
+
+                    </p>
+
+                    <ul>
+
+                        <li>System bring-up</li>
+
+                        <li>Protocol debugging</li>
+
+                        <li>Peripheral integration</li>
+
+                        <li>Co-simulation</li>
+
+                    </ul>
+
+                    <a href="#" class="ys-focus-btn">
+
+                        Learn More
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+                <div class="ys-focus-image">
+
+                    <img
+                    src="https://via.placeholder.com/1000x700/0ea5e9/ffffff?text=Hardware+Software"
+                    alt="Hardware-Software Integration">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Capability 03 -->
+
+        <div class="ys-focus-item">
+
+            <button class="ys-focus-trigger">
+
+                <div class="ys-focus-title">
+
+                    <span class="ys-focus-count">03</span>
+
+                    <div>
+
+                        <h3>Safety & Compliance</h3>
+
+                        <p>
+                            Quality-focused engineering for regulated products
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <span class="ys-focus-icon">
+                    <i class="fa-solid fa-plus"></i>
+                </span>
+
+            </button>
+
+            <div class="ys-focus-content">
+
+                <div class="ys-focus-text">
+
+                    <p>
+
+                        We support safety-critical and regulated product development with structured verification, documentation, and engineering processes aligned to industry standards.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Functional testing</li>
+
+                        <li>Traceability</li>
+
+                        <li>Risk-based validation</li>
+
+                        <li>Compliance support</li>
+
+                    </ul>
+
+                    <a href="#" class="ys-focus-btn">
+
+                        Learn More
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+                <div class="ys-focus-image">
+
+                    <img
+                    src="https://via.placeholder.com/1000x700/0369a1/ffffff?text=Safety+Compliance"
+                    alt="Safety and Compliance">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Capability 04 -->
+
+        <div class="ys-focus-item">
+
+            <button class="ys-focus-trigger">
+
+                <div class="ys-focus-title">
+
+                    <span class="ys-focus-count">04</span>
+
+                    <div>
+
+                        <h3>Validation & Test Automation</h3>
+
+                        <p>
+                            Faster validation with dependable test coverage
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <span class="ys-focus-icon">
+                    <i class="fa-solid fa-plus"></i>
+                </span>
+
+            </button>
+
+            <div class="ys-focus-content">
+
+                <div class="ys-focus-text">
+
+                    <p>
+
+                        We implement automated test strategies and validation frameworks that accelerate verification, improve repeatability, and reduce time spent on manual debugging.
+
+                    </p>
+
+                    <ul>
+
+                        <li>Hardware-in-loop testing</li>
+
+                        <li>Regression automation</li>
+
+                        <li>Diagnostic tooling</li>
+
+                        <li>Release readiness</li>
+
+                    </ul>
+
+                    <a href="#" class="ys-focus-btn">
+
+                        Learn More
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+                <div class="ys-focus-image">
+
+                    <img
+                    src="https://via.placeholder.com/1000x700/0f172a/ffffff?text=Validation+Testing"
+                    alt="Validation and test automation">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+CLIENT SUCCESS STORIES — compact spotlight
+========================================== -->
+
+<section class="ys-stories" id="stories">
+  <div class="ys-stories-container">
+
+    <div class="ys-stories-head">
+      <span class="ys-stories-tag">Engineering Impact</span>
+      <h2>Trusted by product and embedded teams</h2>
+    </div>
+
+<div class="ys-quote-panel">
+
+    <div class="ys-quote-left">
+
+        <blockquote id="ysQuoteText">
+            YSQUARE helped us deliver a robust embedded platform that improved reliability, shortened integration time, and gave our engineering team better control across the product lifecycle.
+        </blockquote>
+
+        <div class="ys-quote-meta">
+            <span class="ys-hex" id="ysHex">
+                <span>CT</span>
+            </span>
+
+            <div>
+                <h4 id="ysName">Chief Technology Officer</h4>
+                <span id="ysCompany">
+                    Industrial Electronics Client
+                </span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="ys-quote-right">
+
+        <img
+            id="ysStoryImage"
+            src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80"
+            alt="Engineering">
+
+    </div>
 
 </div>
 
+    <div class="ys-tabs" id="ysTabs">
+      <button class="ys-tab active" data-i="0">
+        <span class="ys-tab-label">Manufacturing</span>
+        <span class="ys-tab-progress"></span>
+      </button>
+      <button class="ys-tab" data-i="1">
+        <span class="ys-tab-label">Technology</span>
+        <span class="ys-tab-progress"></span>
+      </button>
+      <button class="ys-tab" data-i="2">
+        <span class="ys-tab-label">Enterprise</span>
+        <span class="ys-tab-progress"></span>
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<style>
+    
+/*==================================
+CLIENT SUCCESS STORIES — compact spotlight
+==================================*/
+
+.ys-stories{
+  --dur: 5s;
+  padding: 56px 24px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 85% 0%, rgba(14,165,233,.10), transparent 45%),
+    linear-gradient(135deg, #081B35 0%, #102A43 55%, #0D223A 100%);
+}
+
+.ys-stories-container{
+  width: min(720px, 100%);
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.ys-stories-head{
+  text-align: center;
+  margin-bottom: 34px;
+}
+
+.ys-stories-tag{
+  display: inline-block;
+  color: #4FC3FF;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.ys-stories-head h2{
+  font-size: clamp(24px, 3vw, 30px);
+  line-height: 1.2;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  letter-spacing: -.5px;
+}
+
+/* ---------- quote panel ---------- */
+.ys-quote-panel{
+    display:grid;
+    grid-template-columns:1.3fr .9fr;
+    overflow:hidden;
+
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    backdrop-filter:blur(6px);
+}
+
+.ys-quote-left{
+    padding:34px 36px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.ys-quote-right{
+    position:relative;
+    overflow:hidden;
+}
+
+.ys-quote-right img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:
+        opacity .45s,
+        transform .8s;
+}
+
+.ys-quote-right img.fade{
+    opacity:0;
+    transform:scale(1.06);
+}
+
+#ysQuoteText{
+  margin: 0 0 24px;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: rgba(255,255,255,.92);
+  letter-spacing: -.2px;
+  min-height: 96px;
+  opacity: 1;
+  transition: opacity .3s ease;
+}
+
+#ysQuoteText.fading{ opacity: 0; }
+
+.ys-quote-meta{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.ys-hex{
+  --s: 44px;
+  width: var(--s);
+  height: calc(var(--s) * 1.1547);
+  flex-shrink: 0;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: linear-gradient(150deg, #0ea5e9, #0369a1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ys-hex span{
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: .5px;
+}
+
+.ys-quote-meta h4{
+  margin: 0 0 2px;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.ys-quote-meta span:not(.ys-hex span){
+  font-size: 13px;
+  color: rgba(255,255,255,.5);
+}
+
+/* ---------- tabs ---------- */
+.ys-tabs{
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.ys-tab{
+  flex: 1;
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0 0 10px;
+  text-align: left;
+}
+
+.ys-tab-label{
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 10px;
+  transition: color .3s ease;
+}
+
+.ys-tab.active .ys-tab-label{ color: #fff; }
+
+.ys-tab::after{
+  content:"";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100%; height: 2px;
+  background: rgba(255,255,255,.12);
+}
+
+.ys-tab-progress{
+  position: absolute;
+  left: 0; bottom: 0;
+  height: 2px;
+  width: 0%;
+  background: #0ea5e9;
+  z-index: 1;
+}
+
+.ys-tab.active .ys-tab-progress{
+  animation: ysProgress var(--dur) linear forwards;
+}
+
+@keyframes ysProgress{
+  from{ width: 0%; }
+  to{ width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .ys-tab.active .ys-tab-progress{ animation: none; width: 100%; }
+  #ysQuoteText{ transition: none; }
+}
+
+/* ---------- media queries ---------- */
+@media (max-width: 720px){
+  .ys-stories{ padding: 48px 20px; }
+  .ys-quote-panel{ padding: 26px 24px; }
+  #ysQuoteText{ font-size: 17px; min-height: 120px; }
+}
+
+@media (max-width: 480px){
+  .ys-stories-head{ margin-bottom: 26px; }
+  .ys-quote-panel{ padding: 22px 18px; border-radius: 14px; }
+  #ysQuoteText{ font-size: 16px; line-height: 1.55; min-height: 140px; }
+  .ys-hex{ --s: 38px; }
+  .ys-tabs{ gap: 6px; }
+  .ys-tab-label{ font-size: 11px; }
+}
+</style>
+
+<script>
+(() => {
+  const data = [
+    {
+      quote: "YSQUARE helped us deliver a robust embedded platform that improved reliability, shortened integration time, and gave our engineering team better control across the product lifecycle.",
+      name: "Chief Technology Officer",
+      company: "Industrial Electronics Client",
+      initials: "CT",
+      image: "https://via.placeholder.com/900x700/38bdf8/ffffff?text=Embedded+Success"
+    },
+    {
+      quote: "Their team supported firmware delivery and hardware validation with the precision and speed our program demanded.",
+      name: "Director of Embedded Systems",
+      company: "Connected Devices Company",
+      initials: "ES",
+      image: "https://via.placeholder.com/900x700/0ea5e9/ffffff?text=Firmware+Success"
+    },
+    {
+      quote: "From architecture to deployment, YSQUARE gave us a dependable embedded foundation that helped us launch with confidence.",
+      name: "Vice President Engineering",
+      company: "Automotive Electronics Partner",
+      initials: "VP",
+      image: "https://via.placeholder.com/900x700/0369a1/ffffff?text=Device+Success"
+    }
+  ];
+
+  const quoteEl = document.getElementById('ysQuoteText');
+  const hexEl = document.getElementById('ysHex').querySelector('span');
+  const nameEl = document.getElementById('ysName');
+  const companyEl = document.getElementById('ysCompany');
+  const tabs = document.querySelectorAll('.ys-tab');
+  let current = 0;
+  let timer;
+
+const imageEl = document.getElementById("ysStoryImage");
+
+function render(i){
+
+quoteEl.classList.add("fading");
+imageEl.classList.add("fade");
+
+setTimeout(()=>{
+
+quoteEl.textContent=data[i].quote;
+
+hexEl.textContent=data[i].initials;
+
+nameEl.textContent=data[i].name;
+
+companyEl.textContent=data[i].company;
+
+imageEl.src=data[i].image;
+
+quoteEl.classList.remove("fading");
+imageEl.classList.remove("fade");
+
+},200);
+
+tabs.forEach((t,idx)=>{
+
+t.classList.toggle("active",idx===i);
+
+const prog=t.querySelector(".ys-tab-progress");
+
+prog.style.animation="none";
+
+void prog.offsetWidth;
+
+prog.style.animation=idx===i?"":"none";
+
+});
+
+current=i;
+
+}
+
+  function next(){ render((current + 1) % data.length); }
+
+  function startAuto(){
+    clearTimeout(timer);
+    timer = setTimeout(next, 5000);
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      render(parseInt(tab.dataset.i, 10));
+      startAuto();
+    });
+  });
+
+  const panel = document.querySelector('.ys-stories-container');
+  panel.addEventListener('mouseenter', () => clearTimeout(timer));
+  panel.addEventListener('mouseleave', startAuto);
+
+  startAuto();
+})();
+</script>
+
+
+
+
+<section class="page-title-left cards-component" id="outcomes" aria-labelledby="outcomes-heading">
+  <div class="container">
+
+ <div class="page-title max-width-1000">
+
+    <div class="page-title-lebel">
+        BUSINESS OUTCOMES
+    </div>
+
+    <h2>
+        Embedded Results That
+        <span>Drive Product Confidence</span>
+    </h2>
+
+    <p>
+        Helping organizations launch dependable products with strong embedded engineering, faster validation cycles, and reliable field performance.
+    </p>
+
+</div>
+
+    <div class="cards-component-row">
+
+      <div class="cards-component-box has-image">
+        <div class="cards-component-img">
+          <img src="https://via.placeholder.com/800x600/38bdf8/ffffff?text=Firmware+Reliability" alt="Embedded firmware reliability">
+        </div>
+        <div class="cards-component-text">
+          <div class="cards-component-header">
+            <h3>Firmware Reliability</h3>
+          </div>
+          <div class="cards-component-desc">
+            <p>Deliver stable firmware that performs consistently across hardware variants, real-time constraints, and field conditions.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards-component-box has-image">
+        <div class="cards-component-img">
+          <img src="https://via.placeholder.com/800x600/0ea5e9/ffffff?text=Fast+Integration" alt="Fast hardware-software integration">
+        </div>
+        <div class="cards-component-text">
+          <div class="cards-component-header">
+            <h3>Faster Integration</h3>
+          </div>
+          <div class="cards-component-desc">
+            <p>Reduce time spent on debugging and integration with structured bring-up, driver support, and cross-team collaboration.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards-component-box has-image">
+        <div class="cards-component-img">
+          <img src="https://via.placeholder.com/800x600/0369a1/ffffff?text=Compliance+Ready" alt="Compliance-ready embedded systems">
+        </div>
+        <div class="cards-component-text">
+          <div class="cards-component-header">
+            <h3>Compliance Ready</h3>
+          </div>
+          <div class="cards-component-desc">
+            <p>Support regulated and safety-focused product development with traceable processes, validation discipline, and quality control.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards-component-box has-image">
+        <div class="cards-component-img">
+          <img src="https://via.placeholder.com/800x600/0f172a/ffffff?text=Test+Automation" alt="Embedded test automation">
+        </div>
+        <div class="cards-component-text">
+          <div class="cards-component-header">
+            <h3>Test Automation</h3>
+          </div>
+          <div class="cards-component-desc">
+            <p>Improve delivery confidence through repeatable test coverage, regression execution, and faster validation cycles.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards-component-box has-image">
+        <div class="cards-component-img">
+          <img src="https://via.placeholder.com/800x600/38bdf8/ffffff?text=Device+Performance" alt="Embedded device performance">
+        </div>
+        <div class="cards-component-text">
+          <div class="cards-component-header">
+            <h3>Device Performance</h3>
+          </div>
+          <div class="cards-component-desc">
+            <p>Optimize firmware and system behavior for low power, efficiency, and consistent operation in production environments.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards-component-box has-image">
+        <div class="cards-component-img">
+          <img src="https://via.placeholder.com/800x600/0ea5e9/ffffff?text=Long+Term+Support" alt="Long-term embedded support">
+        </div>
+        <div class="cards-component-text">
+          <div class="cards-component-header">
+            <h3>Long-Term Support</h3>
+          </div>
+          <div class="cards-component-desc">
+            <p>Create durable embedded platforms that are easier to maintain, evolve, and scale as products grow.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const items = document.querySelectorAll(".ys-focus-item");
+
+    items.forEach(item => {
+
+        const trigger = item.querySelector(".ys-focus-trigger");
+
+        trigger.addEventListener("click", function () {
+
+            const isActive = item.classList.contains("active");
+
+            /* Close all items */
+
+            items.forEach(i => {
+
+                i.classList.remove("active");
+
+                const icon = i.querySelector(".ys-focus-icon i");
+
+                icon.classList.remove("fa-minus");
+
+                icon.classList.add("fa-plus");
+
+            });
+
+            /* If it wasn't active, open it */
+
+            if (!isActive) {
+
+                item.classList.add("active");
+
+                const icon = item.querySelector(".ys-focus-icon i");
+
+                icon.classList.remove("fa-plus");
+
+                icon.classList.add("fa-minus");
+
+            }
+
+        });
+
+    });
+
+    /* Open first item by default */
+
+    if (items.length > 0) {
+
+        items[0].classList.add("active");
+
+        const firstIcon = items[0].querySelector(".ys-focus-icon i");
+
+        firstIcon.classList.remove("fa-plus");
+
+        firstIcon.classList.add("fa-minus");
+
+    }
+
+});
+
+</script>
+
+
+<!-- ══════════════════════════════════════════════════════
+     S06 — ENTERPRISE CTA
+══════════════════════════════════════════════════════ -->
+<!-- ═════════════ UNIVERSAL CTA ═════════════ -->
+<section class="ys-cta" id="contact">
+
+    <div class="ys-cta-glow"></div>
+
+<div class="ys-cta-wrapper">
+
+    <div class="ys-cta-content">
+
+        <span class="ys-cta-tag">
+            BUILD THE FUTURE WITH US
+        </span>
+
+        <h2>
+           Driven by Innovation.
+            <span>Built on Engineering Excellence.</span>
+        </h2>
+
+        <p>
+           Learn how YSQUARE delivers dependable embedded engineering for connected products and industrial systems.
+        </p>
+
+<div class="ys-cta-buttons">
+
+    <a href="#" class="ys-cta-btn">
+        Start Your Project
+        <i class="fa-solid fa-arrow-right-long"></i>
+    </a>
+
+    <a href="#" class="ys-cta-btn ys-cta-btn-dark">
+        Explore Services
+        <i class="fa-solid fa-arrow-right-long"></i>
+    </a>
+
+</div>
+
+    </div>
+
+  
+
+</div>
+
+</section>
+
+
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="images/ysquare-logo.png" alt="YSQUARE">
+      <p>YSQUARE Semicon IT Solutions delivers embedded systems, semiconductor, and software engineering services that help companies build reliable technology with confidence.</p>
+      <div class="footer-badge">
+    Semiconductor • Embedded • Software
+</div>
+     
+    </div>
+<div class="footer-col">
+
+    <h4>Services</h4>
+
+    <ul>
+        <li><a href="#">Embedded Engineering</a></li>
+        <li><a href="#">Software Engineering</a></li>
+        <li><a href="#">Embedded Engineering</a></li>
+        <li><a href="#">Semiconductor Engineering</a></li>
+    </ul>
+
+    <h4 class="footer-sub-heading">Industries</h4>
+
+    <ul>
+        <li><a href="#">Hi-Tech &amp; Technology</a></li>
+        <li><a href="#">Automotive &amp; Mobility</a></li>
+        <li><a href="#">Semiconductor &amp; Electronics</a></li>
+    </ul>
+
+</div>
+
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About YSQUARE</a></li>
+        <li><a href="#">Leadership</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Internships</a></li>
+        <li><a href="#">Insights</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <span class="nl-label">Get In Touch</span>
+      <p style="font-size:13px;color:rgba(255,255,255,.4);margin-bottom:16px;line-height:1.6;">Engineering solutions start with a conversation.
+Reach out to our experts today.</p>
+   <div class="footer-social">
+      <a href="#" class="f-icon">
+<i class="fa-brands fa-linkedin-in"></i>
+</a>
+
+<a href="#" class="f-icon">
+<i class="fa-brands fa-x-twitter"></i>
+</a>
+
+<a href="#" class="f-icon">
+<i class="fa-brands fa-instagram"></i>
+</a>
+
+<a href="#" class="f-icon">
+<i class="fa-brands fa-youtube"></i>
+</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 YSQUARE Semicon IT Solutions. All rights reserved.</p>
+<div class="footer-btm-links">
+
+<a href="#">Privacy Policy</a>
+
+<a href="#">Terms & Conditions</a>
+
+<a href="#">Disclaimer</a>
+
+<a href="#">Sitemap</a>
+
+</div>
+  </div>
+</footer>
+
+
+<!-- ═══════ JS ═══════ -->
+<script>
+/* Scroll reveal */
+const allReveal = document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+allReveal.forEach(el => ro.observe(el));
+
+/* Header scroll + progress bar */
+window.addEventListener('scroll', () => {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 20);
+  const sp = document.getElementById('scrollProgress');
+  const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+  if(sp) sp.style.width = pct + '%';
+}, { passive: true });
+
+
+
+/* Values timeline line animation */
+const valTrack = document.getElementById('valuesTrack');
+const valObs = new IntersectionObserver(([e]) => {
+  if(e.isIntersecting) valTrack.classList.add('animated');
+}, { threshold: 0.3 });
+if(valTrack) valObs.observe(valTrack);
+
+/* Header dropdown image swap */
+document.querySelectorAll('.dropdown-left li').forEach(li => {
+  li.addEventListener('mouseenter', () => {
+    const img=li.dataset.img, text=li.dataset.text;
+    const sec=li.closest('.menu-item');
+    if(!img) return;
+    const iEl=sec.querySelector('[id$="-img"]'), tEl=sec.querySelector('[id$="-text"]');
+    if(iEl) iEl.src=img;
+    if(tEl) tEl.textContent=text;
+  });
+});
+
+/* Hamburger */
+const hbg=document.getElementById('hamburger');
+const mm=document.getElementById('mobileMenu');
+if(hbg && mm){
+  hbg.addEventListener('click', () => { hbg.classList.toggle('active'); mm.classList.toggle('active'); });
+  mm.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hbg.classList.remove('active'); mm.classList.remove('active'); }));
+}
+
+/* Mobile accordion */
+document.querySelectorAll('.mobile-title').forEach(btn => {
+  btn.addEventListener('click', () => btn.parentElement.classList.toggle('active'));
+});
+
+
+
+document.querySelectorAll(".dropdown li").forEach(item => {
+    item.addEventListener("click", () => {
+        const link = item.dataset.link;
+        if (link) {
+            window.location.href = link;
+        }
+    });
+});
+</script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+const items=document.querySelectorAll(".ys-de-item");
+
+items.forEach(item=>{
+
+const trigger=item.querySelector(".ys-de-trigger");
+const icon=item.querySelector(".ys-de-toggle i");
+
+trigger.addEventListener("click",()=>{
+
+const isOpen=item.classList.contains("active");
+
+/* Close All */
+
+items.forEach(i=>{
+
+i.classList.remove("active");
+
+const currentIcon=i.querySelector(".ys-de-toggle i");
+
+currentIcon.classList.remove("fa-minus");
+
+currentIcon.classList.add("fa-plus");
+
+});
+
+/* Open Current */
+
+if(!isOpen){
+
+item.classList.add("active");
+
+icon.classList.remove("fa-plus");
+
+icon.classList.add("fa-minus");
+
+}
+
+});
+
+});
+
+});
+
+</script>
 </body>
 </html>
