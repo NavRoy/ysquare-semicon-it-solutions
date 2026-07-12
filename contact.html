@@ -24,34 +24,6 @@ html{scroll-behavior:smooth;}
 /* ─── SCROLL PROGRESS ─────────────── */
 #scrollProgress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#0ea5e9,#38bdf8);z-index:99999;transition:width .1s linear;}
 
-/* ─── HERO ─────────────────────────── */
-.about-hero{position:relative;height:300px;margin-top:132px;overflow:hidden;}
-.about-hero img{width:100%;height:100%;object-fit:cover;animation:heroZoom 15s ease-in-out infinite alternate;}
-@keyframes heroZoom{from{transform:scale(1);}to{transform:scale(1.08);}}
-.hero-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(90deg,rgba(2,6,23,.95) 0%,rgba(2,6,23,.82) 35%,rgba(2,6,23,.45) 70%,rgba(2,6,23,.2) 100%),
-  linear-gradient(180deg,rgba(14,165,233,.08),transparent 40%);
-}
-.hero-glow-a{
-  position:absolute;left:-150px;top:-100px;
-  width:600px;height:600px;
-  background:radial-gradient(circle,rgba(14,165,233,.2),transparent 65%);
-  pointer-events:none;z-index:2;
-  animation:floatGlow 8s ease-in-out infinite;
-}
-@keyframes floatGlow{0%{transform:translateY(0);}50%{transform:translateY(-30px);}100%{transform:translateY(0);}}
-.hero-content{position:absolute;left:5%;top:50%;transform:translateY(-50%);max-width:620px;z-index:5;}
-.hero-eyebrow{
-  display:inline-flex;align-items:center;gap:12px;
-  font-size:11px;font-weight:700;letter-spacing:2.5px;color:#38bdf8;
-  text-transform:uppercase;margin-bottom:22px;
-}
-.hero-eyebrow::before{content:"";display:block;width:28px;height:1.5px;background:#38bdf8;}
-.hero-accent{width:72px;height:3px;background:linear-gradient(90deg,#0ea5e9,transparent);margin-bottom:28px;}
-.hero-content h1{font-size:82px;line-height:.88;letter-spacing:-4px;font-weight:900;color:#fff;margin-bottom:28px;text-shadow:0 10px 40px rgba(0,0,0,.35);}
-.hero-content h1 span{color:#38bdf8;}
-.hero-content p{font-size:18px;line-height:1.8;color:rgba(255,255,255,.72);max-width:620px;}
 
 /* ─── STICKY BOTTOM NAV ────────────── */
 .hero-bottom-nav{
@@ -451,6 +423,146 @@ html{scroll-behavior:smooth;}
 .faq-a p{font-size:15.5px;line-height:1.8;color:#64748b;padding-right:60px;}
 
 
+/* ===================================================
+   CONTACT PAGE - MOBILE
+=================================================== */
+
+@media (max-width:768px){
+
+.contact-section{
+    padding:60px 20px 80px;
+}
+
+.contact-container{
+    grid-template-columns:1fr;
+    border-radius:24px;
+    overflow:hidden;
+}
+
+.contact-container::before{
+    left:10%;
+    right:10%;
+}
+
+.contact-form-panel{
+    padding:42px 24px;
+}
+
+.cf-badge{
+    margin-bottom:18px;
+}
+
+.contact-form-panel h2{
+    font-size:42px;
+    line-height:1.05;
+    letter-spacing:-1px;
+    margin-bottom:16px;
+}
+
+.contact-form-panel>p{
+    font-size:17px;
+    line-height:1.8;
+    max-width:100%;
+    margin-bottom:30px;
+}
+
+.fl-form{
+    grid-template-columns:1fr;
+    gap:18px;
+}
+
+.fl-field input,
+.fl-field select,
+.fl-field textarea{
+    font-size:15px;
+    padding:20px 16px 10px;
+}
+
+.fl-field textarea{
+    min-height:150px;
+}
+
+.btn-send{
+    width:100%;
+    padding:18px;
+    font-size:15px;
+}
+
+.contact-info-card{
+    margin:0;
+    border-radius:0;
+    padding:40px 24px;
+}
+
+.cic-title{
+    font-size:28px;
+}
+
+.cic-row{
+    gap:14px;
+}
+
+.cic-row-val{
+    font-size:14px;
+}
+
+.btn-directions{
+    width:100%;
+    justify-content:center;
+}
+
+.cic-links{
+    margin-top:24px;
+}
+
+}
+
+@media (max-width:480px){
+
+.contact-section{
+    padding:50px 16px 70px;
+}
+
+.contact-form-panel{
+    padding:34px 20px;
+}
+
+.contact-form-panel h2{
+    font-size:28px;
+}
+
+.contact-form-panel>p{
+    font-size:15px;
+}
+
+.cf-badge{
+    font-size:10px;
+}
+
+.fl-field input,
+.fl-field select,
+.fl-field textarea{
+    border-radius:12px;
+}
+
+.contact-info-card{
+    padding:32px 20px;
+}
+
+.cic-title{
+    font-size:24px;
+}
+
+.cic-row-label{
+    font-size:10px;
+}
+
+.cic-row-val{
+    font-size:13px;
+}
+
+}
+
 </style>
 </head>
 <body>
@@ -471,9 +583,8 @@ html{scroll-behavior:smooth;}
         <div class="dropdown">
           <div class="dropdown-left">
             <ul>
-              <li data-img="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&auto=format&fit=crop" data-text="Our Leadership" data-link="about.html">Leadership</li>
-              <li data-img="https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=800&auto=format&fit=crop" data-text="Our Culture" data-link="about.html">Culture</li>
-              <li data-img="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&auto=format&fit=crop" data-text="Global Presence" data-link="about.html">Global Presence</li>
+              <li data-img="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&auto=format&fit=crop" data-text="Our Leadership" data-link="about.html#leadership">Leadership</li>
+              <li data-img="https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=800&auto=format&fit=crop" data-text="Our Culture" data-link="about.html#culture">Culture</li>
             </ul>
           </div>
           <div class="dropdown-right">
@@ -484,23 +595,23 @@ html{scroll-behavior:smooth;}
       </div>
       <div class="menu-item">
         <span>What we do ▾</span>
-        <div class="dropdown">
+              <div class="dropdown">
           <div class="dropdown-left">
             <div class="dropdown-group">
               <h4>Engineering Services</h4>
               <ul>
-                <li data-img="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop" data-text="Digital Engineering">Digital Engineering</li>
-                <li data-img="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&auto=format&fit=crop" data-text="Software Engineering">Software Engineering</li>
-                <li data-img="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?w=800&auto=format&fit=crop" data-text="Embedded Engineering">Embedded Engineering</li>
-                <li data-img="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&auto=format&fit=crop" data-text="Semiconductor Engineering">Semiconductor Engineering</li>
+                <li data-img="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop" data-text="Digital Engineering" data-link="digital-engineering.html">Digital Engineering</li>
+                <li data-img="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&auto=format&fit=crop" data-text="Software Engineering" data-link="software-engineering.html">Software Engineering</li>
+                <li data-img="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?w=800&auto=format&fit=crop" data-text="Embedded Engineering" data-link="embedded-engineering.html">Embedded Engineering</li>
+                <li data-img="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&auto=format&fit=crop" data-text="Semiconductor Engineering" data-link="semiconductor-engineering.html">Semiconductor Engineering</li>
               </ul>
             </div>
             <div class="dropdown-group">
               <h4>Industries</h4>
               <ul>
-                <li data-img="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop" data-text="Hi-Tech">Hi-Tech</li>
-                <li data-img="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop" data-text="Automotive">Automotive</li>
-                <li data-img="https://images.unsplash.com/photo-1581090700227-4c4d47a2d1d1?w=800&auto=format&fit=crop" data-text="Semiconductor">Semiconductor</li>
+                <li data-img="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop" data-text="Hi-Tech" data-link="hi-tech.html">Hi-Tech</li>
+                <li data-img="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop" data-text="Automotive" data-link="automotive.html">Automotive</li>
+                <li data-img="https://images.unsplash.com/photo-1581090700227-4c4d47a2d1d1?w=800&auto=format&fit=crop" data-text="Semiconductor" data-link="semiconductor.html">Semiconductor</li>
               </ul>
             </div>
           </div>
@@ -510,9 +621,58 @@ html{scroll-behavior:smooth;}
           </div>
         </div>
       </div>
-      <a href="internship.html">Internships</a>
-      <a href="careers.html">Careers</a>
-      <a href="contact.html">Contact us</a>
+     
+<div class="menu-item">
+    <span>Internships ▾</span>
+
+    <div class="dropdown">
+        <div class="dropdown-left">
+
+<div class="dropdown-group">
+    <h4>Internships</h4>
+
+    <ul>
+
+        <li
+        data-img="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop"
+        data-text="Internship Overview"
+        data-link="internship.html">
+        Internship Overview
+        </li>
+
+        <li
+        data-img="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&auto=format&fit=crop"
+        data-text="Eligibility & Process"
+        data-link="internship.html#benefits">
+        Eligibility & Process
+        </li>
+
+        <li class="apply-item"
+        data-img="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop"
+        data-text="Apply for Internship"
+        data-link="apply.php">
+        🚀 Apply for Internship
+        </li>
+
+    </ul>
+</div>
+
+        </div>
+
+        <div class="dropdown-right">
+            <img id="internship-img"
+                 src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop">
+
+            <div class="dropdown-overlay" id="internship-text">
+                Internship Programs
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<a href="careers.html">Careers</a>
+<a href="contact.html">Contact us</a>
     </nav>
     <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
     <div class="actions">🌐 EN 🔍</div>
@@ -523,18 +683,38 @@ html{scroll-behavior:smooth;}
   <div class="mobile-accordion">
     <button class="mobile-title">Who we are <span>+</span></button>
     <div class="mobile-submenu">
-      <a href="#">Leadership</a><a href="#">Culture</a><a href="#">Global Presence</a>
+      <a href="about.html#leadership">Leadership</a>
+      <a href="about.html#culture">Culture</a>
+  
     </div>
   </div>
   <div class="mobile-accordion">
     <button class="mobile-title">What we do <span>+</span></button>
     <div class="mobile-submenu">
-      <a href="#">Digital Engineering</a><a href="#">Software Engineering</a>
-      <a href="#">Embedded Engineering</a><a href="#">Semiconductor Engineering</a>
-      <hr><a href="#">Hi-Tech</a><a href="#">Automotive</a><a href="#">Semiconductor</a>
+      <a href="digital-engineering.html">Digital Engineering</a>
+      <a href="software-engineering.html">Software Engineering</a>
+      <a href="embedded-engineering.html">Embedded Engineering</a>
+      <a href="semiconductor-engineering.html">Semiconductor Engineering</a>
+      <hr>
+      <a href="hi-tech.html">Hi-Tech</a>
+      <a href="automotive.html">Automotive</a>
+      <a href="semiconductor.html">Semiconductor</a>
     </div>
   </div>
-  <a href="internship.html">Internships</a>
+<div class="mobile-accordion">
+  <button class="mobile-title">Internships <span>+</span></button>
+
+  <div class="mobile-submenu">
+    <a href="internship.html">Internship overview</a>
+    <a href="internship.html#benefits">Eligibility & Process</a>
+
+    <hr>
+
+    <a href="apply.php" class="mobile-apply">
+      🚀 Apply for Internship
+    </a>
+  </div>
+</div>
   <a href="careers.html">Careers</a>
   <a href="contact.html">Contact Us</a>
 </div>
@@ -819,30 +999,30 @@ html{scroll-behavior:smooth;}
 
     <div class="ys-cta-content">
 
-        <span class="ys-cta-tag">
-            LET'S CONNECT
-        </span>
+<span class="ys-cta-tag">
+LET'S CONNECT
+</span>
 
-        <h2>
-           Have an Idea?
-            <span>Let's Build It Together.</span>
-        </h2>
+<h2>
+Ready to Build
+<span>Something Exceptional?</span>
+</h2>
 
-        <p>
-          Speak with our engineering specialists
-and discuss your project requirements.
-        </p>
+<p>
+Whether you're planning your next engineering project, looking for technology expertise or exploring partnership opportunities, we're ready to help.
+</p>
+
 <div class="ys-cta-buttons">
 
-    <a href="#" class="ys-cta-btn">
-        Start Your Project
-        <i class="fa-solid fa-arrow-right-long"></i>
-    </a>
+<a href="contact.html" class="ys-cta-btn">
+Send Your Inquiry
+<i class="fa-solid fa-arrow-right-long"></i>
+</a>
 
-    <a href="#" class="ys-cta-btn ys-cta-btn-dark">
-        Explore Services
-        <i class="fa-solid fa-arrow-right-long"></i>
-    </a>
+<a href="about.html" class="ys-cta-btn ys-cta-btn-dark">
+Learn About Us
+<i class="fa-solid fa-arrow-right-long"></i>
+</a>
 
 </div>
 

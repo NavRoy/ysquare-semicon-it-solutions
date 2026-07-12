@@ -580,80 +580,12 @@ scale(1.08);
   .impact-metric:nth-child(3){border-top:1px solid #e9edf2;padding-top:40px;}
   .impact-metric:nth-child(4){border-right:none;border-top:1px solid #e9edf2;padding-top:40px;}
   .insights-grid{grid-template-columns:1fr;}
-  .footer-top{grid-template-columns:1fr 1fr;}
   .intern-banner-inner{flex-wrap:wrap;gap:24px;}
   .intern-banner{height:auto;padding:40px 8%;}
   .intern-banner-glass{display:none;}
 }
 
-/* ====================================
-   HERO MOBILE FIX
-==================================== */
-@media (max-width:380px){
 
-.hero{
-
-    padding-top:75px;
-
-    padding-bottom:20px;
-
-}
-
-.quote-top{
-
-    margin-top:10px;
-
-}
-
-.quote h1{
-
-    font-size:54px;
-
-}
-
-.quote p{
-
-    margin-bottom:22px;
-
-}
-
-.hero-image-slider{
-
-    height:185px;
-
-    margin-top:-5px;
-
-}
-
-.hero-pagination{
-
-    margin-top:20px;
-
-}
-
-} 
-
-@media (min-width:381px) and (max-width:430px){
-
-.hero{
-
-    padding-top:82px;
-
-}
-
-.hero-image-slider{
-
-    height:205px;
-
-}
-
-.hero-pagination{
-
-    margin-top:24px;
-
-}
-
-}
 
 
 @media (min-width:431px) and (max-width:768px){
@@ -698,9 +630,8 @@ scale(1.08);
         <div class="dropdown">
           <div class="dropdown-left">
            <ul>
-              <li data-img="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&auto=format&fit=crop" data-text="Our Leadership" data-link="about.html">Leadership</li>
-              <li data-img="https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=800&auto=format&fit=crop" data-text="Our Culture" data-link="about.html">Culture</li>
-              <li data-img="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&auto=format&fit=crop" data-text="Global Presence" data-link="about.html">Global Presence</li>
+              <li data-img="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&auto=format&fit=crop" data-text="Our Leadership" data-link="about.html#leadership">Leadership</li>
+              <li data-img="https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=800&auto=format&fit=crop" data-text="Our Culture" data-link="about.html#culture">Culture</li>
             </ul>
           </div>
           <div class="dropdown-right">
@@ -736,10 +667,59 @@ scale(1.08);
             <div class="dropdown-overlay" id="service-text">Digital Engineering</div>
           </div>
         </div>
-      </div>
-      <a href="internship.html">Internships</a>
-      <a href="careers.html">Careers</a>
-      <a href="contact.html">Contact us</a>
+</div>
+
+<div class="menu-item">
+    <span>Internships ▾</span>
+
+    <div class="dropdown">
+        <div class="dropdown-left">
+
+<div class="dropdown-group">
+    <h4>Internships</h4>
+
+    <ul>
+
+        <li
+        data-img="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop"
+        data-text="Internship Overview"
+        data-link="internship.html">
+        Internship Overview
+        </li>
+
+        <li
+        data-img="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&auto=format&fit=crop"
+        data-text="Eligibility & Process"
+        data-link="internship.html#benefits">
+        Eligibility & Process
+        </li>
+
+        <li class="apply-item"
+        data-img="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop"
+        data-text="Apply for Internship"
+        data-link="apply.php">
+        🚀 Apply for Internship
+        </li>
+
+    </ul>
+</div>
+
+        </div>
+
+        <div class="dropdown-right">
+            <img id="internship-img"
+                 src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop">
+
+            <div class="dropdown-overlay" id="internship-text">
+                Internship Programs
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<a href="careers.html">Careers</a>
+<a href="contact.html">Contact us</a>
     </nav>
     <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
     <div class="actions">🌐 EN 🔍</div>
@@ -750,9 +730,9 @@ scale(1.08);
   <div class="mobile-accordion">
     <button class="mobile-title">Who we are <span>+</span></button>
     <div class="mobile-submenu">
-      <a href="#">Leadership</a>
-      <a href="#">Culture</a>
-      <a href="#">Global Presence</a>
+      <a href="about.html#leadership">Leadership</a>
+      <a href="about.html#culture">Culture</a>
+  
     </div>
   </div>
   <div class="mobile-accordion">
@@ -768,12 +748,26 @@ scale(1.08);
       <a href="semiconductor.html">Semiconductor</a>
     </div>
   </div>
-  <a href="internship.html">Internships</a>
+<div class="mobile-accordion">
+  <button class="mobile-title">Internships <span>+</span></button>
+
+  <div class="mobile-submenu">
+    <a href="internship.html">Internship overview</a>
+    <a href="internship.html#benefits">Eligibility & Process</a>
+
+    <hr>
+
+    <a href="apply.php" class="mobile-apply">
+      🚀 Apply for Internship
+    </a>
+  </div>
+</div>
   <a href="careers.html">Careers</a>
   <a href="contact.html">Contact Us</a>
 </div>
 
 <style>
+
  .hero-internship-card{
     position:absolute;
     right:7%;
@@ -1078,100 +1072,31 @@ box-shadow:0 15px 45px rgba(14,165,233,.45);
 
 }
 
-@media (max-width:768px){
+@media (max-width:360px){
 
 .hero{
 
-    justify-content:flex-start;
-    padding-top:78px;
-    padding-bottom:25px;
+padding-top:76px;
 
 }
 
-.hero-slider{
+.hero-image-slider{
 
-    gap:22px;
-    padding-top:0;
-    height:auto;
+max-width:280px;
 
-}
-
-.hero-left{
-
-    margin-bottom:0;
-
-}
-
-.quote-top{
-
-    margin-top:0;
-    margin-bottom:16px;
+height:180px;
 
 }
 
 .quote h1{
 
-    font-size:52px;
-    line-height:1.05;
-    margin-bottom:18px;
+font-size:42px;
 
 }
 
 .quote p{
 
-    margin:0 auto 20px;
-    font-size:16px;
-    line-height:1.65;
-
-}
-
-.hero-btn{
-
-    height:54px;
-
-}
-
-.hero-pagination{
-
-    margin-top:20px;
-
-}
-
-.hero-right{
-
-    margin-top:-10px;
-
-}
-
-.hero-image-slider{
-
-    width:100%;
-    max-width:310px;
-    height:180px;
-    margin:0 auto;
-
-}
-
-}
-
-@media (max-width:380px){
-
-.hero{
-
-    padding-top:72px;
-
-}
-
-.quote h1{
-
-    font-size:46px;
-
-}
-
-.hero-image-slider{
-
-    max-width:290px;
-    height:165px;
+font-size:15px;
 
 }
 
@@ -1217,7 +1142,7 @@ opacity:0;
 transform:translateY(40px);
 max-width:650px;
 
-min-height:430px;
+min-height:auto;
 
 }
 
@@ -1422,7 +1347,6 @@ transform:scale(1.12);
 
 }
 
-}
 
 .quote h1 span{
 
@@ -1677,7 +1601,7 @@ transform:translateY(-10px);
 
 grid-template-columns:1fr;
 
-gap:50px;
+gap:16px;
 
 text-align:center;
 
@@ -1686,6 +1610,9 @@ padding-top:0;
 padding-bottom:20px;
 
 width:92%;
+
+align-content:start;
+
 }
 
 .hero-left{
@@ -1693,16 +1620,18 @@ width:92%;
 order:1;
 
 max-width:100%;
+padding-top:30px;
 
 }
 
 .hero-right{
 
-margin-top:0;
-min-height:190px;
+margin:0;
+min-height:auto;
 display:flex;
 justify-content:center;
-align-items:flex-start;
+align-items:center;
+padding-top:30px;
 
 }
 
@@ -1710,25 +1639,34 @@ align-items:flex-start;
 
 width:100%;
 
-max-width:290px;
+max-width:300px;
 
-height:170px;
+height:195px;
 
 margin:auto;
+margin-top:8px;
 
 }
 
 .quote h1{
 
 font-size:48px;
-line-height:1;
+line-height:1.03;
+letter-spacing:-2px;
 
 }
 
 .quote p{
 
-min-height:95px;
-margin:18px auto 24px;
+font-size:15px;
+
+line-height:1.7;
+
+max-width:310px;
+
+margin:14px auto 18px;
+
+min-height:auto;
 
 }
 
@@ -1736,33 +1674,7 @@ margin:18px auto 24px;
 
 justify-content:center;
 
-}
-
-.hero-btn{
-margin-top:auto;
-}
-
-}
-
-@media(max-width:576px){
-
-.quote h1{
-
-font-size:52px;
-
-line-height:1.05;
-
-letter-spacing:-2px;
-
-margin-bottom:22px;
-
-}
-
-.hero-image-slider{
-
-height:220px;
-
-margin-top:10px;
+margin-top:18px;
 
 }
 
@@ -1770,41 +1682,104 @@ margin-top:10px;
 
 width:100%;
 
+max-width:320px;
+
+height:56px;
+
+margin:8px auto 0;
+
 justify-content:center;
 
 }
 
 }
 
-@media (max-width: 768px){
+
+
+/* Samsung Galaxy S20 Ultra & similar 412px devices */
+@media only screen
+and (min-width:400px)
+and (max-width:430px)
+and (min-height:880px){
 
 .hero-right{
-    width:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    padding-top:140px;      /* adjust 70-90px if needed */
+}
+
+.hero-left{
+    padding-top:55px;      /* adjust 50-70px if needed */
 }
 
 .hero-image-slider{
-    width:100%;
-    max-width:320px;
-    height:260px;      /* Increased height */
-    overflow:hidden;
-    border-radius:24px;
-    margin:20px auto 0;
+    margin-top:0;
 }
 
-.hero-image-slider img,
-.image-slide img{
-    width:100%;
-    height:100%;
-    object-fit:cover;   /* Keeps image filling nicely */
-    object-position:center center;
-    display:block;
+.hero-pagination{
+    margin-top:16px;
 }
 
-.image-slide{
-    height:100%;
+}
+
+/* iPhone 12 Pro / 390px devices */
+@media only screen
+and (min-width:381px)
+and (max-width:399px){
+
+.hero-left{
+    padding-top:42px;
+}
+
+.hero-right{
+    padding-top:130px;
+}
+
+.hero-pagination{
+    margin-top:18px;
+}
+
+}
+
+/* iPhone SE / 375px */
+@media only screen
+and (min-width:361px)
+and (max-width:380px){
+
+.hero-left{
+    padding-top:0px;
+}
+
+.hero-right{
+    padding-top:90px;
+}
+
+.hero-image-slider{
+    max-width:290px;
+    height:170px;
+}
+
+.quote h1{
+    font-size:44px;
+    line-height:1.02;
+    margin-bottom:18px;
+}
+
+.quote p{
+    font-size:15px;
+    line-height:1.65;
+    margin:12px auto 18px;
+}
+
+.hero-btn{
+    height:54px;
+    max-width:300px;
+}
+
+.hero-pagination{
+    margin-top:16px;
+}
+
+.scroll-indicator{
+    bottom:18px;
 }
 
 }
@@ -1862,9 +1837,9 @@ Semiconductor Engineering
 
 <h1>
 
-Designing
+Future
 
-<span>Future Silicon.</span>
+<span> Silicon.</span>
 
 </h1>
 
@@ -5937,32 +5912,30 @@ TOP & BOTTOM FADE
 
     <div class="ys-cta-content">
 
-        <span class="ys-cta-tag">
-            LET'S BUILD TOGETHER
-        </span>
+       <span class="ys-cta-tag">
+BUILD THE FUTURE WITH US
+</span>
 
-        <h2>
-            Ready to Engineer
-            <span>Tomorrow's Innovation?</span>
-        </h2>
+<h2>
+Engineering Tomorrow.
+<span>Transforming Industries Today.</span>
+</h2>
 
-        <p>
-            Partner with YSQUARE to accelerate semiconductor,
-            embedded systems and software engineering projects
-            with world-class expertise.
-        </p>
+<p>
+Partner with YSQUARE to accelerate digital transformation through engineering excellence, innovation and next-generation technology solutions.
+</p>
 
 <div class="ys-cta-buttons">
 
-    <a href="#" class="ys-cta-btn">
-        Start Your Project
-        <i class="fa-solid fa-arrow-right-long"></i>
-    </a>
+<a href="contact.html" class="ys-cta-btn">
+Start Your Project
+<i class="fa-solid fa-arrow-right-long"></i>
+</a>
 
-    <a href="#" class="ys-cta-btn ys-cta-btn-dark">
-        Explore Services
-        <i class="fa-solid fa-arrow-right-long"></i>
-    </a>
+<a href="about.html" class="ys-cta-btn ys-cta-btn-dark">
+Discover YSQUARE
+<i class="fa-solid fa-arrow-right-long"></i>
+</a>
 
 </div>
 

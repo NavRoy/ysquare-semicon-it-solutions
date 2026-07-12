@@ -3,149 +3,2366 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Coming Soon</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+<title>Semiconductor Industry – YSQUARE Semicon IT Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+/* ─── RESET ────────────────────────────── */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+body{background:#fff;overflow-x:hidden;}
+:root{
+  --primary:#0ea5e9;
+  --primary-dark:#0369a1;
+  --dark:#0a0f1e;
+  --muted:#64748b;
+}
+html{scroll-behavior:smooth;}
+::selection{background:#0ea5e9;color:#fff;}
+
+/* ─── SCROLL PROGRESS ──────────────────── */
+#scrollProgress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#0ea5e9,#38bdf8);z-index:99999;transition:width .1s linear;}
+
+/* ─── TOP BREADCRUMB STRIP ─────────────── */
+.hero-top-strip{
+  position:fixed;top:110px;left:0;right:0;z-index:998;
+  background:#0b3a75;height:42px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5%;border-bottom:1px solid rgba(255,255,255,.07);
+}
+.hts-back{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s;letter-spacing:.3px;}
+.hts-back:hover{color:#fff;}
+.hts-breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.45);font-weight:500;letter-spacing:.3px;}
+.hts-breadcrumb a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s;}
+.hts-breadcrumb a:hover{color:#38bdf8;}
+.hts-sep{color:rgba(255,255,255,.2);font-size:10px;}
+.hts-active{color:#38bdf8;font-weight:600;}
+.hts-actions{display:flex;align-items:center;gap:4px;}
+.hts-icon{width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:none;border:none;border-radius:5px;color:rgba(255,255,255,.5);cursor:pointer;transition:.2s;}
+.hts-icon:hover{color:#fff;background:rgba(255,255,255,.08);}
+
+/* ─── ABOUT HERO ────────────────────────── */
+.about-hero23{
+  position:relative;height:480px;
+  margin-top:132px;overflow:hidden;
+}
+.about-hero23 img{width:100%;height:100%;object-fit:cover;animation:heroZoom 15s ease-in-out infinite alternate;}
+@keyframes heroZoom{from{transform:scale(1);}to{transform:scale(1.06);}}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(2,6,23,.95) 0%,rgba(2,6,23,.82) 35%,rgba(2,6,23,.45) 70%,rgba(2,6,23,.2) 100%),linear-gradient(180deg,rgba(14,165,233,.08),transparent 40%);
+}
+.hero-glow-a{
+  position:absolute;left:-150px;top:-100px;
+  width:600px;height:600px;
+  background:radial-gradient(circle,rgba(14,165,233,.2),transparent 65%);
+  pointer-events:none;z-index:2;
+  animation:floatGlow 8s ease-in-out infinite;
+}
+@keyframes floatGlow{0%{transform:translateY(0);}50%{transform:translateY(-30px);}100%{transform:translateY(0);}}
+.hero-content{
+  position:absolute;left:5%;top:50%;transform:translateY(-50%);
+  max-width:640px;z-index:5;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:11px;font-weight:700;letter-spacing:2.5px;color:#38bdf8;
+  text-transform:uppercase;margin-bottom:20px;
+}
+.hero-eyebrow::before{content:"";display:block;width:28px;height:1.5px;background:#38bdf8;}
+.hero-accent{width:72px;height:3px;background:linear-gradient(90deg,#0ea5e9,transparent);margin-bottom:24px;}
+.hero-content h1{font-size:72px;line-height:.9;letter-spacing:-4px;font-weight:900;color:#fff;margin-bottom:22px;text-shadow:0 10px 40px rgba(0,0,0,.35);}
+.hero-content h1 span{color:#38bdf8;}
+.hero-content p{font-size:17px;line-height:1.8;color:rgba(255,255,255,.72);max-width:560px;}
+
+/* ─── STICKY BOTTOM NAV ─────────────────── */
+.hero-bottom-nav{
+  position:sticky;top:132px;z-index:997;
+  background:rgba(8,22,49,.88);backdrop-filter:blur(16px);
+  display:flex;align-items:center;justify-content:center;
+  border-top:2px solid rgba(255,255,255,.06);
+  border-bottom:1px solid rgba(0,0,0,.15);
+  box-shadow:0 4px 20px rgba(0,0,0,.2);
+}
+.hbn-link{
+  padding:0 36px;height:52px;
+  display:flex;align-items:center;
+  font-size:13px;font-weight:700;color:rgba(255,255,255,.78);
+  text-decoration:none;letter-spacing:.3px;
+  border-right:1px solid rgba(255,255,255,.12);
+  transition:.25s;position:relative;white-space:nowrap;
+}
+.hbn-link:first-child{border-left:1px solid rgba(255,255,255,.12);}
+.hbn-link:hover{color:#fff;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));}
+.hbn-link.active{color:#fff;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));}
+.hbn-link.active::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:#38bdf8;}
+
+/* ─── SHARED ATOMS ──────────────────────── */
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:2.5px;color:var(--primary);text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:"";display:block;width:22px;height:1.5px;background:var(--primary);}
+.eyebrow.light{color:#38bdf8;}
+.eyebrow.light::before{background:#38bdf8;}
+
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .85s ease,transform .85s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-left{opacity:0;transform:translateX(-60px);transition:opacity .85s ease,transform .85s ease;}
+.reveal-left.visible{opacity:1;transform:translateX(0);}
+.reveal-right{opacity:0;transform:translateX(60px);transition:opacity .85s ease,transform .85s ease;}
+.reveal-right.visible{opacity:1;transform:translateX(0);}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}
+
+/* ─── DIVIDER ───────────────────────────── */
+.premium-divider{
+  height:1px;background:linear-gradient(90deg,transparent,#e2e8f0 20%,#e2e8f0 80%,transparent);
+  margin:0;
 }
 
-body{
-    min-height:100vh;
+
+#heroImage{
+
+transition:
+
+opacity .8s ease,
+transform 6s ease;
+
+}
+
+#heroImage.fade{
+
+opacity:0;
+
+transform:scale(1.08);
+
+}
+
+#heroTitle,
+#heroDesc,
+#heroEyebrow{
+
+transition:
+
+opacity .45s ease,
+transform .45s ease;
+
+}
+
+.hero-change{
+
+opacity:0;
+
+transform:translateY(12px);
+
+}
+
+/* ─── RESPONSIVE ──────────────────────────── */
+/* ===============================
+   1200px
+================================*/
+@media (max-width:1200px){
+
+.container{
+    padding:0 35px;
+}
+
+.hero-content h1{
+    font-size:58px;
+}
+
+.who-grid,
+.impact-layout{
+    grid-template-columns:1fr;
+    gap:70px;
+}
+
+.vm-grid{
+    grid-template-columns:1fr;
+}
+
+.footer-top{
+    grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+
+/* ===============================
+   992px
+================================*/
+
+@media (max-width:992px){
+
+.menu{
+    display:none;
+}
+
+.actions{
+    display:none;
+}
+
+.hamburger{
     display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
-    overflow:hidden;
 }
 
-body::before,
-body::after{
-    content:"";
-    position:absolute;
-    border-radius:50%;
-    filter:blur(120px);
-    opacity:.25;
+.container{
+    padding:0 25px;
 }
 
-body::before{
-    width:350px;
-    height:350px;
-    background:#00d4ff;
-    top:-120px;
-    left:-100px;
-}
-
-body::after{
-    width:400px;
-    height:400px;
-    background:#38bdf8;
-    bottom:-150px;
-    right:-120px;
-}
-
-.card{
-    position:relative;
-    z-index:2;
-    width:90%;
-    max-width:700px;
-    background:rgba(255,255,255,.08);
-    backdrop-filter:blur(20px);
-    border:1px solid rgba(255,255,255,.15);
-    border-radius:24px;
-    padding:60px 40px;
-    text-align:center;
-    box-shadow:0 20px 50px rgba(0,0,0,.35);
-}
-
-.icon{
-    font-size:70px;
-    margin-bottom:20px;
-}
-
-h1{
-    color:#fff;
+.hero-content h1{
     font-size:48px;
-    margin-bottom:15px;
 }
 
-h3{
-    color:#8fd3ff;
-    font-weight:500;
-    margin-bottom:25px;
-}
-
-p{
-    color:#dbeafe;
-    line-height:1.8;
-    font-size:17px;
-    margin-bottom:35px;
-}
-
-.btn{
-    display:inline-block;
-    text-decoration:none;
-    background:#fff;
-    color:#1e3a8a;
-    padding:15px 35px;
-    border-radius:50px;
-    font-weight:600;
-    transition:.3s;
-}
-
-.btn:hover{
-    transform:translateY(-4px);
-    box-shadow:0 15px 30px rgba(255,255,255,.25);
-}
-
-@media(max-width:768px){
-
-.card{
-    padding:40px 25px;
-}
-
-h1{
-    font-size:36px;
-}
-
-h3{
-    font-size:20px;
-}
-
-p{
+.hero-content p{
     font-size:15px;
 }
 
+.who-left h2,
+.vm-header h2,
+.eco-header h2,
+.values-header h2,
+.why-header h2{
+    font-size:42px;
 }
+
+.footer-top{
+    grid-template-columns:1fr;
+}
+
+}
+
+
+/* ===============================
+   768px
+================================*/
+
+@media (max-width:768px){
+
+.header{
+    height:90px;
+}
+
+.hero-top-strip{
+
+    top:90px;
+    height:42px;
+}
+
+.about-hero23{
+
+    margin-top:132px;
+    height:280px;
+}
+
+.hero-content{
+
+    left:20px;
+    right:20px;
+}
+
+.hero-content h1{
+
+    font-size:36px;
+}
+
+.hero-content p{
+
+    font-size:14px;
+    max-width:100%;
+}
+
+/* IMPORTANT */
+
+.hero-bottom-nav{
+
+    position:sticky;
+    top:132px;
+
+    overflow-x:auto;
+    overflow-y:hidden;
+
+    justify-content:flex-start;
+
+    white-space:nowrap;
+
+    -webkit-overflow-scrolling:touch;
+
+    scrollbar-width:none;
+}
+
+.hero-bottom-nav::-webkit-scrollbar{
+
+    display:none;
+}
+
+.hbn-link{
+
+    flex:0 0 auto;
+
+    padding:0 22px;
+
+    height:52px;
+
+    font-size:13px;
+}
+
+.who-section,
+.ecosystem-section,
+.vm-section,
+.why-section,
+.values-section,
+.impact-section{
+
+    padding:70px 20px;
+}
+
+.who-left h2,
+.vm-header h2,
+.eco-header h2,
+.values-header h2,
+.why-header h2{
+
+    font-size:32px;
+}
+
+.who-img-wrap{
+
+    height:320px;
+}
+
+.chip-diagram{
+
+    width:320px;
+    height:320px;
+}
+
+.chip-center{
+
+    width:100px;
+    height:100px;
+}
+
+.eco-node{
+
+    width:95px;
+    height:55px;
+}
+
+.vm-panel{
+
+    padding:35px 25px;
+}
+
+.vm-panel h3{
+
+    font-size:28px;
+}
+
+.why-blocks{
+
+    grid-template-columns:1fr;
+}
+
+.values-track{
+
+    grid-template-columns:1fr;
+}
+
+.footer-bottom{
+
+    flex-direction:column;
+}
+
+}
+
+
+/* ===============================
+   576px
+================================*/
+
+@media (max-width:576px){
+
+.logo img{
+
+    height:50px;
+}
+
+.hero-content h1{
+
+    font-size:30px;
+}
+
+.hero-content p{
+
+    font-size:13px;
+}
+
+.hero-bottom-nav{
+
+    top:132px;
+}
+
+.hbn-link{
+
+    font-size:12px;
+
+    padding:0 18px;
+}
+
+.who-left h2{
+
+    font-size:28px;
+}
+
+.vm-header h2,
+.eco-header h2,
+.values-header h2,
+.why-header h2{
+
+    font-size:28px;
+}
+
+.cta-glass{
+
+    padding:40px 20px;
+}
+
+.cta-glass h2{
+
+    font-size:30px;
+}
+
+}
+
+
+/* ===============================
+   400px
+================================*/
+
+@media (max-width:400px){
+
+.hero-content h1{
+
+    font-size:26px;
+}
+
+.hero-content p{
+
+    font-size:12px;
+}
+
+.hbn-link{
+
+    padding:0 16px;
+
+    font-size:11px;
+}
+
+.logo img{
+
+    height:42px;
+}
+
+}
+
+
 </style>
-
 </head>
-
 <body>
 
-<div class="card">
+<div id="scrollProgress"></div>
 
-<div class="icon">🚀</div>
+<!-- ═══════ HEADER (UNTOUCHED) ═══════ -->
+<header class="header" id="header">
+  <div class="container nav">
+        <div class="logo">
+    <a href="index.html">
+        <img src="images/ysquare-logo.png" alt="YSQUARE Semicon">
+    </a>
+</div>
+    <nav class="menu">
+      <div class="menu-item">
+        <span>Who we are ▾</span>
+        <div class="dropdown">
+          <div class="dropdown-left">
+            <ul>
+              <li data-img="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&auto=format&fit=crop" data-text="Our Leadership" data-link="about.html">Leadership</li>
+              <li data-img="https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=800&auto=format&fit=crop" data-text="Our Culture" data-link="about.html">Culture</li>
+              <li data-img="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&auto=format&fit=crop" data-text="Global Presence" data-link="about.html">Global Presence</li>
+            </ul>
+          </div>
+          <div class="dropdown-right">
+            <img id="who-img" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&auto=format&fit=crop">
+            <div class="dropdown-overlay" id="who-text">Our Leadership</div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <span>What we do ▾</span>
+        <div class="dropdown">
+          <div class="dropdown-left">
+            <div class="dropdown-group">
+               <h4>Engineering Services</h4>
+              <ul>
+                <li data-img="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop" data-text="Digital Engineering" data-link="digital-engineering.html">Digital Engineering</li>
+                <li data-img="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&auto=format&fit=crop" data-text="Software Engineering" data-link="software-engineering.html">Software Engineering</li>
+                <li data-img="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?w=800&auto=format&fit=crop" data-text="Embedded Engineering" data-link="embedded-engineering.html">Embedded Engineering</li>
+                <li data-img="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&auto=format&fit=crop" data-text="Semiconductor Engineering" data-link="semiconductor-engineering.html">Semiconductor Engineering</li>
+              </ul>
+            </div>
+            <div class="dropdown-group">
+              <h4>Industries</h4>
+              <ul>
+                <li data-img="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop" data-text="Hi-Tech" data-link="hi-tech.html">Hi-Tech</li>
+                <li data-img="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop" data-text="Automotive" data-link="automotive.html">Automotive</li>
+                <li data-img="https://images.unsplash.com/photo-1581090700227-4c4d47a2d1d1?w=800&auto=format&fit=crop" data-text="Semiconductor" data-link="semiconductor.html">Semiconductor</li>
+              </ul>
+            </div>
+          </div>
+          <div class="dropdown-right">
+            <img id="service-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop">
+            <div class="dropdown-overlay" id="service-text">Digital Engineering</div>
+          </div>
+        </div>
+      </div>
+     
+<div class="menu-item">
+    <span>Internships ▾</span>
 
-<h1>Coming Soon</h1>
+    <div class="dropdown">
+        <div class="dropdown-left">
 
-<h3>We're Working on Something Amazing</h3>
+<div class="dropdown-group">
+    <h4>Internships</h4>
+
+    <ul>
+
+        <li
+        data-img="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop"
+        data-text="Internship Overview"
+        data-link="internship.html">
+        Internship Overview
+        </li>
+
+        <li
+        data-img="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&auto=format&fit=crop"
+        data-text="Eligibility & Process"
+        data-link="internship.html#benefits">
+        Eligibility & Process
+        </li>
+
+        <li class="apply-item"
+        data-img="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop"
+        data-text="Apply for Internship"
+        data-link="apply.php">
+        🚀 Apply for Internship
+        </li>
+
+    </ul>
+</div>
+
+        </div>
+
+        <div class="dropdown-right">
+            <img id="internship-img"
+                 src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop">
+
+            <div class="dropdown-overlay" id="internship-text">
+                Internship Programs
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<a href="careers.html">Careers</a>
+<a href="contact.html">Contact us</a>
+    </nav>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    <div class="actions">🌐 EN 🔍</div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-accordion">
+    <button class="mobile-title">Who we are <span>+</span></button>
+    <div class="mobile-submenu">
+      <a href="about.html#leadership">Leadership</a>
+      <a href="about.html#culture">Culture</a>
+  
+    </div>
+  </div>
+  <div class="mobile-accordion">
+    <button class="mobile-title">What we do <span>+</span></button>
+    <div class="mobile-submenu">
+      <a href="digital-engineering.html">Digital Engineering</a>
+      <a href="software-engineering.html">Software Engineering</a>
+      <a href="embedded-engineering.html">Embedded Engineering</a>
+      <a href="semiconductor-engineering.html">Semiconductor Engineering</a>
+      <hr>
+      <a href="hi-tech.html">Hi-Tech</a>
+      <a href="automotive.html">Automotive</a>
+      <a href="semiconductor.html">Semiconductor</a>
+    </div>
+  </div>
+<div class="mobile-accordion">
+  <button class="mobile-title">Internships <span>+</span></button>
+
+  <div class="mobile-submenu">
+    <a href="internship.html">Internship overview</a>
+    <a href="internship.html#benefits">Eligibility & Process</a>
+
+    <hr>
+
+    <a href="apply.php" class="mobile-apply">
+      🚀 Apply for Internship
+    </a>
+  </div>
+</div>
+  <a href="careers.html">Careers</a>
+  <a href="contact.html">Contact Us</a>
+</div>
+<!-- ═══════ BREADCRUMB STRIP ═══════ -->
+<div class="hero-top-strip">
+  <a class="hts-back" href="/">
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    Home
+  </a>
+  <div class="hts-breadcrumb">
+    <a href="/">Home</a>
+    <span class="hts-sep">/</span>
+    <span class="hts-active">Semiconductor Industry</span>
+  </div>
+  <div class="hts-actions">
+    <button class="hts-icon" aria-label="Share">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ═══════ ABOUT HERO ═══════ -->
+<section class="about-hero23">
+
+    <img
+        id="heroImage"
+        src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=80"
+        alt="Semiconductor Manufacturing Technology">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-glow-a"></div>
+
+    <div class="hero-content">
+
+        <div class="hero-eyebrow" id="heroEyebrow">
+            SEMICONDUCTOR INDUSTRY
+        </div>
+
+        <div class="hero-accent"></div>
+
+        <h1 id="heroTitle">
+
+            Powering the Future of
+            <br>
+
+            <span>Semiconductor Innovation.</span>
+
+        </h1>
+
+        <p id="heroDesc">
+
+            We help semiconductor leaders accelerate silicon design, verification, packaging, and manufacturing through engineering excellence, intelligent automation, and scalable delivery models.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ═══════ STICKY BOTTOM NAV ═══════ -->
+<nav class="hero-bottom-nav" id="heroBottomNav">
+    <a href="#overview" class="hbn-link active">Overview</a>
+    <a href="#focus-area" class="hbn-link">Core Focus Areas</a>
+    <a href="#capabilities" class="hbn-link">Capabilities</a>
+    <a href="#solutions" class="hbn-link">Solutions</a>
+    <a href="#cta" class="hbn-link">Get Started</a>
+</nav>
+
+
+
+<!-- =====================================================
+EXPLORE SEMICONDUCTOR ENGINEERING
+===================================================== -->
+
+<section class="explore-section" id="overview">
+
+    <div class="explore-container">
+
+        <div class="explore-header">
+
+            <span class="explore-tag">
+                Explore Semiconductor Engineering
+            </span>
+
+            <h2>
+
+                Engineering the
+                <span>Next Silicon Wave.</span>
+
+            </h2>
 
 <p>
-This page is currently under development as we work to deliver an exceptional experience.
-We're adding exciting content, enhanced features, and valuable information.
-Please check back soon to see what's new.
+
+YSQUARE supports semiconductor companies across chip design, verification, packaging, validation, and manufacturing operations with engineering teams that blend domain expertise, advanced tooling, and rapid execution. From RTL to post-silicon validation, we help customers deliver reliable, scalable, and high-performance semiconductor solutions for a connected world.
+
 </p>
 
-<a href="index.html" class="btn">← Back to Home</a>
+        </div>
+
+        <div class="explore-grid">
+
+            <div class="explore-card">
+
+                <img
+                src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=900&q=80"
+                alt="Semiconductor Design">
+
+                <div class="explore-overlay"></div>
+
+                <div class="explore-content">
+
+                    <div class="explore-icon">
+
+                        <i class="fa-solid fa-microchip"></i>
+
+                    </div>
+                    
+
+                    <h3>
+
+                        Accelerate Silicon
+                        <br>
+                        Innovation
+
+                    </h3>
+
+                    <div class="explore-line"></div>
+
+                    <p>
+
+                        Unlock faster chip development cycles with end-to-end support for RTL, verification, physical design, and system validation.
+
+                    </p>
+
+                    <a href="#capabilities" class="explore-btn">
+
+                        Explore Capabilities
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="explore-card">
+
+                <img
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80"
+                alt="Semiconductor Manufacturing">
+
+                <div class="explore-overlay"></div>
+
+                <div class="explore-content">
+
+                    <div class="explore-icon">
+
+                        <i class="fa-solid fa-diagram-project"></i>
+
+                    </div>
+
+                    <h3>
+
+                        End-to-End
+                        <br>
+                        Semiconductor Solutions
+
+                    </h3>
+
+                    <div class="explore-line"></div>
+
+                    <p>
+
+                        From design-for-manufacturing to validation and test engineering, we support every stage of the silicon lifecycle.
+
+                    </p>
+
+                    <a href="#focus-area" class="explore-btn">
+
+                        View Solutions
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+    
+</style>
+
+
+<!-- ==========================================
+CORE FOCUS AREAS
+========================================== -->
+
+<section class="focus-section" id="focus-area">
+
+<div class="focus-container">
+
+<div class="focus-heading">
+
+<span class="focus-tag">
+Core Focus Areas
+</span>
+
+<h2>
+
+Engineering Expertise Across
+<span>Semiconductor Innovation.</span>
+
+</h2>
+
+<p>
+
+Discover how YSQUARE enables semiconductor companies to scale design, verification, validation, and manufacturing excellence across the silicon lifecycle.
+
+</p>
 
 </div>
 
+<!-- Tabs -->
+
+
+
+<div class="focus-tabs">
+
+<button class="focus-tab active" data-tab="0">
+Design
+<span class="focus-progress"></span>
+</button>
+
+<button class="focus-tab" data-tab="1">
+Verification
+<span class="focus-progress"></span>
+</button>
+
+<button class="focus-tab" data-tab="2">
+Packaging
+<span class="focus-progress"></span>
+</button>
+
+<button class="focus-tab" data-tab="3">
+Manufacturing
+<span class="focus-progress"></span>
+</button>
+
+<button class="focus-tab" data-tab="4">
+Embedded
+<span class="focus-progress"></span>
+</button>
+
+<button class="focus-tab" data-tab="5">
+AI Systems
+<span class="focus-progress"></span>
+</button>
+
+
+
+</div>
+
+<!-- Content -->
+
+<div class="focus-content">
+
+<div class="focus-left">
+
+<h3 id="focusTitle">
+
+Semiconductor Design & Verification
+
+</h3>
+
+<p id="focusDesc">
+
+Accelerating silicon innovation through advanced chip architecture, design-for-test, verification, and engineering solutions for semiconductor leaders.
+
+</p>
+
+<ul id="focusList">
+
+<li>RTL Design & Verification</li>
+
+<li>Physical Design</li>
+
+<li>ASIC / FPGA Engineering</li>
+
+<li>Post-Silicon Validation</li>
+
+</ul>
+
+<a href="#" class="focus-link">
+
+Explore Capability
+
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+
+<path d="M5 12H19M19 12L13 6M19 12L13 18"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+stroke-linejoin="round"/>
+
+</svg>
+
+</a>
+
+</div>
+
+<div class="focus-right">
+
+<img
+
+id="focusImage"
+
+src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=900&q=80"
+
+alt="Semiconductor Engineering"
+
+>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<style>
+    
+</style>
+
+<script>
+
+  /*=========================================
+CORE FOCUS AREAS
+=========================================*/
+
+const focusData = [
+
+{
+title:"Semiconductor Design & Verification",
+
+desc:"Accelerating silicon innovation through advanced chip architecture, verification, and engineering solutions for semiconductor leaders.",
+
+image:"https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=900&q=80",
+
+list:[
+"RTL Design & Verification",
+"Physical Design",
+"ASIC / FPGA Engineering",
+"Post-Silicon Validation"
+]
+
+},
+
+{
+title:"Design-for-Test & Validation",
+
+desc:"Creating robust validation strategies to improve yield, reliability, and time-to-market for complex semiconductor products.",
+
+image:"https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=900&q=80",
+
+list:[
+"DFT Strategy",
+"Validation Engineering",
+"Test Automation",
+"Quality Assurance"
+]
+
+},
+
+{
+title:"Packaging & Assembly Engineering",
+
+desc:"Delivering packaging, assembly, and reliability engineering support for advanced chip solutions and next-generation electronics.",
+
+image:"https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=900&q=80",
+
+list:[
+"Packaging Design",
+"Thermal Analysis",
+"Reliability Testing",
+"Assembly Support"
+]
+
+},
+
+{
+title:"Manufacturing Engineering",
+
+desc:"Supporting semiconductor manufacturing with process optimization, yield improvement, and intelligent factory engineering programs.",
+
+image:"https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=900&q=80",
+
+list:[
+"Process Optimization",
+"Yield Improvement",
+"Factory Automation",
+"Manufacturing Analytics"
+]
+
+},
+
+{
+title:"Embedded Electronics",
+
+desc:"Bridging semiconductor innovation with embedded software, firmware, and connected device platforms for smart electronics.",
+
+image:"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80",
+
+list:[
+"Firmware Development",
+"Embedded Linux",
+"RTOS Integration",
+"Device Drivers"
+]
+
+},
+
+{
+title:"AI-Ready Semiconductor Systems",
+
+desc:"Enabling intelligent edge and AI systems through semiconductor engineering tailored for accelerated computing and smart devices.",
+
+image:"https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=80",
+
+list:[
+"AI Hardware Acceleration",
+"Edge Computing",
+"System Integration",
+"Performance Tuning"
+]
+
+}
+
+];
+
+/*--------------------------------*/
+const tabs = document.querySelectorAll(".focus-tab");
+
+const title = document.getElementById("focusTitle");
+
+const desc = document.getElementById("focusDesc");
+
+const list = document.getElementById("focusList");
+
+const image = document.getElementById("focusImage");
+
+const section = document.querySelector(".focus-section");
+
+let current = 0;
+
+let timer = null;
+
+/*========================*/
+
+function restartProgress(){
+
+tabs.forEach(tab=>{
+
+const p=tab.querySelector(".focus-progress");
+
+p.style.animation="none";
+
+void p.offsetWidth;
+
+});
+
+const active=tabs[current].querySelector(".focus-progress");
+
+active.style.animation="focusProgress 6s linear forwards";
+
+}
+
+/*========================*/
+
+function changeFocus(index){
+
+const item=focusData[index];
+
+title.style.opacity="0";
+
+desc.style.opacity="0";
+
+list.style.opacity="0";
+
+image.style.opacity="0";
+
+image.style.transform="scale(1.05)";
+
+setTimeout(()=>{
+
+title.innerHTML=item.title;
+
+desc.innerHTML=item.desc;
+
+list.innerHTML=item.list
+.map(x=>`<li>${x}</li>`)
+.join("");
+
+image.src=item.image;
+
+title.style.opacity="1";
+
+desc.style.opacity="1";
+
+list.style.opacity="1";
+
+image.style.opacity="1";
+
+image.style.transform="scale(1)";
+
+},250);
+
+tabs.forEach(btn=>btn.classList.remove("active"));
+
+tabs[index].classList.add("active");
+
+current=index;
+
+clearTimeout(timer);
+startAuto();
+
+restartProgress();
+
+}
+
+/*========================*/
+
+function nextSlide(){
+
+let next=current+1;
+
+if(next>=focusData.length){
+
+next=0;
+
+}
+
+changeFocus(next);
+
+startAuto();
+
+}
+
+/*========================*/
+
+function startAuto(){
+
+if(timer){
+    clearTimeout(timer);
+}
+
+timer = setTimeout(() => {
+    nextSlide();
+},6000);
+
+}
+
+/*========================*/
+
+tabs.forEach((tab,index)=>{
+
+tab.addEventListener("click",()=>{
+
+changeFocus(index);
+
+startAuto();
+
+});
+
+});
+
+/*========================*/
+
+section.addEventListener("mouseenter",()=>{
+
+clearTimeout(timer);
+
+});
+
+section.addEventListener("mouseleave",()=>{
+
+startAuto();
+
+});
+
+/*========================*/
+
+title.style.transition=".35s";
+
+desc.style.transition=".35s";
+
+list.style.transition=".35s";
+
+image.style.transition=".45s";
+
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+        changeFocus(0);
+
+    },300);
+
+});
+
+</script>
+
+
+
+
+<section class="ys-focus-section" id="capabilities" aria-labelledby="ys-focus-heading">
+
+    <div class="ys-focus-container">
+
+        <!-- Heading -->
+
+<div class="ys-focus-header">
+
+  <span class="ys-focus-tag">
+    ENGINEERING CAPABILITIES
+</span>
+
+<h2>
+    Engineering Excellence Across
+    <span>The Semiconductor Value Chain</span>
+</h2>
+
+</div>
+
+        <!-- Capability 01 -->
+
+        <div class="ys-focus-item active">
+
+            <button class="ys-focus-trigger">
+
+                <div class="ys-focus-title">
+
+                    <span class="ys-focus-count">01</span>
+
+                    <div>
+
+                     <h3>Chip Design Engineering</h3>
+
+<p>
+Accelerating silicon innovation from architecture to commercialization.
+</p>
+
+                    </div>
+
+                </div>
+
+                <span class="ys-focus-icon">
+                    <i class="fa-solid fa-plus"></i>
+                </span>
+
+            </button>
+
+            <div class="ys-focus-content">
+
+                <div class="ys-focus-text">
+
+                  <p>
+
+Deliver end-to-end semiconductor engineering services that transform silicon concepts into market-ready solutions. Our multidisciplinary teams accelerate chip development, improve quality and reduce time-to-market across the full product lifecycle.
+
+</p>
+
+                  <ul>
+
+<li>Architecture & RTL Design</li>
+
+<li>System Engineering</li>
+
+<li>Rapid Silicon Development</li>
+
+<li>Design Lifecycle Management</li>
+
+</ul>
+
+                    <a href="#" class="ys-focus-btn">
+
+                        Learn More
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+                <div class="ys-focus-image">
+
+                    <img
+                    src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80"
+                    alt="Semiconductor Design Engineering">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Capability 02 -->
+
+        <div class="ys-focus-item">
+
+            <button class="ys-focus-trigger">
+
+                <div class="ys-focus-title">
+
+                    <span class="ys-focus-count">02</span>
+
+                    <div>
+
+                        <h3>Verification & Validation</h3>
+
+<p>
+Building robust validation frameworks for high-performance semiconductor products.
+</p>
+
+                    </div>
+
+                </div>
+
+                <span class="ys-focus-icon">
+                    <i class="fa-solid fa-plus"></i>
+                </span>
+
+            </button>
+
+            <div class="ys-focus-content">
+
+                <div class="ys-focus-text">
+
+                 <p>
+
+Develop secure, reliable and high-performance verification and validation strategies that improve quality, yield and confidence across complex silicon systems.
+
+</p>
+
+                  <ul>
+
+<li>Functional Verification</li>
+
+<li>Simulation & Emulation</li>
+
+<li>Testbench Development</li>
+
+<li>Regression Automation</li>
+
+</ul>
+
+                    <a href="#" class="ys-focus-btn">
+
+                        Learn More
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+                <div class="ys-focus-image">
+
+                    <img
+                    src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=900&q=80"
+                    alt="Semiconductor Verification">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Capability 03 -->
+
+        <div class="ys-focus-item">
+
+            <button class="ys-focus-trigger">
+
+                <div class="ys-focus-title">
+
+                    <span class="ys-focus-count">03</span>
+
+                    <div>
+
+                       <h3>Packaging & Manufacturing</h3>
+
+<p>
+Advanced packaging and manufacturing engineering for next-generation technologies.
+</p>
+
+                    </div>
+
+                </div>
+
+                <span class="ys-focus-icon">
+                    <i class="fa-solid fa-plus"></i>
+                </span>
+
+            </button>
+
+            <div class="ys-focus-content">
+
+                <div class="ys-focus-text">
+
+                   <p>
+
+Accelerate semiconductor innovation through comprehensive engineering services spanning packaging, assembly, manufacturing process optimization and product reliability for high-performance electronic systems.
+
+</p>
+
+                  <ul>
+
+<li>Packaging Design</li>
+
+<li>Assembly Engineering</li>
+
+<li>Yield Optimization</li>
+
+<li>Reliability Testing</li>
+
+</ul>
+
+                    <a href="#" class="ys-focus-btn">
+
+                        Learn More
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+                <div class="ys-focus-image">
+
+                    <img
+                    src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=900&q=80"
+                    alt="Semiconductor Manufacturing">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Capability 04 -->
+
+        <div class="ys-focus-item">
+
+            <button class="ys-focus-trigger">
+
+                <div class="ys-focus-title">
+
+                    <span class="ys-focus-count">04</span>
+
+                    <div>
+
+                      <h3>Embedded & AI Systems</h3>
+
+<p>
+Creating intelligent electronics and connected experiences for smart devices.
+</p>
+
+                    </div>
+
+                </div>
+
+                <span class="ys-focus-icon">
+                    <i class="fa-solid fa-plus"></i>
+                </span>
+
+            </button>
+
+            <div class="ys-focus-content">
+
+                <div class="ys-focus-text">
+
+                  <p>
+
+Leverage embedded systems, AI-enabled electronics and intelligent automation to build scalable platforms that enhance operational efficiency and accelerate semiconductor product transformation.
+
+</p>
+
+                   <ul>
+
+<li>Embedded Firmware</li>
+
+<li>Edge AI</li>
+
+<li>System Integration</li>
+
+<li>Automation Platforms</li>
+
+</ul>
+
+                    <a href="#" class="ys-focus-btn">
+
+                        Learn More
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+                <div class="ys-focus-image">
+
+                    <img
+                    src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=80"
+                    alt="AI Semiconductor Systems">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const items = document.querySelectorAll(".ys-focus-item");
+
+    items.forEach(item => {
+
+        const trigger = item.querySelector(".ys-focus-trigger");
+
+        trigger.addEventListener("click", function () {
+
+            const isActive = item.classList.contains("active");
+
+            /* Close all items */
+
+            items.forEach(i => {
+
+                i.classList.remove("active");
+
+                const icon = i.querySelector(".ys-focus-icon i");
+
+                icon.classList.remove("fa-minus");
+
+                icon.classList.add("fa-plus");
+
+            });
+
+            /* If it wasn't active, open it */
+
+            if (!isActive) {
+
+                item.classList.add("active");
+
+                const icon = item.querySelector(".ys-focus-icon i");
+
+                icon.classList.remove("fa-plus");
+
+                icon.classList.add("fa-minus");
+
+            }
+
+        });
+
+    });
+
+    /* Open first item by default */
+
+    if (items.length > 0) {
+
+        items[0].classList.add("active");
+
+        const firstIcon = items[0].querySelector(".ys-focus-icon i");
+
+        firstIcon.classList.remove("fa-plus");
+
+        firstIcon.classList.add("fa-minus");
+
+    }
+
+});
+
+</script>
+
+
+
+<!-- ==========================================
+ENGINEERING SOLUTIONS SHOWCASE
+PART 1 - HTML
+========================================== -->
+
+<section class="ys-showcase" id="solutions" aria-labelledby="ys-showcase-heading">
+
+    <div class="ys-showcase-container">
+
+        <!-- Heading -->
+
+        <div class="ys-showcase-head">
+
+            <div>
+
+                <span class="ys-showcase-tag">
+                    ENGINEERING SOLUTIONS
+                </span>
+
+                <h2>
+                    Accelerating Innovation
+                    <span>Across the Semiconductor Ecosystem</span>
+                </h2>
+
+                <p>
+
+                    Explore how YSQUARE delivers next-generation engineering solutions across semiconductor design, verification, packaging, embedded electronics, and intelligent manufacturing initiatives.
+
+                </p>
+
+            </div>
+
+            <div class="ys-showcase-nav">
+
+                <button class="ys-prev">
+
+                    <i class="fa-solid fa-arrow-left"></i>
+
+                </button>
+
+                <button class="ys-next">
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Carousel -->
+
+        <div class="ys-showcase-slider">
+
+
+
+
+<!-- ====================================== -->
+
+<div class="ys-slide active">
+
+<div class="ys-slide-overlay"></div>
+
+<div class="ys-slide-content">
+
+<div class="ys-slide-left">
+
+<h3>
+Semiconductor
+<span>Design</span>
+</h3>
+
+<p>
+
+Accelerating advanced chip design, RTL verification,
+physical implementation and silicon validation for
+next-generation electronic products.
+
+</p>
+
+<ul>
+
+<li>RTL Design & Verification</li>
+
+<li>ASIC / FPGA Engineering</li>
+
+<li>Physical Design</li>
+
+<li>Post-Silicon Validation</li>
+
+</ul>
+
+</div>
+
+<div class="ys-slide-right">
+
+<img
+src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=900&q=80"
+alt="Semiconductor Engineering">
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+<!-- ====================================== -->
+
+<div class="ys-slide">
+
+<div class="ys-slide-overlay"></div>
+
+<div class="ys-slide-content">
+
+<div class="ys-slide-left">
+
+<h3>
+Verification &
+<span>Validation</span>
+</h3>
+
+<p>
+
+Develop intelligent verification frameworks and automation
+solutions powering semiconductor quality, reliability,
+and faster time-to-market for complex devices.
+
+</p>
+
+<ul>
+
+<li>Functional Verification</li>
+
+<li>Simulation & Emulation</li>
+
+<li>Testbench Development</li>
+
+<li>Regression Automation</li>
+
+</ul>
+
+</div>
+
+<div class="ys-slide-right">
+
+<img
+src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=900&q=80"
+alt="Semiconductor Verification">
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+<!-- ====================================== -->
+
+<div class="ys-slide">
+
+<div class="ys-slide-overlay"></div>
+
+<div class="ys-slide-content">
+
+<div class="ys-slide-left">
+
+<h3>
+Packaging &
+<span>Manufacturing</span>
+</h3>
+
+<p>
+
+Build smarter manufacturing and packaging workflows using
+advanced engineering, data-driven insights and automation
+that accelerate production excellence.
+
+</p>
+
+<ul>
+
+<li>Packaging Engineering</li>
+
+<li>Yield Optimization</li>
+
+<li>Manufacturing Analytics</li>
+
+<li>Reliability Testing</li>
+
+</ul>
+
+</div>
+
+<div class="ys-slide-right">
+
+<img
+src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=900&q=80"
+alt="Semiconductor Manufacturing">
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+        </div>
+
+
+
+
+
+<div class="ys-progress">
+
+<span class="active"></span>
+
+<span></span>
+
+<span></span>
+
+</div>
+
+
+
+
+    </div>
+
+</section>
+
+
+<style>
+</style>
+
+<script>
+
+    
+(() => {
+
+const slides = document.querySelectorAll('.ys-slide');
+const dots = document.querySelectorAll('.ys-progress span');
+
+const prevBtn = document.querySelector('.ys-prev');
+const nextBtn = document.querySelector('.ys-next');
+
+let current = 0;
+let timer;
+const duration = 5000;
+let animating = false;
+
+/*============================
+SHOW SLIDE
+============================*/
+
+function showSlide(index){
+
+    if(animating) return;
+
+    animating = true;
+
+    slides.forEach((slide,i)=>{
+
+        slide.classList.remove('active');
+        dots[i].classList.remove('active');
+
+    });
+
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+
+    current = index;
+
+    setTimeout(() => {
+
+        animating = false;
+
+    }, 800);
+
+}
+
+
+
+/*============================
+NEXT
+============================*/
+
+function nextSlide(){
+
+    let next = current + 1;
+
+    if(next >= slides.length){
+
+        next = 0;
+
+    }
+
+    showSlide(next);
+
+}
+
+/*============================
+PREVIOUS
+============================*/
+
+function prevSlide(){
+
+    let prev = current - 1;
+
+    if(prev < 0){
+
+        prev = slides.length - 1;
+
+    }
+
+    showSlide(prev);
+
+}
+
+/*============================
+AUTOPLAY
+============================*/
+let autoplay;
+
+function startSlider(){
+
+clearTimeout(autoplay);
+
+autoplay = setTimeout(function loop(){
+
+nextSlide();
+
+autoplay = setTimeout(loop,duration);
+
+},duration);
+
+}
+
+function stopSlider(){
+
+clearTimeout(autoplay);
+
+}
+
+function stopSlider(){
+
+    clearInterval(timer);
+
+}
+
+/*============================
+BUTTON EVENTS
+============================*/
+
+nextBtn.addEventListener('click',()=>{
+
+    nextSlide();
+
+    startSlider();
+
+});
+
+prevBtn.addEventListener('click',()=>{
+
+    prevSlide();
+
+    startSlider();
+
+});
+
+/*============================
+DOT EVENTS
+============================*/
+
+dots.forEach((dot,index)=>{
+
+    dot.addEventListener('click',()=>{
+
+        showSlide(index);
+
+        startSlider();
+
+    });
+
+});
+
+/*============================
+PAUSE ON HOVER
+============================*/
+
+const slider = document.querySelector('.ys-showcase-slider');
+
+slider.addEventListener('mouseenter',stopSlider);
+
+slider.addEventListener('mouseleave',startSlider);
+
+/*============================
+TOUCH SUPPORT
+============================*/
+
+let startX = 0;
+let endX = 0;
+
+slider.addEventListener('touchstart',(e)=>{
+
+    startX = e.changedTouches[0].screenX;
+
+});
+
+slider.addEventListener('touchend',(e)=>{
+
+    endX = e.changedTouches[0].screenX;
+
+    if(startX - endX > 60){
+
+        nextSlide();
+
+        startSlider();
+
+    }
+
+    if(endX - startX > 60){
+
+        prevSlide();
+
+        startSlider();
+
+    }
+
+});
+
+/*============================
+START
+============================*/
+
+showSlide(0);
+
+startSlider();
+
+})();
+</script>
+
+<!-- ══════════════════════════════════════════════════════
+     S06 — ENTERPRISE CTA
+══════════════════════════════════════════════════════ -->
+<!-- ═════════════ UNIVERSAL CTA ═════════════ -->
+<section class="ys-cta" id="cta" aria-labelledby="ys-cta-heading">
+
+    <div class="ys-cta-glow"></div>
+
+<div class="ys-cta-wrapper">
+
+    <div class="ys-cta-content">
+
+<span class="ys-cta-tag">
+SEMICONDUCTOR INDUSTRY
+</span>
+
+<h2>
+Building the Future
+<span>One Chip at a Time.</span>
+</h2>
+
+<p>
+Delivering engineering excellence across RTL design, verification, physical design and silicon validation for global semiconductor companies.
+</p>
+
+<div class="ys-cta-buttons">
+
+<a href="contact.html" class="ys-cta-btn">
+Let's Build Together
+<i class="fa-solid fa-arrow-right-long"></i>
+</a>
+
+<a href="semiconductor-engineering.html" class="ys-cta-btn ys-cta-btn-dark">
+Engineering Services
+<i class="fa-solid fa-arrow-right-long"></i>
+</a>
+
+</div>
+
+    </div>
+
+  
+
+</div>
+
+</section>
+
+
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="images/ysquare-logo.png" alt="YSQUARE">
+      <p>YSQUARE Semicon IT Solutions delivers innovative semiconductor, embedded systems and engineering services that help organizations accelerate silicon innovation and build future-ready electronics.</p>
+      <div class="footer-badge">
+    Semiconductor • Embedded • Software
+</div>
+     
+    </div>
+<div class="footer-col">
+
+    <h4>Services</h4>
+
+    <ul>
+        <li><a href="#">Digital Engineering</a></li>
+        <li><a href="#">Software Engineering</a></li>
+        <li><a href="#">Embedded Engineering</a></li>
+        <li><a href="#">Semiconductor Engineering</a></li>
+    </ul>
+
+    <h4 class="footer-sub-heading">Industries</h4>
+
+    <ul>
+        <li><a href="#">Hi-Tech &amp; Technology</a></li>
+        <li><a href="#">Automotive &amp; Mobility</a></li>
+        <li><a href="#">Semiconductor &amp; Electronics</a></li>
+    </ul>
+
+</div>
+
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About YSQUARE</a></li>
+        <li><a href="#">Leadership</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Internships</a></li>
+        <li><a href="#">Insights</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <span class="nl-label">Get In Touch</span>
+      <p style="font-size:13px;color:rgba(255,255,255,.4);margin-bottom:16px;line-height:1.6;">Engineering solutions start with a conversation.
+Reach out to our experts today.</p>
+   <div class="footer-social">
+      <a href="#" class="f-icon">
+<i class="fa-brands fa-linkedin-in"></i>
+</a>
+
+<a href="#" class="f-icon">
+<i class="fa-brands fa-x-twitter"></i>
+</a>
+
+<a href="#" class="f-icon">
+<i class="fa-brands fa-instagram"></i>
+</a>
+
+<a href="#" class="f-icon">
+<i class="fa-brands fa-youtube"></i>
+</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 YSQUARE Semicon IT Solutions. All rights reserved.</p>
+<div class="footer-btm-links">
+
+<a href="#">Privacy Policy</a>
+
+<a href="#">Terms & Conditions</a>
+
+<a href="#">Disclaimer</a>
+
+<a href="#">Sitemap</a>
+
+</div>
+  </div>
+</footer>
+
+
+<!-- ═══════ JS ═══════ -->
+<script>
+/* Scroll reveal */
+const allReveal = document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+allReveal.forEach(el => ro.observe(el));
+
+/* Header scroll + progress bar */
+window.addEventListener('scroll', () => {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 20);
+  const sp = document.getElementById('scrollProgress');
+  const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+  if(sp) sp.style.width = pct + '%';
+}, { passive: true });
+
+/* Sticky nav active state */
+(function(){
+  const links = document.querySelectorAll('.hbn-link');
+  const sectionIds = ['who','ecosystem','vision','why','values','impact'];
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id);
+      if(el && window.scrollY >= el.offsetTop - 220) current = id;
+    });
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+  }, { passive: true });
+  links.forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if(target){ e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+})();
+
+/* Values timeline line animation */
+const valTrack = document.getElementById('valuesTrack');
+const valObs = new IntersectionObserver(([e]) => {
+  if(e.isIntersecting) valTrack.classList.add('animated');
+}, { threshold: 0.3 });
+if(valTrack) valObs.observe(valTrack);
+
+/* Header dropdown image swap */
+document.querySelectorAll('.dropdown-left li').forEach(li => {
+  li.addEventListener('mouseenter', () => {
+    const img=li.dataset.img, text=li.dataset.text;
+    const sec=li.closest('.menu-item');
+    if(!img) return;
+    const iEl=sec.querySelector('[id$="-img"]'), tEl=sec.querySelector('[id$="-text"]');
+    if(iEl) iEl.src=img;
+    if(tEl) tEl.textContent=text;
+  });
+});
+
+/* Hamburger */
+const hbg=document.getElementById('hamburger');
+const mm=document.getElementById('mobileMenu');
+if(hbg && mm){
+  hbg.addEventListener('click', () => { hbg.classList.toggle('active'); mm.classList.toggle('active'); });
+  mm.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hbg.classList.remove('active'); mm.classList.remove('active'); }));
+}
+
+/* Mobile accordion */
+document.querySelectorAll('.mobile-title').forEach(btn => {
+  btn.addEventListener('click', () => btn.parentElement.classList.toggle('active'));
+});
+
+
+
+document.querySelectorAll(".dropdown li").forEach(item => {
+    item.addEventListener("click", () => {
+        const link = item.dataset.link;
+        if (link) {
+            window.location.href = link;
+        }
+    });
+});
+
+
+
+/* Hero image fade effect */
+const heroSlides=[
+
+{
+
+image:"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=80",
+
+eyebrow:"SEMICONDUCTOR INDUSTRY",
+
+title:"Engineering The <br><span>Future Of Silicon.</span>",
+
+desc:"Delivering semiconductor design, verification, packaging, and manufacturing solutions for the world's leading chip innovators."
+
+},
+
+{
+
+image:"https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1800&q=80",
+
+eyebrow:"DESIGN & VERIFICATION",
+
+title:"Accelerating <br><span>Chip Development.</span>",
+
+desc:"Helping semiconductor teams modernize design flows, strengthen validation, and bring next-generation devices to market faster."
+
+},
+
+{
+
+image:"https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1800&q=80",
+
+eyebrow:"ADVANCED ENGINEERING",
+
+title:"Building <br><span>Next-Gen Semiconductor Systems.</span>",
+
+desc:"From semiconductor architecture to packaging and manufacturing, we enable innovation at scale."
+
+}
+
+];
+
+let currentSlide=0;
+
+const heroImg=document.getElementById("heroImage");
+const heroTitle=document.getElementById("heroTitle");
+const heroDesc=document.getElementById("heroDesc");
+const heroEyebrow=document.getElementById("heroEyebrow");
+
+function changeHero(){
+
+currentSlide=(currentSlide+1)%heroSlides.length;
+
+heroImg.classList.add("fade");
+
+heroTitle.classList.add("hero-change");
+heroDesc.classList.add("hero-change");
+heroEyebrow.classList.add("hero-change");
+
+setTimeout(()=>{
+
+heroImg.src=heroSlides[currentSlide].image;
+
+heroEyebrow.innerHTML=heroSlides[currentSlide].eyebrow;
+
+heroTitle.innerHTML=heroSlides[currentSlide].title;
+
+heroDesc.innerHTML=heroSlides[currentSlide].desc;
+
+heroImg.classList.remove("fade");
+
+heroTitle.classList.remove("hero-change");
+heroDesc.classList.remove("hero-change");
+heroEyebrow.classList.remove("hero-change");
+
+},450);
+
+}
+
+setInterval(changeHero,5000);
+</script>
 </body>
 </html>

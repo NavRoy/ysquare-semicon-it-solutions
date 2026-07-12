@@ -41,81 +41,6 @@ html{scroll-behavior:smooth;}
 .hts-icon{width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:none;border:none;border-radius:5px;color:rgba(255,255,255,.5);cursor:pointer;transition:.2s;}
 .hts-icon:hover{color:#fff;background:rgba(255,255,255,.08);}
 
-/* ─── ABOUT HERO ────────────────────────── */
-.about-hero{
-  position:relative;height:380px;
-  margin-top:132px;overflow:hidden;
-}
-.about-hero img{width:100%;height:100%;object-fit:cover;animation:heroZoom 15s ease-in-out infinite alternate;}
-@keyframes heroZoom{from{transform:scale(1);}to{transform:scale(1.06);}}
-.hero-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(90deg,rgba(2,6,23,.95) 0%,rgba(2,6,23,.82) 35%,rgba(2,6,23,.45) 70%,rgba(2,6,23,.2) 100%),linear-gradient(180deg,rgba(14,165,233,.08),transparent 40%);
-}
-.hero-glow-a{
-  position:absolute;left:-150px;top:-100px;
-  width:600px;height:600px;
-  background:radial-gradient(circle,rgba(14,165,233,.2),transparent 65%);
-  pointer-events:none;z-index:2;
-  animation:floatGlow 8s ease-in-out infinite;
-}
-@keyframes floatGlow{0%{transform:translateY(0);}50%{transform:translateY(-30px);}100%{transform:translateY(0);}}
-.hero-content{
-  position:absolute;left:5%;top:50%;transform:translateY(-50%);
-  max-width:640px;z-index:5;
-}
-.hero-eyebrow{
-  display:inline-flex;align-items:center;gap:12px;
-  font-size:11px;font-weight:700;letter-spacing:2.5px;color:#38bdf8;
-  text-transform:uppercase;margin-bottom:20px;
-}
-.hero-eyebrow::before{content:"";display:block;width:28px;height:1.5px;background:#38bdf8;}
-.hero-accent{width:72px;height:3px;background:linear-gradient(90deg,#0ea5e9,transparent);margin-bottom:24px;}
-.hero-content h1{font-size:72px;line-height:.9;letter-spacing:-4px;font-weight:900;color:#fff;margin-bottom:22px;text-shadow:0 10px 40px rgba(0,0,0,.35);}
-.hero-content h1 span{color:#38bdf8;}
-.hero-content p{font-size:17px;line-height:1.8;color:rgba(255,255,255,.72);max-width:560px;}
-
-/* ─── STICKY BOTTOM NAV ─────────────────── */
-.hero-bottom-nav{
-  position:sticky;top:132px;z-index:997;
-  background:rgba(8,22,49,.88);backdrop-filter:blur(16px);
-  display:flex;align-items:center;justify-content:center;
-  border-top:2px solid rgba(255,255,255,.06);
-  border-bottom:1px solid rgba(0,0,0,.15);
-  box-shadow:0 4px 20px rgba(0,0,0,.2);
-}
-.hbn-link{
-  padding:0 36px;height:52px;
-  display:flex;align-items:center;
-  font-size:13px;font-weight:700;color:rgba(255,255,255,.78);
-  text-decoration:none;letter-spacing:.3px;
-  border-right:1px solid rgba(255,255,255,.12);
-  transition:.25s;position:relative;white-space:nowrap;
-}
-.hbn-link:first-child{border-left:1px solid rgba(255,255,255,.12);}
-.hbn-link:hover{color:#fff;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));}
-.hbn-link.active{color:#fff;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));}
-.hbn-link.active::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:#38bdf8;}
-
-/* ─── SHARED ATOMS ──────────────────────── */
-.eyebrow{font-size:11px;font-weight:700;letter-spacing:2.5px;color:var(--primary);text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:10px;}
-.eyebrow::before{content:"";display:block;width:22px;height:1.5px;background:var(--primary);}
-.eyebrow.light{color:#38bdf8;}
-.eyebrow.light::before{background:#38bdf8;}
-
-.reveal{opacity:0;transform:translateY(40px);transition:opacity .85s ease,transform .85s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-.reveal-left{opacity:0;transform:translateX(-60px);transition:opacity .85s ease,transform .85s ease;}
-.reveal-left.visible{opacity:1;transform:translateX(0);}
-.reveal-right{opacity:0;transform:translateX(60px);transition:opacity .85s ease,transform .85s ease;}
-.reveal-right.visible{opacity:1;transform:translateX(0);}
-.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}
-
-/* ─── DIVIDER ───────────────────────────── */
-.premium-divider{
-  height:1px;background:linear-gradient(90deg,transparent,#e2e8f0 20%,#e2e8f0 80%,transparent);
-  margin:0;
-}
 
 /* ════════════════════════════════════════════
    S01 — WHO WE ARE
@@ -180,85 +105,6 @@ html{scroll-behavior:smooth;}
 /* ════════════════════════════════════════════
    S02 — ENGINEERING ECOSYSTEM (chip diagram)
 ════════════════════════════════════════════ */
-.ecosystem-section{
-  padding:120px 8%;background:#f8fafc;
-  position:relative;overflow:hidden;
-}
-.ecosystem-section::before{
-  content:"";position:absolute;inset:0;
-  background-image:linear-gradient(rgba(14,165,233,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(14,165,233,.04) 1px,transparent 1px);
-  background-size:80px 80px;pointer-events:none;
-}
-.eco-header{text-align:center;margin-bottom:80px;}
-.eco-header h2{font-size:52px;font-weight:900;color:#0f172a;letter-spacing:-2px;line-height:1.08;margin-bottom:18px;}
-.eco-header p{font-size:17px;color:#64748b;line-height:1.8;max-width:560px;margin:0 auto;}
-/* chip diagram container */
-.chip-diagram{
-  position:relative;width:720px;height:720px;margin:0 auto;
-  flex-shrink:0;
-}
-/* central chip */
-.chip-center{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:180px;height:180px;
-  background:linear-gradient(135deg,#0a0f1e,#0d1b35);
-  border:1.5px solid rgba(14,165,233,.4);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:8px;z-index:10;
-  box-shadow:0 0 60px rgba(14,165,233,.2),inset 0 0 40px rgba(14,165,233,.05);
-}
-.chip-center::before{
-  content:"";position:absolute;inset:8px;
-  border:1px solid rgba(14,165,233,.15);
-}
-.chip-center::after{
-  content:"";position:absolute;
-  width:220px;height:220px;border-radius:50%;
-  border:1px solid rgba(14,165,233,.1);
-  animation:chipPulse 3s ease-in-out infinite;
-}
-@keyframes chipPulse{0%,100%{opacity:.5;transform:scale(.95);}50%{opacity:1;transform:scale(1.05);}}
-.chip-center svg{width:36px;height:36px;stroke:#38bdf8;stroke-width:1.5;}
-.chip-center span{font-size:11px;font-weight:700;letter-spacing:2px;color:#38bdf8;text-transform:uppercase;}
-/* SVG connector lines */
-.eco-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;}
-.eco-line{stroke:rgba(14,165,233,.25);stroke-width:1;fill:none;stroke-dasharray:6 4;}
-.eco-line.animated{animation:lineDash 3s linear infinite;}
-@keyframes lineDash{to{stroke-dashoffset:-60;}}
-/* nodes */
-.eco-node{
-  position:absolute;z-index:10;
-  width:140px;height:72px;
-  background:rgba(255,255,255,.85);
-  backdrop-filter:blur(16px);
-  border:1px solid rgba(14,165,233,.2);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:4px;cursor:default;
-  box-shadow:0 8px 24px rgba(14,165,233,.08);
-  transition:all .35s ease;
-}
-.eco-node:hover{
-  background:#fff;
-  border-color:rgba(14,165,233,.5);
-  box-shadow:0 16px 48px rgba(14,165,233,.18);
-  transform:scale(1.06);
-}
-.eco-node svg{width:20px;height:20px;stroke:var(--primary);stroke-width:1.8;}
-.eco-node span{font-size:11px;font-weight:700;color:#0f172a;letter-spacing:.3px;text-align:center;line-height:1.3;}
-/* node positions — circle of 5 */
-.eco-node:nth-child(1){top:20px;left:50%;transform:translateX(-50%);}
-.eco-node:nth-child(2){top:200px;right:0;}
-.eco-node:nth-child(3){bottom:100px;right:40px;}
-.eco-node:nth-child(4){bottom:100px;left:40px;}
-.eco-node:nth-child(5){top:200px;left:0;}
-/* dot on node */
-.eco-dot{
-  width:8px;height:8px;border-radius:50%;background:var(--primary);
-  position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);
-  box-shadow:0 0 8px var(--primary);
-  animation:dotPulse 2s ease-in-out infinite;
-}
-@keyframes dotPulse{0%,100%{opacity:.6;transform:translateX(-50%) scale(.8);}50%{opacity:1;transform:translateX(-50%) scale(1.2);}}
 
 /* ════════════════════════════════════════════
    S03 — VISION & MISSION
@@ -444,89 +290,182 @@ html{scroll-behavior:smooth;}
 .val-step:hover .val-name{color:var(--primary);}
 
 /* ════════════════════════════════════════════
-   S06 — GLOBAL IMPACT
+   GLOBAL PRESENCE — 2026 NETWORK SECTION
 ════════════════════════════════════════════ */
-.impact-section{
-  padding:120px 8%;
+.gp-section{
+  position:relative;
+  padding:130px 8%;
   background:linear-gradient(135deg,#060a14,#0d1b35);
-  position:relative;overflow:hidden;
+  overflow:hidden;
 }
-.impact-section::before{
-  content:"";position:absolute;
-  width:800px;height:800px;
-  background:radial-gradient(circle,rgba(14,165,233,.1),transparent 70%);
-  top:-300px;right:-200px;pointer-events:none;
-}
-.impact-grid-bg{
+.gp-grid-bg{
   position:absolute;inset:0;
   background-image:linear-gradient(rgba(14,165,233,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(14,165,233,.04) 1px,transparent 1px);
   background-size:80px 80px;pointer-events:none;
 }
-.impact-layout{
-  display:grid;grid-template-columns:1.1fr 1fr;gap:100px;
-  align-items:center;position:relative;z-index:1;
+.gp-glow{
+  position:absolute;width:800px;height:800px;border-radius:50%;
+  background:radial-gradient(circle,rgba(14,165,233,.1),transparent 70%);
+  top:-300px;right:-200px;pointer-events:none;
 }
-/* world map SVG placeholder */
-.world-map-wrap{position:relative;}
-.world-map{
-  width:100%;aspect-ratio:2/1;
-  background:rgba(255,255,255,.02);
-  border:1px solid rgba(14,165,233,.12);
-  position:relative;overflow:hidden;
+
+.gp-header{max-width:640px;margin:0 auto 90px;text-align:center;position:relative;z-index:1;}
+.gp-header h2{font-size:46px;font-weight:900;color:#fff;letter-spacing:-1.8px;line-height:1.1;margin-bottom:18px;}
+.gp-header p{font-size:16px;color:rgba(255,255,255,.45);line-height:1.85;}
+
+.gp-layout{
+  display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center;
+  max-width:1300px;margin:0 auto;position:relative;z-index:1;
 }
-/* world map dots pattern */
-.world-map::before{
-  content:"";position:absolute;inset:0;
-  background-image:radial-gradient(circle,rgba(14,165,233,.3) 1px,transparent 1px);
-  background-size:18px 18px;
-  opacity:.35;
+
+/* ── Orbit visualization ── */
+.gp-orbit-wrap{
+  position:relative;
+  width:440px;height:440px;
+  margin:0 auto;
 }
-/* glow markers */
-.map-marker{
+.gp-ring{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  border:1px solid rgba(14,165,233,.14);
+}
+.ring-1{width:180px;height:180px;}
+.ring-2{width:300px;height:300px;border-style:dashed;border-color:rgba(14,165,233,.1);}
+.ring-3{width:420px;height:420px;}
+
+.gp-hub{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:96px;height:96px;border-radius:50%;
+  background:linear-gradient(145deg,#0d2240,#071020);
+  border:1px solid rgba(14,165,233,.4);
+  box-shadow:0 0 0 1px rgba(14,165,233,.15),0 0 40px rgba(14,165,233,.35),inset 0 1px 0 rgba(255,255,255,.08);
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;font-size:11px;font-weight:800;letter-spacing:.5px;
+  color:#38bdf8;line-height:1.3;
+  animation:gpHubPulse 3.5s ease-in-out infinite;
+  z-index:3;
+}
+@keyframes gpHubPulse{
+  0%,100%{box-shadow:0 0 0 1px rgba(14,165,233,.15),0 0 40px rgba(14,165,233,.3);}
+  50%{box-shadow:0 0 0 1px rgba(14,165,233,.3),0 0 60px rgba(14,165,233,.5);}
+}
+
+.gp-node{
+  position:absolute;top:50%;left:50%;
+  width:0;height:0;
+  transform:rotate(var(--angle)) translate(210px) rotate(calc(-1 * var(--angle)));
+  z-index:2;
+}
+.gp-node-dot{
+  width:12px;height:12px;border-radius:50%;
+  background:#38bdf8;
+  box-shadow:0 0 0 4px rgba(56,189,248,.15),0 0 16px rgba(56,189,248,.6);
+  position:relative;
+  transform:translate(-50%,-50%);
+  animation:gpDotPulse 2.6s ease-in-out infinite;
+  cursor:pointer;
+}
+@keyframes gpDotPulse{
+  0%,100%{opacity:.85;transform:translate(-50%,-50%) scale(1);}
+  50%{opacity:1;transform:translate(-50%,-50%) scale(1.25);}
+}
+
+.gp-node-card{
   position:absolute;
-  width:10px;height:10px;
+  top:50%;left:22px;
+  transform:translateY(-50%) translateX(-6px);
+  background:rgba(255,255,255,.05);
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.1);
+  padding:10px 16px;
+  border-radius:10px;
+  white-space:nowrap;
+  opacity:0;
+  pointer-events:none;
+  transition:.35s ease;
 }
-.map-marker::before{
-  content:"";position:absolute;inset:0;border-radius:50%;
-  background:var(--primary);
-  box-shadow:0 0 12px var(--primary);
-  animation:markerPulse 2.5s ease-in-out infinite;
+.gp-node-card strong{display:block;font-size:13px;font-weight:700;color:#fff;letter-spacing:-.1px;}
+.gp-node-card span{font-size:11px;color:rgba(255,255,255,.45);}
+.gp-node-dot:hover + .gp-node-card,
+.gp-node-card:hover{
+  opacity:1;
+  transform:translateY(-50%) translateX(0);
+  pointer-events:auto;
 }
-.map-marker::after{
-  content:"";position:absolute;
-  width:24px;height:24px;border-radius:50%;
-  border:1.5px solid rgba(14,165,233,.4);
-  top:-7px;left:-7px;
-  animation:markerRing 2.5s ease-in-out infinite;
+
+/* ── Right side: stats + regions ── */
+.gp-stats-grid{
+  display:flex;flex-direction:column;gap:0;
+  margin-bottom:52px;
 }
-@keyframes markerPulse{0%,100%{opacity:.7;transform:scale(.9);}50%{opacity:1;transform:scale(1.1);}}
-@keyframes markerRing{0%{opacity:.8;transform:scale(.8);}100%{opacity:0;transform:scale(2);}}
-/* marker positions */
-.mp1{top:35%;left:45%;}
-.mp2{top:28%;left:20%;}
-.mp3{top:40%;left:75%;}
-.mp4{top:60%;left:55%;}
-.mp5{top:25%;left:62%;}
-/* impact metrics */
-
-.impact-header-l{margin-bottom:60px;}
-.impact-header-l h2{font-size:46px;font-weight:900;color:#fff;letter-spacing:-1.8px;line-height:1.1;margin-bottom:16px;}
-.impact-header-l p{font-size:16px;color:rgba(255,255,255,.45);line-height:1.8;max-width:380px;}
-.impact-stats{display:flex;flex-direction:column;gap:0;}
-.impact-stat{
-  padding:32px 0;border-bottom:1px solid rgba(255,255,255,.07);
-  display:flex;align-items:center;gap:32px;
-  transition:padding-left .35s ease;cursor:default;
+.gp-stat{
+  padding:28px 0;
+  border-bottom:1px solid rgba(255,255,255,.07);
+  transition:padding-left .35s ease;
 }
-.impact-stat:first-child{border-top:1px solid rgba(255,255,255,.07);}
-.impact-stat:hover{padding-left:12px;}
-.is-num{font-size:64px;font-weight:900;letter-spacing:-3px;color:#fff;line-height:1;flex-shrink:0;}
-.is-num span{color:var(--primary);}
+.gp-stat:first-child{border-top:1px solid rgba(255,255,255,.07);}
+.gp-stat:hover{padding-left:12px;}
+.gp-stat-num{
+  font-size:56px;font-weight:900;letter-spacing:-2.5px;
+  color:#fff;line-height:1;margin-bottom:8px;
+}
+.gp-stat-num span{color:var(--primary);}
+.gp-stat-lbl{font-size:15px;font-weight:700;color:rgba(255,255,255,.8);margin-bottom:4px;}
+.gp-stat-sub{font-size:13px;color:rgba(255,255,255,.35);}
 
-.is-lbl{font-size:16px;font-weight:700;color:rgba(255,255,255,.75);margin-bottom:4px;}
-.is-sub{font-size:13px;color:rgba(255,255,255,.32);}
+.gp-regions-label{
+  font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:#38bdf8;margin-bottom:18px;
+}
+.gp-region-list{display:flex;flex-wrap:wrap;gap:10px;}
+.gp-region-chip{
+  padding:9px 18px;border-radius:50px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.1);
+  color:rgba(255,255,255,.72);
+  font-size:13px;font-weight:600;
+  transition:.3s;
+}
+.gp-region-chip:hover{
+  border-color:rgba(14,165,233,.5);
+  background:rgba(14,165,233,.1);
+  color:#fff;
+  transform:translateY(-2px);
+}
 
+/* ── Responsive ── */
+@media(max-width:1100px){
+  .gp-layout{grid-template-columns:1fr;gap:70px;}
+  .gp-orbit-wrap{width:380px;height:380px;}
+  .ring-3{width:360px;height:360px;}
+  .ring-2{width:250px;height:250px;}
+  .ring-1{width:150px;height:150px;}
+  .gp-node{transform:rotate(var(--angle)) translate(178px) rotate(calc(-1 * var(--angle)));}
+}
 
+@media(max-width:768px){
+  .gp-section{padding:80px 6%;}
+  .gp-header h2{font-size:34px;}
+  .gp-orbit-wrap{width:320px;height:320px;}
+  .ring-3{width:300px;height:300px;}
+  .ring-2{width:210px;height:210px;}
+  .ring-1{width:130px;height:130px;}
+  .gp-node{transform:rotate(var(--angle)) translate(148px) rotate(calc(-1 * var(--angle)));}
+  .gp-hub{width:78px;height:78px;font-size:10px;}
+  .gp-node-card{left:16px;padding:8px 12px;}
+  .gp-stat-num{font-size:44px;}
+}
+
+@media(max-width:480px){
+  .gp-orbit-wrap{width:270px;height:270px;}
+  .ring-3{width:250px;height:250px;}
+  .ring-2{width:175px;height:175px;}
+  .ring-1{width:110px;height:110px;}
+  .gp-node{transform:rotate(var(--angle)) translate(122px) rotate(calc(-1 * var(--angle)));}
+  .gp-node-card{display:none;}
+}
 /* ─── RESPONSIVE ──────────────────────────── */
 /* ===============================
    1200px
@@ -609,73 +548,6 @@ html{scroll-behavior:smooth;}
 
 @media (max-width:768px){
 
-.header{
-    height:90px;
-}
-
-.hero-top-strip{
-
-    top:90px;
-    height:42px;
-}
-
-.about-hero{
-
-    margin-top:132px;
-    height:280px;
-}
-
-.hero-content{
-
-    left:20px;
-    right:20px;
-}
-
-.hero-content h1{
-
-    font-size:36px;
-}
-
-.hero-content p{
-
-    font-size:14px;
-    max-width:100%;
-}
-
-/* IMPORTANT */
-
-.hero-bottom-nav{
-
-    position:sticky;
-    top:132px;
-
-    overflow-x:auto;
-    overflow-y:hidden;
-
-    justify-content:flex-start;
-
-    white-space:nowrap;
-
-    -webkit-overflow-scrolling:touch;
-
-    scrollbar-width:none;
-}
-
-.hero-bottom-nav::-webkit-scrollbar{
-
-    display:none;
-}
-
-.hbn-link{
-
-    flex:0 0 auto;
-
-    padding:0 22px;
-
-    height:52px;
-
-    font-size:13px;
-}
 
 .who-section,
 .ecosystem-section,
@@ -859,7 +731,6 @@ html{scroll-behavior:smooth;}
             <ul>
               <li data-img="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&auto=format&fit=crop" data-text="Our Leadership" data-link="about.html">Leadership</li>
               <li data-img="https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=800&auto=format&fit=crop" data-text="Our Culture" data-link="about.html">Culture</li>
-              <li data-img="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&auto=format&fit=crop" data-text="Global Presence" data-link="about.html">Global Presence</li>
             </ul>
           </div>
           <div class="dropdown-right">
@@ -896,23 +767,71 @@ html{scroll-behavior:smooth;}
           </div>
         </div>
       </div>
-      <a href="internship.html">Internships</a>
-      <a href="careers.html">Careers</a>
-      <a href="contact.html">Contact us</a>
+
+<div class="menu-item">
+    <span>Internships ▾</span>
+
+    <div class="dropdown">
+        <div class="dropdown-left">
+
+<div class="dropdown-group">
+    <h4>Internships</h4>
+
+    <ul>
+
+        <li
+        data-img="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop"
+        data-text="Internship Overview"
+        data-link="internship.html">
+        Internship Overview
+        </li>
+
+        <li
+        data-img="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&auto=format&fit=crop"
+        data-text="Eligibility & Process"
+        data-link="internship.html#benefits">
+        Eligibility & Process
+        </li>
+
+        <li class="apply-item"
+        data-img="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop"
+        data-text="Apply for Internship"
+        data-link="apply.php">
+        🚀 Apply for Internship
+        </li>
+
+    </ul>
+</div>
+
+        </div>
+
+        <div class="dropdown-right">
+            <img id="internship-img"
+                 src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop">
+
+            <div class="dropdown-overlay" id="internship-text">
+                Internship Programs
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<a href="careers.html">Careers</a>
+<a href="contact.html">Contact us</a>
     </nav>
     <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
     <div class="actions">🌐 EN 🔍</div>
   </div>
 </header>
 
-
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-accordion">
     <button class="mobile-title">Who we are <span>+</span></button>
     <div class="mobile-submenu">
-      <a href="#">Leadership</a>
-      <a href="#">Culture</a>
-      <a href="#">Global Presence</a>
+      <a href="about.html#leadership">Leadership</a>
+      <a href="about.html#culture">Culture</a>
+  
     </div>
   </div>
   <div class="mobile-accordion">
@@ -928,7 +847,20 @@ html{scroll-behavior:smooth;}
       <a href="semiconductor.html">Semiconductor</a>
     </div>
   </div>
-  <a href="internship.html">Internships</a>
+<div class="mobile-accordion">
+  <button class="mobile-title">Internships <span>+</span></button>
+
+  <div class="mobile-submenu">
+    <a href="internship.html">Internship overview</a>
+    <a href="internship.html#benefits">Eligibility & Process</a>
+
+    <hr>
+
+    <a href="apply.php" class="mobile-apply">
+      🚀 Apply for Internship
+    </a>
+  </div>
+</div>
   <a href="careers.html">Careers</a>
   <a href="contact.html">Contact Us</a>
 </div>
@@ -966,47 +898,46 @@ html{scroll-behavior:smooth;}
 
 <!-- ═══════ STICKY BOTTOM NAV ═══════ -->
 <nav class="hero-bottom-nav" id="heroBottomNav">
-  <a href="#who" class="hbn-link active">Who We Are</a>
-  <a href="#ecosystem" class="hbn-link">Ecosystem</a>
-  <a href="#vision" class="hbn-link">Vision & Mission</a>
-  <a href="#why" class="hbn-link">Why YSQUARE</a>
-  <a href="#values" class="hbn-link">Our Values</a>
-  <a href="#impact" class="hbn-link">Global Impact</a>
+<a href="#leadership" class="hbn-link active">Leadership</a>
+<a href="#ecosystem" class="hbn-link">Ecosystem</a>
+<a href="#vision" class="hbn-link">Vision & Mission</a>
+<a href="#why" class="hbn-link">Why YSQUARE</a>
+<a href="#culture" class="hbn-link">Culture</a>
 </nav>
 
 <!-- ══════════════════════════════════════════════════════
      S01 — WHO WE ARE
 ══════════════════════════════════════════════════════ -->
-<section class="who-section" id="who">
+<section class="who-section" id="leadership">
   <div class="who-grid">
 
-    <div class="who-left">
-      <div class="eyebrow reveal">Who We Are</div>
-      <h2 class="reveal">Engineering Built<br>for <em>What's Next</em></h2>
-      <p class="reveal">YSQUARE Semicon IT Solutions is a precision engineering company serving the global semiconductor, automotive and hi-tech industries. We exist to close the gap between complex engineering ambition and reliable, production-grade delivery.</p>
-      <p class="reveal d1">Founded on the principle that domain depth beats generalist consulting, every engagement is staffed by specialists who understand what it means to ship hardware and software at scale — under schedule, under budget, and without compromising quality.</p>
-      <p class="reveal d2">From silicon design to cloud-native software platforms, from embedded firmware to AI-powered automation — YSQUARE brings the engineering capability that modern product companies need to compete in a world where technology cycles are faster than ever.</p>
-    </div>
+<div class="who-left">
+  <div class="eyebrow reveal">Leadership</div>
+  <h2 class="reveal">Led By People Who've<br>Actually <em>Shipped</em></h2>
+  <p class="reveal">YSQUARE was founded by engineers who've spent their careers inside semiconductor fabs, embedded product lines and enterprise software teams — not career consultants learning the domain on the job.</p>
+  <p class="reveal d1">We're a young company by design — small enough that our leadership is personally involved in every engagement, reviewing architecture decisions and sitting in design reviews directly. That's a level of access larger firms simply can't offer.</p>
+  <p class="reveal d2">We'd rather earn trust one engagement at a time than promise scale we haven't built yet.</p>
+</div>
 
-    <div class="who-right reveal-right">
-      <div class="who-img-wrap">
-        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1400&q=80" alt="YSQUARE Engineering Team">
-      </div>
-      <div class="who-stats-card">
-        <div class="wsc-item">
-          <span class="wsc-num">500<span>+</span></span>
-          <div class="wsc-lbl">Projects<br>Delivered</div>
-        </div>
-        <div class="wsc-item">
-          <span class="wsc-num">50<span>+</span></span>
-          <div class="wsc-lbl">Expert<br>Engineers</div>
-        </div>
-        <div class="wsc-item">
-          <span class="wsc-num">3</span>
-          <div class="wsc-lbl">Core<br>Industries</div>
-        </div>
-      </div>
+<div class="who-right reveal-right">
+  <div class="who-img-wrap">
+    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80" alt="YSQUARE Leadership Team">
+  </div>
+  <div class="who-stats-card">
+    <div class="wsc-item">
+      <span class="wsc-num">2026</span>
+      <div class="wsc-lbl">Founded<br>This Year</div>
     </div>
+    <div class="wsc-item">
+      <span class="wsc-num">3</span>
+      <div class="wsc-lbl">Core<br>Domains</div>
+    </div>
+    <div class="wsc-item">
+      <span class="wsc-num">100<span>%</span></span>
+      <div class="wsc-lbl">Founder-Led<br>Delivery</div>
+    </div>
+  </div>
+</div>
 
   </div>
 </section>
@@ -1016,74 +947,1027 @@ html{scroll-behavior:smooth;}
 <!-- ══════════════════════════════════════════════════════
      S02 — ENGINEERING ECOSYSTEM
 ══════════════════════════════════════════════════════ -->
-<section class="ecosystem-section" id="ecosystem">
-  <div class="eco-header">
-    <div class="eyebrow reveal" style="justify-content:center;">Engineering Ecosystem</div>
-    <h2 class="reveal">One Integrated<br>Engineering Platform</h2>
-    <p class="reveal">Five interconnected engineering practices — each a specialist discipline, all operating as one unified delivery ecosystem.</p>
-  </div>
 
-  <div style="display:flex;justify-content:center;">
-    <div class="chip-diagram reveal">
 
-      <!-- SVG connector lines -->
-      <svg class="eco-svg" viewBox="0 0 720 720">
-        <!-- lines from center (360,360) to each node center -->
-        <!-- Node 1: top center (360, 56) -->
-        <line class="eco-line animated" x1="360" y1="360" x2="360" y2="96"/>
-        <!-- Node 2: right (600, 248) -->
-        <line class="eco-line animated" x1="360" y1="360" x2="600" y2="248" style="animation-delay:.5s;"/>
-        <!-- Node 3: bottom right (580, 564) -->
-        <line class="eco-line animated" x1="360" y1="360" x2="540" y2="564" style="animation-delay:1s;"/>
-        <!-- Node 4: bottom left (180, 564) -->
-        <line class="eco-line animated" x1="360" y1="360" x2="180" y2="564" style="animation-delay:1.5s;"/>
-        <!-- Node 5: left (120, 248) -->
-        <line class="eco-line animated" x1="360" y1="360" x2="120" y2="248" style="animation-delay:2s;"/>
-        <!-- outer ring -->
-        <circle cx="360" cy="360" r="240" stroke="rgba(14,165,233,.06)" stroke-width="1" fill="none" stroke-dasharray="8 6"/>
-        <circle cx="360" cy="360" r="160" stroke="rgba(14,165,233,.04)" stroke-width="1" fill="none"/>
+<!-- ══════════════════════════════════════════════════════
+     TECHNOLOGY DNA
+══════════════════════════════════════════════════════ -->
+<section class="dna-section">
+  <canvas class="dna-particles" id="dnaParticles"></canvas>
+  <svg class="dna-pcb-grid" id="dnaPcbGrid" xmlns="http://www.w3.org/2000/svg"></svg>
+
+  <div class="dna-inner">
+
+    <!-- LEFT -->
+    <div class="dna-left">
+      <div class="dna-eyebrow sr">OUR ENGINEERING PHILOSOPHY</div>
+      <h2 class="dna-heading sr">Built By<br><em>Engineering.</em> Innovation.</h2>
+     <p class="dna-desc sr" id="dnaDesc">
+
+YSQUARE brings together multidisciplinary engineering expertise across semiconductor, embedded, software, AI and digital technologies to solve complex engineering challenges. Our collaborative delivery model combines technical excellence, innovation and global best practices to help organizations build reliable, scalable and future-ready products with greater speed and confidence.
+
+</p>
+      <a href="#" class="dna-cta sr">Discover Our Approach →</a>
+    </div>
+
+    <!-- RIGHT: visualisation -->
+    <div class="dna-right" id="dnaRight">
+
+      <!-- SVG for traces + flow dots -->
+      <svg class="dna-svg" id="dnaSvg" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="traceGlow">
+            <feGaussianBlur stdDeviation="2" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <!-- traces drawn by JS -->
       </svg>
 
-      <!-- Central chip -->
-      <div class="chip-center">
-        <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke-width="1.5" stroke="currentColor"/><rect x="8" y="8" width="8" height="8" rx="1" stroke-width="1.5" stroke="currentColor"/><line x1="4" y1="9" x2="1" y2="9" stroke-width="1.5" stroke="currentColor"/><line x1="4" y1="15" x2="1" y2="15" stroke-width="1.5" stroke="currentColor"/><line x1="20" y1="9" x2="23" y2="9" stroke-width="1.5" stroke="currentColor"/><line x1="20" y1="15" x2="23" y2="15" stroke-width="1.5" stroke="currentColor"/><line x1="9" y1="4" x2="9" y2="1" stroke-width="1.5" stroke="currentColor"/><line x1="15" y1="4" x2="15" y2="1" stroke-width="1.5" stroke="currentColor"/><line x1="9" y1="20" x2="9" y2="23" stroke-width="1.5" stroke="currentColor"/><line x1="15" y1="20" x2="15" y2="23" stroke-width="1.5" stroke="currentColor"/></svg>
-        <span>YSQUARE</span>
-        <div class="eco-dot"></div>
+      <!-- Chip -->
+      <div class="dna-chip-wrap" id="dnaChipWrap">
+        <div class="dna-chip" id="dnaChip">
+          <div class="dna-chip-inner" id="dnaChipInner">
+            <div class="dna-chip-cell"></div><div class="dna-chip-cell lit"></div>
+            <div class="dna-chip-cell"></div><div class="dna-chip-cell lit"></div>
+            <div class="dna-chip-cell lit"></div><div class="dna-chip-cell"></div>
+            <div class="dna-chip-cell lit"></div><div class="dna-chip-cell"></div>
+            <div class="dna-chip-cell"></div><div class="dna-chip-cell lit"></div>
+            <div class="dna-chip-cell"></div><div class="dna-chip-cell lit"></div>
+            <div class="dna-chip-cell lit"></div><div class="dna-chip-cell"></div>
+            <div class="dna-chip-cell"></div><div class="dna-chip-cell lit"></div>
+          </div>
+          <!-- edge pins -->
+          <div class="dna-chip-pins">
+            <div class="dna-pin h" style="left:18px"></div>
+            <div class="dna-pin h" style="left:40px"></div>
+            <div class="dna-pin h" style="left:62px"></div>
+            <div class="dna-pin h b" style="left:18px"></div>
+            <div class="dna-pin h b" style="left:40px"></div>
+            <div class="dna-pin h b" style="left:62px"></div>
+            <div class="dna-pin v" style="top:18px"></div>
+            <div class="dna-pin v" style="top:40px"></div>
+            <div class="dna-pin v" style="top:62px"></div>
+            <div class="dna-pin v r" style="top:18px"></div>
+            <div class="dna-pin v r" style="top:40px"></div>
+            <div class="dna-pin v r" style="top:62px"></div>
+          </div>
+        </div>
       </div>
 
-      <!-- Node 1: Digital Engineering — top -->
-      <div class="eco-node">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
-        <span>Digital<br>Engineering</span>
+      <!-- Nodes -->
+      <div class="dna-node" data-pos="tl" data-idx="0"
+        data-desc="Every project is built on engineering precision, proven methodologies and a commitment to delivering measurable business value.">
+        <div class="dna-node-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/></svg>
+        </div>
+  <div class="dna-node-name">
+Engineering Excellence
+</div>
+
+<div class="dna-node-sub">
+Precision • Innovation • Quality
+</div>
       </div>
 
-      <!-- Node 2: Software Engineering — right -->
-      <div class="eco-node">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-        <span>Software<br>Engineering</span>
+      <div class="dna-node" data-pos="tr" data-idx="1"
+       data-desc="Cross-functional engineering teams collaborate seamlessly to accelerate product development and reduce delivery risk.">
+        <div class="dna-node-icon">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <div class="dna-node-name">Collaborative Delivery</div>
+        <div class="dna-node-sub">Global Teams · Agile Execution </div>
       </div>
 
-      <!-- Node 3: Semiconductor — bottom right -->
-      <div class="eco-node">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/></svg>
-        <span>Semiconductor<br>Engineering</span>
+      <div class="dna-node" data-pos="bl" data-idx="2"
+       data-desc="We continuously invest in emerging technologies that help clients stay competitive in rapidly evolving markets.">
+        <div class="dna-node-icon">
+          <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+        </div>
+        <div class="dna-node-name">Future Technologies</div>
+        <div class="dna-node-sub">AI · Cloud · Connected Systems</div>
       </div>
 
-      <!-- Node 4: Embedded — bottom left -->
-      <div class="eco-node">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        <span>Embedded<br>Engineering</span>
-      </div>
-
-      <!-- Node 5: AI & Automation — left -->
-      <div class="eco-node">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-        <span>AI &<br>Automation</span>
+      <div class="dna-node" data-pos="br" data-idx="3"
+        data-desc="We work as an extension of our clients' engineering teams, building long-term partnerships based on trust, transparency and technical excellence.">
+        <div class="dna-node-icon">
+          <svg viewBox="0 0 24 24"><path d="M2 7h20M2 12h20M2 17h20M7 2v20M12 2v20M17 2v20"/></svg>
+        </div>
+        <div class="dna-node-name">Trusted Partnership</div>
+        <div class="dna-node-sub">Long-term value · Innovation</div>
       </div>
 
     </div>
   </div>
 </section>
+
+<script>
+(function(){
+  /* ── Particles ── */
+  const canvas = document.getElementById('dnaParticles');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+
+  function resizeCanvas(){
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  for(let i = 0; i < 55; i++){
+    particles.push({
+      x: Math.random() * 2000,
+      y: Math.random() * 800,
+      r: Math.random() * 1.2 + 0.3,
+      vx: (Math.random() - .5) * .18,
+      vy: (Math.random() - .5) * .18,
+      a: Math.random() * .4 + .1
+    });
+  }
+
+  function drawParticles(){
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(56,189,248,${p.a})`;
+      ctx.fill();
+      p.x += p.vx; p.y += p.vy;
+      if(p.x < 0) p.x = W;
+      if(p.x > W) p.x = 0;
+      if(p.y < 0) p.y = H;
+      if(p.y > H) p.y = 0;
+    });
+    requestAnimationFrame(drawParticles);
+  }
+  drawParticles();
+
+  /* ── SVG traces ── */
+  const rightEl = document.getElementById('dnaRight');
+  const svg = document.getElementById('dnaSvg');
+  const nodes = rightEl.querySelectorAll('.dna-node');
+  const chip  = document.getElementById('dnaChipWrap');
+
+  function buildTraces(){
+    svg.querySelectorAll('.dna-trace, .dna-flow-dot').forEach(el => el.remove());
+
+    const rb  = rightEl.getBoundingClientRect();
+    const cb  = chip.getBoundingClientRect();
+    const cx  = cb.left - rb.left + cb.width  / 2;
+    const cy  = cb.top  - rb.top  + cb.height / 2;
+
+    nodes.forEach((node, i) => {
+      const nb = node.getBoundingClientRect();
+      const nx = nb.left - rb.left + nb.width  / 2;
+      const ny = nb.top  - rb.top  + nb.height / 2;
+
+      /* control points for rounded PCB trace */
+      const mx = (nx + cx) / 2;
+      const my = (ny + cy) / 2;
+
+      const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+
+      /* PCB-style: go horizontal then vertical */
+      let d;
+      if(i === 0)      d = `M${nx},${ny} L${mx},${ny} L${mx},${cy} L${cx},${cy}`;
+      else if(i === 1) d = `M${nx},${ny} L${mx},${ny} L${mx},${cy} L${cx},${cy}`;
+      else if(i === 2) d = `M${nx},${ny} L${mx},${ny} L${mx},${cy} L${cx},${cy}`;
+      else             d = `M${nx},${ny} L${mx},${ny} L${mx},${cy} L${cx},${cy}`;
+
+      path.setAttribute('d', d);
+      path.setAttribute('class', 'dna-trace');
+      path.setAttribute('id', `trace-${i}`);
+      svg.appendChild(path);
+
+      /* flow dot */
+      const dot = document.createElementNS('http://www.w3.org/2000/svg','circle');
+      dot.setAttribute('class','dna-flow-dot');
+      dot.setAttribute('id', `dot-${i}`);
+      svg.appendChild(dot);
+    });
+
+    /* animate flow dots */
+    animateDots();
+  }
+
+  function animateDots(){
+    nodes.forEach((_, i) => {
+      const path = document.getElementById(`trace-${i}`);
+      const dot  = document.getElementById(`dot-${i}`);
+      if(!path || !dot) return;
+      const len = path.getTotalLength();
+      let t = 0;
+      const speed = .0018 + i * .0004;
+      const delay = i * 900;
+
+      setTimeout(() => {
+        function step(){
+          t = (t + speed) % 1;
+          const pt = path.getPointAtLength(t * len);
+          dot.setAttribute('cx', pt.x);
+          dot.setAttribute('cy', pt.y);
+          dot.setAttribute('opacity', t > .05 && t < .95 ? .85 : 0);
+          requestAnimationFrame(step);
+        }
+        step();
+      }, delay);
+    });
+  }
+
+  setTimeout(buildTraces, 120);
+  window.addEventListener('resize', () => setTimeout(buildTraces, 100));
+
+  /* ── Node hover interactions ── */
+  const descEl = document.getElementById('dnaDesc');
+  const defaultDesc = descEl.textContent.trim();
+  const chipEl = document.getElementById('dnaChip');
+
+  nodes.forEach((node, i) => {
+    node.addEventListener('mouseenter', () => {
+      /* illuminate trace */
+      const trace = document.getElementById(`trace-${i}`);
+      if(trace) trace.classList.add('active');
+
+      /* update description */
+      const newDesc = node.dataset.desc;
+      if(newDesc){
+        descEl.style.opacity = '0';
+        setTimeout(() => {
+          descEl.textContent = newDesc;
+          descEl.style.opacity = '1';
+        }, 220);
+      }
+
+      /* brighten chip */
+      chipEl.style.boxShadow = '0 0 0 1px rgba(14,165,233,.4), 0 0 50px rgba(14,165,233,.5), 0 0 100px rgba(14,165,233,.2), inset 0 1px 0 rgba(255,255,255,.12)';
+
+      /* randomise lit cells */
+      document.querySelectorAll('.dna-chip-cell').forEach(c => {
+        c.classList.toggle('lit', Math.random() > .5);
+      });
+    });
+
+    node.addEventListener('mouseleave', () => {
+      const trace = document.getElementById(`trace-${i}`);
+      if(trace) trace.classList.remove('active');
+
+      descEl.style.opacity = '0';
+      setTimeout(() => {
+        descEl.textContent = defaultDesc;
+        descEl.style.opacity = '1';
+      }, 220);
+
+      chipEl.style.boxShadow = '';
+    });
+  });
+
+  /* ── Gentle parallax ── */
+  const dnaRight = document.getElementById('dnaRight');
+  document.addEventListener('mousemove', e => {
+    const mx = (e.clientX - window.innerWidth  / 2) * .005;
+    const my = (e.clientY - window.innerHeight / 2) * .005;
+    dnaRight.style.transform = `translate(${mx}px, ${my}px)`;
+  });
+
+  /* ── PCB background traces ── */
+  const pcbSvg = document.getElementById('dnaPcbGrid');
+  function drawPcb(){
+    pcbSvg.innerHTML = '';
+    const W2 = pcbSvg.offsetWidth, H2 = pcbSvg.offsetHeight;
+    const lines = [
+      [0, H2*.25, W2*.4, H2*.25],
+      [W2*.6, H2*.25, W2, H2*.25],
+      [0, H2*.75, W2*.3, H2*.75],
+      [W2*.7, H2*.75, W2, H2*.75],
+      [W2*.2, 0, W2*.2, H2*.4],
+      [W2*.8, 0, W2*.8, H2*.3],
+      [W2*.15, H2*.6, W2*.15, H2],
+      [W2*.85, H2*.7, W2*.85, H2],
+    ];
+    lines.forEach(([x1,y1,x2,y2]) => {
+      const line = document.createElementNS('http://www.w3.org/2000/svg','line');
+      line.setAttribute('x1',x1); line.setAttribute('y1',y1);
+      line.setAttribute('x2',x2); line.setAttribute('y2',y2);
+      line.setAttribute('stroke','rgba(14,165,233,.06)');
+      line.setAttribute('stroke-width','1');
+      pcbSvg.appendChild(line);
+      /* small junction dot */
+      [0,1].forEach(end => {
+        const c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+        c.setAttribute('cx', end?x2:x1);
+        c.setAttribute('cy', end?y2:y1);
+        c.setAttribute('r','3');
+        c.setAttribute('fill','rgba(14,165,233,.1)');
+        pcbSvg.appendChild(c);
+      });
+    });
+  }
+  drawPcb();
+  window.addEventListener('resize', drawPcb);
+
+})();
+</script>
+
+
+
+
+<style>
+/* ══════════════════════════════════════════════════════
+   TECHNOLOGY DNA SECTION
+══════════════════════════════════════════════════════ */
+.dna-section {
+  position:relative;
+   background:
+linear-gradient(
+180deg,
+#F7FBFF 0%,
+#EDF5FC 55%,
+#F8FCFF 100%
+);
+    padding:70px 0;
+    overflow:hidden;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+}
+
+/* noise texture overlay */
+.dna-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+  background-size: 200px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .4;
+}
+
+/* ambient glow */
+.dna-section::after {
+  content: "";
+  position: absolute;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(14,165,233,.1), transparent 70%);
+  filter: blur(80px);
+  top: 50%; left: 55%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* PCB grid lines */
+.dna-pcb-grid {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+}
+
+/* particles canvas */
+.dna-particles {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+}
+
+/* ── Inner layout ── */
+.dna-inner{
+
+    position:relative;
+
+    width:min(1380px,92%);
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:42% 58%;
+
+    align-items:center;
+
+    gap:70px;
+
+    background:#ffffff;
+
+    border-radius:28px;
+
+     padding:50px 60px;
+
+    overflow:hidden;
+
+box-shadow:
+0 45px 120px rgba(15,23,42,.10),
+0 15px 35px rgba(15,23,42,.06);
+
+border:
+1px solid rgba(255,255,255,.85);
+
+outline:
+1px solid rgba(14,165,233,.06);
+
+}
+
+.dna-inner::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background-image:
+
+linear-gradient(rgba(14,165,233,.025) 1px,transparent 1px),
+
+linear-gradient(90deg,rgba(14,165,233,.025) 1px,transparent 1px);
+
+background-size:90px 90px;
+
+pointer-events:none;
+opacity:.45;
+
+}
+.dna-inner::after{
+
+content:"";
+
+position:absolute;
+
+width:420px;
+
+height:420px;
+
+right:-180px;
+
+top:-140px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(circle,
+
+rgba(14,165,233,.12),
+
+transparent 72%);
+
+filter:blur(80px);
+
+animation:dnaGlow 8s ease-in-out infinite;
+
+opacity:.6;
+
+}
+
+@keyframes dnaGlow{
+
+0%{
+
+transform:translate(0,0);
+
+}
+
+50%{
+
+transform:
+
+translate(-20px,20px);
+
+}
+
+100%{
+
+transform:
+
+translate(0,0);
+
+}
+
+}
+/* ── LEFT: editorial content ── */
+
+
+.dna-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #38bdf8;
+  margin-bottom: 28px;
+}
+.dna-eyebrow::before {
+  content: "";
+  display: block;
+  width: 22px; height: 1.5px;
+  background: #38bdf8;
+}
+
+.dna-heading {
+ font-size:64px;
+  font-weight: 800;
+  color: #0f172a;
+letter-spacing:-3px;
+  line-height:.95;
+  margin-bottom: 24px;
+  max-width:470px;
+}
+
+.dna-heading em {
+  font-style: normal;
+  color: #94a3b8;
+}
+
+.dna-desc {
+  font-size: 17px;
+  line-height: 1.9;
+  color:#64748b;
+  max-width: 430px;
+  margin-bottom: 36px;
+  margin:28px 0;
+  transition: opacity .5s ease;
+}
+
+.dna-chip{
+
+background:
+
+linear-gradient(145deg,
+
+#1c2b43,
+
+#091523);
+
+border-radius:24px;
+
+box-shadow:
+
+0 0 0 1px rgba(14,165,233,.18),
+
+0 0 45px rgba(14,165,233,.35),
+
+0 0 90px rgba(14,165,233,.18),
+
+0 35px 70px rgba(14,165,233,.12),
+
+inset 0 1px 0 rgba(255,255,255,.08);
+
+}
+@keyframes chipFloat{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+}
+
+.dna-chip-wrap{
+
+animation:chipFloat 6s ease-in-out infinite;
+
+}
+
+.dna-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #0ea5e9;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(14,165,233,.3);
+  padding-bottom: 3px;
+  transition: gap .3s, border-color .3s;
+}
+.dna-cta:hover { gap: 14px; border-color: #0ea5e9; }
+
+/* ── RIGHT: chip + nodes visualisation ── */
+.dna-right {
+  position: relative;
+  height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+/* SVG canvas */
+.dna-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* chip wrapper */
+.dna-chip-wrap {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 130px; height: 130px;
+  animation: chipFloat 5s ease-in-out infinite;
+  z-index: 3;
+}
+
+@keyframes chipFloat {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
+  50%       { transform: translate(-50%, -50%) translateY(-10px); }
+}
+
+/* chip itself */
+.dna-chip {
+  width: 130px; height: 130px;
+  position: relative;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #0d2240 0%, #0a1830 40%, #071020 100%);
+  border: 1px solid rgba(14,165,233,.35);
+  box-shadow:
+    0 0 0 1px rgba(14,165,233,.12),
+    0 0 30px rgba(14,165,233,.2),
+    0 0 60px rgba(14,165,233,.08),
+    inset 0 1px 0 rgba(255,255,255,.08),
+    inset 0 -1px 0 rgba(0,0,0,.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: chipPulse 4s ease-in-out infinite;
+  cursor: default;
+}
+
+@keyframes chipPulse {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(14,165,233,.12), 0 0 30px rgba(14,165,233,.2), 0 0 60px rgba(14,165,233,.08), inset 0 1px 0 rgba(255,255,255,.08); }
+  50%       { box-shadow: 0 0 0 1px rgba(14,165,233,.25), 0 0 40px rgba(14,165,233,.35), 0 0 90px rgba(14,165,233,.15), inset 0 1px 0 rgba(255,255,255,.1); }
+}
+
+/* chip inner grid die */
+.dna-chip-inner {
+  width: 82px; height: 82px;
+  background: linear-gradient(135deg, #0e2a50, #0b1f3a);
+  border: 1px solid rgba(14,165,233,.25);
+  border-radius: 6px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: repeat(4,1fr);
+  gap: 3px;
+  padding: 6px;
+  position: relative;
+}
+
+.dna-chip-cell {
+  background: rgba(14,165,233,.1);
+  border-radius: 1px;
+  transition: background .3s;
+}
+
+.dna-chip-cell.lit {
+  background: rgba(14,165,233,.35);
+  box-shadow: 0 0 4px rgba(14,165,233,.4);
+}
+
+/* chip edge pins */
+.dna-chip-pins {
+  position: absolute; inset: 0;
+  pointer-events: none;
+}
+
+.dna-pin {
+  position: absolute;
+  background: rgba(14,165,233,.5);
+}
+
+/* top & bottom pins */
+.dna-pin.h { height: 3px; width: 10px; top: -4px; }
+.dna-pin.h.b { top: auto; bottom: -4px; }
+/* left & right pins */
+.dna-pin.v { width: 3px; height: 10px; left: -4px; }
+.dna-pin.v.r { left: auto; right: -4px; }
+
+/* ── Nodes ── */
+.dna-node {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform .4s ease;
+  z-index: 4;
+}
+
+.dna-node{
+
+background:#fff;
+
+padding:24px 28px;
+
+border-radius:18px;
+
+border:1px solid #edf2f7;
+
+box-shadow:
+
+0 12px 35px rgba(15,23,42,.06);
+
+transition:.35s;
+
+min-width:220px;
+
+}
+
+.dna-node:hover{
+
+transform:translateY(-8px);
+
+box-shadow:
+
+0 30px 60px rgba(15,23,42,.12);
+
+}
+
+
+
+/* node positioning */
+.dna-node[data-pos="tl"] { top: 6%;  left: 2%; align-items: flex-start; }
+.dna-node[data-pos="tr"] { top: 6%;  right: 2%; align-items: flex-end; }
+.dna-node[data-pos="bl"] { bottom: 6%; left: 2%; align-items: flex-start; }
+.dna-node[data-pos="br"] { bottom: 6%; right: 2%; align-items: flex-end; }
+
+.dna-node:hover { transform: scale(1.06); }
+
+/* glowing icon ring */
+.dna-node-icon {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(14,165,233,.22);
+  background: rgba(14,165,233,.06);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  transition: border-color .4s, background .4s, box-shadow .4s;
+  animation: nodeBreath 4s ease-in-out infinite;
+}
+
+/* stagger breaths */
+.dna-node:nth-child(1) .dna-node-icon { animation-delay: 0s; }
+.dna-node:nth-child(2) .dna-node-icon { animation-delay: 1s; }
+.dna-node:nth-child(3) .dna-node-icon { animation-delay: 2s; }
+.dna-node:nth-child(4) .dna-node-icon { animation-delay: 3s; }
+
+@keyframes nodeBreath {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(14,165,233,0); }
+  50%       { box-shadow: 0 0 12px 3px rgba(14,165,233,.15); }
+}
+
+.dna-node:hover .dna-node-icon {
+  border-color: rgba(14,165,233,.7);
+  background: rgba(14,165,233,.14);
+  box-shadow: 0 0 22px 4px rgba(14,165,233,.25);
+}
+
+.dna-node-icon svg {
+  width: 18px; height: 18px;
+  stroke: #38bdf8;
+  fill: none;
+  stroke-width: 1.6;
+}
+
+.dna-node-name {
+  font-size: 13px;
+  font-weight: 700;
+  color:#0f172a;
+  letter-spacing: -.2px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.dna-node-sub {
+  font-size: 10.5px;
+ color:#64748b;
+  letter-spacing: .2px;
+  white-space: nowrap;
+}
+
+/* ── Circuit traces SVG ── */
+.dna-trace {
+  fill: none;
+  stroke: rgba(14,165,233,.18);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke .4s ease;
+}
+
+.dna-trace.active {
+  stroke: rgba(14,165,233,.7);
+  filter: drop-shadow(0 0 4px rgba(14,165,233,.55));
+}
+
+/* travelling dot */
+.dna-flow-dot {
+  r: 3;
+  fill: #38bdf8;
+  filter: drop-shadow(0 0 5px rgba(56,189,248,.9));
+  opacity: 0;
+}
+
+/* ── Responsive ── */
+/* ===================================================
+   DNA SECTION - MOBILE
+=================================================== */
+
+@media (max-width:768px){
+
+.dna-inner{
+    display:flex;
+    flex-direction:column;
+    gap:40px;
+    padding:30px 18px;
+}
+
+/* Visual first */
+.dna-right{
+    order:1;
+    position:relative;
+    width:100%;
+    height:310px;
+    margin:0 auto;
+}
+
+/* Content second */
+.dna-left{
+    order:2;
+    text-align:center;
+}
+
+.dna-heading{
+    font-size:46px;
+    line-height:1;
+    max-width:100%;
+}
+
+.dna-desc{
+    max-width:100%;
+    font-size:17px;
+    line-height:1.8;
+}
+
+.dna-cta{
+    justify-content:center;
+}
+
+/* Chip */
+
+.dna-chip-wrap{
+    width:80px;
+    height:80px;
+}
+
+.dna-chip{
+    width:80px;
+    height:80px;
+}
+
+.dna-chip-inner{
+    width:48px;
+    height:48px;
+}
+
+/* Hide SVG traces */
+
+.dna-svg{
+    display:none;
+}
+
+/* Cards */
+
+.dna-node{
+
+    width:130px;
+    min-width:130px;
+
+    padding:12px;
+
+    border-radius:16px;
+
+    align-items:center !important;
+    text-align:center;
+}
+
+.dna-node-icon{
+
+    width:38px;
+    height:38px;
+
+    margin-bottom:8px;
+}
+
+.dna-node-icon svg{
+    width:15px;
+    height:15px;
+}
+
+.dna-node-name{
+
+    font-size:11px;
+    line-height:1.25;
+    white-space:normal;
+}
+
+.dna-node-sub{
+
+    font-size:9px;
+    white-space:normal;
+    line-height:1.4;
+}
+
+/* Perfect positioning */
+
+.dna-node[data-pos="tl"]{
+    top:0;
+    left:8px;
+}
+
+.dna-node[data-pos="tr"]{
+    top:0;
+    right:8px;
+}
+
+.dna-node[data-pos="bl"]{
+    bottom:0;
+    left:8px;
+}
+
+.dna-node[data-pos="br"]{
+    bottom:0;
+    right:8px;
+}
+
+}
+
+
+
+/* Very Small Phones */
+
+@media (max-width:430px){
+
+.dna-right{
+    height:270px;
+}
+
+.dna-node{
+
+    width:118px;
+    min-width:118px;
+
+    padding:10px;
+}
+
+.dna-node-name{
+    font-size:10px;
+}
+
+.dna-node-sub{
+    font-size:8px;
+}
+
+.dna-chip-wrap{
+    width:68px;
+    height:68px;
+}
+
+.dna-chip{
+    width:68px;
+    height:68px;
+}
+
+.dna-chip-inner{
+    width:42px;
+    height:42px;
+}
+
+}
+
+html,
+body{
+    width:100%;
+    overflow-x:clip;
+}
+
+main{
+    overflow-x:clip;
+}
+
+</style>
 
 <div class="premium-divider"></div>
 
@@ -1105,7 +1989,7 @@ html{scroll-behavior:smooth;}
       <span class="vm-panel-tag">Our Mission</span>
       <h3>Engineering Outcomes<br>That Matter</h3>
       <p>To deliver engineering solutions of uncompromising quality that help technology companies reduce risk, accelerate delivery, and build products that define their industry — through deep domain expertise, accountability at every level, and relentless focus on what ships.</p>
-      <div class="vm-wm">M</div>
+     
     </div>
 
     <div class="vm-panel reveal-right">
@@ -1115,7 +1999,7 @@ html{scroll-behavior:smooth;}
       <span class="vm-panel-tag">Our Vision</span>
       <h3>The Engineering<br>Company of Tomorrow</h3>
       <p>To become the most trusted semiconductor and engineering services partner for innovation-driven companies worldwide — recognized not by the scale of our headcount, but by the precision of our delivery and the depth of our domain expertise across every engagement we take on.</p>
-      <div class="vm-wm">V</div>
+      
     </div>
 
   </div>
@@ -1136,28 +2020,28 @@ html{scroll-behavior:smooth;}
   <div class="why-blocks">
 
     <div class="why-block reveal d1">
-      <div class="wb-num">01</div>
+   
       <div class="wb-title">Engineering Excellence</div>
       <div class="wb-desc">Every engagement is led by engineers with irreplaceable domain depth. We don't assign generalists — we assign specialists who have shipped at this level before.</div>
       <div class="wb-arrow">Learn more →</div>
     </div>
 
     <div class="why-block reveal d2">
-      <div class="wb-num">02</div>
+     
       <div class="wb-title">Innovation Driven</div>
       <div class="wb-desc">We invest in next-generation methodologies — AI-assisted verification, automated test generation, and model-based development — to give you the engineering edge.</div>
       <div class="wb-arrow">Learn more →</div>
     </div>
 
     <div class="why-block reveal d3">
-      <div class="wb-num">03</div>
+    
       <div class="wb-title">Client-Centric Delivery</div>
       <div class="wb-desc">Our success is defined by your outcomes. We align incentives, timelines, and quality gates directly to what matters most to your engineering roadmap.</div>
       <div class="wb-arrow">Learn more →</div>
     </div>
 
     <div class="why-block reveal d4">
-      <div class="wb-num">04</div>
+
       <div class="wb-title">Future Ready Solutions</div>
       <div class="wb-desc">Built for the demands of 2026 and beyond — our engineering practices evolve continuously to keep you ahead of the technology curve, not behind it.</div>
       <div class="wb-arrow">Learn more →</div>
@@ -1171,103 +2055,51 @@ html{scroll-behavior:smooth;}
 <!-- ══════════════════════════════════════════════════════
      S05 — OUR VALUES (horizontal timeline)
 ══════════════════════════════════════════════════════ -->
-<section class="values-section" id="values">
-  <div class="values-bg-word">VALUES</div>
-  <div class="values-header">
-    <div class="eyebrow reveal">Our Values</div>
-    <h2 class="reveal">The Standards We<br>Hold Ourselves To</h2>
-    <p class="reveal">Five principles that govern how we engage, how we deliver, and what our clients can expect from every YSQUARE engineering team.</p>
+<section class="values-section" id="culture">
+  
+<div class="values-header">
+  <div class="eyebrow reveal">Culture</div>
+  <h2 class="reveal">A Culture Built<br>on Ownership</h2>
+  <p class="reveal">We don't hire generalists and hope they figure it out. Our culture is built around specialists who take personal ownership of outcomes — the same way they would on their own product.</p>
+</div>
+
+<div class="values-track" id="valuesTrack">
+
+  <div class="val-step reveal d1">
+    <div class="val-dot"></div>
+    <div class="val-name">Integrity</div>
+    <div class="val-desc">We say what we mean, deliver what we commit to, and raise concerns early — without exception, regardless of commercial pressure.</div>
   </div>
-  <div class="values-track" id="valuesTrack">
 
-    <div class="val-step reveal d1">
-      <div class="val-dot"></div>
-      <div class="val-name">Integrity</div>
-      <div class="val-desc">We say what we mean, deliver what we commit to, and raise concerns early — without exception, regardless of commercial pressure.</div>
-    </div>
-
-    <div class="val-step reveal d2">
-      <div class="val-dot"></div>
-      <div class="val-name">Innovation</div>
-      <div class="val-desc">We actively explore better ways to engineer — from toolchains to methodologies — and bring that curiosity to every client engagement.</div>
-    </div>
-
-    <div class="val-step reveal d3">
-      <div class="val-dot"></div>
-      <div class="val-name">Quality</div>
-      <div class="val-desc">Zero defect is the baseline. Every deliverable — from a line of RTL to a production firmware stack — is reviewed against the highest engineering standard.</div>
-    </div>
-
-    <div class="val-step reveal d4">
-      <div class="val-dot"></div>
-      <div class="val-name">Collaboration</div>
-      <div class="val-desc">We operate as embedded extensions of your engineering team — sharing context, owning problems, and communicating with the transparency of internal colleagues.</div>
-    </div>
-
-    <div class="val-step reveal" style="transition-delay:.5s;">
-      <div class="val-dot"></div>
-      <div class="val-name">Excellence</div>
-      <div class="val-desc">Not in mission statements. In every tape-out, every firmware release, every code review — excellence is the standard we're held to and the one we hold ourselves to.</div>
-    </div>
-
+  <div class="val-step reveal d2">
+    <div class="val-dot"></div>
+    <div class="val-name">Innovation</div>
+    <div class="val-desc">We actively explore better ways to engineer — from toolchains to methodologies — and bring that curiosity to every client engagement.</div>
   </div>
+
+  <div class="val-step reveal d3">
+    <div class="val-dot"></div>
+    <div class="val-name">Quality</div>
+    <div class="val-desc">Zero defect is the baseline. Every deliverable is reviewed against the highest engineering standard before it leaves our hands.</div>
+  </div>
+
+  <div class="val-step reveal d4">
+    <div class="val-dot"></div>
+    <div class="val-name">Collaboration</div>
+    <div class="val-desc">We operate as embedded extensions of your engineering team — sharing context, owning problems, and communicating with full transparency.</div>
+  </div>
+
+  <div class="val-step reveal" style="transition-delay:.5s;">
+    <div class="val-dot"></div>
+    <div class="val-name">Excellence</div>
+    <div class="val-desc">Not in mission statements — in every tape-out, every firmware release, every code review. Excellence is what our culture is judged by.</div>
+  </div>
+
+</div>
 </section>
 
 <div class="premium-divider"></div>
 
-<!-- ══════════════════════════════════════════════════════
-     S06 — GLOBAL IMPACT
-══════════════════════════════════════════════════════ -->
-<section class="impact-section" id="impact">
-  <div class="impact-grid-bg"></div>
-  <div class="impact-layout">
-
-    <!-- World map -->
-    <div class="world-map-wrap reveal-left">
-      <div class="world-map">
-        <div class="map-marker mp1"></div>
-        <div class="map-marker mp2"></div>
-        <div class="map-marker mp3"></div>
-        <div class="map-marker mp4"></div>
-        <div class="map-marker mp5"></div>
-      </div>
-      <p style="font-size:12px;color:rgba(255,255,255,.28);margin-top:16px;letter-spacing:1px;font-weight:600;text-transform:uppercase;">Engineering reach across global technology markets</p>
-    </div>
-
-    <!-- Metrics -->
-    <div class="reveal-right">
-      <div class="impact-header-l">
-        <div class="eyebrow light">Global Impact</div>
-        <h2>Engineering at Scale.<br>Measured in Outcomes.</h2>
-        <p>Numbers that represent real engineering delivery — projects shipped, teams built, and outcomes owned across three continents.</p>
-      </div>
-      <div class="impact-stats">
-        <div class="impact-stat">
-          <div class="is-num">500<span>+</span></div>
-          <div class="is-body">
-            <div class="is-lbl">Projects Delivered</div>
-            <div class="is-sub">Across semiconductor, embedded and digital domains</div>
-          </div>
-        </div>
-        <div class="impact-stat">
-          <div class="is-num">50<span>+</span></div>
-          <div class="is-body">
-            <div class="is-lbl">Engineering Specialists</div>
-            <div class="is-sub">Domain experts, not generalist consultants</div>
-          </div>
-        </div>
-        <div class="impact-stat">
-          <div class="is-num">100<span>%</span></div>
-          <div class="is-body">
-            <div class="is-lbl">Client Commitment</div>
-            <div class="is-sub">Every engagement treated as our own product</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
 
 <!-- ══════════════════════════════════════════════════════
      S06 — ENTERPRISE CTA
@@ -1281,31 +2113,30 @@ html{scroll-behavior:smooth;}
 
     <div class="ys-cta-content">
 
-        <span class="ys-cta-tag">
-            BUILD THE FUTURE WITH US
-        </span>
+<span class="ys-cta-tag">
+ENGINEERING PARTNERSHIP
+</span>
 
-        <h2>
-           Driven by Innovation.
-            <span>Built on Engineering Excellence.</span>
-        </h2>
+<h2>
+Innovation Begins
+<span>With the Right Team.</span>
+</h2>
 
-        <p>
-           Learn how YSQUARE delivers cutting-edge
-engineering solutions for global industries.
-        </p>
+<p>
+Discover how our engineering expertise, collaborative culture and technology-driven approach help organizations solve complex business challenges.
+</p>
 
 <div class="ys-cta-buttons">
 
-    <a href="#" class="ys-cta-btn">
-        Start Your Project
-        <i class="fa-solid fa-arrow-right-long"></i>
-    </a>
+<a href="contact.html" class="ys-cta-btn">
+Work With Us
+<i class="fa-solid fa-arrow-right-long"></i>
+</a>
 
-    <a href="#" class="ys-cta-btn ys-cta-btn-dark">
-        Explore Services
-        <i class="fa-solid fa-arrow-right-long"></i>
-    </a>
+<a href="careers.html" class="ys-cta-btn ys-cta-btn-dark">
+Join Our Team
+<i class="fa-solid fa-arrow-right-long"></i>
+</a>
 
 </div>
 
