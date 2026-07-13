@@ -17,20 +17,33 @@ body{background:#fff;overflow-x:hidden;}
   --dark:#0a0f1e;
   --muted:#64748b;
 }
+html{scroll-behavior:smooth;}
+::selection{background:#0ea5e9;color:#fff;}
 
-body{
-background:
-linear-gradient(to bottom,#ffffff,#f8fbff);
-}
+/* ─── SCROLL PROGRESS ──────────────────── */
+#scrollProgress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#0ea5e9,#38bdf8);z-index:99999;transition:width .1s linear;}
 
-::selection{
-background:#0ea5e9;
-color:#fff;
+/* ─── TOP BREADCRUMB STRIP ─────────────── */
+.hero-top-strip{
+  position:fixed;top:110px;left:0;right:0;z-index:998;
+  background:#0b3a75;height:42px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5%;border-bottom:1px solid rgba(255,255,255,.07);
 }
+.hts-back{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s;letter-spacing:.3px;}
+.hts-back:hover{color:#fff;}
+.hts-breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.45);font-weight:500;letter-spacing:.3px;}
+.hts-breadcrumb a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s;}
+.hts-breadcrumb a:hover{color:#38bdf8;}
+.hts-sep{color:rgba(255,255,255,.2);font-size:10px;}
+.hts-active{color:#38bdf8;font-weight:600;}
+.hts-actions{display:flex;align-items:center;gap:4px;}
+.hts-icon{width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:none;border:none;border-radius:5px;color:rgba(255,255,255,.5);cursor:pointer;transition:.2s;}
+.hts-icon:hover{color:#fff;background:rgba(255,255,255,.08);}
 
-html{
-scroll-behavior:smooth;
-}
+
+
+
 
 
 /* ══════════════════════════════════════════════════════════════
@@ -1005,8 +1018,7 @@ text-shadow:
 }
 
 @media(max-width:768px){
-  .internship-hero{height:420px;}
-  .hero-content h1{font-size:42px;letter-spacing:-1.5px;}
+
   .overview-text h2{font-size:38px;}
   .overview-stats{grid-template-columns:1fr 1fr;}
   .stat-card .s-num{font-size:40px;}
@@ -1383,7 +1395,7 @@ height:auto;
 <!-- ═══════════════════════════════════════════════════
      HERO — UNTOUCHED CONTENT, WIPRO-STYLE STRUCTURE
 ═══════════════════════════════════════════════════ -->
-<section class="internship-hero">
+<section class="about-hero">
   <img src="images/internship-hero1.png" alt="">
   <div class="hero-overlay"></div>
   <div class="hero-glow-a"></div>
@@ -1477,11 +1489,13 @@ height:auto;
 
 
 
-  <div class="overview-text">
-    <div class="eyebrow reveal">Program Overview</div>
-    <h2 class="reveal">Designed For<br>Future Engineers</h2>
-    <p class="reveal">Industry-focused internship programs across Artificial Intelligence, Embedded Systems and VLSI Design — built to deliver real engineering exposure, not simulated coursework.</p>
+  
+    <div class="ys-focus-header">
+    <div class="ys-focus-tag">Program Overview</div>
+    <h2 >Designed For<span> Engineers</span></h2>
+    
   </div>
+
 
   <div class="overview-stats">
     <div class="stat-card reveal">
@@ -1514,12 +1528,12 @@ height:auto;
 ═══════════════════════════════════════════════════ -->
 <section class="track-showcase" id="domains">
 
-<div class="track-head">
-<span>Engineering Domains</span>
-<h2>Choose Your Engineering Path</h2>
-<p>
-Industry-focused internship tracks aligned with real engineering teams.
-</p>
+ <div class="page-title max-width-1000">
+   <div class="page-title-lebel">
+Engineering Domains
+</div>
+<h2>Choose Your <span>Engineering Path </span></h2>
+
 </div>
 
 <div class="track-grid">
@@ -1535,7 +1549,7 @@ Industry-focused internship tracks aligned with real engineering teams.
 <span>Cloud</span>
 </div>
 
-<a href="#">Explore Track →</a>
+<a href="software">Explore Track →</a>
 </div>
 
 <div class="track-item">
@@ -1549,7 +1563,7 @@ Industry-focused internship tracks aligned with real engineering teams.
 <span>IoT</span>
 </div>
 
-<a href="#">Explore Track →</a>
+<a href="embedded">Explore Track →</a>
 </div>
 
 <div class="track-item">
@@ -1563,7 +1577,7 @@ Industry-focused internship tracks aligned with real engineering teams.
 <span>Analog Layout</span>
 </div>
 
-<a href="#">Explore Track →</a>
+<a href="semiconductor">Explore Track →</a>
 </div>
 
 </div>
@@ -1580,28 +1594,8 @@ Industry-focused internship tracks aligned with real engineering teams.
 
 
 
-.hero-bottom-nav{
-    position:fixed;
-    top:132px;
-    left:0;
-    right:0;
-    width:100%;
-    z-index:997;
 
-    background:rgba(8,22,49,.96);
-    backdrop-filter:blur(18px);
 
-    border-top:1px solid rgba(255,255,255,.08);
-    border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.internship-hero{
-    margin-top:184px;
-}
-
-.hero-bottom-nav::-webkit-scrollbar{
-    display:none;
-}
 
 }
   .track-showcase{
@@ -1753,16 +1747,19 @@ padding:32px;
 }
 </style>
 
-<div class="domains-head">
-  <div class="eyebrow reveal">Internship Domains</div>
-  <h2 class="reveal">Three Engineering Domains.<br>One Standard of Practice.</h2>
-  <p class="reveal">Every placement puts you inside a real engineering team — working on the same problems, timelines, and tools as full-time engineers.</p>
+
+<section class="page-title-left cards-component" id="domains">
+   <div class="page-title max-width-1000">
+   <div class="page-title-lebel">
+  Internship Domains</div>
+  <h2 >Three Engineering Domains.<span> Standard of Practice. </span></h2>
+  
 </div>
 
 <div class="domains-wrap">
 
   <!-- Domain 01 -->
-  <div class="domain-row">
+  <div class="domain-row" id="software">
     <div class="dr-image reveal-left">
       <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1400&q=80" alt="AI & Software">
       <div class="dr-badge"><span class="bl">Duration</span><span class="bv">2 – 3 Months</span></div>
@@ -1783,7 +1780,7 @@ padding:32px;
   </div>
 
   <!-- Domain 02 -->
-  <div class="domain-row flip">
+  <div class="domain-row flip" id="embedded">
     <div class="dr-image reveal-right">
       <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80" alt="Embedded Systems">
       <div class="dr-badge"><span class="bl">Duration</span><span class="bv">2 – 3 Months</span></div>
@@ -1804,7 +1801,7 @@ padding:32px;
   </div>
 
   <!-- Domain 03 -->
-  <div class="domain-row">
+  <div class="domain-row" id="semiconductor">
     <div class="dr-image reveal-left">
       <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=80" alt="VLSI Design">
       <div class="dr-badge"><span class="bl">Duration</span><span class="bv">3 or 6 Months</span></div>
@@ -1825,7 +1822,7 @@ padding:32px;
   </div>
 
 </div>
-
+</section>
 <div class="premium-divider"></div>
 
 <!-- ═══════════════════════════════════════════════════
@@ -1835,9 +1832,10 @@ padding:32px;
 
 
   <div class="slider-hd">
-    <div>
-      <div class="eyebrow light reveal">Inside The Internship</div>
-      <h2 class="reveal">Engineering Environments<br>You'll Work In</h2>
+   <div class="page-title max-width-1000">
+   <div class="page-title-lebel">
+      Inside The Internship</div>
+      <h2>Engineering Environments <span>You'll Work In</span></h2>
     </div>
     <div class="slider-nav">
       <button class="slider-arrow" id="sliderPrev">
@@ -2004,9 +2002,10 @@ INTERNSHIP ELIGIBILITY
 <section class="timeline-section" id="benefits">
   
 
-  <div class="tl-header">
-    <div class="eyebrow reveal">Program Highlights</div>
-    <h2 class="reveal">Your Path From<br>Application to Certification</h2>
+   <div class="page-title max-width-1000">
+   <div class="page-title-lebel">
+    Program Highlights</div>
+    <h2 >Your Path From<span>Application to Certification </span></h2>
   </div>
 
   <div class="eligibility-box reveal">

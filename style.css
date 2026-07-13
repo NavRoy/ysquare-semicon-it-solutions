@@ -2325,6 +2325,11 @@ margin-bottom:20px;
 
 }
 
+
+
+
+
+
 .page-title h2 span{
 
 display:block;
@@ -3580,7 +3585,19 @@ footer{
 /*==================================
   industry pages styles start
     ==================================*/
+@media(max-width:768px){
 
+.focus-tabs{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.focus-tab{
+    width:100%;
+}
+
+}
     
     /*====================================================
 EXPLORE HI-TECH ENGINEERING

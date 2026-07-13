@@ -1593,7 +1593,7 @@ ENGINEERING SOLUTIONS SHOWCASE
 PART 1 - HTML
 ========================================== -->
 
-<section class="ys-showcase">
+<section class="ys-showcase" id="solutions" aria-labelledby="ys-showcase-heading">
 
     <div class="ys-showcase-container">
 
@@ -2044,7 +2044,7 @@ startSlider();
      S06 — ENTERPRISE CTA
 ══════════════════════════════════════════════════════ -->
 <!-- ═════════════ UNIVERSAL CTA ═════════════ -->
-<section class="ys-cta">
+<section class="ys-cta" id="cta">
 
     <div class="ys-cta-glow"></div>
 
@@ -2190,10 +2190,13 @@ window.addEventListener('scroll', () => {
   if(sp) sp.style.width = pct + '%';
 }, { passive: true });
 
-/* Sticky nav active state */
+/* Sticky nav active state */        
+
+
+
 (function(){
-  const links = document.querySelectorAll('.hbn-link');
-  const sectionIds = ['who','ecosystem','vision','why','values','impact'];
+  const links = document.querySelectorAll('.hbn-link');                                                
+  const sectionIds = ['overview','focus-area','capabilities','solutions','cta'];
   window.addEventListener('scroll', () => {
     let current = '';
     sectionIds.forEach(id => {

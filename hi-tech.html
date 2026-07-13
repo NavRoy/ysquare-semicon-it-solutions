@@ -75,42 +75,6 @@ html{scroll-behavior:smooth;}
 .hero-content h1 span{color:#38bdf8;}
 .hero-content p{font-size:17px;line-height:1.8;color:rgba(255,255,255,.72);max-width:560px;}
 
-/* ─── STICKY BOTTOM NAV ─────────────────── */
-.hero-bottom-nav{
-  position:sticky;top:132px;z-index:997;
-  background:rgba(8,22,49,.88);backdrop-filter:blur(16px);
-  display:flex;align-items:center;justify-content:center;
-  border-top:2px solid rgba(255,255,255,.06);
-  border-bottom:1px solid rgba(0,0,0,.15);
-  box-shadow:0 4px 20px rgba(0,0,0,.2);
-}
-.hbn-link{
-  padding:0 36px;height:52px;
-  display:flex;align-items:center;
-  font-size:13px;font-weight:700;color:rgba(255,255,255,.78);
-  text-decoration:none;letter-spacing:.3px;
-  border-right:1px solid rgba(255,255,255,.12);
-  transition:.25s;position:relative;white-space:nowrap;
-}
-.hbn-link:first-child{border-left:1px solid rgba(255,255,255,.12);}
-.hbn-link:hover{color:#fff;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));}
-.hbn-link.active{color:#fff;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));}
-.hbn-link.active::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:#38bdf8;}
-
-/* ─── SHARED ATOMS ──────────────────────── */
-.eyebrow{font-size:11px;font-weight:700;letter-spacing:2.5px;color:var(--primary);text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:10px;}
-.eyebrow::before{content:"";display:block;width:22px;height:1.5px;background:var(--primary);}
-.eyebrow.light{color:#38bdf8;}
-.eyebrow.light::before{background:#38bdf8;}
-
-.reveal{opacity:0;transform:translateY(40px);transition:opacity .85s ease,transform .85s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-.reveal-left{opacity:0;transform:translateX(-60px);transition:opacity .85s ease,transform .85s ease;}
-.reveal-left.visible{opacity:1;transform:translateX(0);}
-.reveal-right{opacity:0;transform:translateX(60px);transition:opacity .85s ease,transform .85s ease;}
-.reveal-right.visible{opacity:1;transform:translateX(0);}
-.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}
-
 /* ─── DIVIDER ───────────────────────────── */
 .premium-divider{
   height:1px;background:linear-gradient(90deg,transparent,#e2e8f0 20%,#e2e8f0 80%,transparent);
@@ -2244,7 +2208,7 @@ window.addEventListener('scroll', () => {
 /* Sticky nav active state */
 (function(){
   const links = document.querySelectorAll('.hbn-link');
-  const sectionIds = ['who','ecosystem','vision','why','values','impact'];
+  const sectionIds = ['overview','focus-area','capabilities','solutions','cta'];
   window.addEventListener('scroll', () => {
     let current = '';
     sectionIds.forEach(id => {
