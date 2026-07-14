@@ -3582,6 +3582,275 @@ footer{
 }
 
 
+/* ============================================================
+   YSQUARE — SITE-WIDE TYPOGRAPHY & DEPTH SYSTEM  (v3)
+   ------------------------------------------------------------
+   Covers every page seen so far: Home, Software Engineering,
+   Semiconductor, About, Internships, Contact, Careers.
+   Load this LAST — after style.css and after each page's own
+   <style> block — so it wins the cascade and every page lands
+   on one consistent, enterprise-scale type system.
+============================================================ */
+ 
+:root{
+  --ink:          #0b1830;
+  --ink-soft:     #64748b;
+  --primary:      #0ea5e9;
+  --primary-dark: #0369a1;
+ 
+  --fs-h1:  clamp(32px, 4.2vw, 54px);   /* page hero headline        */
+  --fs-h2:  clamp(28px, 3.2vw, 42px);   /* section heading           */
+  --fs-h3:  clamp(20px, 2vw,  28px);    /* card / panel title        */
+  --fs-h4:  clamp(16px, 1.3vw, 19px);   /* small sub-title / question*/
+  --fs-eyebrow: 11px;
+  --fs-body-lg: 17px;                   /* section intro copy        */
+  --fs-body:    15.5px;                 /* card / list copy          */
+  --fs-body-sm: 14px;                   /* meta text, labels, tags   */
+ 
+  --ls-h1: -1.1px;
+  --ls-h2: -0.9px;
+  --ls-h3: -0.4px;
+ 
+  --shadow-title-light: 0 1px 0 rgba(255,255,255,.65), 0 14px 30px rgba(14,165,233,.10);
+  --shadow-title-dark:  0 2px 0 rgba(0,0,0,.28), 0 20px 45px rgba(14,165,233,.22);
+}
+ 
+/* ============================================================
+   TIER 1 — HERO H1
+   .hero-content h1 is the shared class across About, Internships,
+   Contact and Careers heroes (all use .about-hero), so this one
+   rule already covers 4 of the 7 pages' hero titles.
+============================================================ */
+.hero h1,
+.quote h1,
+.hero-content h1{
+  font-size:var(--fs-h1) !important;
+  font-weight:800 !important;
+  letter-spacing:var(--ls-h1) !important;
+  line-height:1.15 !important;
+  text-shadow:var(--shadow-title-dark);
+}
+ 
+/* ============================================================
+   TIER 2 — SECTION H2
+============================================================ */
+.dna-heading,
+.impact-header h2,
+.insights-header h2,
+.ind2-header-left h2,
+.explore-header h2,
+.focus-heading h2,
+.ys-focus-header h2,
+.page-title h2,
+.ys-showcase-head h2,
+.who-left h2,
+.vm-header h2,
+.why-header h2,
+.values-header h2,
+.gp-header h2,
+.overview-text h2,
+.domains-head h2,
+.slider-hd h2,
+.tl-header h2,
+.track-head h2,
+.cta-glass h2,
+.ys-cta h2,
+.ys-tech-left h2,
+.contact-form-panel h2,
+.map-header h2,
+.faq-header h2,
+.career-heading h2{
+  font-size:var(--fs-h2) !important;
+  font-weight:800 !important;
+  letter-spacing:var(--ls-h2) !important;
+  line-height:1.18 !important;
+  color:var(--ink) !important;
+  text-shadow:var(--shadow-title-light);
+  /* NOTE: deliberately no max-width here. Several of these headings
+     (.ys-focus-header h2, .career-heading h2, .page-title h2, etc.)
+     center themselves via a full-width block + text-align:center on
+     their parent container — not via their own max-width + margin:
+     auto. Adding a max-width to the heading itself breaks that
+     pattern and shoves the text to the left, which is the bug seen
+     in the screenshots. Width/centering stays fully controlled by
+     each page's existing container CSS. */
+}
+ 
+/* dark-background section headings need white text + dark shadow */
+.why-header h2,
+.gp-header h2,
+.ys-cta h2,
+.cta-glass h2,
+.ys-stories-head h2{
+  color:#fff !important;
+  text-shadow:var(--shadow-title-dark);
+}
+ 
+/* accent word/span inside headings */
+.dna-heading em,
+.explore-header h2 span,
+.focus-heading h2 span,
+.ys-focus-header h2 span,
+.page-title h2 span,
+.ys-showcase-head h2 span,
+.who-left h2 em,
+.ys-cta h2 span,
+.cta-glass h2 span,
+.career-heading h2 span{
+  color:var(--primary);
+  font-style:normal;
+  text-shadow:none;
+}
+ 
+/* ============================================================
+   TIER 3 — CARD / PANEL H3
+============================================================ */
+.vm-panel h3,
+.focus-left h3,
+.dr-content h3,
+.ys-slide-left h3,
+.explore-content h3,
+.ys-headline,
+.track-item h3,
+.slide-body h3,
+.eligibility-title,
+.job-top h3,
+.cic-title{
+  font-size:var(--fs-h3) !important;
+  font-weight:700 !important;
+  letter-spacing:var(--ls-h3) !important;
+  line-height:1.28 !important;
+  color:var(--ink) !important;
+}
+ 
+/* titles sitting on dark image overlays / dark panels */
+.explore-content h3,
+.ys-slide-left h3,
+.slide-body h3,
+.cic-title{
+  color:#fff !important;
+}
+ 
+/* ============================================================
+   TIER 3b — SMALL SUB-TITLES / INTERACTIVE QUESTIONS
+============================================================ */
+.faq-q{
+  font-size:var(--fs-h4) !important;
+  font-weight:700 !important;
+  color:var(--ink) !important;
+}
+ 
+/* ============================================================
+   TIER 4 — EYEBROW / LABEL / BADGE TEXT
+============================================================ */
+.explore-tag, .focus-tag, .ys-focus-tag, .page-title-lebel,
+.ys-showcase-tag, .ind2-eyebrow, .dna-eyebrow, .eyebrow,
+.ys-eyebrow, .ys-stories-tag, .ys-tag, .ys-cta-tag,
+.cf-badge, .cic-label, .career-tag, .map-eyebrow,
+.faq-eyebrow, .mgc-label{
+  font-size:var(--fs-eyebrow) !important;
+  font-weight:700 !important;
+  letter-spacing:2.5px !important;
+  text-transform:uppercase;
+}
+ 
+/* ============================================================
+   TIER 5 — BODY COPY (section intros)
+============================================================ */
+.ind2-header-right p,
+.impact-header p,
+.explore-header p,
+.focus-heading p,
+.ys-focus-header p,
+.page-title p,
+.ys-showcase-head p,
+.who-left p,
+.vm-header p,
+.why-header p,
+.values-header p,
+.gp-header p,
+.overview-text p,
+.domains-head p,
+.track-head p,
+.contact-form-panel > p,
+.map-header p,
+.career-heading p{
+  font-size:var(--fs-body-lg) !important;
+  line-height:1.85 !important;
+  color:var(--ink-soft) !important;
+  max-width:620px;
+}
+ 
+/* card / list copy */
+.vm-panel p,
+.focus-left p,
+.dr-desc,
+.explore-content p,
+.ys-desc,
+.track-item p,
+.faq-a p,
+.job-card p{
+  font-size:var(--fs-body) !important;
+  line-height:1.8 !important;
+}
+ 
+/* ============================================================
+   TIER 5b — SMALL UTILITY / META TEXT
+============================================================ */
+.job-meta span,
+.cic-row-val,
+.mgc-val,
+.dr-focus-list li,
+.eligibility-item,
+.track-tags span,
+.gp-region-chip,
+.wsc-lbl,
+.s-lbl{
+  font-size:var(--fs-body-sm) !important;
+  font-weight:600 !important;
+}
+ 
+/* ============================================================
+   TIER 6 — PREMIUM CARD DEPTH
+============================================================ */
+.vm-panel,
+.dna-node,
+.ind2-panel,
+.stat-card,
+.track-item,
+.ys-focus-image,
+.who-img-wrap,
+.dr-image,
+.card-image,
+.job-card,
+.contact-container,
+.map-wrap{
+  box-shadow:0 24px 60px rgba(15,23,42,.08), 0 2px 8px rgba(15,23,42,.04) !important;
+}
+.vm-panel:hover,
+.track-item:hover,
+.stat-card:hover,
+.job-card:hover{
+  box-shadow:0 36px 80px rgba(14,165,233,.14), 0 2px 8px rgba(15,23,42,.05) !important;
+}
+ 
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width:768px){
+  .dna-heading, .impact-header h2, .insights-header h2,
+  .ind2-header-left h2, .explore-header h2, .focus-heading h2,
+  .ys-focus-header h2, .page-title h2, .ys-showcase-head h2,
+  .who-left h2, .vm-header h2, .why-header h2, .values-header h2,
+  .gp-header h2, .overview-text h2, .domains-head h2,
+  .slider-hd h2, .tl-header h2, .track-head h2, .cta-glass h2,
+  .ys-cta h2, .ys-tech-left h2, .contact-form-panel h2,
+  .map-header h2, .faq-header h2, .career-heading h2{
+    max-width:100%;
+  }
+}
+
+
 /*==================================
   industry pages styles start
     ==================================*/
