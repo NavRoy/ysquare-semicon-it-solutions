@@ -300,9 +300,27 @@ pointer-events:none;
 
 }
 
-.menu-item:hover .dropdown{
+.dropdown{position:absolute;top:calc(100% + 14px);left:0;width:720px;height:280px;display:flex;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.22),
+0 0 0 1px rgba(255,255,255,.55),
+0 0 45px rgba(14,165,233,.06);
+opacity:0;transform:translateY(15px);pointer-events:none;transition:0.3s;}
+.dropdown{
+    opacity:0;
+    visibility:hidden;
+    transition:
+        opacity .35s ease,
+        transform .35s ease,
+        visibility 0s linear .2s;
+}
 
-opacity:1;
+.menu-item:hover .dropdown{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+    pointer-events:auto;
+    transition-delay:0s;
+
+    opacity:1;
 
 transform:
 
@@ -313,14 +331,21 @@ scale(1);
 filter:blur(0);
 
 pointer-events:auto;
-
 }
 
-.dropdown{position:absolute;top:calc(100% + 14px);left:0;width:720px;height:280px;display:flex;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.22),
-0 0 0 1px rgba(255,255,255,.55),
-0 0 45px rgba(14,165,233,.06);
-opacity:0;transform:translateY(15px);pointer-events:none;transition:0.3s;}
-.menu-item:hover .dropdown{opacity:1;transform:translateY(0);pointer-events:auto;}
+.menu-item{
+    position:relative;
+}
+
+.menu-item::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:100%;
+    width:100%;
+    height:18px;
+    background:transparent;
+}
 .dropdown-left{width:45%;background:#f9fafb;padding:20px;overflow-y:auto;}
 .dropdown-group{margin-bottom:20px;}
 .dropdown-group h4{font-size:13px;color:#888;margin-bottom:10px;text-transform:uppercase;letter-spacing:1px;}
@@ -1472,7 +1497,7 @@ ACCORDION
 
     cursor:pointer;
 
-    padding:34px 0;
+    padding:28px 0;
 
     display:flex;
 
@@ -1514,7 +1539,7 @@ LEFT TITLE
 
 .ys-focus-title h3{
 
-    font-size:32px;
+    font-size:27px;
 
     font-weight:700;
 
@@ -1927,7 +1952,7 @@ TITLE HOVER
 
     border-color:var(--primary);
 
-    color:var(--primary);
+    color:var(--secondary);
 
 }
 
