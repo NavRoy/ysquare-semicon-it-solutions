@@ -10,7 +10,7 @@
 <style>
 /* ─── RESET ────────────────────────────── */
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
-body{background:#fff;overflow-x:hidden;}
+body{background:#fff;overflow-x:clip;}
 :root{
   --primary:#0ea5e9;
   --primary-dark:#0369a1;
@@ -969,6 +969,9 @@ transition:1s;
 left:100%;
 }
 
+
+
+
 .btn-cta:hover::after{transform:translateX(0);}
 
 .btn-cta:hover{
@@ -1194,7 +1197,7 @@ transition:.4s;
 html,
 body{
 width:100%;
-overflow-x:hidden;
+overflow-x:clip;
 }
 
 
@@ -1208,6 +1211,67 @@ height:auto;
 
 
 
+@media (max-width:768px){
+
+.hero-premium-card{
+    position:absolute;
+    top:155px;          /* adjust 145-170px if needed */
+    right:18px;
+    left:auto;
+
+    width:48%;
+    max-width:190px;
+
+    padding:16px;
+
+    margin:0;
+
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(22px);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:18px;
+
+    z-index:15;
+}
+
+.hero-premium-card span{
+    font-size:10px;
+    letter-spacing:1.5px;
+}
+
+.hero-premium-card h4{
+    font-size:13px;
+    padding:10px 0;
+}
+
+.hero-card-footer{
+    margin-top:18px;
+    gap:8px;
+}
+
+.hero-card-footer strong{
+    font-size:16px;
+}
+
+.hero-card-footer small{
+    font-size:10px;
+    line-height:1.2;
+}
+
+}
+
+
+@media (max-width:768px){
+
+.hero-content{
+    width:55%;
+}
+
+.hero-premium-card{
+    width:42%;
+}
+
+}
 
 
 </style>

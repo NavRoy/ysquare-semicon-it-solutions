@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply for a Career – YSQUARE Semicon IT Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ─── RESET ─────────────────────────────────── */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+body{background:#fff;overflow-x:hidden;}
+:root{--primary:#0ea5e9;--primary-dark:#0369a1;--dark:#0a0f1e;--muted:#64748b;--err:#ef4444;--ok:#10b981;}
+html{scroll-behavior:smooth;}
+::selection{background:#0ea5e9;color:#fff;}
+
+/* ─── SCROLL PROGRESS ───────────────────────── */
+#scrollProgress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#0ea5e9,#38bdf8);z-index:99999;transition:width .1s linear;}
+
+/* ─── TOP STRIP ─────────────────────────────── */
+.hero-top-strip{
+  position:fixed;top:90px;left:0;right:0;z-index:998;
+  background:#1e293b;height:42px;
+  display:flex;align-items:center;justify-content:space-between;padding:0 5%;
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.hts-back{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:rgba(255,255,255,.5);text-decoration:none;transition:.2s;}
+.hts-back:hover{color:#fff;}
+.hts-breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.45);}
+.hts-breadcrumb a{color:rgba(255,255,255,.45);text-decoration:none;transition:.2s;}
+.hts-breadcrumb a:hover{color:#38bdf8;}
+.hts-sep{color:rgba(255,255,255,.2);font-size:10px;}
+.hts-active{color:#38bdf8;font-weight:600;}
+.hts-actions{display:flex;gap:4px;}
+.hts-icon{width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:none;border:none;border-radius:5px;color:rgba(255,255,255,.5);cursor:pointer;transition:.2s;}
+.hts-icon:hover{color:#fff;background:rgba(255,255,255,.08);}
+
+/* ─── HERO ──────────────────────────────────── */
+.about-hero{position:relative;height:480px;margin-top:132px;overflow:hidden;}
+.about-hero img{width:100%;height:100%;object-fit:cover;animation:heroZoom 15s ease-in-out infinite alternate;}
+@keyframes heroZoom{from{transform:scale(1);}to{transform:scale(1.06);}}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(2,6,23,.96) 0%,rgba(2,6,23,.84) 40%,rgba(2,6,23,.5) 70%,rgba(2,6,23,.2) 100%);
+}
+.hero-glow-a{position:absolute;left:-150px;top:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(14,165,233,.2),transparent 65%);pointer-events:none;z-index:2;animation:floatGlow 8s ease-in-out infinite;}
+@keyframes floatGlow{0%{transform:translateY(0);}50%{transform:translateY(-30px);}100%{transform:translateY(0);}}
+.hero-content{position:absolute;left:5%;top:50%;transform:translateY(-50%);max-width:640px;z-index:5;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:2.5px;color:#38bdf8;text-transform:uppercase;margin-bottom:20px;}
+.hero-eyebrow::before{content:"";display:block;width:28px;height:1.5px;background:#38bdf8;}
+.hero-accent{width:72px;height:3px;background:linear-gradient(90deg,#0ea5e9,transparent);margin-bottom:24px;}
+.hero-content h1{font-size:68px;line-height:.92;letter-spacing:-4px;font-weight:900;color:#fff;margin-bottom:20px;text-shadow:0 10px 40px rgba(0,0,0,.35);}
+.hero-content h1 span{color:#38bdf8;}
+.hero-content p{font-size:17px;line-height:1.8;color:rgba(255,255,255,.72);max-width:520px;margin-bottom:14px;}
+
+/* position pill shown once prefilled from a job card */
+.hero-position-pill{
+  display:none;align-items:center;gap:10px;
+  background:rgba(14,165,233,.15);border:1px solid rgba(14,165,233,.35);
+  backdrop-filter:blur(12px);color:#38bdf8;font-size:13px;font-weight:700;
+  padding:10px 20px;border-radius:50px;letter-spacing:.3px;margin-top:6px;
+  width:max-content;
+}
+.hero-position-pill.show{display:inline-flex;}
+.hero-position-pill svg{width:14px;height:14px;stroke:#38bdf8;stroke-width:2;fill:none;}
+
+.hero-scroll-btn{
+  display:inline-flex;align-items:center;gap:10px;margin-top:20px;
+  background:rgba(14,165,233,.15);border:1px solid rgba(14,165,233,.35);
+  backdrop-filter:blur(12px);color:#38bdf8;font-size:13px;font-weight:700;
+  padding:14px 28px;text-decoration:none;letter-spacing:.4px;
+  transition:.3s;border-radius:6px;
+}
+.hero-scroll-btn:hover{background:rgba(14,165,233,.25);border-color:rgba(14,165,233,.6);}
+
+/* ─── STICKY BOTTOM NAV ─────────────────────── */
+.hero-bottom-nav{
+  position:sticky;top:132px;z-index:997;
+  background:rgba(8,22,49,.88);backdrop-filter:blur(16px);
+  display:flex;align-items:center;justify-content:center;
+  border-top:2px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(0,0,0,.15);
+  box-shadow:0 4px 20px rgba(0,0,0,.2);
+}
+.hbn-link{padding:0 36px;height:52px;display:flex;align-items:center;font-size:13px;font-weight:700;color:rgba(255,255,255,.78);text-decoration:none;letter-spacing:.3px;border-right:1px solid rgba(255,255,255,.12);transition:.25s;position:relative;white-space:nowrap;}
+.hbn-link:first-child{border-left:1px solid rgba(255,255,255,.12);}
+.hbn-link:hover{color:#fff;background:rgba(255,255,255,.06);}
+.hbn-link.active{color:#fff;background:rgba(255,255,255,.06);}
+.hbn-link.active::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:#38bdf8;}
+
+/* ─── SHARED ATOMS ──────────────────────────── */
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:2.5px;color:var(--primary);text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:"";display:block;width:22px;height:1.5px;background:var(--primary);}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .85s ease,transform .85s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}
+
+/* ─── FORM SECTION ──────────────────────────── */
+.apply-section{padding:100px 8%;background:#fff;position:relative;overflow:hidden;}
+.apply-section::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(14,165,233,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(14,165,233,.04) 1px,transparent 1px);background-size:80px 80px;pointer-events:none;}
+.apply-section::after{content:"";position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(14,165,233,.07),transparent 70%);top:-250px;left:50%;transform:translateX(-50%);filter:blur(60px);pointer-events:none;}
+.apply-glow-b{position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(14,165,233,.06),transparent 70%);bottom:-200px;right:-100px;pointer-events:none;}
+
+.apply-card{position:relative;z-index:1;max-width:940px;margin:0 auto;background:#fff;border:1px solid rgba(14,165,233,.14);border-radius:22px;padding:64px 72px;box-shadow:0 30px 80px rgba(14,165,233,.1),0 4px 20px rgba(0,0,0,.04);}
+.apply-card::before{content:"";position:absolute;top:-1px;left:12%;right:12%;height:3px;background:linear-gradient(90deg,transparent,var(--primary),transparent);border-radius:2px;}
+.apply-card-header{text-align:center;margin-bottom:52px;}
+.apply-card-header h2{font-size:40px;font-weight:900;color:#0f172a;letter-spacing:-1.6px;line-height:1.1;margin-bottom:14px;}
+.apply-card-header p{font-size:16px;color:#64748b;line-height:1.7;}
+
+.form-server-error{
+  display:none;background:#fef2f2;border:1px solid #fecaca;border-radius:10px;
+  padding:14px 18px;margin-bottom:24px;font-size:14px;font-weight:600;
+  color:#dc2626;text-align:center;
+}
+
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px 28px;}
+.form-full{grid-column:1/-1;}
+
+.field{display:flex;flex-direction:column;gap:8px;position:relative;}
+.field label{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#475569;}
+.field label span{color:var(--primary);}
+.field label small{display:block;font-size:10.5px;font-weight:500;letter-spacing:.2px;text-transform:none;color:#94a3b8;margin-top:3px;}
+
+.field input,
+.field select,
+.field textarea{
+  width:100%;padding:14px 18px;
+  background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:10px;
+  font-size:15px;color:#0f172a;outline:none;transition:all .3s ease;
+  font-family:'Inter',sans-serif;appearance:none;
+}
+.field select{background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:18px;cursor:pointer;}
+.field textarea{resize:vertical;min-height:120px;line-height:1.65;}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{border-color:var(--primary);background:#fff;box-shadow:0 0 0 4px rgba(14,165,233,.1);}
+
+.field input.valid,.field select.valid,.field textarea.valid{border-color:var(--ok);}
+.field input.invalid,.field select.invalid,.field textarea.invalid{border-color:var(--err);box-shadow:0 0 0 3px rgba(239,68,68,.1);}
+
+/* highlighted state for the position field once prefilled by a job card */
+.field select#position.prefilled{border-color:var(--primary);background-color:#f0f9ff;font-weight:700;color:var(--primary-dark);}
+
+.field-msg{font-size:12px;font-weight:600;min-height:16px;}
+.field-msg.err{color:var(--err);}
+.field-msg.ok{color:var(--ok);}
+
+.file-upload{position:relative;border:1.5px dashed #cbd5e1;border-radius:10px;padding:24px 20px;display:flex;align-items:center;gap:16px;cursor:pointer;transition:all .3s ease;background:#f8fafc;}
+.file-upload:hover,.file-upload.dragover{border-color:var(--primary);background:#f0f9ff;}
+.file-upload.invalid{border-color:var(--err);}
+.file-upload input[type="file"]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.file-upload-icon{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,rgba(14,165,233,.15),rgba(14,165,233,.06));border:1px solid rgba(14,165,233,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.35s;}
+.file-upload:hover .file-upload-icon{background:linear-gradient(135deg,rgba(14,165,233,.25),rgba(14,165,233,.12));}
+.file-upload-icon svg{width:20px;height:20px;stroke:var(--primary);stroke-width:1.8;}
+.file-upload-text h5{font-size:14px;font-weight:700;color:#0f172a;margin-bottom:3px;}
+.file-upload-text p{font-size:12px;color:#94a3b8;}
+.file-name{font-size:13px;font-weight:600;color:var(--ok);margin-top:4px;}
+
+.char-count{font-size:11px;color:#94a3b8;text-align:right;margin-top:4px;}
+
+.check-row{display:flex;align-items:flex-start;gap:14px;margin-top:4px;}
+.check-row input[type="checkbox"]{width:20px;height:20px;flex-shrink:0;accent-color:var(--primary);cursor:pointer;margin-top:2px;}
+.check-row label{font-size:14px;color:#64748b;cursor:pointer;line-height:1.6;}
+.check-row label a{color:var(--primary);text-decoration:none;font-weight:600;}
+.check-row label a:hover{text-decoration:underline;}
+
+.form-submit{margin-top:36px;text-align:center;}
+.btn-submit{
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color:#fff;font-size:15px;font-weight:700;
+  padding:18px 56px;border:none;cursor:pointer;
+  box-shadow:0 12px 40px rgba(14,165,233,.4);letter-spacing:.5px;
+  transition:all .35s ease;position:relative;overflow:hidden;border-radius:10px;
+}
+.btn-submit::before{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);transition:.8s;}
+.btn-submit:hover::before{left:100%;}
+.btn-submit:hover:not(:disabled){transform:translateY(-3px);box-shadow:0 20px 60px rgba(14,165,233,.55);}
+.btn-submit:disabled{opacity:.55;cursor:not-allowed;transform:none !important;}
+.btn-submit svg{width:18px;height:18px;stroke:#fff;stroke-width:2;flex-shrink:0;}
+
+.btn-spinner{
+  width:18px;height:18px;border:2.5px solid rgba(255,255,255,.4);
+  border-top-color:#fff;border-radius:50%;
+  animation:spin .7s linear infinite;display:none;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+.btn-submit.loading .btn-spinner{display:block;}
+.btn-submit.loading .btn-icon,.btn-submit.loading .btn-text{display:none;}
+
+.form-note{font-size:12px;color:#94a3b8;margin-top:14px;letter-spacing:.3px;}
+
+/* ─── OPEN ROLES STRIP (quick-switch chips) ──── */
+.roles-strip{max-width:940px;margin:0 auto 40px;position:relative;z-index:1;}
+.roles-strip-label{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#94a3b8;margin-bottom:14px;text-align:center;}
+.roles-chip-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+.roles-chip{
+  border:1.5px solid #e2e8f0;background:#f8fafc;color:#475569;
+  font-size:13px;font-weight:600;padding:10px 20px;border-radius:50px;
+  cursor:pointer;transition:.25s;
+}
+.roles-chip:hover{border-color:var(--primary);color:var(--primary);}
+.roles-chip.active{background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-color:transparent;color:#fff;box-shadow:0 10px 25px rgba(14,165,233,.3);}
+
+/* ─── BENEFIT CARDS ─────────────────────────── */
+.benefits-section{padding:80px 8% 100px;background:#f8fafc;position:relative;overflow:hidden;}
+.benefits-header{text-align:center;margin-bottom:56px;}
+.benefits-header h2{font-size:38px;font-weight:900;color:#0f172a;letter-spacing:-1.5px;line-height:1.1;margin-bottom:14px;}
+.benefits-header p{font-size:16px;color:#64748b;max-width:500px;margin:0 auto;line-height:1.75;}
+.benefit-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1100px;margin:0 auto;}
+.benefit-card{padding:36px 28px;background:rgba(255,255,255,.85);border:1px solid rgba(14,165,233,.14);border-radius:16px;position:relative;overflow:hidden;transition:all .4s ease;cursor:default;}
+.benefit-card::before{content:"";position:absolute;top:-1px;left:20%;right:20%;height:2px;background:linear-gradient(90deg,transparent,var(--primary),transparent);}
+.benefit-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(14,165,233,.14);border-color:rgba(14,165,233,.3);}
+.benefit-card-icon{width:52px;height:52px;background:linear-gradient(135deg,rgba(14,165,233,.12),rgba(14,165,233,.04));border:1px solid rgba(14,165,233,.18);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;transition:all .35s;}
+.benefit-card:hover .benefit-card-icon{background:linear-gradient(135deg,rgba(14,165,233,.2),rgba(14,165,233,.1));border-color:rgba(14,165,233,.35);}
+.benefit-card-icon svg{width:24px;height:24px;stroke:var(--primary);stroke-width:1.6;}
+.benefit-card h4{font-size:17px;font-weight:800;color:#0f172a;margin-bottom:10px;letter-spacing:-.3px;}
+.benefit-card p{font-size:13.5px;color:#64748b;line-height:1.7;}
+
+/* ─── SUCCESS SECTION ───────────────────────── */
+.success-section{display:none;padding:100px 8%;background:#fff;position:relative;overflow:hidden;text-align:center;}
+.success-section::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(14,165,233,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(14,165,233,.04) 1px,transparent 1px);background-size:80px 80px;pointer-events:none;}
+.success-section::after{content:"";position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(14,165,233,.08),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);filter:blur(60px);pointer-events:none;}
+.success-card{position:relative;z-index:1;max-width:720px;margin:0 auto;background:#fff;border:1px solid rgba(14,165,233,.15);border-radius:22px;padding:72px 64px;box-shadow:0 30px 80px rgba(14,165,233,.1),0 4px 20px rgba(0,0,0,.04);}
+.success-card::before{content:"";position:absolute;top:-1px;left:12%;right:12%;height:3px;background:linear-gradient(90deg,transparent,var(--primary),transparent);}
+.success-check{width:88px;height:88px;border-radius:50%;background:linear-gradient(135deg,rgba(14,165,233,.15),rgba(14,165,233,.05));border:2px solid rgba(14,165,233,.25);display:flex;align-items:center;justify-content:center;margin:0 auto 32px;animation:checkPop .6s cubic-bezier(.34,1.56,.64,1) forwards;}
+@keyframes checkPop{0%{opacity:0;transform:scale(.5);}100%{opacity:1;transform:scale(1);}}
+.success-check svg{width:40px;height:40px;stroke:var(--primary);stroke-width:2.2;}
+.check-path{stroke-dasharray:60;stroke-dashoffset:60;animation:drawCheck .6s ease .4s forwards;}
+@keyframes drawCheck{to{stroke-dashoffset:0;}}
+.success-card h2{font-size:36px;font-weight:900;color:#0f172a;letter-spacing:-1.4px;line-height:1.15;margin-bottom:16px;}
+.success-card > p{font-size:16px;color:#64748b;line-height:1.8;max-width:480px;margin:0 auto 36px;}
+
+.success-ref{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:rgba(14,165,233,.07);border:1px solid rgba(14,165,233,.18);border-radius:8px;font-size:13px;font-weight:700;color:var(--primary);margin-bottom:36px;letter-spacing:.5px;}
+
+.application-summary{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;margin-bottom:36px;text-align:left;}
+.sum-header{background:linear-gradient(135deg,rgba(14,165,233,.08),rgba(14,165,233,.03));padding:14px 22px;border-bottom:1px solid #e2e8f0;}
+.sum-header h4{font-size:13px;font-weight:700;color:#0f172a;letter-spacing:.3px;text-transform:uppercase;}
+.summary-row{display:flex;align-items:center;padding:13px 22px;border-bottom:1px solid #f1f5f9;}
+.summary-row:last-child{border-bottom:none;}
+.summary-row span{width:110px;flex-shrink:0;font-size:12px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.8px;}
+.summary-row strong{font-size:14px;color:#0f172a;font-weight:600;}
+
+.rec-timeline{text-align:left;margin-bottom:36px;}
+.rec-timeline-title{font-size:13px;font-weight:700;color:#0f172a;text-transform:uppercase;letter-spacing:.8px;margin-bottom:20px;}
+.tl-step{display:flex;align-items:center;gap:16px;padding:10px 0;border-bottom:1px solid #f8fafc;}
+.tl-step:last-child{border-bottom:none;}
+.tl-dot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:700;}
+.tl-dot.done{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;}
+.tl-dot.pend{background:#f1f5f9;color:#94a3b8;border:1.5px solid #e2e8f0;}
+.tl-label{font-size:14px;font-weight:600;color:#0f172a;}
+.tl-label.pend{color:#94a3b8;font-weight:500;}
+
+.success-actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+.btn-home{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;font-size:14px;font-weight:700;padding:16px 36px;border-radius:10px;text-decoration:none;transition:.35s;box-shadow:0 10px 32px rgba(14,165,233,.35);}
+.btn-home:hover{transform:translateY(-3px);box-shadow:0 18px 48px rgba(14,165,233,.5);}
+.btn-explore{display:inline-flex;align-items:center;gap:10px;background:transparent;color:var(--primary);font-size:14px;font-weight:700;padding:16px 36px;border-radius:10px;text-decoration:none;border:1.5px solid rgba(14,165,233,.3);transition:.35s;}
+.btn-explore:hover{background:rgba(14,165,233,.06);border-color:var(--primary);}
+
+/* ─── RESPONSIVE ─────────────────────────────── */
+@media(max-width:1100px){
+  .benefit-cards{grid-template-columns:1fr 1fr;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:900px){
+  .apply-card{padding:48px 36px;}
+  .form-grid{grid-template-columns:1fr;}
+}
+@media(max-width:768px){
+  .container{padding:0 20px;}
+  .menu{display:none;}
+  .hamburger{display:flex;}
+  .actions{display:none;}
+  .hero-content h1{font-size:44px;letter-spacing:-2px;}
+  .apply-section,.benefits-section{padding:80px 5%;}
+  .apply-card{padding:40px 24px;border-radius:16px;}
+  .apply-card-header h2{font-size:28px;}
+  .benefit-cards{grid-template-columns:1fr 1fr;gap:14px;}
+  .hero-bottom-nav{justify-content:flex-start;overflow-x:auto;}
+  .hero-bottom-nav::-webkit-scrollbar{display:none;}
+  .hbn-link{padding:0 18px;font-size:12px;flex-shrink:0;}
+  .success-card{padding:48px 28px;}
+  .success-card h2{font-size:28px;}
+  .footer-top{grid-template-columns:1fr;}
+  .hts-breadcrumb{display:none;}
+}
+@media(max-width:540px){
+  .hero-content h1{font-size:34px;}
+  .benefit-cards{grid-template-columns:1fr;}
+  .success-actions{flex-direction:column;align-items:center;}
+  .btn-home,.btn-explore{width:100%;justify-content:center;}
+}
+</style>
+</head>
+<body>
+
+<div id="scrollProgress"></div>
+
+<!-- ═══════════════════════ HEADER ═══════════════════════ -->
+<header class="header" id="header">
+  <div class="container nav">
+    <div class="logo">
+        <a href="index.html">
+            <img src="images/ysquare-logo.png" alt="YSQUARE Semicon">
+        </a>
+    </div>
+    <nav class="menu">
+      <div class="menu-item">
+        <span>Who we are ▾</span>
+        <div class="dropdown">
+          <div class="dropdown-left">
+            <ul>
+              <li data-img="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&auto=format&fit=crop" data-text="Our Leadership" data-link="about.html#leadership">Leadership</li>
+              <li data-img="https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=800&auto=format&fit=crop" data-text="Our Culture" data-link="about.html#culture">Culture</li>
+            </ul>
+          </div>
+          <div class="dropdown-right">
+            <img id="who-img" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&auto=format&fit=crop" alt="">
+            <div class="dropdown-overlay" id="who-text">Our Leadership</div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <span>What we do ▾</span>
+        <div class="dropdown">
+          <div class="dropdown-left">
+            <div class="dropdown-group">
+              <h4>Engineering Services</h4>
+              <ul>
+                <li data-img="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop" data-text="Digital Engineering" data-link="digital-engineering.html">Digital Engineering</li>
+                <li data-img="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&auto=format&fit=crop" data-text="Software Engineering" data-link="software-engineering.html">Software Engineering</li>
+                <li data-img="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?w=800&auto=format&fit=crop" data-text="Embedded Engineering" data-link="embedded-engineering.html">Embedded Engineering</li>
+                <li data-img="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&auto=format&fit=crop" data-text="Semiconductor Engineering" data-link="semiconductor-engineering.html">Semiconductor Engineering</li>
+              </ul>
+            </div>
+            <div class="dropdown-group">
+              <h4>Industries</h4>
+              <ul>
+                <li data-img="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop" data-text="Hi-Tech" data-link="hi-tech.html">Hi-Tech</li>
+                <li data-img="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop" data-text="Automotive" data-link="automotive.html">Automotive</li>
+                <li data-img="https://images.unsplash.com/photo-1581090700227-4c4d47a2d1d1?w=800&auto=format&fit=crop" data-text="Semiconductor" data-link="semiconductor.html">Semiconductor</li>
+              </ul>
+            </div>
+          </div>
+          <div class="dropdown-right">
+            <img id="service-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop" alt="">
+            <div class="dropdown-overlay" id="service-text">Digital Engineering</div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <span>Internships ▾</span>
+        <div class="dropdown">
+          <div class="dropdown-left">
+            <div class="dropdown-group">
+              <h4>Internships</h4>
+              <ul>
+                <li data-img="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop" data-text="Internship Overview" data-link="internship.html">Internship Overview</li>
+                <li data-img="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&auto=format&fit=crop" data-text="Eligibility & Process" data-link="internship.html#benefits">Eligibility & Process</li>
+                <li class="apply-item" data-img="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop" data-text="Apply for Internship" data-link="apply.php">🚀 Apply for Internship</li>
+              </ul>
+            </div>
+          </div>
+          <div class="dropdown-right">
+            <img id="internship-img" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop" alt="">
+            <div class="dropdown-overlay" id="internship-text">Internship Programs</div>
+          </div>
+        </div>
+      </div>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact us</a>
+    </nav>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    <div class="actions">🌐 EN 🔍</div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-accordion">
+    <button class="mobile-title">Who we are <span>+</span></button>
+    <div class="mobile-submenu">
+      <a href="about.html#leadership">Leadership</a><a href="about.html#culture">Culture</a>
+    </div>
+  </div>
+  <div class="mobile-accordion">
+    <button class="mobile-title">What we do <span>+</span></button>
+    <div class="mobile-submenu">
+      <a href="digital-engineering.html">Digital Engineering</a><a href="software-engineering.html">Software Engineering</a>
+      <a href="embedded-engineering.html">Embedded Engineering</a><a href="semiconductor-engineering.html">Semiconductor Engineering</a>
+    </div>
+  </div>
+  <a href="careers.html">Careers</a>
+  <a href="contact.html">Contact Us</a>
+</div>
+
+<!-- ═══════════════════════ BREADCRUMB STRIP ═══════════════════════ -->
+<div class="hero-top-strip">
+  <a class="hts-back" href="careers.html">
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    Careers
+  </a>
+  <div class="hts-breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="hts-sep">/</span>
+    <a href="careers.html">Careers</a>
+    <span class="hts-sep">/</span>
+    <span class="hts-active">Apply Now</span>
+  </div>
+  <div class="hts-actions">
+    <button class="hts-icon" aria-label="Share">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section class="about-hero">
+  <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1800&q=80" alt="YSQUARE Careers">
+  <div class="hero-overlay"></div>
+  <div class="hero-glow-a"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Engineering Careers</div>
+    <div class="hero-accent"></div>
+    <h1>Apply for a<br><span>Career</span><br>at YSQUARE</h1>
+    <p>Join our engineering teams across Software, Embedded Systems, Semiconductor and Digital Engineering, and help build technology that shapes tomorrow.</p>
+    <div class="hero-position-pill" id="heroPositionPill">
+      <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+      <span id="heroPositionText"></span>
+    </div>
+    <a href="#apply-form" class="hero-scroll-btn">Scroll to Application ↓</a>
+  </div>
+</section>
+
+<!-- ═══════════════════════ STICKY NAV ═══════════════════════ -->
+<nav class="hero-bottom-nav" id="heroBottomNav">
+  <a href="#apply-form" class="hbn-link active">Application Form</a>
+  <a href="#benefits" class="hbn-link">Why YSQUARE</a>
+</nav>
+
+<!-- ═══════════════════════ FORM SECTION ═══════════════════════ -->
+<section class="apply-section" id="apply-form">
+  <div class="apply-glow-b"></div>
+
+  <!-- Quick role switcher: lets an applicant change position without leaving the page -->
+  <div class="roles-strip reveal" id="rolesStrip">
+    <div class="roles-strip-label">Applying For</div>
+    <div class="roles-chip-row" id="rolesChipRow">
+      <button type="button" class="roles-chip" data-role="Software Engineer">Software Engineer</button>
+      <button type="button" class="roles-chip" data-role="Embedded Engineer">Embedded Engineer</button>
+      <button type="button" class="roles-chip" data-role="Semiconductor Engineer">Semiconductor Engineer</button>
+      <button type="button" class="roles-chip" data-role="General Application">General Application</button>
+    </div>
+  </div>
+
+  <div class="apply-card reveal" id="applyCard">
+
+    <div class="apply-card-header">
+      <div class="eyebrow" style="justify-content:center;margin-bottom:18px;">Career Application</div>
+      <h2>Apply Now</h2>
+      <p>Complete your application in under 2 minutes. All fields marked <span style="color:var(--primary);font-weight:700;">*</span> are required.</p>
+    </div>
+
+    <div class="form-server-error" id="serverError"></div>
+
+    <form id="applyForm" method="POST" action="career-submit.php" enctype="multipart/form-data" novalidate>
+      <div class="form-grid">
+
+        <div class="field">
+          <label>First Name <span>*</span></label>
+          <input type="text" name="firstName" id="firstName" placeholder="e.g. Arjun" autocomplete="given-name">
+          <div class="field-msg" id="msg-firstName"></div>
+        </div>
+
+        <div class="field">
+          <label>Last Name <span>*</span></label>
+          <input type="text" name="lastName" id="lastName" placeholder="e.g. Sharma" autocomplete="family-name">
+          <div class="field-msg" id="msg-lastName"></div>
+        </div>
+
+        <div class="field">
+          <label>Email Address <span>*</span></label>
+          <input type="email" name="email" id="email" placeholder="you@email.com" autocomplete="email">
+          <div class="field-msg" id="msg-email"></div>
+        </div>
+
+        <div class="field">
+          <label>Mobile Number <span>*</span></label>
+          <input type="tel" name="phone" id="phone" placeholder="+91 98765 43210" autocomplete="tel">
+          <div class="field-msg" id="msg-phone"></div>
+        </div>
+
+        <div class="field">
+          <label>Position Applying For <span>*</span></label>
+          <select name="position" id="position">
+            <option value="" disabled selected>Select a position</option>
+            <option value="Software Engineer">Software Engineer</option>
+            <option value="Embedded Engineer">Embedded Engineer</option>
+            <option value="Semiconductor Engineer">Semiconductor Engineer</option>
+            <option value="General Application">General Application</option>
+          </select>
+          <div class="field-msg" id="msg-position"></div>
+        </div>
+
+        <div class="field">
+          <label>Total Experience <span>*</span></label>
+          <select name="experience" id="experience">
+            <option value="" disabled selected>Select experience level</option>
+            <option value="Fresher">Fresher (0 Years)</option>
+            <option value="0-1 Years">0 – 1 Years</option>
+            <option value="1-3 Years">1 – 3 Years</option>
+            <option value="3-5 Years">3 – 5 Years</option>
+            <option value="5+ Years">5+ Years</option>
+          </select>
+          <div class="field-msg" id="msg-experience"></div>
+        </div>
+
+        <div class="field">
+          <label>Current Location <span>*</span></label>
+          <input type="text" name="location" id="location" placeholder="e.g. Hyderabad, India" autocomplete="address-level2">
+          <div class="field-msg" id="msg-location"></div>
+        </div>
+
+        <div class="field">
+          <label>LinkedIn / Portfolio URL <small>Optional</small></label>
+          <input type="url" name="portfolio" id="portfolio" placeholder="https://linkedin.com/in/yourname">
+          <div class="field-msg" id="msg-portfolio"></div>
+        </div>
+
+        <div class="field form-full">
+          <label>Upload Resume <span>*</span></label>
+          <div class="file-upload" id="fileUploadZone">
+            <input type="file" name="resume" id="resumeInput" accept=".pdf,.doc,.docx">
+            <div class="file-upload-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="file-upload-text">
+              <h5>Drag &amp; drop or click to upload</h5>
+              <p>PDF, DOC or DOCX — Maximum 5 MB</p>
+              <div class="file-name" id="fileName"></div>
+            </div>
+          </div>
+          <div class="field-msg" id="msg-resume"></div>
+        </div>
+
+        <div class="field form-full">
+          <label>Why are you a great fit for this role? <span>*</span></label>
+          <textarea name="motivation" id="motivation" placeholder="Tell us about your relevant experience, skills and why you'd like to join YSQUARE..." rows="5" maxlength="1000"></textarea>
+          <div class="char-count"><span id="charCount">0</span> / 1000</div>
+          <div class="field-msg" id="msg-motivation"></div>
+        </div>
+
+        <div class="field form-full">
+          <div class="check-row">
+            <input type="checkbox" name="certify" id="certifyCheck">
+            <label for="certifyCheck">I certify that all information provided is true and accurate. I consent to YSQUARE processing my application data for recruitment purposes in accordance with the <a href="#">Privacy Policy</a>.</label>
+          </div>
+          <div class="field-msg" id="msg-certify"></div>
+        </div>
+
+      </div>
+
+      <div class="form-submit">
+        <button type="submit" class="btn-submit" id="submitBtn" disabled>
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="btn-text">Apply Now →</span>
+          <div class="btn-spinner"></div>
+        </button>
+        <div class="form-note">Your data is secured with 256-bit encryption and used solely for recruitment evaluation.</div>
+      </div>
+    </form>
+
+  </div>
+</section>
+
+<div style="height:1px;background:linear-gradient(90deg,transparent,#e2e8f0 20%,#e2e8f0 80%,transparent);"></div>
+
+<!-- ═══════════════════════ BENEFIT CARDS ═══════════════════════ -->
+<section class="benefits-section" id="benefits">
+  <div class="benefits-header reveal">
+    <div class="eyebrow" style="justify-content:center;margin-bottom:18px;">Why YSQUARE</div>
+    <h2>Everything Included<br>In Your Career</h2>
+    <p>Every YSQUARE engineer gets the same standard of growth, mentorship and ownership — no exceptions.</p>
+  </div>
+  <div class="benefit-cards">
+    <div class="benefit-card reveal d1">
+      <div class="benefit-card-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h4>Senior Mentorship</h4>
+      <p>Work alongside engineers who've shipped products at enterprise scale, from day one.</p>
+    </div>
+    <div class="benefit-card reveal d2">
+      <div class="benefit-card-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8zM14 2v6h6M16 13H8M16 17H8M10 9H8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h4>Real Client Projects</h4>
+      <p>Own end-to-end deliverables for global clients — not internal tooling or busy work.</p>
+    </div>
+    <div class="benefit-card reveal d3">
+      <div class="benefit-card-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h4>Growth Pathways</h4>
+      <p>Structured career progression with clear milestones across engineering tracks.</p>
+    </div>
+    <div class="benefit-card reveal d4">
+      <div class="benefit-card-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h4>Competitive Benefits</h4>
+      <p>Market-leading compensation, health coverage and performance-linked rewards.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ SUCCESS SECTION ═══════════════════════ -->
+<section class="success-section" id="successSection">
+  <div class="success-card reveal">
+    <div class="success-check">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path class="check-path" d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="eyebrow" style="justify-content:center;margin-bottom:18px;">Application Received</div>
+    <h2>Application Submitted<br>Successfully</h2>
+    <p>Our HR team will review your application personally and contact you within <strong>48 business hours</strong> if your profile matches our requirements.</p>
+    <div class="success-ref">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      Reference ID: <span id="refId">YSQ-CAR-2026-0000</span>
+    </div>
+
+    <div class="application-summary">
+      <div class="sum-header"><h4>Application Summary</h4></div>
+      <div class="summary-row"><span>Name</span><strong id="sumName"></strong></div>
+      <div class="summary-row"><span>Email</span><strong id="sumEmail"></strong></div>
+      <div class="summary-row"><span>Phone</span><strong id="sumPhone"></strong></div>
+      <div class="summary-row"><span>Position</span><strong id="sumPosition"></strong></div>
+      <div class="summary-row"><span>Experience</span><strong id="sumExperience"></strong></div>
+      <div class="summary-row"><span>Resume</span><strong id="sumResume"></strong></div>
+      <div class="summary-row"><span>Submitted</span><strong id="sumTime"></strong></div>
+    </div>
+
+    <div class="rec-timeline">
+      <div class="rec-timeline-title">Recruitment Timeline</div>
+      <div class="tl-step"><div class="tl-dot done">✓</div><div class="tl-label">Application Submitted</div></div>
+      <div class="tl-step"><div class="tl-dot done">✓</div><div class="tl-label">Under HR Review</div></div>
+      <div class="tl-step"><div class="tl-dot pend">○</div><div class="tl-label pend">Shortlisting</div></div>
+      <div class="tl-step"><div class="tl-dot pend">○</div><div class="tl-label pend">Interview</div></div>
+      <div class="tl-step"><div class="tl-dot pend">○</div><div class="tl-label pend">Final Selection</div></div>
+    </div>
+
+    <div class="success-actions">
+      <a href="index.html" class="btn-home">Back to Home →</a>
+      <a href="careers.html" class="btn-explore">View More Roles</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="images/ysquare-logo.png" alt="YSQUARE">
+      <p>YSQUARE Semicon IT Solutions delivers innovative semiconductor, embedded systems and software engineering services that help organizations accelerate digital transformation and build future-ready technology.</p>
+      <div class="footer-badge">Semiconductor • Embedded • Software</div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Digital Engineering</a></li>
+        <li><a href="#">Software Engineering</a></li>
+        <li><a href="#">Embedded Engineering</a></li>
+        <li><a href="#">Semiconductor Engineering</a></li>
+      </ul>
+      <h4 class="footer-sub-heading">Industries</h4>
+      <ul>
+        <li><a href="#">Hi-Tech &amp; Technology</a></li>
+        <li><a href="#">Automotive &amp; Mobility</a></li>
+        <li><a href="#">Semiconductor &amp; Electronics</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About YSQUARE</a></li>
+        <li><a href="#">Leadership</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="internship.html">Internships</a></li>
+        <li><a href="#">Insights</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <span class="nl-label">Get In Touch</span>
+      <p style="font-size:13px;color:rgba(255,255,255,.4);margin-bottom:16px;line-height:1.6;">Engineering solutions start with a conversation.<br>Reach out to our experts today.</p>
+      <div class="footer-social">
+        <a href="#" class="f-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" class="f-icon"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" class="f-icon"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="f-icon"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 YSQUARE Semicon IT Solutions. All rights reserved.</p>
+    <div class="footer-btm-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Disclaimer</a>
+      <a href="#">Sitemap</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════ JAVASCRIPT ═══════════════════════ -->
+<script>
+/* ── Scroll reveal ─────────────────────────────────────────── */
+const allReveal = document.querySelectorAll('.reveal');
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+allReveal.forEach(el => ro.observe(el));
+
+/* ── Header scroll + progress bar ─────────────────────────── */
+window.addEventListener('scroll', () => {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 20);
+  const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+  document.getElementById('scrollProgress').style.width = pct + '%';
+}, { passive: true });
+
+/* ── Bottom nav active ─────────────────────────────────────── */
+(function(){
+  const links = document.querySelectorAll('.hbn-link');
+  const sids  = ['apply-form', 'benefits'];
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sids.forEach(id => {
+      const el = document.getElementById(id);
+      if(el && window.scrollY >= el.offsetTop - 220) cur = id;
+    });
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
+  }, { passive: true });
+  links.forEach(a => a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t){ e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  }));
+})();
+
+/* ── Dropdown hover swap ───────────────────────────────────── */
+document.querySelectorAll('.dropdown-left li').forEach(li => {
+  li.addEventListener('mouseenter', () => {
+    const img = li.dataset.img, text = li.dataset.text;
+    const sec = li.closest('.menu-item');
+    if(!img) return;
+    const iEl = sec.querySelector('[id$="-img"]'), tEl = sec.querySelector('[id$="-text"]');
+    if(iEl) iEl.src = img;
+    if(tEl) tEl.textContent = text;
+  });
+});
+document.querySelectorAll('.dropdown li').forEach(item => {
+  item.addEventListener('click', () => {
+    const link = item.dataset.link;
+    if(link) window.location.href = link;
+  });
+});
+
+/* ── Hamburger ─────────────────────────────────────────────── */
+const hbg = document.getElementById('hamburger'), mm = document.getElementById('mobileMenu');
+if(hbg && mm){
+  hbg.addEventListener('click', () => { hbg.classList.toggle('active'); mm.classList.toggle('active'); });
+  mm.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hbg.classList.remove('active'); mm.classList.remove('active'); }));
+}
+document.querySelectorAll('.mobile-title').forEach(btn => btn.addEventListener('click', () => btn.parentElement.classList.toggle('active')));
+
+/* ── Smooth anchor (hero CTA) ──────────────────────────────── */
+document.querySelector('.hero-scroll-btn').addEventListener('click', e => {
+  e.preventDefault();
+  document.getElementById('apply-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+/* ════════════════════════════════════════
+   PREFILL POSITION FROM URL (?position=...)
+   This is what makes ONE form work for every
+   job card on careers.html.
+════════════════════════════════════════ */
+const positionSelect = document.getElementById('position');
+const heroPill        = document.getElementById('heroPositionPill');
+const heroPillText     = document.getElementById('heroPositionText');
+const rolesChipRow     = document.getElementById('rolesChipRow');
+
+function setPosition(value, { scroll = false } = {}) {
+  if(!value) return;
+  const match = Array.from(positionSelect.options).find(o => o.value.toLowerCase() === value.toLowerCase());
+  if(match){
+    positionSelect.value = match.value;
+    positionSelect.classList.add('prefilled');
+    heroPillText.textContent = 'Applying for: ' + match.value;
+    heroPill.classList.add('show');
+    rolesChipRow.querySelectorAll('.roles-chip').forEach(c => {
+      c.classList.toggle('active', c.dataset.role === match.value);
+    });
+    validateField('position');
+    updateSubmitBtn();
+    if(scroll) document.getElementById('apply-form').scrollIntoView({ behavior:'smooth', block:'start' });
+  }
+}
+
+(function prefillFromURL(){
+  const params = new URLSearchParams(window.location.search);
+  const pos = params.get('position');
+  if(pos) setPosition(decodeURIComponent(pos));
+})();
+
+/* Quick role chips let the applicant switch position inline */
+rolesChipRow.querySelectorAll('.roles-chip').forEach(chip => {
+  chip.addEventListener('click', () => setPosition(chip.dataset.role));
+});
+
+positionSelect.addEventListener('change', () => {
+  positionSelect.classList.remove('prefilled');
+  const val = positionSelect.value;
+  if(val){
+    heroPillText.textContent = 'Applying for: ' + val;
+    heroPill.classList.add('show');
+    rolesChipRow.querySelectorAll('.roles-chip').forEach(c => c.classList.toggle('active', c.dataset.role === val));
+  }
+});
+
+/* ════════════════════════════════════════
+   FORM VALIDATION & SUBMISSION
+════════════════════════════════════════ */
+const form      = document.getElementById('applyForm');
+const submitBtn = document.getElementById('submitBtn');
+
+const validations = {
+  firstName:  { test: v => v.trim().length >= 2,       msg: 'Enter your first name (min 2 chars).' },
+  lastName:   { test: v => v.trim().length >= 2,       msg: 'Enter your last name (min 2 chars).' },
+  email:      { test: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()), msg: 'Enter a valid email address.' },
+  phone:      { test: v => /^[\+]?[\d\s\-\(\)]{7,15}$/.test(v.trim()), msg: 'Enter a valid phone number.' },
+  position:   { test: v => v !== '',                   msg: 'Please select the position you are applying for.' },
+  experience: { test: v => v !== '',                   msg: 'Please select your experience level.' },
+  location:   { test: v => v.trim().length >= 2,       msg: 'Enter your current location.' },
+  motivation: { test: v => v.trim().length >= 20,      msg: 'Please write at least 20 characters.' },
+};
+
+let resumeValid  = false;
+let certifyValid = false;
+
+function setFieldState(id, isValid, message) {
+  const el  = document.getElementById(id);
+  const msg = document.getElementById('msg-' + id);
+  if(!el) return;
+  el.classList.toggle('valid',   isValid);
+  el.classList.toggle('invalid', !isValid && el.value !== '');
+  if(msg){
+    msg.textContent = isValid ? '✓ Looks good' : (el.value !== '' ? message : '');
+    msg.className   = 'field-msg ' + (isValid ? 'ok' : 'err');
+  }
+}
+
+function validateField(id) {
+  const el = document.getElementById(id);
+  if(!el) return false;
+  const rule = validations[id];
+  const ok   = rule && rule.test(el.value);
+  setFieldState(id, ok, rule ? rule.msg : '');
+  return ok;
+}
+
+Object.keys(validations).forEach(id => {
+  const el = document.getElementById(id);
+  if(el){
+    el.addEventListener('blur', () => { validateField(id); updateSubmitBtn(); });
+    el.addEventListener('input', () => { if(el.classList.contains('invalid')) validateField(id); updateSubmitBtn(); });
+    el.addEventListener('change', () => { validateField(id); updateSubmitBtn(); });
+  }
+});
+
+const motivationEl = document.getElementById('motivation');
+const charCountEl  = document.getElementById('charCount');
+if(motivationEl){
+  motivationEl.addEventListener('input', () => { charCountEl.textContent = motivationEl.value.length; });
+}
+
+const resumeInput    = document.getElementById('resumeInput');
+const fileNameEl     = document.getElementById('fileName');
+const fileUploadZone = document.getElementById('fileUploadZone');
+const resumeMsg      = document.getElementById('msg-resume');
+
+resumeInput.addEventListener('change', handleResumeChange);
+
+function handleResumeChange() {
+  const file = resumeInput.files[0];
+  resumeValid = false;
+
+  if(!file) {
+    setResumeMsg(false, '');
+    fileUploadZone.classList.remove('invalid');
+    fileNameEl.textContent = '';
+    return;
+  }
+
+  const ext      = file.name.split('.').pop().toLowerCase();
+  const maxBytes = 5 * 1024 * 1024;
+  const allowed  = ['pdf', 'doc', 'docx'];
+
+  if(!allowed.includes(ext)) {
+    setResumeMsg(false, 'Only PDF, DOC or DOCX files are accepted.');
+  } else if(file.size > maxBytes) {
+    setResumeMsg(false, 'File must be under 5 MB.');
+  } else {
+    resumeValid = true;
+    fileNameEl.textContent = '✓ ' + file.name;
+    fileUploadZone.classList.remove('invalid');
+    setResumeMsg(true, 'Resume ready to upload.');
+  }
+  updateSubmitBtn();
+}
+
+function setResumeMsg(ok, msg) {
+  if(!resumeMsg) return;
+  resumeMsg.textContent = msg;
+  resumeMsg.className   = 'field-msg ' + (ok ? 'ok' : 'err');
+  fileUploadZone.classList.toggle('invalid', !ok && msg !== '');
+}
+
+fileUploadZone.addEventListener('dragover', e => { e.preventDefault(); fileUploadZone.classList.add('dragover'); });
+fileUploadZone.addEventListener('dragleave', () => fileUploadZone.classList.remove('dragover'));
+fileUploadZone.addEventListener('drop', e => {
+  e.preventDefault();
+  fileUploadZone.classList.remove('dragover');
+  const dt = e.dataTransfer;
+  if(dt.files.length){ resumeInput.files = dt.files; handleResumeChange(); }
+});
+
+const certifyCheck = document.getElementById('certifyCheck');
+const certifyMsg   = document.getElementById('msg-certify');
+certifyCheck.addEventListener('change', () => {
+  certifyValid = certifyCheck.checked;
+  if(certifyMsg){
+    certifyMsg.textContent = certifyValid ? '' : 'You must certify the information is accurate.';
+    certifyMsg.className   = 'field-msg err';
+  }
+  updateSubmitBtn();
+});
+
+function updateSubmitBtn() {
+  const allTextValid = Object.keys(validations).every(id => {
+    const el = document.getElementById(id);
+    return el && validations[id].test(el.value);
+  });
+  submitBtn.disabled = !(allTextValid && resumeValid && certifyValid);
+}
+
+/* ── Form submit via fetch() ───────────────────────────────── */
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  let allOk = true;
+  Object.keys(validations).forEach(id => { if(!validateField(id)) allOk = false; });
+  if(!resumeValid){  setResumeMsg(false, 'Please upload your resume.'); allOk = false; }
+  if(!certifyValid){ if(certifyMsg){ certifyMsg.textContent = 'You must certify the information is accurate.'; } allOk = false; }
+  if(!allOk) return;
+
+  submitBtn.classList.add('loading');
+  submitBtn.disabled = true;
+  document.getElementById('serverError').style.display = 'none';
+
+  try {
+    const formData = new FormData(form);
+    const res      = await fetch('career-submit.php', { method: 'POST', body: formData });
+    const data     = await res.json();
+
+    if(data.success) {
+      document.getElementById('refId').textContent        = data.refId;
+      document.getElementById('sumName').textContent      = data.name;
+      document.getElementById('sumEmail').textContent     = data.email;
+      document.getElementById('sumPhone').textContent     = data.phone;
+      document.getElementById('sumPosition').textContent  = data.position;
+      document.getElementById('sumExperience').textContent = data.experience;
+      document.getElementById('sumResume').textContent    = data.resumeName;
+      document.getElementById('sumTime').textContent      = data.submittedAt;
+
+      document.querySelector('.apply-section').style.display = 'none';
+      document.getElementById('rolesStrip').style.display = 'none';
+      const successSec = document.getElementById('successSection');
+      successSec.style.display = 'block';
+
+      setTimeout(() => {
+        successSec.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+      }, 80);
+
+      successSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    } else {
+      const errEl = document.getElementById('serverError');
+      errEl.textContent  = data.error || 'Something went wrong. Please try again.';
+      errEl.style.display = 'block';
+      errEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      submitBtn.classList.remove('loading');
+      updateSubmitBtn();
+    }
+
+  } catch(err) {
+    const errEl = document.getElementById('serverError');
+    errEl.textContent  = 'Network error. Please check your connection and try again.';
+    errEl.style.display = 'block';
+    submitBtn.classList.remove('loading');
+    updateSubmitBtn();
+  }
+});
+</script>
+
+</body>
+</html>

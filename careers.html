@@ -209,15 +209,368 @@ html{scroll-behavior:smooth;}
     <h1>Engineering<br><span>Excellence.</span></h1>
     <p>A semiconductor and IT engineering company built on deep domain expertise, precision delivery, and a singular commitment to the outcomes of our clients.</p>
   </div>
-</section>
+</section> 
 
 <!-- ═══════ STICKY BOTTOM NAV ═══════ -->
 <nav class="hero-bottom-nav" id="heroBottomNav">
-<a href="#leadership" class="hbn-link active">opportunities</a>
+  <a href="#how-we-hire" class="hbn-link active">How we Hire</a>
+<a href="#opportunities" class="hbn-link active">opportunities</a>
 
 </nav>
 
+<!-- ══════════════════════════════════════════════════════
+     HOW WE HIRE
+     Insert this section in careers.html RIGHT AFTER the
+     sticky bottom nav:
+         <nav class="hero-bottom-nav" id="heroBottomNav"> ... </nav>
+     and BEFORE the open positions section:
+         <section class="career-jobs" id="opportunities"> ... </section>
+══════════════════════════════════════════════════════ -->
 
+<style>
+/*==================================================
+HOW WE HIRE
+==================================================*/
+.hwh-section{
+  position:relative;
+  padding:110px 5% 100px;
+  background:#fff;
+  overflow:hidden;
+}
+
+.hwh-section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(14,165,233,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(14,165,233,.03) 1px,transparent 1px);
+  background-size:80px 80px;
+  pointer-events:none;
+}
+
+.hwh-section::after{
+  content:"";
+  position:absolute;
+  top:-200px;left:-200px;
+  width:520px;height:520px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(14,165,233,.08),transparent 70%);
+  pointer-events:none;
+}
+
+.hwh-container{
+  position:relative;
+  z-index:1;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+/* ── Header ── */
+.hwh-header{
+  max-width:720px;
+  margin-bottom:60px;
+}
+
+.hwh-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:#0ea5e9;
+  margin-bottom:22px;
+}
+
+.hwh-tag::before{
+  content:"";
+  width:36px;
+  height:2px;
+  background:#0ea5e9;
+}
+
+.hwh-header h2{
+  font-size:clamp(34px,4vw,52px);
+  font-weight:800;
+  letter-spacing:-1.8px;
+  line-height:1.08;
+  color:#081b35;
+  margin-bottom:20px;
+}
+
+.hwh-header p{
+  font-size:17px;
+  line-height:1.85;
+  color:#64748b;
+  max-width:640px;
+}
+
+/* ── Steps row ── */
+.hwh-steps{
+  display:flex;
+  align-items:center;
+  gap:0;
+  margin-bottom:44px;
+  overflow-x:auto;
+  padding-bottom:6px;
+  scrollbar-width:none;
+}
+.hwh-steps::-webkit-scrollbar{display:none;}
+
+.hwh-step{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-shrink:0;
+  padding:16px 22px;
+  border-radius:14px;
+  border:1.5px solid transparent;
+  background:#f8fafc;
+  cursor:pointer;
+  transition:.35s ease;
+}
+
+.hwh-step:hover{
+  background:#f0f9ff;
+}
+
+.hwh-step.active{
+  background:#fff;
+  border:1.5px dashed #0ea5e9;
+  box-shadow:0 14px 34px rgba(14,165,233,.12);
+}
+
+.hwh-step-num{
+  width:34px;height:34px;
+  flex-shrink:0;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:14px;
+  font-weight:700;
+  background:rgba(14,165,233,.10);
+  color:#0369a1;
+  transition:.35s ease;
+}
+
+.hwh-step.active .hwh-step-num{
+  background:linear-gradient(135deg,#0ea5e9,#0369a1);
+  color:#fff;
+  box-shadow:0 8px 20px rgba(14,165,233,.35);
+}
+
+.hwh-step-label{
+  font-size:14.5px;
+  font-weight:600;
+  color:#334155;
+  white-space:nowrap;
+  transition:color .3s;
+}
+
+.hwh-step.active .hwh-step-label{
+  color:#081b35;
+  font-weight:700;
+}
+
+.hwh-connector{
+  width:44px;
+  height:1.5px;
+  background:#e2e8f0;
+  flex-shrink:0;
+}
+
+/* ── Description card ── */
+.hwh-card{
+  position:relative;
+  background:#fff;
+  border:1px solid rgba(14,165,233,.14);
+  border-radius:20px;
+  padding:44px 48px;
+  box-shadow:0 25px 70px rgba(14,165,233,.10),0 4px 20px rgba(0,0,0,.04);
+}
+
+.hwh-card::before{
+  content:"";
+  position:absolute;
+  top:-1px;left:10%;right:10%;
+  height:3px;
+  background:linear-gradient(90deg,transparent,#0ea5e9,transparent);
+  border-radius:2px;
+}
+
+.hwh-card-eyebrow{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:#0ea5e9;
+  margin-bottom:14px;
+  display:block;
+}
+
+.hwh-card-text{
+  font-size:19px;
+  line-height:1.85;
+  color:#334155;
+  font-weight:500;
+  transition:opacity .3s ease;
+}
+
+.hwh-card-text.fading{ opacity:0; }
+
+/* ── CTA ── */
+.hwh-cta-wrap{
+  text-align:center;
+  margin-top:52px;
+}
+
+.hwh-cta-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  padding:18px 42px;
+  border-radius:60px;
+  background:linear-gradient(135deg,#0ea5e9,#0369a1);
+  color:#fff;
+  font-size:15px;
+  font-weight:700;
+  text-decoration:none;
+  letter-spacing:.3px;
+  transition:.35s ease;
+  box-shadow:0 15px 40px rgba(14,165,233,.30);
+}
+
+.hwh-cta-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 24px 55px rgba(14,165,233,.42);
+}
+
+.hwh-cta-btn i{ transition:.35s; }
+.hwh-cta-btn:hover i{ transform:translateX(6px); }
+
+/* ── Responsive ── */
+@media(max-width:768px){
+  .hwh-section{ padding:80px 5% 70px; }
+  .hwh-header h2{ font-size:32px; }
+  .hwh-header p{ font-size:15px; }
+  .hwh-step{ padding:13px 18px; }
+  .hwh-step-label{ font-size:13px; }
+  .hwh-connector{ width:24px; }
+  .hwh-card{ padding:30px 26px; border-radius:16px; }
+  .hwh-card-text{ font-size:16px; line-height:1.75; }
+  .hwh-cta-btn{ width:100%; justify-content:center; padding:16px 24px; }
+}
+</style>
+
+<section class="hwh-section" id="how-we-hire">
+  <div class="hwh-container">
+
+    <div class="hwh-header">
+      <div class="hwh-tag">Our Process</div>
+      <h2>How We Hire</h2>
+      <p>Putting people first begins the moment we meet. Tell us about your skills and aspirations. Explore job opportunities that speak to your journey.</p>
+    </div>
+
+    <!-- Steps -->
+    <div class="hwh-steps" id="hwhSteps">
+
+      <div class="hwh-step active" data-step="1">
+        <div class="hwh-step-num">1</div>
+        <div class="hwh-step-label">Job Opportunities &amp;<br>Application Submission</div>
+      </div>
+      <div class="hwh-connector"></div>
+
+      <div class="hwh-step" data-step="2">
+        <div class="hwh-step-num">2</div>
+        <div class="hwh-step-label">Shortlisting</div>
+      </div>
+      <div class="hwh-connector"></div>
+
+      <div class="hwh-step" data-step="3">
+        <div class="hwh-step-num">3</div>
+        <div class="hwh-step-label">Business /<br>Technical Interview</div>
+      </div>
+      <div class="hwh-connector"></div>
+
+      <div class="hwh-step" data-step="4">
+        <div class="hwh-step-num">4</div>
+        <div class="hwh-step-label">HR Interview</div>
+      </div>
+      <div class="hwh-connector"></div>
+
+      <div class="hwh-step" data-step="5">
+        <div class="hwh-step-num">5</div>
+        <div class="hwh-step-label">Decision &amp; Offer</div>
+      </div>
+
+    </div>
+
+    <!-- Description card -->
+    <div class="hwh-card">
+      <span class="hwh-card-eyebrow" id="hwhCardEyebrow">Step 01 · Application</span>
+      <p class="hwh-card-text" id="hwhCardText">
+        Our career section enables you to apply for the job you desire. Submit your resume with a complete list of credentials and provide detailed information about your experience in the position.
+      </p>
+    </div>
+
+    <div class="hwh-cta-wrap">
+      <a href="#opportunities" class="career-more-btn">
+        Explore Job Opportunities
+        <i class="fa-solid fa-arrow-right-long"></i>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function(){
+  const stepsData = {
+    1: {
+      eyebrow: "Step 01 · Application",
+      text: "Our career section enables you to apply for the job you desire. Submit your resume with a complete list of credentials and provide detailed information about your experience in the position."
+    },
+    2: {
+      eyebrow: "Step 02 · Shortlisting",
+      text: "Our recruitment team reviews every application against the role's requirements and shortlists candidates whose skills and experience best match the position."
+    },
+    3: {
+      eyebrow: "Step 03 · Business / Technical Interview",
+      text: "Shortlisted candidates go through a technical and functional assessment with the hiring team to evaluate domain expertise, problem-solving and role readiness."
+    },
+    4: {
+      eyebrow: "Step 04 · HR Interview",
+      text: "A conversation with HR to understand culture fit, career goals, compensation expectations and to answer any questions you have about YSQUARE."
+    },
+    5: {
+      eyebrow: "Step 05 · Decision & Offer",
+      text: "Successful candidates receive a final decision along with a formal offer letter, followed by onboarding support to help you get started smoothly."
+    }
+  };
+
+  const steps    = document.querySelectorAll('.hwh-step');
+  const eyebrowEl = document.getElementById('hwhCardEyebrow');
+  const textEl    = document.getElementById('hwhCardText');
+
+  steps.forEach(step => {
+    step.addEventListener('click', () => {
+      const id = step.dataset.step;
+      steps.forEach(s => s.classList.remove('active'));
+      step.classList.add('active');
+
+      textEl.classList.add('fading');
+      setTimeout(() => {
+        eyebrowEl.textContent = stepsData[id].eyebrow;
+        textEl.textContent    = stepsData[id].text;
+        textEl.classList.remove('fading');
+      }, 200);
+    });
+  });
+})();
+</script>
 
 <!-- ===================================================
 OPEN POSITIONS
@@ -285,13 +638,7 @@ Build scalable enterprise applications, cloud platforms and modern digital solut
 
 </p>
 
-<a href="career-apply.html" class="job-btn">
-
-Apply Now
-
-<i class="fa-solid fa-arrow-right-long"></i>
-
-</a>
+<a href="career-apply.php?position=Software%20Engineer" class="job-btn">Apply Now <i class="fa-solid fa-arrow-right-long"></i></a>
 
 </div>
 
@@ -331,13 +678,8 @@ Develop intelligent embedded products, firmware and IoT solutions for next-gener
 
 </p>
 
-<a href="career-apply.html" class="job-btn">
-
-Apply Now
-
-<i class="fa-solid fa-arrow-right-long"></i>
-
-</a>
+<!-- Embedded Engineer card -->
+<a href="career-apply.php?position=Embedded%20Engineer" class="job-btn">Apply Now <i class="fa-solid fa-arrow-right-long"></i></a>
 
 </div>
 
@@ -377,13 +719,8 @@ Work on RTL Design, Physical Design, DFT and Verification for leading semiconduc
 
 </p>
 
-<a href="career-apply.html" class="job-btn">
-
-Apply Now
-
-<i class="fa-solid fa-arrow-right-long"></i>
-
-</a>
+<!-- Semiconductor Engineer card -->
+<a href="career-apply.php?position=Semiconductor%20Engineer" class="job-btn">Apply Now <i class="fa-solid fa-arrow-right-long"></i></a>
 
 </div>
 
@@ -1343,7 +1680,7 @@ window.addEventListener('scroll', () => {
 /* Sticky nav active state */
 (function(){
   const links = document.querySelectorAll('.hbn-link');
-  const sectionIds = ['who','ecosystem','vision','why','values','impact'];
+  const sectionIds = ['how-we-hire','opportunities'];
   window.addEventListener('scroll', () => {
     let current = '';
     sectionIds.forEach(id => {

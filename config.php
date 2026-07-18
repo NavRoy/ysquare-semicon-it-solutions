@@ -7,7 +7,7 @@
 /* ── HR / Recipient ─────────────────────────────────────── */
 define('HR_EMAIL',        'naveenroy1940@gmail.com');      // Where applications go
 define('HR_NAME',         'YSQUARE HR Team');
-define('SENDER_EMAIL',    'no-reply@ysquaresemicon.com'); // From address
+define('SENDER_EMAIL',    'careers@ysquaresemicon.com'); // From address
 define('SENDER_NAME',     'YSQUARE Semicon IT Solutions');
 
 /* ── Upload Directory ───────────────────────────────────── */
@@ -21,7 +21,7 @@ define('ALLOWED_TYPES',   ['application/pdf',
                             'application/vnd.openxmlformats-officedocument.wordprocessingml.document']);
 define('ALLOWED_EXTS',    ['pdf', 'doc', 'docx']);
 
-/* ── Reference ID Prefix ────────────────────────────────── */
+/* ── Reference ID Prefix (Internship applications) ──────── */
 define('REF_PREFIX',      'YSQ-' . date('Y') . '-');
 
 /* ── Valid Domains (must match <option> values in apply.php) */
@@ -38,3 +38,28 @@ define('VALID_DOMAINS', [
 
 /* ── Valid Years ─────────────────────────────────────────── */
 define('VALID_YEARS', ['2024', '2025', '2026', '2027', '2028', '2029']);
+
+/* ════════════════════════════════════════════════════════
+   CAREER APPLICATION SETTINGS
+   (used by career-apply.php / career-submit.php)
+   ════════════════════════════════════════════════════════ */
+
+/* ── Reference ID Prefix (Career applications) ──────────── */
+define('CAREER_REF_PREFIX', 'YSQ-CAR-' . date('Y') . '-');
+
+/* ── Valid Positions (must match <option> values in career-apply.php) */
+define('VALID_POSITIONS', [
+    'Software Engineer',
+    'Embedded Engineer',
+    'Semiconductor Engineer',
+    'General Application',
+]);
+
+/* ── Valid Experience Levels ─────────────────────────────── */
+define('VALID_EXPERIENCE', [
+    'Fresher',
+    '0-1 Years',
+    '1-3 Years',
+    '3-5 Years',
+    '5+ Years',
+]);

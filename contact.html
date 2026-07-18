@@ -25,37 +25,6 @@ html{scroll-behavior:smooth;}
 #scrollProgress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#0ea5e9,#38bdf8);z-index:99999;transition:width .1s linear;}
 
 
-/* ─── STICKY BOTTOM NAV ────────────── */
-.hero-bottom-nav{
-  position:sticky;top:132px;z-index:997;
-  background:rgba(8,22,49,.88);backdrop-filter:blur(16px);
-  display:flex;align-items:center;justify-content:center;
-  border-top:2px solid rgba(255,255,255,.06);
-  border-bottom:1px solid rgba(0,0,0,.15);
-  box-shadow:0 4px 20px rgba(0,0,0,.2);
-}
-.hbn-link{
-  padding:0 36px;height:52px;
-  display:flex;align-items:center;
-  font-size:13px;font-weight:700;color:rgba(255,255,255,.78);
-  text-decoration:none;letter-spacing:.3px;
-  border-right:1px solid rgba(255,255,255,.12);
-  transition:.25s;position:relative;white-space:nowrap;
-}
-.hbn-link:first-child{border-left:1px solid rgba(255,255,255,.12);}
-.hbn-link:hover{color:#fff;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));}
-.hbn-link.active{color:#fff;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));}
-.hbn-link.active::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:#38bdf8;}
-
-/* ─── SHARED ATOMS ─────────────────── */
-.eyebrow{font-size:11px;font-weight:700;letter-spacing:2.5px;color:var(--primary);text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:10px;}
-.eyebrow::before{content:"";display:block;width:22px;height:1.5px;background:var(--primary);}
-.eyebrow.light{color:#38bdf8;}
-.eyebrow.light::before{background:#38bdf8;}
-.reveal{opacity:0;transform:translateY(40px);transition:opacity .85s ease,transform .85s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}
-
 /* ─── DIVIDER ───────────────────────── */
 .premium-divider{height:1px;background:linear-gradient(90deg,transparent,#e2e8f0 20%,#e2e8f0 80%,transparent);}
 
@@ -753,7 +722,9 @@ html{scroll-behavior:smooth;}
 <!-- ═══════ STICKY NAV ═══════ -->
 <nav class="hero-bottom-nav" id="heroBottomNav">
   <a href="#contact-form" class="hbn-link active">Contact Form</a>
-  <a href="#office-info" class="hbn-link">Office Info</a>
+  <a href="#office" class="hbn-link">Office Info</a>
+  <a href="#office-location" class="hbn-link">office location</a>
+   <a href="#faq" class="hbn-link">frequently asked questions </a>
 </nav>
 
 
@@ -824,7 +795,7 @@ html{scroll-behavior:smooth;}
     </div>
 
     <!-- RIGHT: info card -->
-    <div class="contact-info-card">
+    <div class="contact-info-card" id="office">
       <div class="cic-inner">
         <span class="cic-label">Corporate Office</span>
         <div class="cic-title">YSQUARE Semicon<br>IT Solutions (OPC) Pvt Ltd</div>
@@ -926,7 +897,7 @@ html{scroll-behavior:smooth;}
         <div class="mgc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
         <div class="mgc-val"><strong>Hours</strong>Mon–Sat: 9 AM – 6 PM IST</div>
       </div>
-      <a href="https://maps.google.com/?q=Warangal,Telangana,India" target="_blank" rel="noopener" class="btn-map">
+      <a href="https://maps.google.com/?q=vizianagaram,Andhra pradesh,India" target="_blank" rel="noopener" class="btn-map">
         <svg viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
         Open in Google Maps
       </a>
@@ -949,7 +920,7 @@ html{scroll-behavior:smooth;}
         <div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
       </button>
       <div class="faq-a" role="region">
-        <p>We respond to all contact form submissions within <strong>24 business hours</strong>. For urgent engineering enquiries, calling us directly at +91 98765 43210 will connect you with a team member immediately during business hours (Mon–Sat, 9 AM–6 PM IST).</p>
+        <p>We respond to all contact form submissions within <strong>24 business hours</strong>. For urgent engineering enquiries, calling us directly at +91 94403 96201 will connect you with a team member immediately during business hours (Mon–Sat, 9 AM–6 PM IST).</p>
       </div>
     </div>
 
@@ -1135,7 +1106,7 @@ window.addEventListener('scroll', () => {
 /* ── Bottom nav active ─────────────────────────── */
 (function(){
   const links = document.querySelectorAll('.hbn-link');
-  const ids   = ['contact-form', 'office-location', 'faq'];
+  const ids   = ['contact-form','office','office-location', 'faq'];
   window.addEventListener('scroll', () => {
     let cur = '';
     ids.forEach(id => {

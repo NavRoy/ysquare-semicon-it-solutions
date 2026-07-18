@@ -1,978 +1,6195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Ysquare Semicon IT Solutions (OPC) Pvt Ltd</title>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YSQUARE Semicon IT Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
 <style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-:root {
-  --navy:    #080f1e;
-  --navy2:   #0d1a30;
-  --blue:    #1255cc;
-  --blue2:   #1a6dff;
-  --sky:     #3b9eff;
-  --sky2:    #7ec8ff;
-  --bg:      #f0f4fa;
-  --bg2:     #e6edf8;
-  --white:   #ffffff;
-  --text:    #0d1b2e;
-  --muted:   #5a7090;
-  --border:  #d8e4f0;
-  --border2: #eaf0f8;
-}
-html { scroll-behavior: smooth; }
-body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; }
-
-/* ══════════════════ UTILITY BAR ══════════════════ */
-.utility-bar {
-  background: var(--navy); height: 38px;
-  display: flex; align-items: center; padding: 0 56px;
-  justify-content: space-between;
-}
-.ub-left, .ub-right { display: flex; align-items: center; gap: 20px; }
-.ub-item {
-  display: flex; align-items: center; gap: 6px;
-  font-size: 11.5px; font-weight: 500; color: rgba(255,255,255,0.52);
-  text-decoration: none; transition: color 0.2s;
-}
-.ub-item:hover { color: rgba(255,255,255,0.9); }
-.ub-sep { width: 1px; height: 12px; background: rgba(255,255,255,0.12); }
-.ub-badge {
-  background: rgba(26,109,255,0.22); border: 1px solid rgba(26,109,255,0.38);
-  border-radius: 20px; padding: 2px 10px;
-  font-size: 10.5px; font-weight: 600; color: var(--sky2); letter-spacing: 0.06em;
-}
-.ub-new {
-  background: linear-gradient(135deg,#16a34a,#15803d);
-  border-radius: 20px; padding: 2px 10px;
-  font-size: 10.5px; font-weight: 700; color: #fff; letter-spacing: 0.06em;
+/* ════════════════════════════════════════════
+   RESET & ROOT
+════════════════════════════════════════════ */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+body{background:#fff;overflow-x:clip;}
+:root{
+  --primary:#0ea5e9;
+  --primary-dark:#0369a1;
+  --green:#10b981;
+  --dark:#0a0f1e;
+  --muted:#64748b;
+  --border:rgba(0,0,0,0.07);
 }
 
-/* ══════════════════ HEADER ══════════════════ */
-header {
-  position: sticky; top: 0; z-index: 300;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(24px) saturate(160%);
-  -webkit-backdrop-filter: blur(24px) saturate(160%);
-  border-bottom: 1px solid rgba(10,22,40,0.07);
-  box-shadow: 0 1px 0 rgba(10,22,40,0.05), 0 4px 28px rgba(10,22,40,0.05);
-}
-.nav-wrap {
-  max-width: 1400px; margin: 0 auto; height: 70px;
-  display: flex; align-items: center; justify-content: space-between; padding: 0 48px;
-}
-.logo { display: flex; align-items: center; flex-shrink: 0; }
-.logo img { height: 44px; width: auto; display: block; }
-nav { display: flex; align-items: center; }
-.nav-item { position: relative; }
-.nav-link {
-  display: flex; align-items: center; gap: 4px;
-  padding: 8px 14px; font-size: 13.5px; font-weight: 500;
-  color: var(--muted); text-decoration: none; border-radius: 8px;
-  transition: color 0.18s, background 0.18s; white-space: nowrap; position: relative;
-}
-.nav-link::after {
-  content: ''; position: absolute; bottom: -6px; left: 50%;
-  width: 0; height: 2px;
-  background: linear-gradient(90deg, var(--blue), var(--sky));
-  transition: all .28s; transform: translateX(-50%);
-}
-.nav-link:hover { color: var(--navy); background: var(--bg); }
-.nav-link:hover::after { width: 65%; }
-.nav-link svg { width: 12px; height: 12px; transition: transform 0.22s; }
-.nav-item:hover > .nav-link svg { transform: rotate(180deg); }
 
-.mega-drop {
-  position: absolute; top: calc(100% + 14px); left: 50%;
-  transform: translateX(-50%) translateY(-8px);
-  background: #fff; border: 1px solid var(--border); border-radius: 16px;
-  box-shadow: 0 24px 64px rgba(10,22,40,0.13); padding: 10px; width: 300px;
-  opacity: 0; visibility: hidden; pointer-events: none;
-  transition: opacity 0.22s, transform 0.22s, visibility 0.22s;
-}
-.mega-drop::before {
-  content: ''; position: absolute; top: -6px; left: 50%; transform: translateX(-50%);
-  width: 12px; height: 12px; background: #fff; border: 1px solid var(--border);
-  clip-path: polygon(0 100%, 50% 0, 100% 100%);
-}
-.nav-item:hover .mega-drop { opacity: 1; visibility: visible; pointer-events: all; transform: translateX(-50%) translateY(0); }
-.md-item {
-  display: flex; align-items: center; gap: 12px;
-  padding: 10px 12px; border-radius: 10px; text-decoration: none; transition: background 0.15s;
-}
-.md-item:hover { background: var(--bg); }
-.md-ico {
-  width: 36px; height: 36px; border-radius: 9px; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center; font-size: 16px;
-  background: linear-gradient(135deg, var(--bg), var(--bg2)); border: 1px solid var(--border);
-}
-.md-label { font-size: 13.5px; font-weight: 600; color: var(--text); }
-.md-desc { font-size: 11.5px; color: var(--muted); margin-top: 1px; }
-.nav-actions { display: flex; align-items: center; gap: 10px; }
-.na-link {
-  font-size: 13.5px; font-weight: 500; color: var(--muted);
-  text-decoration: none; padding: 8px 12px; border-radius: 8px; transition: color 0.18s, background 0.18s;
-}
-.na-link:hover { color: var(--navy); background: var(--bg); }
-.na-btn {
-  display: flex; align-items: center; gap: 7px; padding: 9px 22px; border-radius: 9px;
-  font-size: 13.5px; font-weight: 700; text-decoration: none;
-  background: var(--navy); color: #fff;
-  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
-  box-shadow: 0 2px 12px rgba(10,22,40,0.22);
-}
-.na-btn:hover { background: var(--blue); box-shadow: 0 4px 20px rgba(26,109,255,0.35); transform: translateY(-1px); }
 
-/* ══════════════════ HERO ══════════════════ */
-.hero {
-  position: relative; min-height: calc(100vh - 108px);
-  display: grid; grid-template-columns: 1fr 1fr; overflow: hidden;
-}
-.hero::before {
-  content: ''; position: absolute; top: -150px; right: -150px;
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(59,158,255,0.18), transparent 70%);
-  filter: blur(100px); z-index: 1; pointer-events: none;
-}
-.hero-left {
-  position: relative; display: flex; flex-direction: column; justify-content: center;
-  padding: 80px 56px 80px 80px; z-index: 2; background: #fff;
-}
-.hero-left::after {
-  content: ''; position: absolute; top: 0; right: -80px; bottom: 0; width: 160px;
-  background: #fff; clip-path: polygon(0 0, 0% 100%, 100% 100%); z-index: 3;
-}
-.hleft-bg {
-  position: absolute; inset: 0;
-  background-image: radial-gradient(circle, rgba(18,85,204,0.055) 1px, transparent 1px);
-  background-size: 32px 32px; pointer-events: none;
-}
-.hero-right { position: relative; overflow: hidden; }
-.hero-img {
-  position: absolute; inset: 0;
-  background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1400&q=85&fit=crop&crop=center') center/cover no-repeat;
-}
-.hero-img-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(250deg, rgba(8,15,30,0.05) 0%, rgba(8,15,30,0.2) 55%, rgba(8,15,30,0.6) 100%);
-}
-/* circuit overlay */
-.hero-right::before {
-  content: ''; position: absolute; inset: 0; z-index: 2;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M10 0v10h10M50 0v10h-10M0 10h10M60 10h-10M0 50h10M60 50h-10M10 60v-10h10M50 60v-10h-10' stroke='rgba(59,158,255,0.12)' fill='none' stroke-width='1'/%3E%3C/svg%3E");
-  opacity: 0.6;
-}
-.float-stats {
-  position: absolute; bottom: 44px; left: -20px;
-  display: flex; flex-direction: column; gap: 11px; z-index: 10;
-}
-.fstat {
-  background: rgba(255,255,255,0.62); backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.75); border-radius: 14px;
-  padding: 13px 20px; display: flex; align-items: center; gap: 13px;
-  min-width: 210px; box-shadow: 0 16px 48px rgba(8,15,30,0.18), inset 0 1px rgba(255,255,255,0.6);
-  animation: slideIn 0.6s cubic-bezier(.22,1,.36,1) both;
-}
-.fstat:nth-child(1) { animation-delay: 0.5s; }
-.fstat:nth-child(2) { animation-delay: 0.7s; }
-.fstat:nth-child(3) { animation-delay: 0.9s; }
-@keyframes slideIn { from { opacity:0; transform:translateX(-30px); } to { opacity:1; transform:translateX(0); } }
-.fstat-ico { width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 19px; }
-.fstat-ico.blue { background: rgba(18,85,204,0.1); }
-.fstat-ico.sky  { background: rgba(59,158,255,0.12); }
-.fstat-ico.navy { background: rgba(8,15,30,0.08); }
-.fstat-num { font-family:'Bricolage Grotesque',sans-serif; font-size:1.3rem; font-weight:800; color:var(--navy); line-height:1; }
-.fstat-lbl { font-size:11.5px; color:var(--muted); margin-top:2px; }
 
-/* HERO content */
-.hero-pill {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 5px 14px 5px 6px; border-radius: 100px;
-  border: 1px solid rgba(18,85,204,0.2); background: rgba(18,85,204,0.05);
-  margin-bottom: 26px; width: fit-content;
-}
-.pill-dot {
-  width: 22px; height: 22px; border-radius: 50%; background: var(--blue2);
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-}
-.pill-dot svg { width: 11px; height: 11px; color: #fff; }
-.pill-text { font-size: 12px; font-weight: 600; color: var(--blue); letter-spacing: 0.04em; }
+/* ════════════════════════════════════════════
+   HERO — UNTOUCHED
+════════════════════════════════════════════ */
+.hero{position:relative;height:100vh;display:flex;align-items:center;padding:0 8%;overflow:hidden;}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;filter:brightness(.35) contrast(1.2) saturate(1.2);}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,15,30,.95) 30%,rgba(10,15,30,.7) 60%,rgba(10,15,30,.2) 100%);z-index:1;}
+.hero-overlay::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 50%,rgba(14,165,233,.25),transparent 50%);mix-blend-mode:screen;}
 
-.hero-h1 {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: clamp(2.1rem, 3.7vw, 3.7rem);
-  font-weight: 800; line-height: 1.08; letter-spacing: -0.03em;
-  color: var(--navy); margin-bottom: 22px;
-}
-.hero-h1 .grad {
-  background: linear-gradient(125deg, var(--blue) 0%, var(--sky) 55%, var(--sky2) 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  background-size: 200% 200%; animation: gradMove 4s ease-in-out infinite;
-  position: relative; overflow: hidden;
-}
-.hero-h1 .grad::after {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
-  animation: textShine 5s infinite;
-}
-@keyframes gradMove  { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
-@keyframes textShine { from{transform:translateX(-100%)} to{transform:translateX(100%)} }
+.tag{display:block;font-size:11px;font-weight:700;letter-spacing:3px;color:rgba(255,255,255,.5);text-transform:uppercase;margin-bottom:18px;}
+.hero h1{font-size:clamp(52px,6vw,78px);font-weight:800;letter-spacing:-2px;line-height:1.05;color:#fff;}
+.hero h1 span{background:linear-gradient(135deg,#0c99db,#cbd5f5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:inline-block;transform:translateY(40px);opacity:0;animation:textReveal .8s ease forwards;}
+.hero h1 span:nth-child(1){animation-delay:.2s;}
+.hero h1 span:nth-child(2){animation-delay:.4s;}
+.hero p{color:rgba(255,255,255,.75);margin:20px 0 30px;font-size:17px;line-height:1.75;max-width:520px;}
+.hero-buttons{display:flex;gap:18px;margin-top:20px;}
+.hero-trust{margin-top:24px;font-size:13px;color:rgba(255,255,255,.5);}
+.hero-trust span::before{content:"";display:inline-block;width:8px;height:8px;background:#10b981;border-radius:50%;margin-right:8px;}
+.primary{position:relative;padding:16px 36px;border-radius:14px;background:linear-gradient(135deg,#0ea5e9,#0369a1);color:#fff;font-weight:600;letter-spacing:.5px;box-shadow:0 10px 30px rgba(14,165,233,.4);transition:.3s;text-decoration:none;display:inline-block;overflow:hidden;}
+.primary:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(14,165,233,.6);}
+.secondary{padding:16px 32px;border-radius:14px;background:rgba(255,255,255,.08);backdrop-filter:blur(12px);color:#fff;border:1px solid rgba(255,255,255,.15);transition:.3s;text-decoration:none;display:inline-block;}
+.secondary:hover{background:rgba(255,255,255,.15);transform:translateY(-3px);}
+.scroll-indicator{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);width:28px;height:48px;border:2px solid rgba(255,255,255,.6);border-radius:20px;z-index:5;}
+.scroll-indicator::before{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);width:4px;height:8px;background:linear-gradient(180deg,#0ea5e9,#22d3ee);border-radius:2px;animation:scrollMove 1.6s infinite;}
+.hero::before{content:"";position:absolute;width:700px;height:700px;right:-200px;top:50%;transform:translateY(-50%);background:radial-gradient(circle,rgba(14,165,233,.28),transparent 72%);filter:blur(80px);}
+@keyframes scrollMove{0%{opacity:0;transform:translate(-50%,0);}50%{opacity:1;}100%{opacity:0;transform:translate(-50%,16px);}}
+@keyframes heroFade{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+@keyframes textReveal{to{transform:translateY(0);opacity:1;}}
 
-.hero-p {
-  font-size: 1.05rem; font-weight: 400; color: var(--muted); line-height: 1.82;
-  max-width: 510px; margin-bottom: 38px;
-}
-.hero-cta { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
-.cta-main {
-  display: inline-flex; align-items: center; gap: 10px;
-  padding: 14px 30px; border-radius: 10px; background: var(--navy); color: #fff;
-  font-size: 14px; font-weight: 700; text-decoration: none;
-  box-shadow: 0 4px 20px rgba(8,15,30,0.25); position: relative; overflow: hidden;
-  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
-}
-.cta-main::after {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.22), transparent);
-  transform: translateX(-100%); transition: transform 0.6s;
-}
-.cta-main:hover { background: var(--blue); box-shadow: 0 8px 28px rgba(26,109,255,0.4); transform: translateY(-2px); }
-.cta-main:hover::after { transform: translateX(100%); }
-.cta-main svg { transition: transform 0.25s; }
-.cta-main:hover svg { transform: translateX(4px); }
-.cta-sec {
-  display: inline-flex; align-items: center; gap: 9px;
-  padding: 13px 26px; border-radius: 10px; border: 1.5px solid var(--border);
-  color: var(--text); font-size: 14px; font-weight: 600; text-decoration: none;
-  transition: border-color 0.18s, background 0.18s, color 0.18s;
-}
-.cta-sec:hover { border-color: var(--blue); background: rgba(18,85,204,0.04); color: var(--blue); }
-.hero-stats {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: var(--bg);
-}
-.hs { padding: 17px 18px; border-right: 1px solid var(--border); }
-.hs:last-child { border-right: none; }
-.hs-num { font-family:'Bricolage Grotesque',sans-serif; font-size:1.7rem; font-weight:800; color:var(--navy); line-height:1; margin-bottom:4px; }
-.hs-num span { color: var(--blue2); }
-.hs-lbl { font-size: 11.5px; font-weight: 500; color: var(--muted); letter-spacing: 0.03em; }
 
-/* Entrance anims */
-.hero-pill  { animation: fadeUp 0.7s 0.1s both; }
-.hero-h1    { animation: fadeUp 0.7s 0.2s both; }
-.hero-p     { animation: fadeUp 0.7s 0.32s both; }
-.hero-cta   { animation: fadeUp 0.7s 0.44s both; }
-.hero-stats { animation: fadeUp 0.7s 0.56s both; }
-@keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+/* ════════════════════════════════════════════
+   SHARED ATOMS
+════════════════════════════════════════════ */
+.lbl{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--primary);margin-bottom:20px;
+}
+.lbl::before{content:"";display:block;width:22px;height:1.5px;background:var(--primary);}
+.lbl.light{color:#38bdf8;}
+.lbl.light::before{background:#38bdf8;}
 
-/* ══════════════════ TRUST BAND ══════════════════ */
-.trust-band {
-  background: var(--navy); padding: 0 80px; height: 58px;
-  display: flex; align-items: center; gap: 32px; overflow: hidden;
-}
-.tb-label { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.32); letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; }
-.tb-line { flex: 0 0 1px; height: 18px; background: rgba(255,255,255,0.12); }
-.tb-track { flex: 1; overflow: hidden; }
-.tb-logos {
-  display: flex; align-items: center; gap: 60px;
-  animation: logoScroll 22s linear infinite; width: max-content;
-}
-@keyframes logoScroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-.tb-logo { font-family:'Bricolage Grotesque',sans-serif; font-size:13px; font-weight:700; color:rgba(255,255,255,0.32); letter-spacing:0.08em; text-transform:uppercase; white-space:nowrap; }
+/* scroll reveal */
+.sr{opacity:0;transform:translateY(48px);transition:opacity .9s ease,transform .9s ease;}
+.sr.in{opacity:1;transform:none;}
+.sr-l{opacity:0;transform:translateX(-60px);transition:opacity .9s ease,transform .9s ease;}
+.sr-l.in{opacity:1;transform:none;}
+.sr-r{opacity:0;transform:translateX(60px);transition:opacity .9s ease,transform .9s ease;}
+.sr-r.in{opacity:1;transform:none;}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}
 
-/* ══════════════════ SECTION COMMON ══════════════════ */
-.section-label {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 11.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--blue); margin-bottom: 16px;
-}
-.section-label::before { content:''; width:24px; height:2px; background:var(--blue); border-radius:2px; }
-.section-h2 {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: clamp(1.9rem, 3vw, 2.8rem);
-  font-weight: 800; letter-spacing: -0.025em;
-  color: var(--navy); line-height: 1.1; margin-bottom: 16px;
-}
-.section-sub { font-size: 1.05rem; color: var(--muted); line-height: 1.75; max-width: 560px; }
+/* scroll progress bar */
+.scroll-prog{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#0ea5e9,#38bdf8);z-index:9999;width:0;transition:width .1s linear;}
+/* ════════════════════════════════════════════
+   S03 — INTERNSHIP BANNER
+   Compact premium dark strip ~200px
+════════════════════════════════════════════ */
+.intern-banner{
+  position:relative;
+  padding:0 8%;
+  height:200px;
+  display:flex;
+  align-items:center;
+ background:
 
-/* ══════════════════ SERVICES SECTION ══════════════════ */
-.services-sec {
-  padding: 100px 0; background: var(--white); position: relative; overflow: hidden;
-}
-.services-sec::before {
-  content: ''; position: absolute; top: -100px; left: -100px;
-  width: 400px; height: 400px;
-  background: radial-gradient(circle, rgba(18,85,204,0.06), transparent 70%);
-  pointer-events: none;
-}
-.container { max-width: 1360px; margin: 0 auto; padding: 0 80px; }
-.services-head { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 56px; flex-wrap: wrap; gap: 24px; }
-.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.svc-card {
-  background: var(--white); border: 1px solid var(--border2);
-  border-radius: 20px; padding: 36px 32px;
-  position: relative; overflow: hidden;
-  transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
-  cursor: default;
-}
-.svc-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: linear-gradient(90deg, var(--blue), var(--sky));
-  transform: scaleX(0); transform-origin: left;
-  transition: transform 0.35s;
-}
-.svc-card:hover { box-shadow: 0 20px 60px rgba(8,15,30,0.1); transform: translateY(-4px); border-color: var(--border); }
-.svc-card:hover::before { transform: scaleX(1); }
-.svc-card-ico {
-  width: 56px; height: 56px; border-radius: 14px;
-  background: var(--bg); border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 24px; margin-bottom: 22px;
-  transition: background 0.2s;
-}
-.svc-card:hover .svc-card-ico { background: rgba(18,85,204,0.08); }
-.svc-card-title { font-family:'Bricolage Grotesque',sans-serif; font-size:1.15rem; font-weight:700; color:var(--navy); margin-bottom:10px; }
-.svc-card-desc { font-size:14px; color:var(--muted); line-height:1.75; margin-bottom:22px; }
-.svc-card-link {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: 13px; font-weight: 600; color: var(--blue); text-decoration: none;
-  transition: gap 0.2s;
-}
-.svc-card-link:hover { gap: 10px; }
-.svc-card-link svg { width: 14px; height: 14px; }
-.svc-card.featured {
-  background: var(--navy); border-color: var(--navy);
-  color: #fff;
-}
-.svc-card.featured .svc-card-ico { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.15); }
-.svc-card.featured .svc-card-title { color: #fff; }
-.svc-card.featured .svc-card-desc { color: rgba(255,255,255,0.6); }
-.svc-card.featured .svc-card-link { color: var(--sky2); }
-.svc-card.featured::before { background: linear-gradient(90deg, var(--sky2), var(--sky)); }
-.link-all {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 13.5px; font-weight: 600; color: var(--blue);
-  text-decoration: none; border: 1.5px solid var(--border);
-  padding: 10px 22px; border-radius: 9px;
-  transition: border-color 0.2s, background 0.2s;
-}
-.link-all:hover { border-color: var(--blue); background: rgba(18,85,204,0.04); }
+linear-gradient(
+135deg,
 
-/* ══════════════════ WHY US ══════════════════ */
-.why-sec {
-  padding: 100px 0; background: var(--bg);
-  position: relative; overflow: hidden;
-}
-.why-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-.why-img-wrap { position: relative; }
-.why-img {
-  width: 100%; aspect-ratio: 4/3; border-radius: 24px; overflow: hidden;
-  box-shadow: 0 32px 80px rgba(8,15,30,0.16);
-}
-.why-img img { width:100%; height:100%; object-fit:cover; display:block; }
-/* floating badge on image */
-.why-badge {
-  position: absolute; bottom: -20px; right: -20px;
-  background: var(--white); border-radius: 18px;
-  padding: 20px 24px; box-shadow: 0 20px 50px rgba(8,15,30,0.14);
-  border: 1px solid var(--border2);
-  min-width: 180px;
-}
-.wb-num { font-family:'Bricolage Grotesque',sans-serif; font-size:2rem; font-weight:800; color:var(--navy); }
-.wb-num span { color: var(--blue2); }
-.wb-lbl { font-size:12px; color:var(--muted); margin-top:3px; }
-.why-list { display: flex; flex-direction: column; gap: 22px; margin-top: 40px; }
-.why-item {
-  display: flex; gap: 18px; align-items: flex-start;
-  padding: 20px 22px; background: var(--white); border-radius: 14px;
-  border: 1px solid var(--border2);
-  transition: box-shadow 0.25s, transform 0.25s;
-}
-.why-item:hover { box-shadow: 0 8px 32px rgba(8,15,30,0.08); transform: translateX(4px); }
-.wi-ico {
-  width: 44px; height: 44px; border-radius: 11px; flex-shrink: 0;
-  background: rgba(18,85,204,0.08); border: 1px solid rgba(18,85,204,0.15);
-  display: flex; align-items: center; justify-content: center; font-size: 20px;
-}
-.wi-title { font-family:'Bricolage Grotesque',sans-serif; font-size:15px; font-weight:700; color:var(--navy); margin-bottom:5px; }
-.wi-desc { font-size:13.5px; color:var(--muted); line-height:1.65; }
+#07111F,
 
-/* ══════════════════ HOW WE WORK ══════════════════ */
-.process-sec { padding: 100px 0; background: var(--white); }
-.process-head { text-align: center; margin-bottom: 64px; }
-.process-head .section-label { justify-content: center; }
-.process-head .section-label::before { display: none; }
-.process-head .section-sub { margin: 0 auto; }
-.steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
-.steps-grid::before {
-  content: ''; position: absolute; top: 36px; left: 12.5%; right: 12.5%; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--border), var(--border), var(--border), transparent);
-  z-index: 0;
-}
-.step {
-  display: flex; flex-direction: column; align-items: center; text-align: center;
-  padding: 0 24px; position: relative; z-index: 1;
-}
-.step-num {
-  width: 72px; height: 72px; border-radius: 50%;
-  border: 2px solid var(--border); background: var(--white);
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 1.4rem; font-weight: 800; color: var(--navy);
-  margin-bottom: 24px; position: relative;
-  transition: background 0.25s, border-color 0.25s;
-}
-.step:hover .step-num { background: var(--blue); border-color: var(--blue); color: #fff; }
-.step-ico { font-size: 22px; margin-bottom: 14px; }
-.step-title { font-family:'Bricolage Grotesque',sans-serif; font-size:16px; font-weight:700; color:var(--navy); margin-bottom:10px; }
-.step-desc { font-size:13.5px; color:var(--muted); line-height:1.7; }
+#0b1830,
 
-/* ══════════════════ INDUSTRIES ══════════════════ */
-.industries-sec {
-  padding: 100px 0;
-  background: var(--navy);
-  position: relative; overflow: hidden;
-}
-.industries-sec::before {
-  content: ''; position: absolute; bottom: -200px; right: -200px;
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(26,109,255,0.18), transparent 70%);
-  filter: blur(80px);
-}
-.industries-head { margin-bottom: 56px; }
-.industries-head .section-label { color: var(--sky2); }
-.industries-head .section-label::before { background: var(--sky2); }
-.industries-head .section-h2 { color: #fff; }
-.industries-head .section-sub { color: rgba(255,255,255,0.55); }
-.ind-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.ind-card {
-  position: relative; overflow: hidden; border-radius: 18px;
-  aspect-ratio: 4/3; cursor: default;
-  transition: transform 0.3s;
-}
-.ind-card:hover { transform: scale(1.02); }
-.ind-card img { width:100%; height:100%; object-fit:cover; display:block; filter: brightness(0.6); transition: filter 0.3s; }
-.ind-card:hover img { filter: brightness(0.45); }
-.ind-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(0deg, rgba(8,15,30,0.85) 0%, transparent 60%);
-}
-.ind-content {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  padding: 24px 24px 22px;
-}
-.ind-ico { font-size: 24px; margin-bottom: 8px; display: block; }
-.ind-title { font-family:'Bricolage Grotesque',sans-serif; font-size:1.1rem; font-weight:700; color:#fff; margin-bottom:4px; }
-.ind-desc { font-size:12.5px; color:rgba(255,255,255,0.6); }
-.ind-card.large { grid-column: span 2; }
-.ind-card.large .ind-title { font-size: 1.3rem; }
+#07111F);
 
-/* ══════════════════ CTA BAND ══════════════════ */
-.cta-band {
-  padding: 90px 0; background: var(--white);
-  position: relative; overflow: hidden;
-}
-.cta-band::before {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(18,85,204,0.04) 0%, rgba(59,158,255,0.04) 100%);
-}
-.cta-inner {
-  max-width: 860px; margin: 0 auto; text-align: center;
-  padding: 0 80px; position: relative;
-}
-.cta-inner .section-label { justify-content: center; }
-.cta-inner .section-label::before { display: none; }
-.cta-band-h2 {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 800;
-  letter-spacing: -0.025em; color: var(--navy);
-  margin-bottom: 18px; line-height: 1.1;
-}
-.cta-band-p { font-size: 1.05rem; color: var(--muted); line-height: 1.75; margin-bottom: 40px; }
-.cta-band-btns { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
-.cta-band-btn-p {
-  display: inline-flex; align-items: center; gap: 9px;
-  padding: 15px 34px; border-radius: 10px; background: var(--navy); color: #fff;
-  font-size: 14.5px; font-weight: 700; text-decoration: none;
-  box-shadow: 0 4px 20px rgba(8,15,30,0.22);
-  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
-}
-.cta-band-btn-p:hover { background: var(--blue); box-shadow: 0 8px 30px rgba(26,109,255,0.38); transform: translateY(-2px); }
-.cta-band-btn-s {
-  display: inline-flex; align-items: center; gap: 9px;
-  padding: 14px 30px; border-radius: 10px; border: 1.5px solid var(--border);
-  font-size: 14.5px; font-weight: 600; color: var(--text); text-decoration: none;
-  transition: border-color 0.2s, background 0.2s, color 0.2s;
-}
-.cta-band-btn-s:hover { border-color: var(--blue); color: var(--blue); background: rgba(18,85,204,0.04); }
+background-size:300%;
 
-/* ══════════════════ FOOTER ══════════════════ */
-footer {
-  background: var(--navy); padding: 72px 0 0;
-  border-top: 1px solid rgba(255,255,255,0.06);
-}
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
-.footer-brand .footer-logo img { height: 42px; width: auto; display: block; margin-bottom: 20px; }
-.footer-brand-desc { font-size: 13.5px; color: rgba(255,255,255,0.45); line-height: 1.8; max-width: 280px; margin-bottom: 24px; }
-.footer-social { display: flex; gap: 10px; }
-.fsoc {
-  width: 36px; height: 36px; border-radius: 9px;
-  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-  display: flex; align-items: center; justify-content: center;
-  color: rgba(255,255,255,0.5); font-size: 14px; text-decoration: none;
-  transition: background 0.2s, color 0.2s;
-}
-.fsoc:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
-.footer-col-title { font-family:'Bricolage Grotesque',sans-serif; font-size:13.5px; font-weight:700; color:#fff; margin-bottom:20px; letter-spacing:0.02em; }
-.footer-links { display: flex; flex-direction: column; gap: 10px; }
-.footer-links a { font-size:13.5px; color:rgba(255,255,255,0.45); text-decoration:none; transition:color 0.2s; }
-.footer-links a:hover { color: rgba(255,255,255,0.9); }
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.07);
-  padding: 22px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
-}
-.footer-copy { font-size: 12.5px; color: rgba(255,255,255,0.3); }
-.footer-bottom-links { display: flex; gap: 24px; }
-.footer-bottom-links a { font-size:12.5px; color:rgba(255,255,255,0.3); text-decoration:none; transition:color 0.2s; }
-.footer-bottom-links a:hover { color: rgba(255,255,255,0.7); }
+animation:
 
-/* ══════════════════ RESPONSIVE ══════════════════ */
-@media (max-width: 1100px) {
-  .hero { grid-template-columns: 1fr; }
-  .hero-right { display: none; }
-  .hero-left::after { display: none; }
-  .hero-left { padding: 64px 40px; }
-  .services-grid { grid-template-columns: repeat(2, 1fr); }
-  .why-inner { grid-template-columns: 1fr; }
-  .why-img-wrap { display: none; }
-  .steps-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
-  .steps-grid::before { display: none; }
-  .ind-grid { grid-template-columns: repeat(2, 1fr); }
-  .ind-card.large { grid-column: span 2; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
+internGradient 8s linear infinite;
+  overflow:hidden;
+  border-top:1px solid rgba(0,191,255,.1);
+  border-bottom:1px solid rgba(0,191,255,.08);
+
+  @keyframes internGradient{
+
+0%{
+
+background-position:0%;
+
 }
-@media (max-width: 780px) {
-  .utility-bar { display: none; }
-  .nav-wrap { padding: 0 20px; }
-  nav { display: none; }
-  .na-link { display: none; }
-  .hero-left { padding: 56px 24px; }
-  .hero-stats { grid-template-columns: repeat(2, 1fr); }
-  .container { padding: 0 24px; }
-  .trust-band { padding: 0 24px; }
-  .services-sec, .why-sec, .process-sec, .industries-sec, .cta-band { padding: 64px 0; }
-  .services-grid, .ind-grid { grid-template-columns: 1fr; }
-  .ind-card.large { grid-column: span 1; }
-  .steps-grid { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr; }
-  .cta-inner { padding: 0 24px; }
+
+100%{
+
+background-position:100%;
+
 }
+
+}
+}
+
+/* subtle grid */
+.intern-banner::before{
+  content:"";
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(14,165,233,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(14,165,233,.04) 1px,transparent 1px);
+  background-size:60px 60px;
+  pointer-events:none;
+}
+
+/* glow orbs */
+.intern-banner::after{
+  content:"";
+  position:absolute;
+  width:500px;height:500px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(14,165,233,.14),transparent 70%);
+  filter:blur(60px);
+  right:-100px;top:-200px;
+  pointer-events:none;
+}
+
+.intern-banner-inner{
+  position:relative;z-index:1;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:100%;
+  gap:40px;
+}
+
+.intern-banner-left{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.intern-banner-eyebrow{
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:3px;
+  color:#38bdf8;
+  text-transform:uppercase;
+}
+
+.intern-banner-title{
+  font-size:26px;
+  font-weight:800;
+  color:#fff;
+  letter-spacing:-1px;
+  line-height:1.1;
+}
+
+.intern-banner-tags{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:4px;
+}
+
+.ibt{
+  font-size:11px;
+  font-weight:600;
+  color:rgba(255,255,255,.55);
+  padding:5px 12px;
+  border:1px solid rgba(255,255,255,.1);
+  letter-spacing:.4px;
+  transition:.3s;
+}
+
+.ibt:hover{border-color:rgba(14,165,233,.4);color:#fff;}
+
+/* glass panel */
+.intern-banner-glass{
+  padding:24px 32px;
+  background:rgba(255,255,255,.05);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,.1);
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  position:relative;
+  flex-shrink:0;
+}
+
+.intern-banner-glass::before{
+  content:"";
+  position:absolute;
+  top:-1px;left:15%;right:15%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(14,165,233,.8),transparent);
+}
+
+.intern-banner-glass .open{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2px;
+  color:#38bdf8;
+  text-transform:uppercase;
+}
+
+.intern-banner-glass span{
+  font-size:13px;
+  color:rgba(255,255,255,.55);
+}
+
+.intern-banner-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  background:var(--primary);
+  color:#fff;
+  font-size:14px;
+  font-weight:700;
+  padding:16px 32px;
+  text-decoration:none;
+  letter-spacing:.4px;
+  flex-shrink:0;
+  transition:.3s;
+  position:relative;z-index:1;
+  overflow:hidden;
+}
+
+.intern-banner-cta::before{
+  content:"";
+  position:absolute;top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);
+  transition:.7s;
+}
+
+.intern-banner-cta:hover::before{left:100%;}
+
+.intern-banner-cta:hover{
+  background:var(--primary-dark);
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(14,165,233,.35);
+}
+
+/* ════════════════════════════════════════════
+   S04 — COMPANY IMPACT
+   Editorial metric strip, large numbers
+════════════════════════════════════════════ */
+.impact-section{
+  background:#fff;
+  padding:160px 8%;
+  position:relative;
+  overflow:hidden;
+}
+
+.impact-section::before{
+  content:"";
+  position:absolute;
+  width:700px;height:700px;
+  background:radial-gradient(circle,rgba(14,165,233,.05),transparent 70%);
+  top:-300px;right:-200px;
+  pointer-events:none;
+}
+
+.impact-header{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:end;
+  margin-bottom:120px;
+}
+
+.impact-header h2{
+  font-size:clamp(38px,4vw,58px);
+  font-weight:900;
+  color:#0f172a;
+  letter-spacing:-2.2px;
+  line-height:1.05;
+}
+
+.impact-header p{
+  font-size:16px;
+  line-height:1.85;
+  color:#64748b;
+  max-width:420px;
+  padding-bottom:8px;
+}
+
+/* metric strip */
+.impact-metrics{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-top:1px solid #e9edf2;
+  cursor:pointer;
+}
+
+.impact-metric{
+  padding:60px 0;
+  border-right:1px solid #e9edf2;
+  padding-right:48px;
+  position:relative;
+  overflow:hidden;
+  transition:.4s;
+}
+
+.impact-metric:last-child{border-right:none;}
+.impact-metric:first-child{padding-left:0;}
+
+.impact-metric::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--primary),transparent);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .5s ease;
+}
+
+.impact-metric:hover::before{transform:scaleX(1);}
+
+.impact-metric:hover{
+
+transform:
+
+translateY(-8px);
+
+}
+
+.impact-metric:hover
+
+.impact-metric-num{
+
+color:#0ea5e9;
+
+}
+
+.impact-metric-num{
+  font-size:80px;
+  font-weight:900;
+  letter-spacing:-4px;
+  color:#0f172a;
+  line-height:1;
+  margin-bottom:16px;
+  transition:.4s;
+}
+
+/* accent colour for the plus/suffix */
+.impact-metric-num span{color:var(--primary);}
+
+.impact-metric-lbl{
+  font-size:14px;
+  font-weight:600;
+  color:#94a3b8;
+  letter-spacing:.3px;
+  line-height:1.4;
+}
+
+/* ════════════════════════════════════════════
+   S05 — ENGINEERING INSIGHTS
+   Magazine editorial layout
+════════════════════════════════════════════ */
+.insights-section{
+ background:
+linear-gradient(
+180deg,
+#F5FAFF,
+#EEF6FD
+);
+  padding:160px 8%;
+}
+
+.insights-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  margin-bottom:90px;
+}
+
+.insights-header h2{
+  font-size:clamp(38px,4vw,56px);
+  font-weight:900;
+  color:#0f172a;
+  letter-spacing:-2px;
+  line-height:1.05;
+}
+
+.insights-view-all{
+  font-size:13px;
+  font-weight:700;
+  color:var(--primary);
+  text-decoration:none;
+  border-bottom:1px solid rgba(14,165,233,.3);
+  padding-bottom:4px;
+  white-space:nowrap;
+  transition:.3s;
+}
+
+.insights-view-all:hover{border-color:var(--primary);}
+
+/* layout: one large + two smaller */
+.insights-grid{
+  display:grid;
+  grid-template-columns:1.55fr 1fr;
+  gap:24px;
+}
+
+/* featured */
+.ins-featured{
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+  background:#0a0f1e;
+}
+
+.ins-featured img{
+  width:100%;
+  height:600px;
+  object-fit:cover;
+  filter:saturate(.75) brightness(.5);
+  transition:transform .9s ease,filter .6s;
+  transform:
+
+scale(1.08);
+}
+
+.ins-featured:hover img{
+  transform:scale(1.12);
+  filter:saturate(.88) brightness(.55);
+}
+
+.ins-featured-dim{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 22%,rgba(7,11,20,.97) 100%);
+}
+
+.ins-featured-body{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  padding:48px;
+}
+
+.ins-cat{
+  display:inline-block;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  background:var(--primary);
+  color:#fff;
+  padding:5px 12px;
+  margin-bottom:18px;
+}
+
+.ins-cat.grn{background:var(--green);}
+
+.ins-featured-body h3{
+  font-size:28px;
+  font-weight:700;
+  color:#fff;
+  line-height:1.28;
+  margin-bottom:12px;
+  letter-spacing:-.5px;
+}
+
+.ins-featured-body p{
+  font-size:14px;
+  color:rgba(255,255,255,.5);
+  line-height:1.65;
+}
+
+.ins-meta{
+  font-size:11px;
+  color:rgba(255,255,255,.28);
+  margin-top:16px;
+  letter-spacing:.5px;
+}
+
+/* side articles */
+.ins-side{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.ins-card{
+  display:flex;
+  overflow:hidden;
+  cursor:pointer;
+  background:#fff;
+  border:1px solid #e8edf4;
+  transition:.35s;
+}
+
+.ins-card:hover{
+  box-shadow:0 20px 44px rgba(0,0,0,.08);
+  transform:translateY(-4px);
+  border-color:#b8d4ea;
+}
+
+.ins-card img{
+  width:130px;
+  flex-shrink:0;
+  object-fit:cover;
+  filter:saturate(.9);
+  transition:filter .4s;
+}
+
+.ins-card:hover img{filter:saturate(1.1);}
+
+.ins-card-body{
+  padding:24px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.ins-card-body .ins-cat{margin-bottom:10px;}
+
+.ins-card-body h4{
+  font-size:15px;
+  font-weight:700;
+  color:#0f172a;
+  line-height:1.4;
+  margin-bottom:8px;
+}
+
+.ins-card-body .ins-meta{color:#94a3b8;}
+
+.ins-read{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-size:12px;
+  font-weight:700;
+  color:var(--primary);
+  text-decoration:none;
+  margin-top:12px;
+  letter-spacing:.4px;
+  transition:gap .3s;
+}
+
+.ins-card:hover .ins-read{gap:10px;}
+
+
+
+/* ════════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════════ */
+@media(max-width:1200px){
+  .svc-block,.services-intro,.ind-header,.impact-header{grid-template-columns:1fr;}
+  .svc-block.flip .svc-img,.svc-block.flip .svc-body{order:unset;}
+  .svc-img{height:400px;}
+  .ind-panels{grid-template-columns:1fr;}
+  .ind-panel{height:340px;}
+  .impact-metrics{grid-template-columns:1fr 1fr;}
+  .impact-metric:nth-child(2){border-right:none;}
+  .impact-metric:nth-child(3){border-top:1px solid #e9edf2;padding-top:40px;}
+  .impact-metric:nth-child(4){border-right:none;border-top:1px solid #e9edf2;padding-top:40px;}
+  .insights-grid{grid-template-columns:1fr;}
+  .intern-banner-inner{flex-wrap:wrap;gap:24px;}
+  .intern-banner{height:auto;padding:40px 8%;}
+  .intern-banner-glass{display:none;}
+}
+
+
+
+
+@media (min-width:431px) and (max-width:768px){
+
+.hero{
+
+    padding-top:95px;
+
+}
+
+.hero-image-slider{
+
+    height:235px;
+
+}
+
+.hero-pagination{
+
+    margin-top:28px;
+
+}
+
+}
+
 </style>
 </head>
 <body>
 
-<!-- UTILITY BAR -->
-<div class="utility-bar">
-  <div class="ub-left">
-    <a href="tel:+919876543210" class="ub-item">
-      <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.22 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
-      +91 98765 43210
+<div class="scroll-prog" id="scrollProg"></div>
+
+<!-- ═══════════ HEADER (UNTOUCHED) ═══════════ -->
+<header class="header" id="header">
+  <div class="container nav">
+    <div class="logo">
+    <a href="index.html">
+        <img src="images/ysquare-logo.png" alt="YSQUARE Semicon">
     </a>
-    <div class="ub-sep"></div>
-    <a href="mailto:info@ysquaresemicon.com" class="ub-item">
-      <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      info@ysquaresemicon.com
-    </a>
-  </div>
-  <div class="ub-right">
-    <span class="ub-new">🚀 Launched Dec 2025</span>
-    <div class="ub-sep"></div>
-    <span class="ub-badge">🇮🇳 Vizianagaram, Andhra Pradesh</span>
-    <div class="ub-sep"></div>
-    <a href="#" class="ub-item">Careers</a>
-    <div class="ub-sep"></div>
-    <a href="#" class="ub-item">Support</a>
-  </div>
+</div>
+    <nav class="menu">
+      <div class="menu-item">
+        <span>Who we are ▾</span>
+        <div class="dropdown">
+          <div class="dropdown-left">
+           <ul>
+              <li data-img="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&auto=format&fit=crop" data-text="Our Leadership" data-link="about.html#leadership">Leadership</li>
+              <li data-img="https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=800&auto=format&fit=crop" data-text="Our Culture" data-link="about.html#culture">Culture</li>
+            </ul>
+          </div>
+          <div class="dropdown-right">
+            <img id="who-img" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&auto=format&fit=crop">
+            <div class="dropdown-overlay" id="who-text">Our Leadership</div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <span>What we do ▾</span>
+        <div class="dropdown">
+          <div class="dropdown-left">
+            <div class="dropdown-group">
+              <h4>Engineering Services</h4>
+              <ul>
+                <li data-img="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop" data-text="Digital Engineering" data-link="digital-engineering.html">Digital Engineering</li>
+                <li data-img="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&auto=format&fit=crop" data-text="Software Engineering" data-link="software-engineering.html">Software Engineering</li>
+                <li data-img="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?w=800&auto=format&fit=crop" data-text="Embedded Engineering" data-link="embedded-engineering.html">Embedded Engineering</li>
+                <li data-img="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&auto=format&fit=crop" data-text="Semiconductor Engineering" data-link="semiconductor-engineering.html">Semiconductor Engineering</li>
+              </ul>
+            </div>
+            <div class="dropdown-group">
+              <h4>Industries</h4>
+              <ul>
+                <li data-img="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop" data-text="Hi-Tech" data-link="hi-tech.html">Hi-Tech</li>
+                <li data-img="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop" data-text="Automotive" data-link="automotive.html">Automotive</li>
+                <li data-img="https://images.unsplash.com/photo-1581090700227-4c4d47a2d1d1?w=800&auto=format&fit=crop" data-text="Semiconductor" data-link="semiconductor.html">Semiconductor</li>
+              </ul>
+            </div>
+          </div>
+          <div class="dropdown-right">
+            <img id="service-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop">
+            <div class="dropdown-overlay" id="service-text">Digital Engineering</div>
+          </div>
+        </div>
 </div>
 
-<!-- HEADER -->
-<header>
-  <div class="nav-wrap">
-    <a href="#" class="logo">
-      <img src="ysquare-logo.png" alt="Ysquare Semicon IT Solutions"/>
-    </a>
-    <nav>
-      <div class="nav-item">
-        <a href="#" class="nav-link active">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <div class="mega-drop">
-          <a href="#" class="md-item"><span class="md-ico">🔬</span><div><div class="md-label">Semiconductor Design</div><div class="md-desc">VLSI, IC Layout & Verification</div></div></a>
-          <a href="#" class="md-item"><span class="md-ico">💡</span><div><div class="md-label">Embedded Systems</div><div class="md-desc">Firmware, RTOS & BSP Dev</div></div></a>
-          <a href="#" class="md-item"><span class="md-ico">☁️</span><div><div class="md-label">Cloud & DevOps</div><div class="md-desc">AWS, Azure & GCP Solutions</div></div></a>
-          <a href="#" class="md-item"><span class="md-ico">🔗</span><div><div class="md-label">IoT Engineering</div><div class="md-desc">Connected Platform Solutions</div></div></a>
-          <a href="#" class="md-item"><span class="md-ico">🛡️</span><div><div class="md-label">Cybersecurity</div><div class="md-desc">Enterprise Security & Compliance</div></div></a>
+<div class="menu-item">
+    <span>Internships ▾</span>
+
+    <div class="dropdown">
+        <div class="dropdown-left">
+
+<div class="dropdown-group">
+    <h4>Internships</h4>
+
+    <ul>
+
+        <li
+        data-img="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop"
+        data-text="Internship Overview"
+        data-link="internship.html">
+        Internship Overview
+        </li>
+
+        <li
+        data-img="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&auto=format&fit=crop"
+        data-text="Eligibility & Process"
+        data-link="internship.html#benefits">
+        Eligibility & Process
+        </li>
+
+        <li class="apply-item"
+        data-img="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop"
+        data-text="Apply for Internship"
+        data-link="apply.php">
+        🚀 Apply for Internship
+        </li>
+
+    </ul>
+</div>
+
         </div>
-      </div>
-      <div class="nav-item">
-        <a href="#" class="nav-link">Industries <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <div class="mega-drop">
-          <a href="#" class="md-item"><span class="md-ico">🏭</span><div><div class="md-label">Manufacturing</div><div class="md-desc">Smart factory solutions</div></div></a>
-          <a href="#" class="md-item"><span class="md-ico">🚗</span><div><div class="md-label">Automotive</div><div class="md-desc">EV & ADAS Engineering</div></div></a>
-          <a href="#" class="md-item"><span class="md-ico">🏥</span><div><div class="md-label">Healthcare & MedTech</div><div class="md-desc">Medical device software</div></div></a>
-          <a href="#" class="md-item"><span class="md-ico">⚡</span><div><div class="md-label">Energy & Utilities</div><div class="md-desc">Smart grid & monitoring</div></div></a>
-          <a href="#" class="md-item"><span class="md-ico">📡</span><div><div class="md-label">Telecom & Networks</div><div class="md-desc">5G & connectivity</div></div></a>
+
+        <div class="dropdown-right">
+            <img id="internship-img"
+                 src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop">
+
+            <div class="dropdown-overlay" id="internship-text">
+                Internship Programs
+            </div>
         </div>
-      </div>
-      <div class="nav-item"><a href="#" class="nav-link">Solutions</a></div>
-      <div class="nav-item"><a href="#" class="nav-link">About Us</a></div>
-      <div class="nav-item"><a href="#" class="nav-link">Insights</a></div>
-    </nav>
-    <div class="nav-actions">
-      <a href="#" class="na-link">Client Login</a>
-      <a href="#" class="na-btn">Get a Quote <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+
     </div>
+</div>
+
+<a href="careers.html">Careers</a>
+<a href="contact.html">Contact us</a>
+    </nav>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    <div class="actions">🌐 EN 🔍</div>
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <div class="hleft-bg"></div>
-    <div class="hero-pill">
-      <span class="pill-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>
-      <span class="pill-text">Incorporated Dec 2025 · Vizianagaram, AP · OPC Pvt Ltd</span>
-    </div>
-    <h1 class="hero-h1">
-      Next-Gen <span class="grad">Semiconductor</span><br>
-      &amp; IT Solutions Built<br>
-      for Tomorrow
-    </h1>
-    <p class="hero-p">
-      Born in December 2025, Ysquare Semicon IT Solutions is a new-generation technology company delivering cutting-edge semiconductor design, embedded engineering, and enterprise IT services to businesses ready to lead the future.
-    </p>
-    <div class="hero-cta">
-      <a href="#" class="cta-main">
-        Explore Services
-        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a href="#" class="cta-sec">
-        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
-        Watch Demo
-      </a>
-    </div>
-    <div class="hero-stats">
-      <div class="hs"><div class="hs-num">10<span>+</span></div><div class="hs-lbl">Services Offered</div></div>
-      <div class="hs"><div class="hs-num">5<span>+</span></div><div class="hs-lbl">Industries Served</div></div>
-      <div class="hs"><div class="hs-num">Dec<span>'25</span></div><div class="hs-lbl">Officially Launched</div></div>
-      <div class="hs"><div class="hs-num">100<span>%</span></div><div class="hs-lbl">Client Focus</div></div>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-accordion">
+    <button class="mobile-title">Who we are <span>+</span></button>
+    <div class="mobile-submenu">
+      <a href="about.html#leadership">Leadership</a>
+      <a href="about.html#culture">Culture</a>
+  
     </div>
   </div>
-  <div class="hero-right">
-    <div class="hero-img"></div>
-    <div class="hero-img-overlay"></div>
-    <div class="float-stats">
-      <div class="fstat">
-        <div class="fstat-ico blue">🔬</div>
-        <div><div class="fstat-num">Chip-Level</div><div class="fstat-lbl">Semiconductor Design</div></div>
+  <div class="mobile-accordion">
+    <button class="mobile-title">What we do <span>+</span></button>
+    <div class="mobile-submenu">
+      <a href="digital-engineering.html">Digital Engineering</a>
+      <a href="software-engineering.html">Software Engineering</a>
+      <a href="embedded-engineering.html">Embedded Engineering</a>
+      <a href="semiconductor-engineering.html">Semiconductor Engineering</a>
+      <hr>
+      <a href="hi-tech.html">Hi-Tech</a>
+      <a href="automotive.html">Automotive</a>
+      <a href="semiconductor.html">Semiconductor</a>
+    </div>
+  </div>
+<div class="mobile-accordion">
+  <button class="mobile-title">Internships <span>+</span></button>
+
+  <div class="mobile-submenu">
+    <a href="internship.html">Internship overview</a>
+    <a href="internship.html#benefits">Eligibility & Process</a>
+
+    <hr>
+
+    <a href="apply.php" class="mobile-apply">
+      🚀 Apply for Internship
+    </a>
+  </div>
+</div>
+  <a href="careers.html">Careers</a>
+  <a href="contact.html">Contact Us</a>
+</div>
+
+<style>
+
+ .hero-internship-card{
+    position:absolute;
+    right:7%;
+    top:50%;
+    transform:translateY(-50%);
+    width:360px;
+
+    /* Reduced */
+    padding:28px 30px;
+
+    border-radius:24px;
+    background:rgba(7,20,38,.38);
+    backdrop-filter:blur(30px);
+    -webkit-backdrop-filter:blur(30px);
+
+    border:1px solid rgba(255,255,255,.08);
+    overflow:hidden;
+    z-index:5;
+
+    box-shadow:
+        0 0 0 1px rgba(14,165,233,.12),
+        0 25px 70px rgba(0,0,0,.45),
+        0 0 70px rgba(14,165,233,.15);
+}
+
+.hero-internship-card::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+padding:1px;
+
+border-radius:28px;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.12),
+transparent);
+
+transform:rotate(20deg);
+
+animation:reflection 9s linear infinite;
+
+-webkit-mask:
+linear-gradient(#fff 0 0) content-box,
+linear-gradient(#fff 0 0);
+
+-webkit-mask-composite:xor;
+
+mask-composite:exclude;
+
+pointer-events:none;
+
+}
+
+.hero-internship-card::after{
+
+content:"";
+
+position:absolute;
+
+width:320px;
+
+height:320px;
+
+background:radial-gradient(circle,
+rgba(14,165,233,.25),
+transparent 70%);
+
+top:-120px;
+
+right:-120px;
+
+filter:blur(40px);
+
+}
+
+.internship-features{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:14px 20px;
+
+margin:30px 0;
+
+padding:0;
+
+list-style:none;
+
+}
+
+.internship-features li{
+
+display:flex;
+
+align-items:flex-start;
+
+gap:10px;
+
+margin:0;
+
+font-size:15px;
+
+line-height:1.5;
+
+}
+
+.internship-features i{
+
+color:#38bdf8;
+
+margin-top:3px;
+
+}
+
+.internship-badge{
+
+width:58px;
+
+height:58px;
+
+border-radius:16px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:rgba(14,165,233,.08);
+
+border:1px solid rgba(14,165,233,.25);
+
+margin-bottom:18px;
+
+}
+
+.internship-badge i{
+
+font-size:24px;
+
+color:#38bdf8;
+
+}
+
+.internship-label{
+
+font-size:12px;
+
+letter-spacing:3px;
+
+font-weight:700;
+
+color:#38bdf8;
+
+}
+
+.hero-internship-card h3{
+
+margin-top:10px;
+
+font-size:40px;
+
+line-height:1.05;
+margin-bottom:14px;
+
+font-weight:800;
+
+color:#fff;
+
+}
+
+.hero::after{
+content:"";
+position:absolute;
+left:52%;
+top:50%;
+transform:translate(-50%,-50%);
+width:550px;
+height:550px;
+background:radial-gradient(circle,
+rgba(14,165,233,.22) 0%,
+rgba(14,165,233,.12) 35%,
+transparent 75%);
+filter:blur(60px);
+pointer-events:none;
+z-index:1;
+}
+
+.hero-internship-card h3 span{
+
+display:block;
+
+color:#38bdf8;
+
+}
+
+@keyframes cardFloat{
+
+0%,100%{
+transform:
+translateY(-50%)
+translateY(0px);
+}
+
+50%{
+transform:
+translateY(-50%)
+translateY(-10px);
+}
+
+}
+
+.hero-internship-card p{
+
+ margin:18px 0 22px;
+    font-size:15px;
+    line-height:1.65;
+
+color:rgba(255,255,255,.72);
+
+}
+
+.hero-internship-card ul{
+
+list-style:none;
+
+padding:0;
+
+  display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px 18px;
+    margin:0 0 24px;
+    padding:0;
+
+}
+
+.hero-internship-card li{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+margin-bottom:15px;
+
+font-size:15px;
+
+color:#fff;
+
+}
+
+.hero-internship-card li i{
+
+color:#38bdf8;
+
+}
+
+.internship-btn{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:12px;
+
+padding:18px;
+
+border-radius:16px;
+ height:58px;
+
+background:linear-gradient(
+135deg,
+#1da1f2,
+#0077ff);
+
+color:#fff;
+
+text-decoration:none;
+
+font-weight:700;
+
+transition:.4s;
+
+}
+
+.internship-btn:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 15px 45px rgba(14,165,233,.45);
+
+}
+
+@media (max-width:360px){
+
+.hero{
+
+padding-top:76px;
+
+}
+
+.hero-image-slider{
+
+max-width:280px;
+
+height:180px;
+
+}
+
+.quote h1{
+
+font-size:42px;
+
+}
+
+.quote p{
+
+font-size:15px;
+
+}
+
+}
+
+
+
+.hero-slider{
+
+position:relative;
+z-index:5;
+
+display:grid;
+
+grid-template-columns:1.2fr .8fr;
+
+align-items:center;
+
+padding-top:35px;
+
+gap:90px;
+
+width:min(1450px,90%);
+
+margin:auto;
+
+height:100%;
+
+}
+
+.hero-left{
+
+max-width:700px;
+
+}
+
+.quote{
+
+display:none;
+
+opacity:0;
+
+transform:translateY(40px);
+max-width:650px;
+
+min-height:auto;
+
+}
+
+.quote.active{
+
+display:block;
+
+animation:heroFade .8s ease forwards;
+
+}
+
+.image-slide{
+
+opacity:0;
+
+transform:scale(1.08);
+
+transition:
+
+opacity .9s ease,
+
+transform 6s linear;
+
+}
+
+.image-slide.active img{
+
+animation:
+
+kenBurns 10s linear infinite alternate;
+
+}
+
+.image-slide.active{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+@keyframes heroFade{
+
+0%{
+
+opacity:0;
+
+transform:
+
+translateY(35px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
+.quote-top{
+
+display:inline-block;
+
+margin-top:0px;
+
+margin-bottom:22px;
+
+padding:8px 18px;
+
+font-size:13px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+font-weight:700;
+
+color:#38bdf8;
+border-radius:30px;
+
+background:rgba(14,165,233,.08);
+
+border:1px solid rgba(14,165,233,.25);
+
+}
+
+.quote h1{
+
+font-size:88px;
+
+line-height:1;
+
+font-weight:900;
+
+letter-spacing:-4px;
+
+color:white;
+
+margin-bottom:34px;
+
+}
+
+.hero-image-slider::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-120%;
+
+width:60%;
+
+height:100%;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+transparent,
+
+rgba(255,255,255,.25),
+
+transparent);
+
+transform:skewX(-25deg);
+
+animation:
+
+shine 9s linear infinite;
+
+}
+
+@keyframes shine{
+
+100%{
+
+left:170%;
+
+}
+
+}
+
+.hero-image-slider{
+
+border:
+
+1px solid rgba(255,255,255,.18);
+
+}
+
+.hero::before{
+
+left:-180px;
+
+top:20%;
+
+}
+
+.hero::after{
+
+right:-150px;
+
+bottom:10%;
+
+}
+
+.hero-image-slider{
+
+border-radius:32px;
+
+}
+
+.image-slide img{
+
+animation:
+
+kenBurns 12s linear infinite alternate;
+
+}
+
+@keyframes kenBurns{
+
+0%{
+
+transform:scale(1);
+
+}
+
+100%{
+
+transform:scale(1.12);
+
+}
+
+}
+
+
+.quote h1 span{
+
+display:block;
+
+background:linear-gradient(
+135deg,
+#22c1ff,
+#c6dcff);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+}
+
+.quote p{
+
+max-width:620px;
+
+font-size:20px;
+
+line-height:1.8;
+
+margin-top:10px;
+
+margin-bottom:30px;
+
+min-height:120px;
+
+}
+
+.hero-btn{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:14px;
+
+height:62px;
+
+padding:0px 38px;
+
+border-radius:16px;
+
+font-size:17px;
+
+background:#0ea5e9;
+
+color:white;
+
+font-weight:700;
+
+text-decoration:none;
+
+transition:.4s;
+
+box-shadow:
+
+0 18px 45px rgba(14,165,233,.35);
+
+
+}
+
+.hero-btn:hover{
+
+transform:translateY(-5px);
+
+}
+
+.hero-right{
+
+display:flex;
+
+justify-content:flex-end;
+
+}
+
+.hero-image-slider{
+
+width:540px;
+
+height:340px;
+
+overflow:hidden;
+
+border-radius:28px;
+
+aspect-ratio:16/10;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.08);
+
+box-shadow:
+
+0 50px 100px rgba(0,0,0,.55),
+
+0 0 0 1px rgba(255,255,255,.08),
+
+0 0 120px rgba(14,165,233,.18);
+
+position:relative;
+
+}
+
+.image-slide{
+
+position:absolute;
+
+inset:0;
+
+opacity:0;
+
+transition:1s;
+
+}
+
+.image-slide.active{
+
+opacity:1;
+
+}
+
+.image-slide img{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+}
+
+.hero-pagination{
+
+display:flex;
+
+gap:14px;
+
+margin-top:20px;
+
+}
+
+.hero-pagination span{
+
+position:relative;
+
+width:70px;
+height:3px;
+
+overflow:hidden;
+
+background:rgba(255,255,255,.15);
+
+}
+
+.hero-pagination span::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+top:0;
+
+width:0;
+
+height:100%;
+
+background:#0ea5e9;
+
+}
+
+.hero-pagination span.active::after{
+
+animation:progress 5s linear forwards;
+
+}
+
+@keyframes progress{
+
+from{
+
+width:0;
+
+}
+
+to{
+
+width:100%;
+
+}
+
+}
+
+.hero-pagination span.active{
+
+background:#0ea5e9;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
+
+.hero-image-slider{
+
+animation:floatCard 7s ease-in-out infinite;
+
+}
+
+@keyframes floatCard{
+
+0%,100%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+}
+
+@media(max-width:991px){
+
+.hero-slider{
+
+grid-template-columns:1fr;
+
+gap:16px;
+
+text-align:center;
+
+padding-top:0;
+
+padding-bottom:20px;
+
+width:92%;
+
+align-content:start;
+
+}
+
+.hero-left{
+
+order:1;
+
+max-width:100%;
+padding-top:30px;
+
+}
+
+.hero-right{
+
+margin:0;
+min-height:auto;
+display:flex;
+justify-content:center;
+align-items:center;
+padding-top:30px;
+
+}
+
+.hero-image-slider{
+
+width:100%;
+
+max-width:300px;
+
+height:195px;
+
+margin:auto;
+margin-top:8px;
+
+}
+
+.quote h1{
+
+font-size:48px;
+line-height:1.03;
+letter-spacing:-2px;
+
+}
+
+.quote p{
+
+font-size:15px;
+
+line-height:1.7;
+
+max-width:310px;
+
+margin:14px auto 18px;
+
+min-height:auto;
+
+}
+
+.hero-pagination{
+
+justify-content:center;
+
+margin-top:18px;
+
+}
+
+.hero-btn{
+
+width:100%;
+
+max-width:320px;
+
+height:56px;
+
+margin:8px auto 0;
+
+justify-content:center;
+
+}
+
+}
+
+
+
+/* Samsung Galaxy S20 Ultra & similar 412px devices */
+@media only screen
+and (min-width:400px)
+and (max-width:430px)
+and (min-height:880px){
+
+.hero-right{
+    padding-top:140px;      /* adjust 70-90px if needed */
+}
+
+.hero-left{
+    padding-top:55px;      /* adjust 50-70px if needed */
+}
+
+.hero-image-slider{
+    margin-top:0;
+}
+
+.hero-pagination{
+    margin-top:16px;
+}
+
+}
+
+/* iPhone 12 Pro / 390px devices */
+@media only screen
+and (min-width:381px)
+and (max-width:399px){
+
+.hero-left{
+    padding-top:42px;
+}
+
+.hero-right{
+    padding-top:130px;
+}
+
+.hero-pagination{
+    margin-top:18px;
+}
+
+}
+
+/* iPhone SE / 375px */
+@media only screen
+and (min-width:361px)
+and (max-width:380px){
+
+.hero-left{
+    padding-top:0px;
+}
+
+.hero-right{
+    padding-top:90px;
+}
+
+.hero-image-slider{
+    max-width:290px;
+    height:170px;
+}
+
+.quote h1{
+    font-size:44px;
+    line-height:1.02;
+    margin-bottom:18px;
+}
+
+.quote p{
+    font-size:15px;
+    line-height:1.65;
+    margin:12px auto 18px;
+}
+
+.hero-btn{
+    height:54px;
+    max-width:300px;
+}
+
+.hero-pagination{
+    margin-top:16px;
+}
+
+.scroll-indicator{
+    bottom:18px;
+}
+
+}
+
+</style>
+
+<!-- ═══════════ HERO (UNTOUCHED) ═══════════ -->
+<section class="hero">
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="semiconductor2.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+<div class="hero-slider">
+
+<div class="hero-left">
+
+<div class="quote-slider">
+
+<div class="quote active">
+
+<span class="quote-top">
+Engineering Excellence
+</span>
+
+<h1>
+
+Accelerating
+
+<span>Innovation.</span>
+
+</h1>
+
+<p>
+
+Building next-generation Semiconductor,
+
+Embedded and Software solutions that
+
+shape tomorrow's technology.
+
+</p>
+
+<a href="semiconductor-engineering.html" class="hero-btn">
+Explore Services
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+
+</div>
+
+<div class="quote">
+
+<span class="quote-top">
+Semiconductor Engineering
+</span>
+
+<h1>
+
+Future
+
+<span> Silicon.</span>
+
+</h1>
+
+<p>
+
+RTL, Verification, Physical Design,
+
+DFT and complete semiconductor
+
+engineering services.
+
+</p>
+
+<a href="#"
+class="hero-btn">
+Explore Semiconductor
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+
+</div>
+
+<div class="quote">
+
+<span class="quote-top">
+Internships
+</span>
+
+<h1>
+
+Build
+
+<span>Your Career.</span>
+
+</h1>
+
+<p>
+
+Industry mentors,
+
+real projects,
+
+future-ready engineering programs.
+
+</p>
+
+<a href="internship.html"
+class="hero-btn">
+Explore Internships
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-pagination">
+
+<span class="active"></span>
+
+<span></span>
+
+<span></span>
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="hero-right">
+
+<div class="hero-image-slider">
+
+<div class="image-slide active">
+
+<img src="images/software-engineer-homehero.png">
+
+</div>
+
+<div class="image-slide">
+
+<img src="images/semicon-homepage-hero.png">
+
+</div>
+
+<div class="image-slide">
+
+<img src="images/internship-homehero.png">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+  <div class="scroll-indicator"></div>
+</section>
+
+
+<style>
+/* ══════════════════════════════════════════════════════
+   TECHNOLOGY DNA SECTION
+══════════════════════════════════════════════════════ */
+.dna-section {
+  position:relative;
+   background:
+linear-gradient(
+180deg,
+#F7FBFF 0%,
+#EDF5FC 55%,
+#F8FCFF 100%
+);
+    padding:70px 0;
+    overflow:hidden;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+}
+
+/* noise texture overlay */
+.dna-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+  background-size: 200px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .4;
+}
+
+/* ambient glow */
+.dna-section::after {
+  content: "";
+  position: absolute;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(14,165,233,.1), transparent 70%);
+  filter: blur(80px);
+  top: 50%; left: 55%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* PCB grid lines */
+.dna-pcb-grid {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+}
+
+/* particles canvas */
+.dna-particles {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+}
+
+/* ── Inner layout ── */
+.dna-inner{
+
+    position:relative;
+
+    width:min(1380px,92%);
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:42% 58%;
+
+    align-items:center;
+
+    gap:70px;
+
+    background:#ffffff;
+
+    border-radius:28px;
+
+     padding:50px 60px;
+
+    overflow:hidden;
+
+box-shadow:
+0 45px 120px rgba(15,23,42,.10),
+0 15px 35px rgba(15,23,42,.06);
+
+border:
+1px solid rgba(255,255,255,.85);
+
+outline:
+1px solid rgba(14,165,233,.06);
+
+}
+
+.dna-inner::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background-image:
+
+linear-gradient(rgba(14,165,233,.025) 1px,transparent 1px),
+
+linear-gradient(90deg,rgba(14,165,233,.025) 1px,transparent 1px);
+
+background-size:90px 90px;
+
+pointer-events:none;
+opacity:.45;
+
+}
+.dna-inner::after{
+
+content:"";
+
+position:absolute;
+
+width:420px;
+
+height:420px;
+
+right:-180px;
+
+top:-140px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(circle,
+
+rgba(14,165,233,.12),
+
+transparent 72%);
+
+filter:blur(80px);
+
+animation:dnaGlow 8s ease-in-out infinite;
+
+opacity:.6;
+
+}
+
+@keyframes dnaGlow{
+
+0%{
+
+transform:translate(0,0);
+
+}
+
+50%{
+
+transform:
+
+translate(-20px,20px);
+
+}
+
+100%{
+
+transform:
+
+translate(0,0);
+
+}
+
+}
+/* ── LEFT: editorial content ── */
+
+
+.dna-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #38bdf8;
+  margin-bottom: 28px;
+}
+.dna-eyebrow::before {
+  content: "";
+  display: block;
+  width: 22px; height: 1.5px;
+  background: #38bdf8;
+}
+
+.dna-heading {
+ font-size:64px;
+  font-weight: 800;
+  color: #0f172a;
+letter-spacing:-3px;
+  line-height:.95;
+  margin-bottom: 24px;
+  max-width:470px;
+}
+
+.dna-heading em {
+  font-style: normal;
+  color: #94a3b8;
+}
+
+.dna-desc {
+  font-size: 17px;
+  line-height: 1.9;
+  color:#64748b;
+  max-width: 430px;
+  margin-bottom: 36px;
+  margin:28px 0;
+  transition: opacity .5s ease;
+}
+
+.dna-chip{
+
+background:
+
+linear-gradient(145deg,
+
+#1c2b43,
+
+#091523);
+
+border-radius:24px;
+
+box-shadow:
+
+0 0 0 1px rgba(14,165,233,.18),
+
+0 0 45px rgba(14,165,233,.35),
+
+0 0 90px rgba(14,165,233,.18),
+
+0 35px 70px rgba(14,165,233,.12),
+
+inset 0 1px 0 rgba(255,255,255,.08);
+
+}
+@keyframes chipFloat{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+}
+
+.dna-chip-wrap{
+
+animation:chipFloat 6s ease-in-out infinite;
+
+}
+
+.dna-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #0ea5e9;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(14,165,233,.3);
+  padding-bottom: 3px;
+  transition: gap .3s, border-color .3s;
+}
+.dna-cta:hover { gap: 14px; border-color: #0ea5e9; }
+
+/* ── RIGHT: chip + nodes visualisation ── */
+.dna-right {
+  position: relative;
+  height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+/* SVG canvas */
+.dna-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* chip wrapper */
+.dna-chip-wrap {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 130px; height: 130px;
+  animation: chipFloat 5s ease-in-out infinite;
+  z-index: 3;
+}
+
+@keyframes chipFloat {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
+  50%       { transform: translate(-50%, -50%) translateY(-10px); }
+}
+
+/* chip itself */
+.dna-chip {
+  width: 130px; height: 130px;
+  position: relative;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #0d2240 0%, #0a1830 40%, #071020 100%);
+  border: 1px solid rgba(14,165,233,.35);
+  box-shadow:
+    0 0 0 1px rgba(14,165,233,.12),
+    0 0 30px rgba(14,165,233,.2),
+    0 0 60px rgba(14,165,233,.08),
+    inset 0 1px 0 rgba(255,255,255,.08),
+    inset 0 -1px 0 rgba(0,0,0,.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: chipPulse 4s ease-in-out infinite;
+  cursor: default;
+}
+
+@keyframes chipPulse {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(14,165,233,.12), 0 0 30px rgba(14,165,233,.2), 0 0 60px rgba(14,165,233,.08), inset 0 1px 0 rgba(255,255,255,.08); }
+  50%       { box-shadow: 0 0 0 1px rgba(14,165,233,.25), 0 0 40px rgba(14,165,233,.35), 0 0 90px rgba(14,165,233,.15), inset 0 1px 0 rgba(255,255,255,.1); }
+}
+
+/* chip inner grid die */
+.dna-chip-inner {
+  width: 82px; height: 82px;
+  background: linear-gradient(135deg, #0e2a50, #0b1f3a);
+  border: 1px solid rgba(14,165,233,.25);
+  border-radius: 6px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: repeat(4,1fr);
+  gap: 3px;
+  padding: 6px;
+  position: relative;
+}
+
+.dna-chip-cell {
+  background: rgba(14,165,233,.1);
+  border-radius: 1px;
+  transition: background .3s;
+}
+
+.dna-chip-cell.lit {
+  background: rgba(14,165,233,.35);
+  box-shadow: 0 0 4px rgba(14,165,233,.4);
+}
+
+/* chip edge pins */
+.dna-chip-pins {
+  position: absolute; inset: 0;
+  pointer-events: none;
+}
+
+.dna-pin {
+  position: absolute;
+  background: rgba(14,165,233,.5);
+}
+
+/* top & bottom pins */
+.dna-pin.h { height: 3px; width: 10px; top: -4px; }
+.dna-pin.h.b { top: auto; bottom: -4px; }
+/* left & right pins */
+.dna-pin.v { width: 3px; height: 10px; left: -4px; }
+.dna-pin.v.r { left: auto; right: -4px; }
+
+/* ── Nodes ── */
+.dna-node {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform .4s ease;
+  z-index: 4;
+}
+
+.dna-node{
+
+background:#fff;
+
+padding:24px 28px;
+
+border-radius:18px;
+
+border:1px solid #edf2f7;
+
+box-shadow:
+
+0 12px 35px rgba(15,23,42,.06);
+
+transition:.35s;
+
+min-width:220px;
+
+}
+
+.dna-node:hover{
+
+transform:translateY(-8px);
+
+box-shadow:
+
+0 30px 60px rgba(15,23,42,.12);
+
+}
+
+
+
+/* node positioning */
+.dna-node[data-pos="tl"] { top: 6%;  left: 2%; align-items: flex-start; }
+.dna-node[data-pos="tr"] { top: 6%;  right: 2%; align-items: flex-end; }
+.dna-node[data-pos="bl"] { bottom: 6%; left: 2%; align-items: flex-start; }
+.dna-node[data-pos="br"] { bottom: 6%; right: 2%; align-items: flex-end; }
+
+.dna-node:hover { transform: scale(1.06); }
+
+/* glowing icon ring */
+.dna-node-icon {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(14,165,233,.22);
+  background: rgba(14,165,233,.06);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  transition: border-color .4s, background .4s, box-shadow .4s;
+  animation: nodeBreath 4s ease-in-out infinite;
+}
+
+/* stagger breaths */
+.dna-node:nth-child(1) .dna-node-icon { animation-delay: 0s; }
+.dna-node:nth-child(2) .dna-node-icon { animation-delay: 1s; }
+.dna-node:nth-child(3) .dna-node-icon { animation-delay: 2s; }
+.dna-node:nth-child(4) .dna-node-icon { animation-delay: 3s; }
+
+@keyframes nodeBreath {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(14,165,233,0); }
+  50%       { box-shadow: 0 0 12px 3px rgba(14,165,233,.15); }
+}
+
+.dna-node:hover .dna-node-icon {
+  border-color: rgba(14,165,233,.7);
+  background: rgba(14,165,233,.14);
+  box-shadow: 0 0 22px 4px rgba(14,165,233,.25);
+}
+
+.dna-node-icon svg {
+  width: 18px; height: 18px;
+  stroke: #38bdf8;
+  fill: none;
+  stroke-width: 1.6;
+}
+
+.dna-node-name {
+  font-size: 13px;
+  font-weight: 700;
+  color:#0f172a;
+  letter-spacing: -.2px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.dna-node-sub {
+  font-size: 10.5px;
+ color:#64748b;
+  letter-spacing: .2px;
+  white-space: nowrap;
+}
+
+/* ── Circuit traces SVG ── */
+.dna-trace {
+  fill: none;
+  stroke: rgba(14,165,233,.18);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke .4s ease;
+}
+
+.dna-trace.active {
+  stroke: rgba(14,165,233,.7);
+  filter: drop-shadow(0 0 4px rgba(14,165,233,.55));
+}
+
+/* travelling dot */
+.dna-flow-dot {
+  r: 3;
+  fill: #38bdf8;
+  filter: drop-shadow(0 0 5px rgba(56,189,248,.9));
+  opacity: 0;
+}
+
+/* ── Responsive ── */
+/* ===================================================
+   DNA SECTION - MOBILE
+=================================================== */
+
+@media (max-width:768px){
+
+.dna-inner{
+    display:flex;
+    flex-direction:column;
+    gap:40px;
+    padding:30px 18px;
+}
+
+/* Visual first */
+.dna-right{
+    order:1;
+    position:relative;
+    width:100%;
+    height:310px;
+    margin:0 auto;
+}
+
+/* Content second */
+.dna-left{
+    order:2;
+    text-align:center;
+}
+
+.dna-heading{
+    font-size:46px;
+    line-height:1;
+    max-width:100%;
+}
+
+.dna-desc{
+    max-width:100%;
+    font-size:17px;
+    line-height:1.8;
+}
+
+.dna-cta{
+    justify-content:center;
+}
+
+/* Chip */
+
+.dna-chip-wrap{
+    width:80px;
+    height:80px;
+}
+
+.dna-chip{
+    width:80px;
+    height:80px;
+}
+
+.dna-chip-inner{
+    width:48px;
+    height:48px;
+}
+
+/* Hide SVG traces */
+
+.dna-svg{
+    display:none;
+}
+
+/* Cards */
+
+.dna-node{
+
+    width:130px;
+    min-width:130px;
+
+    padding:12px;
+
+    border-radius:16px;
+
+    align-items:center !important;
+    text-align:center;
+}
+
+.dna-node-icon{
+
+    width:38px;
+    height:38px;
+
+    margin-bottom:8px;
+}
+
+.dna-node-icon svg{
+    width:15px;
+    height:15px;
+}
+
+.dna-node-name{
+
+    font-size:11px;
+    line-height:1.25;
+    white-space:normal;
+}
+
+.dna-node-sub{
+
+    font-size:9px;
+    white-space:normal;
+    line-height:1.4;
+}
+
+/* Perfect positioning */
+
+.dna-node[data-pos="tl"]{
+    top:0;
+    left:8px;
+}
+
+.dna-node[data-pos="tr"]{
+    top:0;
+    right:8px;
+}
+
+.dna-node[data-pos="bl"]{
+    bottom:0;
+    left:8px;
+}
+
+.dna-node[data-pos="br"]{
+    bottom:0;
+    right:8px;
+}
+
+}
+
+
+
+/* Very Small Phones */
+
+@media (max-width:430px){
+
+.dna-right{
+    height:270px;
+}
+
+.dna-node{
+
+    width:118px;
+    min-width:118px;
+
+    padding:10px;
+}
+
+.dna-node-name{
+    font-size:10px;
+}
+
+.dna-node-sub{
+    font-size:8px;
+}
+
+.dna-chip-wrap{
+    width:68px;
+    height:68px;
+}
+
+.dna-chip{
+    width:68px;
+    height:68px;
+}
+
+.dna-chip-inner{
+    width:42px;
+    height:42px;
+}
+
+}
+
+html,
+body{
+    width:100%;
+    overflow-x:clip;
+}
+
+main{
+    overflow-x:clip;
+}
+
+</style>
+
+<!-- ══════════════════════════════════════════════════════
+     TECHNOLOGY DNA
+══════════════════════════════════════════════════════ -->
+<section class="dna-section">
+  <canvas class="dna-particles" id="dnaParticles"></canvas>
+  <svg class="dna-pcb-grid" id="dnaPcbGrid" xmlns="http://www.w3.org/2000/svg"></svg>
+
+  <div class="dna-inner">
+
+    <!-- LEFT -->
+    <div class="dna-left">
+      <div class="dna-eyebrow sr">Our Technology DNA</div>
+      <h2 class="dna-heading sr">One Core.<br><em>Many</em> Possibilities.</h2>
+      <p class="dna-desc sr" id="dnaDesc">
+        Our integrated engineering ecosystem connects software, embedded systems, semiconductor engineering and digital technologies into one seamless innovation platform.
+      </p>
+      <a href="#" class="dna-cta sr">Explore Engineering →</a>
+    </div>
+
+    <!-- RIGHT: visualisation -->
+    <div class="dna-right" id="dnaRight">
+
+      <!-- SVG for traces + flow dots -->
+      <svg class="dna-svg" id="dnaSvg" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="traceGlow">
+            <feGaussianBlur stdDeviation="2" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <!-- traces drawn by JS -->
+      </svg>
+
+      <!-- Chip -->
+      <div class="dna-chip-wrap" id="dnaChipWrap">
+        <div class="dna-chip" id="dnaChip">
+          <div class="dna-chip-inner" id="dnaChipInner">
+            <div class="dna-chip-cell"></div><div class="dna-chip-cell lit"></div>
+            <div class="dna-chip-cell"></div><div class="dna-chip-cell lit"></div>
+            <div class="dna-chip-cell lit"></div><div class="dna-chip-cell"></div>
+            <div class="dna-chip-cell lit"></div><div class="dna-chip-cell"></div>
+            <div class="dna-chip-cell"></div><div class="dna-chip-cell lit"></div>
+            <div class="dna-chip-cell"></div><div class="dna-chip-cell lit"></div>
+            <div class="dna-chip-cell lit"></div><div class="dna-chip-cell"></div>
+            <div class="dna-chip-cell"></div><div class="dna-chip-cell lit"></div>
+          </div>
+          <!-- edge pins -->
+          <div class="dna-chip-pins">
+            <div class="dna-pin h" style="left:18px"></div>
+            <div class="dna-pin h" style="left:40px"></div>
+            <div class="dna-pin h" style="left:62px"></div>
+            <div class="dna-pin h b" style="left:18px"></div>
+            <div class="dna-pin h b" style="left:40px"></div>
+            <div class="dna-pin h b" style="left:62px"></div>
+            <div class="dna-pin v" style="top:18px"></div>
+            <div class="dna-pin v" style="top:40px"></div>
+            <div class="dna-pin v" style="top:62px"></div>
+            <div class="dna-pin v r" style="top:18px"></div>
+            <div class="dna-pin v r" style="top:40px"></div>
+            <div class="dna-pin v r" style="top:62px"></div>
+          </div>
+        </div>
       </div>
-      <div class="fstat">
-        <div class="fstat-ico sky">⚡</div>
-        <div><div class="fstat-num">Full-Stack</div><div class="fstat-lbl">Embedded Engineering</div></div>
+
+      <!-- Nodes -->
+      <div class="dna-node" data-pos="tl" data-idx="0"
+        data-desc="AI-assisted engineering workflows — from model-based design and machine learning toolchains to intelligent simulation and data-driven product development.">
+        <div class="dna-node-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/></svg>
+        </div>
+        <div class="dna-node-name">Artificial Intelligence</div>
+        <div class="dna-node-sub">ML · Data Science · Edge AI</div>
       </div>
-      <div class="fstat">
-        <div class="fstat-ico navy">🌐</div>
-        <div><div class="fstat-num">Enterprise</div><div class="fstat-lbl">IT Transformation</div></div>
+
+      <div class="dna-node" data-pos="tr" data-idx="1"
+        data-desc="Enterprise platform engineering, DevSecOps pipelines and full-stack development — delivered by engineers who think in systems and own outcomes end-to-end.">
+        <div class="dna-node-icon">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <div class="dna-node-name">Software Engineering</div>
+        <div class="dna-node-sub">Platforms · DevSecOps · APIs</div>
       </div>
+
+      <div class="dna-node" data-pos="bl" data-idx="2"
+        data-desc="RTOS firmware, BSP development and safety-critical embedded software for industrial, automotive and connected device environments — built to the highest reliability standards.">
+        <div class="dna-node-icon">
+          <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+        </div>
+        <div class="dna-node-name">Embedded Engineering</div>
+        <div class="dna-node-sub">RTOS · Firmware · IoT</div>
+      </div>
+
+      <div class="dna-node" data-pos="br" data-idx="3"
+        data-desc="RTL design, DFT, functional verification and physical design — complete chip lifecycle engineering from architecture definition through tape-out and silicon validation.">
+        <div class="dna-node-icon">
+          <svg viewBox="0 0 24 24"><path d="M2 7h20M2 12h20M2 17h20M7 2v20M12 2v20M17 2v20"/></svg>
+        </div>
+        <div class="dna-node-name">Semiconductor Engineering</div>
+        <div class="dna-node-sub">RTL · DFT · Physical Design</div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- TRUST BAND (scrolling) -->
-<div class="trust-band">
-  <span class="tb-label">Technologies</span>
-  <div class="tb-line"></div>
-  <div class="tb-track">
-    <div class="tb-logos">
-      <span class="tb-logo">VLSI Design</span>
-      <span class="tb-logo">ARM Architecture</span>
-      <span class="tb-logo">RTOS</span>
-      <span class="tb-logo">AWS</span>
-      <span class="tb-logo">Azure</span>
-      <span class="tb-logo">IoT Platforms</span>
-      <span class="tb-logo">PCB Design</span>
-      <span class="tb-logo">FPGAs</span>
-      <span class="tb-logo">Cybersecurity</span>
-      <span class="tb-logo">VLSI Design</span>
-      <span class="tb-logo">ARM Architecture</span>
-      <span class="tb-logo">RTOS</span>
-      <span class="tb-logo">AWS</span>
-      <span class="tb-logo">Azure</span>
-      <span class="tb-logo">IoT Platforms</span>
-      <span class="tb-logo">PCB Design</span>
-      <span class="tb-logo">FPGAs</span>
-      <span class="tb-logo">Cybersecurity</span>
+<script>
+(function(){
+  /* ── Particles ── */
+  const canvas = document.getElementById('dnaParticles');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+
+  function resizeCanvas(){
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  for(let i = 0; i < 55; i++){
+    particles.push({
+      x: Math.random() * 2000,
+      y: Math.random() * 800,
+      r: Math.random() * 1.2 + 0.3,
+      vx: (Math.random() - .5) * .18,
+      vy: (Math.random() - .5) * .18,
+      a: Math.random() * .4 + .1
+    });
+  }
+
+  function drawParticles(){
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(56,189,248,${p.a})`;
+      ctx.fill();
+      p.x += p.vx; p.y += p.vy;
+      if(p.x < 0) p.x = W;
+      if(p.x > W) p.x = 0;
+      if(p.y < 0) p.y = H;
+      if(p.y > H) p.y = 0;
+    });
+    requestAnimationFrame(drawParticles);
+  }
+  drawParticles();
+
+  /* ── SVG traces ── */
+  const rightEl = document.getElementById('dnaRight');
+  const svg = document.getElementById('dnaSvg');
+  const nodes = rightEl.querySelectorAll('.dna-node');
+  const chip  = document.getElementById('dnaChipWrap');
+
+  function buildTraces(){
+    svg.querySelectorAll('.dna-trace, .dna-flow-dot').forEach(el => el.remove());
+
+    const rb  = rightEl.getBoundingClientRect();
+    const cb  = chip.getBoundingClientRect();
+    const cx  = cb.left - rb.left + cb.width  / 2;
+    const cy  = cb.top  - rb.top  + cb.height / 2;
+
+    nodes.forEach((node, i) => {
+      const nb = node.getBoundingClientRect();
+      const nx = nb.left - rb.left + nb.width  / 2;
+      const ny = nb.top  - rb.top  + nb.height / 2;
+
+      /* control points for rounded PCB trace */
+      const mx = (nx + cx) / 2;
+      const my = (ny + cy) / 2;
+
+      const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+
+      /* PCB-style: go horizontal then vertical */
+      let d;
+      if(i === 0)      d = `M${nx},${ny} L${mx},${ny} L${mx},${cy} L${cx},${cy}`;
+      else if(i === 1) d = `M${nx},${ny} L${mx},${ny} L${mx},${cy} L${cx},${cy}`;
+      else if(i === 2) d = `M${nx},${ny} L${mx},${ny} L${mx},${cy} L${cx},${cy}`;
+      else             d = `M${nx},${ny} L${mx},${ny} L${mx},${cy} L${cx},${cy}`;
+
+      path.setAttribute('d', d);
+      path.setAttribute('class', 'dna-trace');
+      path.setAttribute('id', `trace-${i}`);
+      svg.appendChild(path);
+
+      /* flow dot */
+      const dot = document.createElementNS('http://www.w3.org/2000/svg','circle');
+      dot.setAttribute('class','dna-flow-dot');
+      dot.setAttribute('id', `dot-${i}`);
+      svg.appendChild(dot);
+    });
+
+    /* animate flow dots */
+    animateDots();
+  }
+
+  function animateDots(){
+    nodes.forEach((_, i) => {
+      const path = document.getElementById(`trace-${i}`);
+      const dot  = document.getElementById(`dot-${i}`);
+      if(!path || !dot) return;
+      const len = path.getTotalLength();
+      let t = 0;
+      const speed = .0018 + i * .0004;
+      const delay = i * 900;
+
+      setTimeout(() => {
+        function step(){
+          t = (t + speed) % 1;
+          const pt = path.getPointAtLength(t * len);
+          dot.setAttribute('cx', pt.x);
+          dot.setAttribute('cy', pt.y);
+          dot.setAttribute('opacity', t > .05 && t < .95 ? .85 : 0);
+          requestAnimationFrame(step);
+        }
+        step();
+      }, delay);
+    });
+  }
+
+  setTimeout(buildTraces, 120);
+  window.addEventListener('resize', () => setTimeout(buildTraces, 100));
+
+  /* ── Node hover interactions ── */
+  const descEl = document.getElementById('dnaDesc');
+  const defaultDesc = descEl.textContent.trim();
+  const chipEl = document.getElementById('dnaChip');
+
+  nodes.forEach((node, i) => {
+    node.addEventListener('mouseenter', () => {
+      /* illuminate trace */
+      const trace = document.getElementById(`trace-${i}`);
+      if(trace) trace.classList.add('active');
+
+      /* update description */
+      const newDesc = node.dataset.desc;
+      if(newDesc){
+        descEl.style.opacity = '0';
+        setTimeout(() => {
+          descEl.textContent = newDesc;
+          descEl.style.opacity = '1';
+        }, 220);
+      }
+
+      /* brighten chip */
+      chipEl.style.boxShadow = '0 0 0 1px rgba(14,165,233,.4), 0 0 50px rgba(14,165,233,.5), 0 0 100px rgba(14,165,233,.2), inset 0 1px 0 rgba(255,255,255,.12)';
+
+      /* randomise lit cells */
+      document.querySelectorAll('.dna-chip-cell').forEach(c => {
+        c.classList.toggle('lit', Math.random() > .5);
+      });
+    });
+
+    node.addEventListener('mouseleave', () => {
+      const trace = document.getElementById(`trace-${i}`);
+      if(trace) trace.classList.remove('active');
+
+      descEl.style.opacity = '0';
+      setTimeout(() => {
+        descEl.textContent = defaultDesc;
+        descEl.style.opacity = '1';
+      }, 220);
+
+      chipEl.style.boxShadow = '';
+    });
+  });
+
+  /* ── Gentle parallax ── */
+  const dnaRight = document.getElementById('dnaRight');
+  document.addEventListener('mousemove', e => {
+    const mx = (e.clientX - window.innerWidth  / 2) * .005;
+    const my = (e.clientY - window.innerHeight / 2) * .005;
+    dnaRight.style.transform = `translate(${mx}px, ${my}px)`;
+  });
+
+  /* ── PCB background traces ── */
+  const pcbSvg = document.getElementById('dnaPcbGrid');
+  function drawPcb(){
+    pcbSvg.innerHTML = '';
+    const W2 = pcbSvg.offsetWidth, H2 = pcbSvg.offsetHeight;
+    const lines = [
+      [0, H2*.25, W2*.4, H2*.25],
+      [W2*.6, H2*.25, W2, H2*.25],
+      [0, H2*.75, W2*.3, H2*.75],
+      [W2*.7, H2*.75, W2, H2*.75],
+      [W2*.2, 0, W2*.2, H2*.4],
+      [W2*.8, 0, W2*.8, H2*.3],
+      [W2*.15, H2*.6, W2*.15, H2],
+      [W2*.85, H2*.7, W2*.85, H2],
+    ];
+    lines.forEach(([x1,y1,x2,y2]) => {
+      const line = document.createElementNS('http://www.w3.org/2000/svg','line');
+      line.setAttribute('x1',x1); line.setAttribute('y1',y1);
+      line.setAttribute('x2',x2); line.setAttribute('y2',y2);
+      line.setAttribute('stroke','rgba(14,165,233,.06)');
+      line.setAttribute('stroke-width','1');
+      pcbSvg.appendChild(line);
+      /* small junction dot */
+      [0,1].forEach(end => {
+        const c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+        c.setAttribute('cx', end?x2:x1);
+        c.setAttribute('cy', end?y2:y1);
+        c.setAttribute('r','3');
+        c.setAttribute('fill','rgba(14,165,233,.1)');
+        pcbSvg.appendChild(c);
+      });
+    });
+  }
+  drawPcb();
+  window.addEventListener('resize', drawPcb);
+
+})();
+</script>
+
+
+<style>
+/* Single-card editorial — YSQUARE Engineering (45/55) */
+.ys-section {
+  padding: 60px 5%;
+  background: linear-gradient(
+180deg,
+#ffffff 0%,
+#f8fbff 100%
+);
+  display: flex;
+  justify-content: center;
+}
+
+.ys-card {
+  width: 100%;
+  max-width: 1200px;
+  min-height: 420px;
+  background: linear-gradient(
+145deg,
+#ffffff,
+#fcfdff);
+  border-radius: 18px;
+  box-shadow:0 45px 120px rgba(15,23,42,.08);
+  overflow: hidden;
+  position: relative;
+  transition: transform .35s ease, box-shadow .35s ease;
+  display: grid;
+  grid-template-columns: 45% 55%;
+  gap: 0;
+
+  border:
+
+1px solid rgba(255,255,255,.8);
+
+outline:
+
+1px solid rgba(14,165,233,.05);
+}
+
+/* subtle blueprint grid overlay */
+.ys-card::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(14,165,233,.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14,165,233,.02) 1px, transparent 1px);
+  background-size: 120px 120px;
+  pointer-events:none;
+  z-index:0;
+  mix-blend-mode:normal;
+  opacity:.7;
+}
+
+/* soft blue radial glow */
+.ys-card::after{
+  content:"";
+  position:absolute;
+  width:520px;height:520px;
+  left:-80px; top:6%;
+  border-radius:50%;
+  background: radial-gradient(circle, rgba(14,165,233,.09), transparent 60%);
+  filter: blur(60px);
+  pointer-events:none;
+  z-index:0;
+}
+
+/* left image area */
+.ys-card .card-image{
+  position:relative;
+  z-index:1;
+  overflow:hidden;
+  display:block;
+}
+
+.ys-card .card-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transform: scale(1.04);
+  transition: transform 1.2s cubic-bezier(.25,.46,.45,.94);
+  filter:
+
+contrast(1.05)
+
+saturate(1.08);
+}
+
+/* right content area */
+.ys-card .card-content{
+  position:relative;
+  z-index:1;
+  padding: 50px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  background:transparent;
+}
+
+/* Typography */
+.ys-eyebrow{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color: #0e9de9;
+  margin-bottom: 14px;
+}
+
+.ys-headline{
+  font-size:42px;
+  font-weight:900;
+  line-height:1.04;
+  color:#0f172a;
+  margin:0 0 18px 0;
+}
+
+.ys-divider{
+  width:46px;height:2px;
+  background: linear-gradient(90deg,#0e9de9,#0e9de9 60%, transparent);
+  margin-bottom:20px;
+}
+
+.ys-desc{
+  font-size:16px;
+  line-height:1.8;
+  color:#475569;
+  max-width:430px;
+  margin-bottom:28px;
+}
+
+/* CTA row */
+.ys-cta-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+
+/* text CTA */
+.ys-cta1{
+  font-size:13px;
+  font-weight:700;
+  color:#0e9de9;
+  text-decoration:none;
+  border-bottom:1px solid rgba(14,165,233,.25);
+  padding-bottom:4px;
+  display:inline-flex;
+  gap:10px;
+  align-items:center;
+}
+
+/* circular arrow button */
+.ys-circle{
+  width:54px;height:54px;
+  border-radius:50%;
+  background:#fff;
+  border:1.5px solid rgba(15,23,42,.12);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  transition: transform .35s, box-shadow .35s, border-color .35s;
+  position:relative;
+  overflow:hidden;
+  flex-shrink:0;
+}
+
+.ys-circle::before{
+  content:"";
+  position:absolute; inset:0;
+  border-radius:50%;
+  background: #0e9de9;
+  transform:scale(0);
+  transition:transform .35s cubic-bezier(.25,.46,.45,.94);
+}
+
+.ys-circle svg{ width:18px;height:18px; stroke:#0f172a; fill:none; stroke-width:2; transition: transform .35s, stroke .35s; position:relative; z-index:1; }
+
+.ys-circle:hover::before{ transform:scale(1); }
+.ys-circle:hover{ border-color:var(--primary); box-shadow:0 8px 28px rgba(14,165,233,.18); transform:translateY(-2px); }
+.ys-circle:hover svg{ stroke:#fff; transform:translateX(3px) translateY(-3px); }
+
+/* Card hover: lift and image zoom */
+.ys-card:hover{ transform: translateY(-10px); box-shadow:0 36px 82px rgba(15,23,42,.12); }
+.ys-card:hover .card-image img{ transform: scale(1.08); }
+
+/* Responsive: tablet/mobile */
+@media (max-width: 900px){
+  .ys-card{ grid-template-columns: 1fr; min-height: auto; }
+  .ys-card .card-image{ height: 220px; }
+  .ys-card .card-content{ padding:32px; align-items:center; text-align:center; }
+  .ys-desc{ margin:0 auto 28px; }
+  .ys-cta-row{ width:100%; justify-content:center; gap:18px; }
+}
+
+@media (max-width: 480px){
+  .ys-headline{ font-size:28px; }
+  .ys-desc{ font-size:15px; max-width:100%; }
+  .ys-card{ border-radius:14px; }
+  .ys-circle{ width:48px;height:48px; }
+}
+</style>
+
+
+<style>
+
+/* =====  services SECTION ===== */
+
+#navroy-why {
+  position: relative;
+background: linear-gradient(160deg, var(--navy-900) 0%, var(--navy-800) 60%, #0c1f3d 100%);
+}
+
+#navroy-why::before{
+  content:"";
+  position:absolute; inset:0;
+  background: radial-gradient(circle at 80% 20%, rgba(14,165,233,.12), transparent 50%);
+  pointer-events:none;
+}
+
+.navroy-why-wrapper {
+  display: flex;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.navroy-left-fixed {
+  width: 40%;
+  padding: 80px 40px;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  overflow-y: auto;
+  max-width: 500px; /* ✅ prevent text from stretching too wide */
+}
+
+.navroy-left-fixed p:first-child {
+  color: #0ea5e9;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.navroy-left-fixed h2 {
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+.navroy-left-fixed p {
+  font-size: 16px;
+  line-height: 1.6;
+  color:#64748b;
+  margin-bottom: 20px;
+ 
+}
+
+.navroy-left-fixed .navroy-image-box {
+  margin-top: 40px;
+}
+
+.navroy-left-fixed .navroy-image-box img {
+  width: 100%;
+  border-bottom: 4px solid rgba(0, 226, 242, 0.2);
+}
+
+.navroy-scroll-container {
+  width: 60%;
+  height: 100%;
+  overflow-y: auto;
+  padding: 80px 40px;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+.navroy-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.navroy-service-card{
+
+scroll-snap-align:start;
+
+position:relative;
+
+overflow:hidden;
+
+background:
+linear-gradient(135deg,#111a44,#171f55);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:24px;
+
+padding:42px;
+
+min-height:40vh;
+
+margin-bottom:40px;
+
+transition:.45s ease;
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.18);
+
+background-image:
+linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+
+background-size:50px 50px;
+
+}
+
+/* ===========================
+SERVICE EXPLORE BUTTON
+=========================== */
+
+.navroy-explore-btn{
+
+position:absolute;
+
+right:32px;
+
+top:40%;
+
+bottom:auto;
+
+transform:
+
+translateY(-50%)
+
+scale(.85);
+
+width:58px;
+
+height:58px;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+text-decoration:none;
+
+background:
+
+linear-gradient(
+135deg,
+#30c5ff,
+#0b8cff);
+
+border:1px solid rgba(255,255,255,.25);
+
+box-shadow:
+
+0 15px 35px rgba(24,184,255,.45),
+
+inset 0 1px rgba(255,255,255,.35);
+
+color:#fff;
+
+font-size:20px;
+
+box-shadow:
+0 12px 35px rgba(24,184,255,.35);
+
+opacity:0;
+
+visibility:hidden;
+
+transform:translateY(15px) scale(.85);
+
+transition:.35s ease;
+
+z-index:20;
+
+overflow:hidden;
+
+}
+
+
+.navroy-icon,
+.navroy-service-card h3,
+.navroy-service-card p{
+
+transition:.45s;
+
+}
+
+.navroy-service-card:hover .navroy-icon{
+
+transform:
+
+translateY(-8px)
+
+scale(1.08);
+
+}
+
+.navroy-service-card:hover h3{
+
+transform:
+
+translateY(-6px);
+
+}
+
+.navroy-service-card:hover p{
+
+transform:
+
+translateY(-4px);
+
+}
+
+.navroy-explore-btn::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+border-radius:50%;
+
+background:
+
+linear-gradient(
+135deg,
+rgba(255,255,255,.35),
+transparent 60%);
+
+opacity:.8;
+
+}
+
+.navroy-explore-btn i{
+
+position:relative;
+
+z-index:2;
+
+transition:.35s;
+
+}
+
+.navroy-service-card:hover .navroy-explore-btn{
+
+opacity:1;
+
+visibility:visible;
+
+transform:
+
+translateY(-50%)
+
+scale(1);
+
+}
+
+.navroy-service-card h3,
+
+.navroy-service-card p,
+
+.navroy-icon{
+
+transition:
+
+transform .45s,
+
+opacity .45s;
+
+}
+
+.navroy-service-card:hover h3{
+
+transform:translateY(-8px);
+
+}
+
+.navroy-service-card:hover p{
+
+transform:translateY(-5px);
+
+}
+
+.navroy-service-card:hover .navroy-icon{
+
+transform:
+
+translateY(-8px)
+
+scale(1.08);
+
+}
+
+.navroy-service-card:hover .navroy-hover-preview{
+
+background-size:108%;
+
+}
+
+.navroy-explore-btn:hover{
+
+transform:scale(1.12);
+
+box-shadow:
+
+0 18px 45px rgba(24,184,255,.5);
+
+}
+
+.navroy-explore-btn:hover i{
+
+transform:translateX(3px);
+
+}
+
+.navroy-service-card::before{
+
+content:"";
+
+position:absolute;
+
+left:0;
+top:0;
+
+width:100%;
+height:2px;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+#18b8ff,
+transparent);
+
+transform:translateX(-100%);
+
+transition:1s;
+
+}
+
+.navroy-service-card:hover::before{
+
+transform:translateX(100%);
+
+}
+
+.navroy-service-card::after{
+
+content:"";
+
+position:absolute;
+
+top:0;
+right:0;
+
+width:170px;
+height:170px;
+
+background:
+
+radial-gradient(circle at top right,
+
+rgba(24,184,255,.12),
+
+transparent 70%);
+
+pointer-events:none;
+
+}
+
+.navroy-hover-preview {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.navroy-hover-preview{
+
+position:absolute;
+
+inset:0;
+
+background-size:cover;
+
+background-position:center;
+
+background-repeat:no-repeat;
+
+opacity:0;
+
+transform:scale(1.18);
+
+filter:brightness(.9) contrast(1.15);
+
+transition:
+
+opacity .55s,
+
+transform 1s;
+
+pointer-events:none;
+
+z-index:0;
+
+}
+
+.navroy-service-card:hover .navroy-hover-preview{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+.navroy-hover-preview::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+rgba(8,15,32,.90) 0%,
+
+rgba(8,15,32,.70) 35%,
+
+rgba(8,15,32,.30) 70%,
+
+rgba(8,15,32,.12) 100%
+
+);
+
+}
+
+.navroy-service-card::after{
+
+content:"";
+
+position:absolute;
+
+right:-70px;
+
+top:50%;
+
+transform:translateY(-50%);
+
+width:220px;
+
+height:220px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(circle,
+
+rgba(24,184,255,.22),
+
+transparent 70%);
+
+filter:blur(25px);
+
+pointer-events:none;
+
+opacity:0;
+
+transition:.5s;
+
+}
+
+.navroy-service-card:hover::after{
+
+opacity:1;
+
+}
+
+.navroy-service-card h3{
+
+position:relative;
+
+z-index:5;
+
+transition:.45s;
+
+}
+
+.navroy-service-card:hover h3{
+
+transform:
+
+translateY(-6px);
+
+color:#fff;
+
+}
+
+.navroy-service-card:hover .navroy-icon{
+
+transform:
+
+translateY(-8px)
+
+scale(1.12);
+
+}
+
+.navroy-service-card .navroy-icon img {
+  width: 58px;
+  height: 58px;
+  margin-bottom: 20px;
+filter:
+
+drop-shadow(0 0 15px rgba(0,221,255,.8))
+
+drop-shadow(0 0 35px rgba(0,221,255,.4));
+  transition: transform 0.3s ease;
+}
+
+.navroy-service-card:hover .navroy-icon img {
+  transform: scale(1.08);
+}
+
+.navroy-service-card:hover{
+
+transform:
+
+translateY(-8px);
+
+border-color:#27c2ff;
+
+box-shadow:
+
+0 35px 90px rgba(5,20,55,.30),
+
+0 0 0 1px rgba(39,194,255,.18);
+
+}
+
+.navroy-service-card h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 50px;
+}
+
+.navroy-service-card p {
+  font-size: 16px;
+
+  line-height: 1.6;
+
+}
+
+.navroy-service-card p{
+
+position:relative;
+
+z-index:5;
+
+color:#64748b;
+
+transition:
+
+color .35s,
+
+transform .35s;
+
+}
+
+.navroy-service-card:hover p{
+
+color:#ffffff;
+
+transform:
+
+translateY(-3px);
+
+}
+
+/* Next section */
+#navroy-after-why {
+  background: #0b0f2d;
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+/* ========== Large Tablets (992px and below) ========== */
+@media (max-width: 992px) {
+  .navroy-why-wrapper {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+
+  .navroy-left-fixed,
+  .navroy-scroll-container {
+    width: 100%;
+    position: static;
+    padding: 40px 20px;
+  }
+
+  .navroy-left-fixed {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .navroy-left-fixed h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+  }
+
+  .navroy-left-fixed p {
+    font-size: 15px;
+    line-height: 1.6;
+   
+  }
+
+  .navroy-left-fixed .navroy-image-box {
+    margin: 30px auto 0;
+    max-width: 400px;
+  }
+
+  .navroy-scroll-container {
+    height: auto;
+    overflow: visible;
+  }
+}
+
+/* ========== Tablets (768px and below) ========== */
+@media (max-width: 768px) {
+  .navroy-left-fixed h2 {
+    font-size: 28px;
+    line-height: 1.3;
+  }
+
+  .navroy-left-fixed p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .navroy-service-card {
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+
+  .navroy-service-card h3 {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  .navroy-service-card p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+.navroy-service-card .navroy-icon img{
+
+width:60px;
+
+height:60px;
+
+margin-bottom:25px;
+
+position:relative;
+
+z-index:2;
+
+filter:
+drop-shadow(0 0 15px rgba(24,184,255,.6));
+
+transition:.4s;
+
+}
+
+.navroy-icon{
+
+position:relative;
+
+display:inline-block;
+
+}
+
+.navroy-icon::before{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+top:50%;
+
+width:75px;
+height:75px;
+
+transform:translate(-50%,-50%);
+
+border-radius:50%;
+
+background:
+
+radial-gradient(circle,
+
+rgba(24,184,255,.25),
+
+transparent 70%);
+
+filter:blur(10px);
+
+z-index:0;
+
+}
+}
+
+/* ========== Mobiles (480px and below) ========== */
+@media (max-width: 480px) {
+  .navroy-left-fixed h2 {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .navroy-left-fixed p {
+    font-size: 13px;
+  }
+
+  .navroy-left-fixed .navroy-image-box {
+    max-width: 280px;
+  }
+
+  .navroy-service-card {
+    padding: 18px;
+    min-height: auto;
+  }
+
+  .navroy-service-card h3 {
+    font-size: 18px;
+  }
+
+  .navroy-service-card p {
+    font-size: 13px;
+  }
+}
+</style>
+
+<section id="navroy-why">
+  <div class="navroy-why-wrapper">
+    <!-- LEFT -->
+    <div class="navroy-left-fixed">
+     <p>ENGINEERING SERVICES</p>
+     <h2>
+Engineering
+Solutions That
+Power Innovation
+</h2>
+    <p>
+YSQUARE SEMICON IT SOLUTIONS delivers advanced engineering services across Semiconductor, Embedded Systems, Software Development, Artificial Intelligence, Cloud Technologies, and Digital Transformation. We partner with startups, enterprises, and global organizations to build innovative, scalable, and future-ready technology solutions.
+</p>
+      <div class="navroy-image-box">
+        <img src="images/Ysquare-semicon.jpeg" alt="Web Design Showcase" />
+      </div>
     </div>
+
+    <!-- RIGHT -->
+    <div class="navroy-scroll-container" id="navroy-scroll-zone">
+      <div class="navroy-service-card">
+        <div class="navroy-icon">
+          <div class="service-image"></div>
+          <img src="images/semiconductor-engineering.png" alt="Custom Web Design Icon">
+        </div>
+       
+      <h3>Semiconductor Engineering</h3>
+
+<p>
+End-to-end semiconductor design services including RTL Design, Functional Verification, Physical Design, DFT, STA, and ASIC implementation for next-generation silicon products.
+</p>
+<a href="semiconductor-engineering.html" class="navroy-explore-btn">
+    <i class="fa-solid fa-arrow-right"></i>
+</a>
+        <div class="navroy-hover-preview" style="background-image: url('images/semiconductorengineering1.jpg');"></div>
+      </div>
+
+      <div class="navroy-service-card">
+        <div class="navroy-icon">
+          <img src="images/embedded.png" alt="Responsive Web Design Icon">
+        </div>
+<h3>Embedded Systems</h3>
+
+<p>
+Design and development of embedded firmware, device drivers, BSPs, RTOS applications, and IoT solutions for industrial, automotive, and consumer electronics.
+</p>
+<a href="embedded-engineering.html" class="navroy-explore-btn">
+    <i class="fa-solid fa-arrow-right"></i>
+</a>
+        <div class="navroy-hover-preview" style="background-image: url('images/embedded.jpg');"></div>
+      </div>
+
+      <div class="navroy-service-card">
+        <div class="navroy-icon">
+          <img src="images/web-development.png" alt="">
+        </div>
+<h3>Software Development</h3>
+
+<p>
+Custom web applications, enterprise software, mobile applications, cloud-native platforms, and scalable digital solutions tailored to your business goals.
+</p>
+<a href="software-engineering.html" class="navroy-explore-btn">
+    <i class="fa-solid fa-arrow-right"></i>
+</a>
+        <div class="navroy-hover-preview" style="background-image: url('images/software-engineering1.jpg');"></div>
+      </div>
+
+      <div class="navroy-service-card">
+        <div class="navroy-icon">
+          <img src="images/digital-engineering.png" alt="">
+        </div>
+<h3>Digital Engineering</h3>
+
+<p>
+AI-driven automation, machine learning, data analytics, computer vision, and intelligent solutions that transform business operations.
+</p>
+<a href="digital-Engineering.html" class="navroy-explore-btn">
+    <i class="fa-solid fa-arrow-right"></i>
+</a>
+        <div class="navroy-hover-preview" style="background-image: url('images/digital-engineering1.jpg');"></div>
+      </div>
+
+ 
+    </div>
+  </div>
+</section>
+
+<script>
+    const navroyScrollZone = document.getElementById("navroy-scroll-zone");
+  const navroyNextSection = document.getElementById("navroy-after-why");
+  navroyScrollZone?.addEventListener("scroll", () => {
+    const scrollTop = navroyScrollZone.scrollTop;
+    const maxScroll = navroyScrollZone.scrollHeight - navroyScrollZone.clientHeight;
+    if (scrollTop >= maxScroll - 10) {
+      setTimeout(() => {
+        navroyNextSection.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    }
+  });
+  document.querySelector("#navroy-why")?.addEventListener("wheel", function (e) {
+    navroyScrollZone.scrollTop += e.deltaY;
+  }, { passive: true });
+</script>
+
+<!-- ══════════════════════════════════════════════════════
+     S02 — INDUSTRIES WE SERVE
+══════════════════════════════════════════════════════ -->
+<style>
+/* ══════════════════════════════════════════════════════
+   INDUSTRIES WE SERVE — PREMIUM EDITORIAL SECTION
+══════════════════════════════════════════════════════ */
+.ind-flagship{
+  position:relative;
+ background:
+linear-gradient(
+135deg,
+#061325 0%,
+#0A1F38 55%,
+#0D3158 100%
+);
+
+
+  /* overlap the services section above by 60px */
+  margin-top:-60px;
+  padding-top:60px;
+  overflow:hidden;
+  z-index:2;
+}
+
+.statistics-section::before{
+
+content:"";
+
+position:absolute;
+
+top:-250px;
+
+right:-250px;
+
+width:700px;
+
+height:700px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(circle,
+rgba(14,165,233,.16),
+transparent 70%);
+
+filter:blur(70px);
+
+}
+
+/* subtle blueprint grid */
+.ind-flagship::before{
+  content:"";
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(14,165,233,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(14,165,233,.03) 1px,transparent 1px);
+  background-size:80px 80px;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ambient glow top-right */
+.ind-flagship::after{
+  content:"";
+  position:absolute;
+  width:800px;height:800px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(14,165,233,.07),transparent 70%);
+  filter:blur(100px);
+  top:-300px;right:-200px;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ── Section header ── */
+.ind-header-block{
+  position:relative;z-index:1;
+  padding:100px 8% 72px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:40px;
+}
+
+.ind-header-left{}
+
+.ind-header-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:#38bdf8;
+  margin-bottom:24px;
+}
+
+.ind-header-eyebrow::before{
+  content:"";
+  display:block;
+  width:28px;height:1.5px;
+  background:#38bdf8;
+}
+
+.ind-header-left h2{
+  font-size:clamp(44px,5vw,70px);
+  font-weight:900;
+  color:#fff;
+  letter-spacing:-2.8px;
+  line-height:.97;
+}
+
+.ind-header-left h2 em{
+  font-style:normal;
+  color:rgba(255,255,255,.28);
+}
+
+.ind-header-right{
+  max-width:360px;
+  flex-shrink:0;
+  padding-bottom:8px;
+}
+
+.ind-header-right p{
+  font-size:15px;
+  line-height:1.85;
+  color:rgba(255,255,255,.38);
+}
+
+/* ══════════════════════════════════════════════════
+   ASYMMETRIC PANEL COMPOSITION
+   Row 1: Large dominant (60%) + Medium tall (40%)
+   Row 2: Full-width cinematic strip
+══════════════════════════════════════════════════ */
+.ind-composition{
+  position:relative;z-index:1;
+  padding:0 8% 120px;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+/* Row 1 */
+.ind-row-1{
+  display:grid;
+  grid-template-columns:1.45fr 1fr;
+  gap:4px;
+  height:680px;
+}
+
+/* Row 2 */
+.ind-row-2{
+  height:320px;
+}
+
+/* ── Shared panel base ── */
+.ind-panel{
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+  background:#060e1c;
+}
+
+/* image */
+.ind-panel-img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  filter:saturate(.45) brightness(.35);
+  transform:scale(1.05);
+  transition:
+    filter 1s ease,
+    transform 1.4s cubic-bezier(.25,.46,.45,.94);
+}
+
+.ind-panel:hover .ind-panel-img{
+  filter:saturate(.95) brightness(.52);
+  transform:scale(1);
+}
+
+/* overlay gradient — each panel unique */
+.ind-panel-dim{
+  position:absolute;inset:0;
+  pointer-events:none;
+  transition:opacity .7s ease;
+}
+
+/* panel A (Hi-Tech, large) */
+.ind-panel-a .ind-panel-dim{
+  background:linear-gradient(
+    145deg,
+    rgba(7,11,20,.12) 0%,
+    rgba(7,11,20,.3) 40%,
+    rgba(7,11,20,.92) 100%
+  );
+}
+
+/* panel B (Automotive, tall right) */
+.ind-panel-b .ind-panel-dim{
+  background:linear-gradient(
+    180deg,
+    rgba(7,11,20,.08) 0%,
+    rgba(7,11,20,.95) 100%
+  );
+}
+
+/* panel C (Semiconductor, wide bottom) */
+.ind-panel-c .ind-panel-dim{
+  background:linear-gradient(
+    90deg,
+    rgba(7,11,20,.95) 0%,
+    rgba(7,11,20,.5) 50%,
+    rgba(7,11,20,.15) 100%
+  );
+}
+
+/* blue glow per panel */
+.ind-panel-glow{
+  position:absolute;
+  width:360px;height:360px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(14,165,233,.22),transparent 70%);
+  filter:blur(55px);
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .7s ease,transform .9s ease;
+  z-index:1;
+}
+
+.ind-panel-a .ind-panel-glow{bottom:-80px;left:-60px;}
+.ind-panel-b .ind-panel-glow{top:-60px;right:-40px;}
+.ind-panel-c .ind-panel-glow{top:50%;right:5%;transform:translateY(-50%);}
+
+.ind-panel:hover .ind-panel-glow{opacity:1;}
+
+/* ── Panel body (text) ── */
+.ind-panel-body{
+  position:absolute;
+  z-index:2;
+  transition:transform .55s ease;
+}
+
+/* Panel A: bottom-left */
+.ind-panel-a .ind-panel-body{
+  bottom:52px;left:52px;
+  right:52px;
+}
+
+.ind-panel:hover .ind-panel-a .ind-panel-body,
+.ind-panel-a:hover .ind-panel-body{
+  transform:translateY(-8px);
+}
+
+/* Panel B: bottom-left */
+.ind-panel-b .ind-panel-body{
+  bottom:44px;left:40px;right:24px;
+}
+
+.ind-panel-b:hover .ind-panel-body{
+  transform:translateY(-8px);
+}
+
+/* Panel C: vertically centered left */
+.ind-panel-c .ind-panel-body{
+  top:50%;left:60px;
+  transform:translateY(-50%);
+  max-width:480px;
+}
+
+.ind-panel-c:hover .ind-panel-body{
+  transform:translateY(calc(-50% - 8px));
+}
+
+.ind-panel-tag{
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:3px;
+  color:#38bdf8;
+  text-transform:uppercase;
+  margin-bottom:14px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.ind-panel-tag::before{
+  content:"";
+  display:block;
+  width:18px;height:1.5px;
+  background:#38bdf8;
+}
+
+.ind-panel-name{
+  font-weight:900;
+  color:#fff;
+  letter-spacing:-1.2px;
+  line-height:1.1;
+  margin-bottom:0;
+  transition:margin-bottom .45s ease;
+}
+
+/* Panel A: large dominant — biggest type */
+.ind-panel-a .ind-panel-name{font-size:clamp(36px,3.8vw,54px);}
+
+/* Panel B: medium tall */
+.ind-panel-b .ind-panel-name{font-size:clamp(28px,2.8vw,40px);}
+
+/* Panel C: wide cinematic */
+.ind-panel-c .ind-panel-name{font-size:clamp(30px,2.8vw,44px);}
+
+/* desc + CTA hidden until hover */
+.ind-panel-detail{
+  overflow:hidden;
+  max-height:0;
+  opacity:0;
+  transition:max-height .5s ease,opacity .45s ease;
+  margin-top:0;
+}
+
+.ind-panel:hover .ind-panel-detail{
+  max-height:100px;
+  opacity:1;
+  margin-top:16px;
+}
+
+/* make space for detail */
+.ind-panel:hover .ind-panel-name{margin-bottom:0;}
+
+.ind-panel-desc{
+  font-size:14px;
+  line-height:1.72;
+  color:rgba(255,255,255,.55);
+  margin-bottom:18px;
+}
+
+/* Panel C desc narrower */
+.ind-panel-c .ind-panel-desc{max-width:380px;}
+
+.ind-panel-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:12px;
+  font-weight:700;
+  color:var(--primary);
+  text-decoration:none;
+  letter-spacing:.6px;
+  text-transform:uppercase;
+  transition:gap .3s;
+}
+
+.ind-panel:hover .ind-panel-cta{gap:12px;}
+
+/* ── Index number (decorative, top right of each panel) ── */
+.ind-panel-index{
+  position:absolute;
+  top:28px;right:28px;
+  font-size:80px;
+  font-weight:900;
+  color:rgba(255,255,255,.04);
+  line-height:1;
+  letter-spacing:-4px;
+  pointer-events:none;
+  user-select:none;
+  z-index:1;
+}
+
+/* ── Thin hairline border between panels ── */
+.ind-row-1 .ind-panel:first-child{
+  /* nothing — gap handles it */
+}
+
+/* ── Responsive ── */
+@media(max-width:1100px){
+  .ind-row-1{grid-template-columns:1fr;height:auto;}
+  .ind-row-1 .ind-panel{height:460px;}
+  .ind-row-2{height:280px;}
+  .ind-header-block{flex-direction:column;align-items:flex-start;gap:24px;}
+  .ind-header-right{max-width:100%;}
+  .ind-panel-c .ind-panel-body{left:40px;}
+}
+
+@media(max-width:768px){
+  .ind-header-block{padding:80px 5% 56px;}
+  .ind-header-left h2{font-size:42px;}
+  .ind-composition{padding:0 5% 80px;}
+  .ind-row-1 .ind-panel{height:360px;}
+  .ind-row-2{height:240px;}
+  .ind-panel-a .ind-panel-body{bottom:36px;left:32px;right:32px;}
+  .ind-panel-b .ind-panel-body{bottom:32px;left:28px;right:16px;}
+  .ind-panel-c .ind-panel-body{left:32px;}
+  .ind-panel-a .ind-panel-name{font-size:30px;}
+  .ind-panel-b .ind-panel-name{font-size:24px;}
+  .ind-panel-c .ind-panel-name{font-size:26px;}
+}
+</style>
+<style>
+/* ══════════════════════════════════════════════════════
+   INDUSTRIES WE SERVE — v2
+   Three equal premium panels, enterprise editorial
+══════════════════════════════════════════════════════ */
+.ind2{
+  position:relative;
+  background:#FFFFFF;
+  padding:100px 8% 120px;
+  overflow:hidden;
+}
+
+.ind2{
+  border-top:1px solid var(--border-light);
+  border-bottom:1px solid var(--border-light);
+}
+
+/* subtle blueprint grid */
+.ind2::before{
+  content:"";
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(14,165,233,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(14,165,233,.035) 1px,transparent 1px);
+  background-size:72px 72px;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* radial glow behind center card */
+.ind2::after{
+  content:"";
+  position:absolute;
+  width:700px;height:600px;
+  border-radius:50%;
+  background:radial-gradient(ellipse,rgba(14,165,233,.07),transparent 70%);
+  filter:blur(80px);
+  top:40%;left:50%;
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ── Header ── */
+.ind2-header{
+  position:relative;z-index:1;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:flex-end;
+  margin-bottom:72px;
+}
+
+
+.ind2-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--primary);
+  margin-bottom:22px;
+}
+
+.ind2-eyebrow::before{
+  content:"";
+  display:block;
+  width:24px;height:1.5px;
+  background:var(--primary);
+}
+
+.ind2-header-left h2{
+  font-size:clamp(40px,4.5vw,62px);
+  font-weight:900;
+  color:#0f172a;
+  letter-spacing:-2.5px;
+  line-height:1.02;
+}
+
+.ind2-header-right{
+  padding-bottom:6px;
+}
+
+.ind2-header-right p{
+  font-size:16px;
+  line-height:1.85;
+  color:#64748b;
+  max-width:420px;
+}
+
+/* ── Three panel row ── */
+.ind2-panels{
+  position:relative;z-index:1;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+/* ── Single panel ── */
+.ind2-panel{
+  position:relative;
+  height:450px;
+  border-radius:18px;
+  overflow:hidden;
+  cursor:pointer;
+  background:#0a0f1e;
+  border:1px solid rgba(14,165,233,.1);
+  box-shadow:0 24px 60px rgba(0,0,0,.13);
+  transition:
+    transform .5s cubic-bezier(.25,.46,.45,.94),
+    box-shadow .5s ease,
+    border-color .5s ease;
+}
+
+.ind2-panel:hover{
+  transform:translateY(-6px);
+  box-shadow:
+    0 40px 80px rgba(0,0,0,.18),
+    0 0 0 1px rgba(14,165,233,.22),
+    0 0 40px rgba(14,165,233,.08);
+  border-color:rgba(14,165,233,.3);
+}
+
+/* image */
+.ind2-panel-img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  filter:saturate(.55) brightness(.38);
+  transform:scale(1.07);
+  transition:
+    transform 1.4s cubic-bezier(.25,.46,.45,.94),
+    filter 1s ease;
+  will-change:transform,filter;
+}
+
+.ind2-panel:hover .ind2-panel-img{
+  filter:saturate(.95) brightness(.52);
+  transform:scale(1);
+}
+
+/* cinematic overlay — unique per panel */
+.ind2-panel-dim{
+  position:absolute;inset:0;
+  pointer-events:none;
+  z-index:1;
+  transition:opacity .5s ease;
+}
+
+.ind2-panel:nth-child(1) .ind2-panel-dim{
+  background:linear-gradient(160deg,rgba(7,11,20,.1) 0%,rgba(7,11,20,.94) 100%);
+}
+.ind2-panel:nth-child(2) .ind2-panel-dim{
+  background:linear-gradient(180deg,rgba(7,11,20,.08) 0%,rgba(7,11,20,.96) 100%);
+}
+.ind2-panel:nth-child(3) .ind2-panel-dim{
+  background:linear-gradient(155deg,rgba(7,11,20,.08) 0%,rgba(7,11,20,.95) 100%);
+}
+
+/* blue glow */
+.ind2-panel-glow{
+  position:absolute;
+  width:300px;height:300px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(14,165,233,.28),transparent 70%);
+  filter:blur(50px);
+  bottom:-80px;left:-60px;
+  z-index:1;
+  opacity:0;
+  transform:scale(.8);
+  transition:opacity .5s ease,transform .6s ease;
+  pointer-events:none;
+}
+
+.ind2-panel:hover .ind2-panel-glow{
+  opacity:1;
+  transform:scale(1);
+}
+
+/* glass top-left accent line */
+.ind2-panel::before{
+  content:"";
+  position:absolute;
+  top:0;left:18px;right:18px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(14,165,233,.4),transparent);
+  z-index:3;
+  opacity:0;
+  transition:opacity .5s ease;
+}
+
+.ind2-panel:hover::before{opacity:1;}
+
+/* ── Panel body ── */
+.ind2-panel-body{
+  position:absolute;
+  left:0;right:0;bottom:0;
+  padding:40px 36px;
+  z-index:2;
+  transition:transform .5s cubic-bezier(.25,.46,.45,.94);
+}
+
+.ind2-panel:hover .ind2-panel-body{
+  transform:translateY(-8px);
+}
+
+.ind2-panel-tag{
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:#38bdf8;
+  margin-bottom:12px;
+  display:block;
+}
+
+.ind2-panel-name{
+  font-size:clamp(26px,2.4vw,34px);
+  font-weight:800;
+  color:#fff;
+  letter-spacing:-1px;
+  line-height:1.12;
+  margin-bottom:0;
+}
+
+/* description — hidden at rest, fades up on hover */
+.ind2-panel-desc{
+  font-size:13.5px;
+  line-height:1.7;
+  color:rgba(255,255,255,.55);
+  margin-top:0;
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  transition:
+    max-height .5s ease,
+    opacity .45s ease,
+    margin-top .45s ease;
+}
+
+.ind2-panel:hover .ind2-panel-desc{
+  max-height:80px;
+  opacity:1;
+  margin-top:12px;
+}
+
+/* CTA arrow */
+.ind2-panel-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.6px;
+  text-transform:uppercase;
+  color:var(--primary);
+  text-decoration:none;
+  margin-top:0;
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  transition:
+    max-height .5s ease,
+    opacity .45s ease,
+    margin-top .4s ease,
+    gap .3s ease;
+}
+
+.ind2-panel:hover .ind2-panel-cta{
+  max-height:40px;
+  opacity:1;
+  margin-top:16px;
+}
+
+.ind2-panel:hover .ind2-panel-cta:hover{gap:13px;}
+
+/* index number — decorative */
+.ind2-panel-num{
+  position:absolute;
+  top:24px;right:28px;
+  font-size:72px;
+  font-weight:900;
+  color:rgba(255,255,255,.04);
+  letter-spacing:-3px;
+  line-height:1;
+  user-select:none;
+  pointer-events:none;
+  z-index:2;
+}
+
+/* ── Bottom CTA ── */
+.ind2-bottom{
+  position:relative;z-index:1;
+  text-align:center;
+  margin-top:56px;
+}
+
+.ind2-view-all{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--primary);
+  text-decoration:none;
+  border-bottom:1px solid rgba(14,165,233,.3);
+  padding-bottom:4px;
+  transition:gap .3s,border-color .3s;
+}
+
+.ind2-view-all:hover{
+  gap:16px;
+  border-color:var(--primary);
+}
+
+/* ── Responsive ── */
+@media(max-width:1200px){
+  .ind2-panels{gap:18px;}
+  .ind2-panel{height:430px;}
+}
+
+@media(max-width:960px){
+  .ind2-header{grid-template-columns:1fr;}
+  .ind2-header-right{display:none;}
+  .ind2-panel{height:380px;}
+}
+
+@media(max-width:700px){
+  .ind2{padding:80px 5% 90px;}
+  .ind2-panels{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+  .ind2-panel{height:320px;}
+  .ind2-panel-body{padding:32px 28px;}
+  .ind2-panel-name{font-size:26px;}
+  .ind2-header-left h2{font-size:38px;}
+}
+</style>
+
+
+
+<section class="ys-section" aria-labelledby="ys-eng-heading">
+  <div class="ys-card" role="group" aria-label="YSQUARE Engineering — Built for innovation">
+
+    <!-- IMAGE (left half of the single card) -->
+    <figure class="card-image" aria-hidden="false">
+      <img
+        src="images/engineeing-excellence.jpg"
+        alt="Engineer inspecting automated industrial equipment">
+    </figure>
+
+    <!-- CONTENT (right half of the same card) -->
+    <div class="card-content">
+      <div>
+        <div class="ys-eyebrow">ENGINEERING EXCELLENCE</div>
+
+        <h2 id="ys-eng-heading" class="ys-headline">Engineering Solutions<br>Built for Tomorrow.</h2>
+
+        <div class="ys-divider" aria-hidden="true"></div>
+
+        <p class="ys-desc">
+          YSQUARE combines software, embedded, semiconductor and digital engineering expertise to deliver scalable, reliable and future-ready technology solutions for global enterprises.
+        </p>
+      </div>
+
+      <div class="ys-cta-row">
+        <a href="#" class="ys-cta1">Explore Company →</a>
+
+        <a href="#" class="ys-circle" aria-label="Explore Company">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <line x1="5" y1="19" x2="19" y2="5"/>
+            <polyline points="5 5 19 5 19 19"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════
+     S02 — INDUSTRIES WE SERVE
+══════════════════════════════════════════════════════ -->
+<section class="ind2">
+
+  <div class="ind2-header">
+    <div class="ind2-header-left">
+      <div class="ind2-eyebrow sr">Industries</div>
+      <h2 class="sr">Engineering Across<br>Critical Industries</h2>
+    </div>
+    <div class="ind2-header-right sr">
+      <p>YSQUARE delivers engineering solutions across the verticals that demand the highest levels of precision, reliability and domain depth — from silicon to software.</p>
+    </div>
+  </div>
+
+  <div class="ind2-panels">
+
+    <!-- Hi-Tech -->
+    <div class="ind2-panel sr-l">
+      <img class="ind2-panel-img"
+        src="images/hi-tech-industry1.jpg"
+        alt="Hi-Tech Engineering">
+      <div class="ind2-panel-dim"></div>
+      <div class="ind2-panel-glow"></div>
+  
+      <div class="ind2-panel-body">
+        <span class="ind2-panel-tag">Hi-Tech</span>
+        <div class="ind2-panel-name">Hi-Tech &amp;<br>Technology</div>
+        <div class="ind2-panel-desc">Cloud infrastructure, AI platforms, digital products and smart manufacturing — engineering the systems that power the modern world.</div>
+        <a href="#" class="ind2-panel-cta">Explore Hi-Tech →</a>
+      </div>
+    </div>
+
+    <!-- Automotive -->
+    <div class="ind2-panel sr">
+      <img class="ind2-panel-img"
+        src="images/automotive-industry1.jpg"
+        alt="Automotive Engineering">
+      <div class="ind2-panel-dim"></div>
+      <div class="ind2-panel-glow"></div>
+    
+      <div class="ind2-panel-body">
+        <span class="ind2-panel-tag">Automotive</span>
+        <div class="ind2-panel-name">Automotive &amp;<br>Mobility</div>
+        <div class="ind2-panel-desc">ADAS, EV powertrain electronics, connected vehicle platforms and ISO 26262 — engineering mobility from silicon to system.</div>
+        <a href="#" class="ind2-panel-cta">Explore Automotive →</a>
+      </div>
+    </div>
+
+    <!-- Semiconductor -->
+    <div class="ind2-panel sr-r">
+      <img class="ind2-panel-img"
+        src="images/semiconductor-industry1.jpg"
+        alt="Semiconductor Engineering">
+      <div class="ind2-panel-dim"></div>
+      <div class="ind2-panel-glow"></div>
+    
+      <div class="ind2-panel-body">
+        <span class="ind2-panel-tag">Semiconductor</span>
+        <div class="ind2-panel-name">Semiconductor &amp;<br>Electronics</div>
+        <div class="ind2-panel-desc">RTL design, DFT, physical design and silicon validation — end-to-end chip lifecycle engineering for fabless companies and IDMs.</div>
+        <a href="#" class="ind2-panel-cta">Explore Semiconductor →</a>
+      </div>
+    </div>
+
+  </div>
+
+ 
+
+</section>
+
+
+
+
+<!-- ══════════════════════════════════════════════════════
+     S03 — INTERNSHIP BANNER
+══════════════════════════════════════════════════════ -->
+<div class="intern-banner sr">
+  <div class="intern-banner-inner">
+
+    <div class="intern-banner-left">
+      <div class="intern-banner-eyebrow">Engineering Internships</div>
+      <div class="intern-banner-title">Applications Now Open</div>
+      <div class="intern-banner-tags">
+        <span class="ibt">Software Engineering</span>
+        <span class="ibt">Embedded Systems</span>
+        <span class="ibt">Semiconductor / VLSI</span>
+      </div>
+    </div>
+
+    <div class="intern-banner-glass">
+      <div class="open">Programs Available</div>
+      <span>2 – 6 Month Tracks</span>
+      <span>1:1 Industry Mentorship</span>
+      <span>100% Certification</span>
+    </div>
+
+    <a href="#" class="intern-banner-cta">Explore Internships →</a>
+
   </div>
 </div>
 
-<!-- SERVICES -->
-<section class="services-sec" id="services">
-  <div class="container">
-    <div class="services-head">
-      <div>
-        <div class="section-label">What We Do</div>
-        <h2 class="section-h2">End-to-End Technology<br>Solutions for Every Scale</h2>
-      </div>
-      <a href="#" class="link-all">View All Services <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+
+<!-- =======================================
+ TECHNOLOGIES WE WORK WITH
+======================================= -->
+
+<section class="ys-tech-section">
+
+    <div class="container">
+
+        <div class="ys-tech-wrapper">
+
+            <!-- LEFT SIDE -->
+
+         <div class="ys-tech-left">
+
+    <span class="ys-tag">
+        GLOBAL TECHNOLOGY ECOSYSTEM
+    </span>
+
+    <h2>
+        Engineering for the
+        World's Leading
+        Technology Brands.
+    </h2>
+
+    <p>
+        Our expertise is aligned with globally recognized technology
+        ecosystems, enabling us to deliver engineering solutions that
+        meet enterprise-grade quality, innovation and performance
+        expectations.
+    </p>
+
+    <a href="contact.html" class="ys-tech-btn">
+
+        Explore Our Expertise
+
+        <i class="fa-solid fa-arrow-right-long"></i>
+
+    </a>
+
+</div>
+
+            <!-- RIGHT SIDE -->
+
+            <div class="ys-tech-right">
+
+                <!-- COLUMN 1 -->
+
+                <div class="ys-logo-column up">
+
+                    <div class="ys-logo-card">
+                        <img src="images/Intel-logo-boxed.png" alt="Intel">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/Broadcom Inc.png" alt="Cadence">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/HCLTech.jpeg" alt="Synopsys">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/Wipro Limited_0.jpeg" alt="ARM">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/nvidia.jpeg" alt="NVIDIA">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/cdil_logo.jpeg" alt="Siemens EDA">
+                    </div>
+
+                    <!-- Duplicate for infinite scroll -->
+
+                    <div class="ys-logo-card">
+                        <img src="images/Intel-logo-boxed.png" alt="Intel">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/Broadcom Inc.png" alt="Cadence">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/HCLTech.jpeg" alt="Synopsys">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/Wipro Limited_0.jpeg" alt="ARM">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/nvidia.jpeg" alt="NVIDIA">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/cdil_logo.jpeg" alt="Siemens EDA">
+                    </div>
+
+                </div>
+
+                <!-- COLUMN 2 -->
+
+                <div class="ys-logo-column down">
+
+                      <div class="ys-logo-card">
+                        <img src="images/Intel-logo-boxed.png" alt="Intel">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/Broadcom Inc.png" alt="Cadence">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/HCLTech.jpeg" alt="Synopsys">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/Wipro Limited_0.jpeg" alt="ARM">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/nvidia.jpeg" alt="NVIDIA">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/cdil_logo.jpeg" alt="Siemens EDA">
+                    </div>
+
+                    <!-- Duplicate -->
+
+                    <div class="ys-logo-card">
+                        <img src="images/Intel-logo-boxed.png" alt="Intel">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/Broadcom Inc.png" alt="Cadence">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/HCLTech.jpeg" alt="Synopsys">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/Wipro Limited_0.jpeg" alt="ARM">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/nvidia.jpeg" alt="NVIDIA">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/cdil_logo.jpeg" alt="Siemens EDA">
+                    </div>
+
+                </div>
+
+                <!-- COLUMN 3 -->
+
+                <div class="ys-logo-column up">
+
+                     <div class="ys-logo-card">
+                        <img src="images/Intel-logo-boxed.png" alt="Intel">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/Broadcom Inc.png" alt="Cadence">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/HCLTech.jpeg" alt="Synopsys">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/Wipro Limited_0.jpeg" alt="ARM">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/nvidia.jpeg" alt="NVIDIA">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/cdil_logo.jpeg" alt="Siemens EDA">
+                    </div>
+
+                    <!-- Duplicate -->
+                    <div class="ys-logo-card">
+                        <img src="images/Wipro Limited_0.jpeg" alt="ARM">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/nvidia.jpeg" alt="NVIDIA">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/cdil_logo.jpeg" alt="Siemens EDA">
+                    </div>
+                 <div class="ys-logo-card">
+                        <img src="images/Intel-logo-boxed.png" alt="Intel">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/Broadcom Inc.png" alt="Cadence">
+                    </div>
+
+                    <div class="ys-logo-card">
+                        <img src="images/HCLTech.jpeg" alt="Synopsys">
+                    </div>
+
+                 
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
-    <div class="services-grid">
-      <div class="svc-card">
-        <div class="svc-card-ico">🔬</div>
-        <div class="svc-card-title">Semiconductor Design</div>
-        <div class="svc-card-desc">From RTL design to physical verification — we deliver robust VLSI and IC design solutions for next-generation chips and SoCs.</div>
-        <a href="#" class="svc-card-link">Learn More <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </div>
-      <div class="svc-card">
-        <div class="svc-card-ico">💡</div>
-        <div class="svc-card-title">Embedded Systems</div>
-        <div class="svc-card-desc">Custom firmware, RTOS integration, BSP development, and driver engineering for embedded hardware across all major platforms.</div>
-        <a href="#" class="svc-card-link">Learn More <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </div>
-      <div class="svc-card featured">
-        <div class="svc-card-ico">🚀</div>
-        <div class="svc-card-title">Enterprise IT Solutions</div>
-        <div class="svc-card-desc">Full-spectrum digital transformation — cloud migration, ERP, DevOps pipelines, and scalable IT infrastructure for modern enterprises.</div>
-        <a href="#" class="svc-card-link">Learn More <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </div>
-      <div class="svc-card">
-        <div class="svc-card-ico">☁️</div>
-        <div class="svc-card-title">Cloud & DevOps</div>
-        <div class="svc-card-desc">Architect, deploy, and manage cloud-native applications on AWS, Azure and GCP with CI/CD automation and infrastructure-as-code.</div>
-        <a href="#" class="svc-card-link">Learn More <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </div>
-      <div class="svc-card">
-        <div class="svc-card-ico">🔗</div>
-        <div class="svc-card-title">IoT Engineering</div>
-        <div class="svc-card-desc">End-to-end IoT platform development — from sensor hardware to cloud dashboards — enabling smart, connected industrial systems.</div>
-        <a href="#" class="svc-card-link">Learn More <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </div>
-      <div class="svc-card">
-        <div class="svc-card-ico">🛡️</div>
-        <div class="svc-card-title">Cybersecurity</div>
-        <div class="svc-card-desc">Protect your digital infrastructure with comprehensive security audits, threat intelligence, compliance frameworks, and real-time monitoring.</div>
-        <a href="#" class="svc-card-link">Learn More <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+
+</section>
+
+
+<style>
+  /*=========================================
+   YSQUARE TECHNOLOGIES SECTION
+=========================================*/
+
+.ys-tech-section{
+
+    position:relative;
+
+    padding:70px 0;
+
+background:
+
+radial-gradient(circle at top left,#dff4ff 0%,transparent 45%),
+
+radial-gradient(circle at bottom right,#edf8ff 0%,transparent 40%),
+
+#ffffff;
+
+    overflow:hidden;
+
+}
+
+.ys-tech-section::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+
+    linear-gradient(rgba(14,165,233,.04) 1px,transparent 1px),
+
+    linear-gradient(90deg,rgba(14,165,233,.04) 1px,transparent 1px);
+
+    background-size:70px 70px;
+
+    pointer-events:none;
+
+}
+
+.ys-tech-wrapper{
+
+display:grid;
+
+grid-template-columns:470px 620px;
+
+justify-content:center;
+
+align-items:center;
+
+gap:100px;
+
+max-width:1180px;
+
+margin:0 auto;
+
+}
+
+/*=========================================
+LEFT SIDE
+=========================================*/
+
+.ys-tech-left{
+
+position:sticky;
+
+top:120px;
+
+max-width:460px;
+
+padding-right:0;
+
+margin-right:-35px;
+
+z-index:5;
+
+}
+.ys-tag{
+
+    display:inline-block;
+
+    color:#0ea5e9;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    letter-spacing:3px;
+
+    margin-bottom:18px;
+
+    text-transform:uppercase;
+
+}
+
+.ys-tech-left h2{
+
+font-size:54px;
+
+line-height:1.02;
+
+font-weight:800;
+
+max-width:470px;
+
+margin-bottom:24px;
+
+color:#08172f;
+
+}
+
+.ys-tech-left p{
+
+font-size:18px;
+
+line-height:1.85;
+
+max-width:440px;
+
+color:#64748b;
+
+margin-bottom:38px;
+
+}
+.ys-tech-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:16px 34px;
+
+    border-radius:60px;
+
+    text-decoration:none;
+
+    background:#0ea5e9;
+
+    color:#fff;
+
+    font-weight:600;
+
+    transition:.35s;
+
+    box-shadow:
+
+    0 15px 40px rgba(14,165,233,.20);
+
+}
+
+.ys-tech-btn:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+
+    0 25px 60px rgba(14,165,233,.28);
+
+}
+
+.ys-tech-btn i{
+
+    transition:.35s;
+
+}
+
+.ys-tech-btn:hover i{
+
+    transform:translateX(8px);
+
+}
+
+/*=========================================
+RIGHT SIDE
+=========================================*/
+.ys-tech-right{
+
+    width:620px;
+
+    height:500px;
+
+    overflow:hidden;
+
+    margin-left:-35px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,170px);
+
+    justify-content:end;
+
+    gap:18px;
+
+    position:relative;
+
+}
+.ys-logo-column{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+/*=========================================
+LOGO CARD
+=========================================*/
+
+.ys-logo-card{
+
+    position:relative;
+
+    width:170px;
+
+    height:78px;
+
+    background:rgba(255,255,255,.94);
+
+    border-radius:16px;
+
+    border:1px solid rgba(14,165,233,.08);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+    transition:.45s;
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+        0 8px 28px rgba(2,18,38,.06);
+
+}
+
+.ys-logo-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    height:3px;
+
+    background:
+
+    linear-gradient(
+    90deg,
+    #0ea5e9,
+    #38bdf8,
+    transparent);
+
+    transform:scaleX(0);
+
+    transform-origin:left;
+
+    transition:.45s;
+
+}
+
+.ys-logo-card:hover::before{
+
+    transform:scaleX(1);
+
+}
+
+.ys-logo-card:hover{
+
+transform:
+translateY(-8px)
+scale(1.04);
+
+border-color:#0ea5e9;
+
+background:#fff;
+
+box-shadow:
+
+0 22px 60px rgba(14,165,233,.18);
+
+}
+
+.ys-logo-card::after{
+
+content:"";
+
+position:absolute;
+
+width:80px;
+
+height:80px;
+
+background:#0ea5e9;
+
+border-radius:50%;
+
+filter:blur(55px);
+
+opacity:0;
+
+transition:.5s;
+
+}
+
+.ys-logo-card:hover::after{
+
+opacity:.08;
+
+}
+
+.ys-logo-card{
+
+animation:floatCard 4s ease-in-out infinite;
+
+}
+
+.ys-logo-card:nth-child(even){
+
+animation-delay:1.5s;
+
+}
+
+@keyframes floatCard{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-4px);
+
+}
+
+}
+
+.ys-logo-card img{
+
+   width:82px;
+max-height:58px;
+
+    object-fit:contain;
+
+    filter:grayscale(100%);
+
+    transition:.35s;
+
+}
+
+.ys-logo-card:hover img{
+
+    filter:none;
+
+    transform:scale(1.08);
+
+}
+
+/*=========================================
+SCROLL ANIMATION
+=========================================*/
+
+.ys-logo-column.up{
+
+    animation:scrollUp 26s linear infinite;
+
+}
+
+.ys-logo-column.down{
+
+    animation:scrollDown 26s linear infinite;
+
+}
+
+.ys-logo-column:hover{
+
+    animation-play-state:paused;
+
+}
+
+@keyframes scrollUp{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(-50%);
+
+    }
+
+}
+
+@keyframes scrollDown{
+
+    from{
+
+        transform:translateY(-50%);
+
+    }
+
+    to{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================
+RESPONSIVE
+=========================================*/
+/* =========================================
+   LARGE LAPTOPS
+========================================= */
+@media (max-width:1200px){
+
+.ys-tech-wrapper{
+    grid-template-columns:420px 520px;
+    gap:60px;
+    max-width:980px;
+}
+
+.ys-tech-left h2{
+    font-size:48px;
+}
+
+.ys-tech-right{
+    width:520px;
+    grid-template-columns:repeat(3,150px);
+    justify-content:center;
+}
+
+.ys-logo-card{
+    width:150px;
+}
+
+}
+
+
+/* =========================================
+   TABLETS
+========================================= */
+@media (max-width:991px){
+
+.ys-tech-section{
+    padding:80px 0;
+}
+
+.ys-tech-wrapper{
+    display:flex;
+    flex-direction:column;
+    gap:50px;
+}
+
+.ys-tech-left{
+    position:static;
+    max-width:100%;
+    margin:0;
+    padding:0;
+    text-align:center;
+}
+
+.ys-tech-left h2{
+    font-size:42px;
+    max-width:700px;
+    margin:0 auto 20px;
+}
+
+.ys-tech-left p{
+    max-width:700px;
+    margin:0 auto 35px;
+}
+
+.ys-tech-right{
+    width:100%;
+    max-width:620px;
+    margin:auto;
+    height:420px;
+    grid-template-columns:repeat(3,170px);
+    justify-content:center;
+}
+
+}
+
+
+/* =========================================
+   TABLETS PORTRAIT
+========================================= */
+@media (max-width:768px){
+
+.ys-tech-section{
+    padding:70px 20px;
+}
+
+.ys-tech-wrapper{
+    gap:40px;
+}
+
+.ys-tag{
+    font-size:12px;
+    letter-spacing:2px;
+}
+
+.ys-tech-left h2{
+    font-size:34px;
+    line-height:1.1;
+}
+
+.ys-tech-left p{
+    font-size:16px;
+    line-height:1.8;
+}
+
+.ys-tech-btn{
+    padding:14px 28px;
+}
+
+.ys-tech-right{
+    width:100%;
+    max-width:520px;
+    height:360px;
+    grid-template-columns:repeat(3,150px);
+    gap:14px;
+}
+
+.ys-logo-card{
+    width:150px;
+    height:72px;
+}
+
+.ys-logo-card img{
+    width:72px;
+}
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+@media (max-width:576px){
+
+.ys-tech-section{
+    padding:60px 18px;
+}
+
+.ys-tech-left{
+    text-align:left;
+}
+
+.ys-tech-left h2{
+    font-size:30px;
+    margin-bottom:18px;
+}
+
+.ys-tech-left p{
+    font-size:15px;
+    line-height:1.8;
+}
+
+.ys-tech-btn{
+    width:100%;
+    justify-content:center;
+}
+
+.ys-tech-right{
+    width:100%;
+    max-width:100%;
+    height:270px;
+    grid-template-columns:repeat(3,100px);
+    gap:10px;
+}
+
+.ys-logo-card{
+    width:100px;
+    height:60px;
+    border-radius:12px;
+}
+
+.ys-logo-card img{
+    width:55px;
+    max-height:38px;
+}
+
+.ys-tech-right::before,
+.ys-tech-right::after{
+    height:45px;
+}
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+@media (max-width:380px){
+
+.ys-tech-left h2{
+    font-size:26px;
+}
+
+.ys-tech-left p{
+    font-size:14px;
+}
+
+.ys-tech-right{
+    height:240px;
+    grid-template-columns:repeat(3,90px);
+    gap:8px;
+}
+
+.ys-logo-card{
+    width:90px;
+    height:54px;
+}
+
+.ys-logo-card img{
+    width:48px;
+}
+
+}
+
+/*=========================================
+TOP & BOTTOM FADE
+=========================================*/
+
+.ys-tech-right::before,
+.ys-tech-right::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    width:100%;
+
+    height:90px;
+
+    z-index:20;
+
+    pointer-events:none;
+
+}
+
+.ys-tech-right::before{
+
+    top:0;
+
+    background:linear-gradient(
+        to bottom,
+        #ffffff,
+        rgba(255,255,255,0)
+    );
+
+}
+
+.ys-tech-right::after{
+
+    bottom:0;
+
+    background:linear-gradient(
+        to top,
+        #f8fbff,
+        rgba(248,251,255,0)
+    );
+
+}
+
+
+.ys-logo-card:hover{
+
+    transform:
+
+    translateY(-8px)
+
+    scale(1.03);
+
+    border-color:#8fd8ff;
+
+    box-shadow:
+
+    0 30px 70px rgba(14,165,233,.18);
+
+}
+</style>
+
+
+
+
+<!-- ══════════════════════════════════════════════════════
+     S05 — ENGINEERING INSIGHTS
+══════════════════════════════════════════════════════ -->
+<section class="insights-section">
+
+  <div class="insights-header sr">
+    <div>
+      <div class="lbl">Knowledge Hub</div>
+      <h2>Engineering Insights</h2>
+    </div>
+    <a href="#" class="insights-view-all">View all insights →</a>
+  </div>
+
+  <div class="insights-grid">
+
+    <div class="ins-featured sr-l">
+      <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=80" alt="">
+      <div class="ins-featured-dim"></div>
+      <div class="ins-featured-body">
+        <span class="ins-cat">Semiconductor</span>
+        <h3>Beyond Moore's Law: How Chiplet Architectures Are Redefining Semiconductor Design in 2026</h3>
+        <p>The shift from monolithic SoCs to disaggregated chiplet ecosystems is reshaping verification workflows and design methodologies across the industry.</p>
+        <div class="ins-meta">April 18, 2026 · 8 min read</div>
       </div>
     </div>
+
+    <div class="ins-side sr-r">
+
+      <div class="ins-card">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80" alt="">
+        <div class="ins-card-body">
+          <span class="ins-cat grn">AI Engineering</span>
+          <h4>How LLMs Are Changing RTL Debug Cycles in Semiconductor Teams</h4>
+          <div class="ins-meta">April 10, 2026 · 5 min read</div>
+          <a href="#" class="ins-read">Read Article →</a>
+        </div>
+      </div>
+
+      <div class="ins-card">
+        <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=400&q=80" alt="">
+        <div class="ins-card-body">
+          <span class="ins-cat">Embedded Systems</span>
+          <h4>Embedded Systems Trends 2026: Safety, Connectivity and the Rise of Edge Intelligence</h4>
+          <div class="ins-meta">March 28, 2026 · 6 min read</div>
+          <a href="#" class="ins-read">Read Article →</a>
+        </div>
+      </div>
+
+      <div class="ins-card">
+        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=400&q=80" alt="">
+        <div class="ins-card-body">
+          <span class="ins-cat">Digital</span>
+          <h4>AI-Driven Product Development: What Engineering Teams Need to Know in 2026</h4>
+          <div class="ins-meta">March 15, 2026 · 4 min read</div>
+          <a href="#" class="ins-read">Read Article →</a>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </section>
 
-<!-- WHY US -->
-<section class="why-sec" id="about">
-  <div class="container">
-    <div class="why-inner">
-      <div class="why-img-wrap">
-        <div class="why-img">
-          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=900&q=85&fit=crop&crop=center" alt="Team at work"/>
-        </div>
-        <div class="why-badge">
-          <div class="wb-num">Dec <span>'25</span></div>
-          <div class="wb-lbl">Founded & Operational</div>
-        </div>
-      </div>
-      <div>
-        <div class="section-label">Why Choose Us</div>
-        <h2 class="section-h2">A Fresh Vision for a<br>Complex Industry</h2>
-        <p class="section-sub" style="margin-bottom:0">We launched Ysquare Semicon IT Solutions in December 2025 with one mission — to bring world-class semiconductor and IT expertise to businesses who demand precision, agility, and innovation.</p>
-        <div class="why-list">
-          <div class="why-item">
-            <div class="wi-ico">🎯</div>
-            <div><div class="wi-title">Built for the Future</div><div class="wi-desc">Founded in 2025, we bring the latest methodologies, tools, and thinking — no legacy baggage, only forward-looking solutions.</div></div>
-          </div>
-          <div class="why-item">
-            <div class="wi-ico">⚙️</div>
-            <div><div class="wi-title">Deep Technical Expertise</div><div class="wi-desc">Our team brings decades of combined experience in VLSI, embedded systems, cloud architecture, and enterprise IT.</div></div>
-          </div>
-          <div class="why-item">
-            <div class="wi-ico">🤝</div>
-            <div><div class="wi-title">Client-First Always</div><div class="wi-desc">We treat every project as a long-term partnership — full transparency, dedicated support, and measurable outcomes.</div></div>
-          </div>
-          <div class="why-item">
-            <div class="wi-ico">🌍</div>
-            <div><div class="wi-title">Global Reach, Local Heart</div><div class="wi-desc">Proudly headquartered in Vizianagaram, AP — serving clients across India and international markets with equal dedication.</div></div>
-          </div>
-        </div>
-      </div>
+<!-- ══════════════════════════════════════════════════════
+     S06 — ENTERPRISE CTA
+══════════════════════════════════════════════════════ -->
+<!-- ═════════════ UNIVERSAL CTA ═════════════ -->
+<section class="ys-cta">
+
+    <div class="ys-cta-glow"></div>
+
+<div class="ys-cta-wrapper">
+
+    <div class="ys-cta-content">
+
+       <span class="ys-cta-tag">
+BUILD THE FUTURE WITH US
+</span>
+
+<h2>
+Engineering Tomorrow.
+<span>Transforming Industries Today.</span>
+</h2>
+
+<p>
+Partner with YSQUARE to accelerate digital transformation through engineering excellence, innovation and next-generation technology solutions.
+</p>
+
+<div class="ys-cta-buttons">
+
+<a href="contact.html" class="ys-cta-btn">
+Start Your Project
+<i class="fa-solid fa-arrow-right-long"></i>
+</a>
+
+<a href="about.html" class="ys-cta-btn ys-cta-btn-dark">
+Discover YSQUARE
+<i class="fa-solid fa-arrow-right-long"></i>
+</a>
+
+</div>
+
     </div>
-  </div>
+
+  
+
+</div>
+
+
+
+
 </section>
 
-<!-- HOW WE WORK -->
-<section class="process-sec">
-  <div class="container">
-    <div class="process-head">
-      <div class="section-label">Our Process</div>
-      <h2 class="section-h2">How We Deliver Excellence</h2>
-      <p class="section-sub">A structured, transparent approach that ensures quality, speed, and alignment at every step of your project.</p>
-    </div>
-    <div class="steps-grid">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-ico">🔍</div>
-        <div class="step-title">Discover & Define</div>
-        <div class="step-desc">We start by understanding your business goals, technical requirements, and constraints to define a clear scope and success criteria.</div>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-ico">📐</div>
-        <div class="step-title">Design & Architect</div>
-        <div class="step-desc">Our engineers design robust, scalable solutions — from chip architecture to system-level software design, vetted before a single line of code.</div>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-ico">🛠️</div>
-        <div class="step-title">Build & Validate</div>
-        <div class="step-desc">We develop, test, and validate with rigorous QA processes ensuring every deliverable meets industry standards and your expectations.</div>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <div class="step-ico">🚀</div>
-        <div class="step-title">Deploy & Support</div>
-        <div class="step-desc">Seamless deployment with full documentation, handover training, and ongoing maintenance support — so you're never left alone post-launch.</div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- INDUSTRIES -->
-<section class="industries-sec" id="industries">
-  <div class="container">
-    <div class="industries-head">
-      <div class="section-label">Industries We Serve</div>
-      <h2 class="section-h2">Powering Innovation<br>Across Sectors</h2>
-      <p class="section-sub">From factory floors to hospital corridors — our technology solutions are purpose-built for the industries that drive the world forward.</p>
-    </div>
-    <div class="ind-grid">
-      <div class="ind-card large">
-        <img src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=900&q=80&fit=crop" alt="Manufacturing"/>
-        <div class="ind-overlay"></div>
-        <div class="ind-content">
-          <span class="ind-ico">🏭</span>
-          <div class="ind-title">Manufacturing & Industry 4.0</div>
-          <div class="ind-desc">Smart automation, IIoT, and embedded control systems for the modern factory</div>
-        </div>
-      </div>
-      <div class="ind-card">
-        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=80&fit=crop" alt="Automotive"/>
-        <div class="ind-overlay"></div>
-        <div class="ind-content">
-          <span class="ind-ico">🚗</span>
-          <div class="ind-title">Automotive & EV</div>
-          <div class="ind-desc">ADAS, EV powertrain & automotive software</div>
-        </div>
-      </div>
-      <div class="ind-card">
-        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=600&q=80&fit=crop" alt="Healthcare"/>
-        <div class="ind-overlay"></div>
-        <div class="ind-content">
-          <span class="ind-ico">🏥</span>
-          <div class="ind-title">Healthcare & MedTech</div>
-          <div class="ind-desc">Medical device software & regulatory compliance</div>
-        </div>
-      </div>
-      <div class="ind-card">
-        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80&fit=crop" alt="Energy"/>
-        <div class="ind-overlay"></div>
-        <div class="ind-content">
-          <span class="ind-ico">⚡</span>
-          <div class="ind-title">Energy & Utilities</div>
-          <div class="ind-desc">Smart grid, renewables & energy monitoring</div>
-        </div>
-      </div>
-      <div class="ind-card">
-        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80&fit=crop" alt="Telecom"/>
-        <div class="ind-overlay"></div>
-        <div class="ind-content">
-          <span class="ind-ico">📡</span>
-          <div class="ind-title">Telecom & Networks</div>
-          <div class="ind-desc">5G, network infrastructure & connectivity</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- CTA BAND -->
-<section class="cta-band">
-  <div class="cta-inner">
-    <div class="section-label">Get Started</div>
-    <h2 class="cta-band-h2">Ready to Build Something<br>Extraordinary?</h2>
-    <p class="cta-band-p">Whether you need a chip designed from scratch, an embedded system engineered, or your entire IT infrastructure modernized — we're ready. Let's talk about your vision.</p>
-    <div class="cta-band-btns">
-      <a href="#" class="cta-band-btn-p">
-        Schedule a Free Consultation
-        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a href="#" class="cta-band-btn-s">View Our Services</a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
+<!-- ═══════════ FOOTER ═══════════ -->
 <footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="footer-logo"><img src="ysquare-logo.png" alt="Ysquare Semicon IT Solutions"/></div>
-        <p class="footer-brand-desc">Ysquare Semicon IT Solutions (OPC) Pvt Ltd — a next-generation technology company delivering semiconductor design, embedded engineering, and enterprise IT solutions. Incorporated December 2025, Vizianagaram, Andhra Pradesh.</p>
-        <div class="footer-social">
-          <a href="#" class="fsoc">in</a>
-          <a href="#" class="fsoc">𝕏</a>
-          <a href="#" class="fsoc">yt</a>
-          <a href="#" class="fsoc">gh</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-col-title">Services</div>
-        <div class="footer-links">
-          <a href="#">Semiconductor Design</a>
-          <a href="#">Embedded Systems</a>
-          <a href="#">Enterprise IT</a>
-          <a href="#">Cloud & DevOps</a>
-          <a href="#">IoT Engineering</a>
-          <a href="#">Cybersecurity</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-col-title">Company</div>
-        <div class="footer-links">
-          <a href="#">About Us</a>
-          <a href="#">Our Team</a>
-          <a href="#">Careers</a>
-          <a href="#">Insights / Blog</a>
-          <a href="#">Press & Media</a>
-          <a href="#">Contact</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-col-title">Contact</div>
-        <div class="footer-links">
-          <a href="#">Vizianagaram, AP 535001</a>
-          <a href="tel:+919876543210">+91 98765 43210</a>
-          <a href="mailto:info@ysquaresemicon.com">info@ysquaresemicon.com</a>
-          <a href="#">Get Directions</a>
-        </div>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="images/ysquare-logo.png" alt="YSQUARE">
+      <p>YSQUARE Semicon IT Solutions delivers innovative semiconductor, embedded systems and software engineering services that help organizations accelerate digital transformation and build future-ready technology.</p>
+      <div class="footer-badge">
+    Semiconductor • Embedded • Software
+</div>
+     
+    </div>
+<div class="footer-col">
+
+    <h4>Services</h4>
+
+    <ul>
+        <li><a href="#">Digital Engineering</a></li>
+        <li><a href="#">Software Engineering</a></li>
+        <li><a href="#">Embedded Engineering</a></li>
+        <li><a href="#">Semiconductor Engineering</a></li>
+    </ul>
+
+    <h4 class="footer-sub-heading">Industries</h4>
+
+    <ul>
+        <li><a href="#">Hi-Tech &amp; Technology</a></li>
+        <li><a href="#">Automotive &amp; Mobility</a></li>
+        <li><a href="#">Semiconductor &amp; Electronics</a></li>
+    </ul>
+
+</div>
+
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About YSQUARE</a></li>
+        <li><a href="#">Leadership</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Internships</a></li>
+        <li><a href="#">Insights</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <span class="nl-label">Get In Touch</span>
+      <p style="font-size:13px;color:rgba(255,255,255,.4);margin-bottom:16px;line-height:1.6;">Engineering solutions start with a conversation.
+Reach out to our experts today.</p>
+   <div class="footer-social">
+      <a href="#" class="f-icon">
+<i class="fa-brands fa-linkedin-in"></i>
+</a>
+
+<a href="#" class="f-icon">
+<i class="fa-brands fa-x-twitter"></i>
+</a>
+
+<a href="#" class="f-icon">
+<i class="fa-brands fa-instagram"></i>
+</a>
+
+<a href="#" class="f-icon">
+<i class="fa-brands fa-youtube"></i>
+</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">© 2025 Ysquare Semicon IT Solutions (OPC) Pvt Ltd. All rights reserved.</span>
-      <div class="footer-bottom-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Cookie Policy</a>
-      </div>
-    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 YSQUARE Semicon IT Solutions. All rights reserved.</p>
+<div class="footer-btm-links">
+
+<a href="#">Privacy Policy</a>
+
+<a href="#">Terms & Conditions</a>
+
+<a href="#">Disclaimer</a>
+
+<a href="#">Sitemap</a>
+
+</div>
   </div>
 </footer>
+
+<!-- ═══════════ JS ═══════════ -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+const track = document.querySelector(".services-track");
+
+ScrollTrigger.create({
+    trigger: ".services-showcase",
+    start: "top top",
+    end: "+=2400",
+    pin: ".services-left",
+    scrub: 1
+});
+
+gsap.to(track, {
+    y: () => -(track.scrollHeight - document.querySelector(".services-right").clientHeight),
+    ease: "none",
+    scrollTrigger: {
+        trigger: ".services-showcase",
+        start: "top top",
+        end: "+=2400",
+        scrub: 1
+    }
+});
+
+
+
+
+
+/* Scroll reveal */
+const srEls = document.querySelectorAll('.sr,.sr-l,.sr-r');
+const srObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.1 });
+srEls.forEach(el => srObs.observe(el));
+
+/* Header scroll */
+window.addEventListener('scroll', () => {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 20);
+  /* scroll progress */
+  const sp = document.getElementById('scrollProg');
+  const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+  if(sp) sp.style.width = pct + '%';
+});
+
+/* Dropdown image swap */
+document.querySelectorAll('.dropdown-left li').forEach(li => {
+  li.addEventListener('mouseenter', () => {
+    const img = li.dataset.img, text = li.dataset.text;
+    const sec = li.closest('.menu-item');
+    if(!img) return;
+    const iEl = sec.querySelector('[id$="-img"]');
+    const tEl = sec.querySelector('[id$="-text"]');
+    if(iEl) iEl.src = img;
+    if(tEl) tEl.textContent = text;
+  });
+});
+
+/* Hamburger */
+const hbg = document.getElementById('hamburger');
+const mm = document.getElementById('mobileMenu');
+if(hbg && mm){
+  hbg.addEventListener('click', () => {
+    hbg.classList.toggle('active');
+    mm.classList.toggle('active');
+  });
+  mm.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    hbg.classList.remove('active');
+    mm.classList.remove('active');
+  }));
+}
+
+/* Mobile accordion */
+document.querySelectorAll('.mobile-title').forEach(btn => {
+  btn.addEventListener('click', () => btn.parentElement.classList.toggle('active'));
+});
+
+/* Hero parallax */
+document.addEventListener('mousemove', e => {
+  const mx = (e.clientX - window.innerWidth/2) * .006;
+  const my = (e.clientY - window.innerHeight/2) * .006;
+  const hc = document.querySelector('.hero-content');
+  if(hc) hc.style.transform = `translate(${mx}px,${my}px)`;
+});
+
+
+if (window.innerWidth <= 576) {
+    const card = document.querySelector(".hero-internship-card");
+
+    if (card) {
+        card.style.cursor = "pointer";
+
+        card.addEventListener("click", function (e) {
+
+            // Don't interfere if the button itself is clicked
+            if (e.target.closest(".internship-btn")) return;
+
+            window.location.href = "internship.html";
+        });
+    }
+}document.querySelectorAll(".dropdown li").forEach(item => {
+
+    item.addEventListener("click", function () {
+
+        const link = this.dataset.link;
+
+        if(link){
+            window.location.href = link;
+        }
+
+    });
+
+});
+
+
+const quotes = document.querySelectorAll(".quote");
+const images = document.querySelectorAll(".image-slide");
+const bars = document.querySelectorAll(".hero-pagination span");
+
+let current = 0;
+let sliderInterval;
+
+function showSlide(index){
+
+    quotes.forEach(q=>q.classList.remove("active"));
+    images.forEach(i=>i.classList.remove("active"));
+    bars.forEach(b=>b.classList.remove("active"));
+
+    quotes[index].classList.add("active");
+    images[index].classList.add("active");
+    bars[index].classList.add("active");
+
+    current=index;
+
+}
+
+function nextSlide(){
+
+    let next=(current+1)%quotes.length;
+
+    showSlide(next);
+
+}
+
+showSlide(0);
+
+clearInterval(sliderInterval);
+
+sliderInterval=setInterval(nextSlide,5000);
+
+</script>
 
 </body>
 </html>

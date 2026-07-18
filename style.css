@@ -1,4 +1,7 @@
 
+
+
+
 /* =========================================
    HEADER (UNTOUCHED - exact original)
    ========================================= */
@@ -2373,7 +2376,6 @@ color:#64748b;
 
 max-width:1000px;
 
-margin:auto;
 
 }
 
@@ -4720,12 +4722,19 @@ Tabs
 
 .focus-tabs{
 
-    display:flex;
+  display:flex;
     gap:14px;
-    flex-wrap:wrap;
+    overflow-x:auto;
+    overflow-y:hidden;
+    padding-bottom:10px;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
 
-    margin-bottom:45px;
+}
 
+
+.focus-tabs::-webkit-scrollbar{
+    display:none;
 }
 
 .focus-tab{
@@ -4907,6 +4916,17 @@ Left
 
 }
 
+
+@media (max-width:768px){
+
+    .focus-tab{
+        min-width:180px;
+        font-size:14px;
+        padding:16px 20px;
+    }
+
+}
+
 /*---------------------------------
 Right
 ---------------------------------*/
@@ -4992,7 +5012,7 @@ display:none;
 
 .focus-tab{
 
-white-space:nowrap;
+white-space:normal;
 
 }
 

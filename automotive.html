@@ -1096,6 +1096,16 @@ tabs.forEach(btn=>btn.classList.remove("active"));
 
 tabs[index].classList.add("active");
 
+requestAnimationFrame(() => {
+
+    tabs[index].scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest"
+    });
+
+});
+
 current=index;
 
 clearTimeout(timer);
