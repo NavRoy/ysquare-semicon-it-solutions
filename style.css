@@ -1,5 +1,314 @@
 
+/* ════════════════════════════════════════════════════════════
+   YSQUARE — PREMIUM SYSTEM LAYER (v2)
+   Load this AFTER style.css (and after each page's own <style>
+   block) on every page.
 
+   CHANGES FROM v1, PER YOUR REQUEST:
+   1. Section 4 "BUTTONS" (the old global button override) has
+      been REMOVED. Your existing .hero-btn / .job-btn / .ys-cta-btn
+      / .internship-btn etc. are untouched — nothing here forces
+      their padding, radius or color anymore.
+   2. Section 1 (rhythm), Section 2 (radius), Section 3 (shadow)
+      and Section 5 (glow) now also cover the Careers page
+      (.hwh-section, .apply-section, .benefits-section) and the
+      Contact page (.contact-section, .contact-form-panel,
+      .map-section, .faq-section — VERIFY these four against your
+      real contact.html; I don't have that file, so these are
+      matched to the class names already referenced in your
+      style.css typography layer. Swap if the real wrapper
+      classes differ).
+   3. New Section 9: a standalone "duo CTA" button pair matching
+      the screenshot you sent (solid blue + dark outline, small
+      radius, bold, arrow icon). This is 100% additive — new class
+      names only, so it can sit next to your current buttons
+      without conflict.
+
+   WHAT TO STILL DELETE FROM style.css (unchanged from before):
+   1. The first (light/blurred) .header{} block — dead, overridden
+      immediately by the dark-gradient .header{} block after it.
+   2. The duplicate .hero-top-strip / .hero-glow-a / .hero-content /
+      .hero-eyebrow blocks (defined twice, near-identically).
+   3. The duplicate .eyebrow/.reveal/.reveal-left/.reveal-right
+      blocks under "SHARED ATOMS" vs "SHARED UTILITIES".
+   4. The second :root{} block (the one that redefines --primary,
+      --ink, --fs-h1/h2/h3 a second time with different values).
+      Keep ONE :root, merge tokens into it.
+   ════════════════════════════════════════════════════════════ */
+
+:root{
+  /* ── ONE spacing scale — every section padding routes through these ── */
+  --space-section-y: clamp(64px, 9vw, 112px);   /* replaces 60/70/80/90/100/110/120/130/160 */
+  --space-block: 40px;                           /* gap between header + content inside a section */
+  --space-card: 32px;                             /* internal card padding */
+
+  /* ── ONE radius scale ── */
+  --radius-card: 20px;      /* replaces 12/14/16/18/20/22/24/26/28/30/32/42 on cards/panels */
+  --radius-media: 24px;     /* images, feature blocks */
+  --radius-chip: 10px;      /* small tags/badges */
+  --radius-pill: 999px;     /* only used where YOU explicitly opt in — see Section 4 note */
+
+  /* ── ONE elevation scale — replaces dozens of one-off shadows ── */
+  --shadow-1: 0 8px 24px rgba(15,23,42,.06);          /* resting card */
+  --shadow-2: 0 24px 60px rgba(15,23,42,.10);         /* hero-level card */
+  --shadow-hover: 0 30px 70px rgba(14,165,233,.16);   /* hover lift, always blue-tinted */
+
+  /* ── glow — ONE opacity/blur standard so orbs stop competing ── */
+  --glow-size: 560px;
+  --glow-opacity: .07;      /* was .05–.28 scattered across sections — cap it low */
+  --glow-blur: 70px;
+
+  /* ── motion ── */
+  --ease: cubic-bezier(.22,.61,.36,1);
+  --dur: .4s;
+}
+
+/* ════════════════════════════════════════════════════════════
+   1. SECTION RHYTHM — every top-level section gets the same
+   vertical breathing room, now including Careers + Contact.
+   ════════════════════════════════════════════════════════════ */
+.who-section, .vm-section, .why-section, .values-section, .gp-section,
+.dna-section, .ys-section, .ind2, .ys-tech-section, .insights-section,
+.explore-section, .focus-section, .ys-focus-section, .ys-showcase,
+.ys-stories, .career-jobs, .overview-section, .track-showcase,
+.slider-section, .timeline-section, .page-title-left.cards-component,
+#navroy-why,
+/* Careers page */
+.hwh-section, .apply-section, .benefits-section,
+/* Contact page — VERIFY against your real contact.html wrapper classes */
+.contact-section, .contact-form-section, .map-section, .faq-section{
+  padding-top: var(--space-section-y) !important;
+  padding-bottom: var(--space-section-y) !important;
+}
+
+/* headers inside sections get one consistent gap before content */
+.who-left h2, .vm-header, .why-header, .values-header, .gp-header,
+.dna-eyebrow, .ys-focus-header, .explore-header, .focus-heading,
+.ys-showcase-head, .overview-text, .domains-head, .slider-hd,
+.tl-header, .track-head, .page-title, .career-heading,
+/* Careers page */
+.hwh-header, .apply-card-header, .benefits-header,
+/* Contact page */
+.contact-form-panel h2, .map-header, .faq-header{
+  margin-bottom: var(--space-block) !important;
+}
+
+/* ════════════════════════════════════════════════════════════
+   2. RADIUS — collapse every card/media radius down to the 3
+   tokens above. Buttons are deliberately excluded — see the
+   removed Section 4 note at the top of this file.
+   ════════════════════════════════════════════════════════════ */
+.vm-panel, .stat-card, .track-item, .job-card, .card-image,
+.who-img-wrap, .dna-node, .ind2-panel, .cards-component-box,
+.explore-card, .dr-image, .ys-card, .ys-focus-image, .dna-inner,
+.contact-container, .map-wrap, .eligibility-box,
+/* Careers page */
+.apply-card, .success-card, .benefit-card, .hwh-card, .hwh-step,
+/* Contact page */
+.contact-form-panel{
+  border-radius: var(--radius-card) !important;
+}
+
+.about-hero img, .internship-hero img, .who-img-wrap img,
+.ys-card .card-image img, .track-showcase img{
+  border-radius: 0; /* full-bleed hero media stays edge-to-edge, unchanged */
+}
+
+/* ════════════════════════════════════════════════════════════
+   3. SHADOW — replace the shadow soup with 2 states: resting
+   and hover, now including career + contact cards.
+   ════════════════════════════════════════════════════════════ */
+.vm-panel, .stat-card, .track-item, .job-card, .ys-card,
+.dna-node, .ind2-panel, .cards-component-box, .explore-card,
+.who-img-wrap, .dna-inner,
+/* Careers page */
+.apply-card, .benefit-card, .hwh-card,
+/* Contact page */
+.contact-form-panel, .map-wrap{
+  box-shadow: var(--shadow-1) !important;
+  transition: box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease) !important;
+}
+
+.vm-panel:hover, .stat-card:hover, .track-item:hover, .job-card:hover,
+.ys-card:hover, .dna-node:hover, .ind2-panel:hover,
+.cards-component-box:hover, .explore-card:hover,
+.benefit-card:hover{
+  box-shadow: var(--shadow-hover) !important;
+}
+
+/* ════════════════════════════════════════════════════════════
+   4. BUTTONS — INTENTIONALLY REMOVED.
+   Your existing CTA styles (.hero-btn, .job-btn, .ys-cta-btn,
+   .ys-cta-btn-dark, .internship-btn, .explore-btn, .career-more-btn,
+   .focus-link, .ys-btn-primary, .ys-btn-outline, etc.) are left
+   exactly as defined in style.css / each page's own <style> block.
+   Nothing in this file overrides them.
+
+   If you want the screenshot's button look anywhere, use the new
+   .cta-duo component in Section 9 below instead — it's additive
+   and won't fight your current buttons.
+   ════════════════════════════════════════════════════════════ */
+
+/* ════════════════════════════════════════════════════════════
+   5. GLOW DENSITY — dial every ambient radial-glow pseudo
+   element down to one shared, quiet standard.
+   ════════════════════════════════════════════════════════════ */
+.dna-section::after, .ind-flagship::after, .explore-section::before,
+.explore-section::after, .career-jobs::before, .gp-glow,
+.slider-section::before, .slider-section::after,
+.ys-focus-section::before, .who-section::before, .vm-section::after,
+.why-section::before, .why-section::after,
+/* Careers page */
+.apply-section::after, .apply-glow-b, .hwh-section::after,
+/* Contact page */
+.map-section::after{
+  width: var(--glow-size) !important;
+  height: var(--glow-size) !important;
+  filter: blur(var(--glow-blur)) !important;
+  opacity: 1 !important; /* opacity now lives in the gradient itself below */
+}
+.dna-section::after{ background: radial-gradient(circle, rgba(14,165,233,var(--glow-opacity)), transparent 70%) !important; }
+.ind-flagship::after{ background: radial-gradient(circle, rgba(14,165,233,var(--glow-opacity)), transparent 70%) !important; }
+.explore-section::before, .explore-section::after{ background: radial-gradient(circle, rgba(33,150,243,var(--glow-opacity)), transparent 72%) !important; }
+.career-jobs::before{ background: radial-gradient(circle, rgba(14,165,233,var(--glow-opacity)), transparent 70%) !important; }
+.gp-glow{ background: radial-gradient(circle, rgba(14,165,233,var(--glow-opacity)), transparent 70%) !important; }
+.apply-section::after, .apply-glow-b, .hwh-section::after{ background: radial-gradient(circle, rgba(14,165,233,var(--glow-opacity)), transparent 70%) !important; }
+.map-section::after{ background: radial-gradient(circle, rgba(14,165,233,var(--glow-opacity)), transparent 70%) !important; }
+
+/* ════════════════════════════════════════════════════════════
+   6. CARD PADDING — normalize internal card padding, now
+   including careers + contact cards.
+   ════════════════════════════════════════════════════════════ */
+.vm-panel, .job-card, .ys-card .card-content, .stat-card,
+.cards-component-box.text-only, .eligibility-box,
+.benefit-card, .hwh-card,
+.contact-form-panel{
+  padding: var(--space-card) !important;
+}
+
+/* ════════════════════════════════════════════════════════════
+   7. FOCUS STATES — accessibility floor, unchanged.
+   ════════════════════════════════════════════════════════════ */
+a:focus-visible, button:focus-visible, .job-btn:focus-visible,
+.hero-btn:focus-visible, .focus-tab:focus-visible,
+.btn-apply-solid:focus-visible, .btn-explore-outline:focus-visible{
+  outline: 2px solid var(--primary, #0ea5e9);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════
+   8. RESPONSIVE — card padding tightens on small screens.
+   (No button rules here anymore — see Section 4 note.)
+   ════════════════════════════════════════════════════════════ */
+@media (max-width: 768px){
+  :root{ --space-card: 24px; --radius-card: 16px; }
+}
+
+/* ════════════════════════════════════════════════════════════
+   9. NEW — "DUO CTA" BUTTON PAIR
+   Matches the screenshot: solid blue primary + dark outline
+   secondary, small radius (not pill), bold label + arrow.
+   100% new class names — does not touch any existing button.
+
+   USAGE:
+   <div class="cta-duo">
+     <a href="career-apply.php" class="btn-apply-solid">
+       Apply Now <i class="fa-solid fa-arrow-right"></i>
+     </a>
+     <a href="careers.html#opportunities" class="btn-explore-outline">
+       Explore Careers <i class="fa-solid fa-arrow-right"></i>
+     </a>
+   </div>
+
+   Drop that markup on a dark background (hero, CTA banner, etc.)
+   — the outline button is designed for dark navy backdrops like
+   your .ys-cta / .about-hero sections.
+   ════════════════════════════════════════════════════════════ */
+.cta-duo{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.btn-apply-solid,
+.btn-explore-outline{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:16px 34px;
+  border-radius:10px;
+  font-size:15px;
+  font-weight:700;
+  letter-spacing:.2px;
+  text-decoration:none;
+  cursor:pointer;
+  transition:transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+.btn-apply-solid i, .btn-explore-outline i{
+  font-size:13px;
+  transition:transform .3s ease;
+}
+
+/* Primary — solid blue */
+.btn-apply-solid{
+  background: var(--primary, #0ea5e9);
+  color:#fff;
+  border:1px solid var(--primary, #0ea5e9);
+  box-shadow:0 10px 30px rgba(14,165,233,.35);
+}
+.btn-apply-solid:hover{
+  background: var(--primary-dark, #0369a1);
+  border-color: var(--primary-dark, #0369a1);
+  transform:translateY(-3px);
+  box-shadow:0 18px 46px rgba(14,165,233,.5);
+}
+.btn-apply-solid:hover i{ transform:translateX(4px); }
+
+/* Secondary — dark outline (built for dark/navy backgrounds) */
+.btn-explore-outline{
+  background: rgba(255,255,255,.04);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.16);
+  backdrop-filter: blur(10px);
+}
+.btn-explore-outline:hover{
+  background: rgba(255,255,255,.09);
+  border-color: rgba(255,255,255,.32);
+  transform:translateY(-3px);
+}
+.btn-explore-outline:hover i{ transform:translateX(4px); }
+
+/* Light-background variant, in case you need this pair on a
+   white/light section instead of navy (e.g. inside .apply-card) */
+.cta-duo.on-light .btn-explore-outline{
+  background:#f8fafc;
+  color:#0f172a;
+  border:1px solid #e2e8f0;
+}
+.cta-duo.on-light .btn-explore-outline:hover{
+  background:#eef2f7;
+  border-color:#cbd5e1;
+}
+
+@media (max-width:540px){
+  .cta-duo{ flex-direction:column; align-items:stretch; }
+  .btn-apply-solid, .btn-explore-outline{
+    width:100%;
+    padding:15px 24px;
+  }
+}
 
 
 /* =========================================

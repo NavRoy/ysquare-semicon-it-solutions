@@ -1460,7 +1460,7 @@ height:auto;
      HERO — UNTOUCHED CONTENT, WIPRO-STYLE STRUCTURE
 ═══════════════════════════════════════════════════ -->
 <section class="about-hero">
-  <img src="images/internship-hero1.png" alt="">
+  <img src="images/internship/internship-hero-banner.jpg.jpeg" alt="">
   <div class="hero-overlay"></div>
   <div class="hero-glow-a"></div>
   <div class="hero-content">
@@ -1502,10 +1502,11 @@ height:auto;
 <nav class="hero-bottom-nav" id="heroBottomNav">
   <a href="#overview" class="hbn-link active">Overview</a>
   <a href="#domains" class="hbn-link">Domains</a>
-  <a href="#benefits" class="hbn-link">Benefits</a>
   <a href="#experience" class="hbn-link">Experience</a>
+  <a href="#benefits" class="hbn-link">Benefits</a>
+  
 
-  <a href="#apply" class="hbn-link">Apply</a>
+  <a href="#cta" class="hbn-link">Apply</a>
 </nav>
 
 
@@ -1825,7 +1826,7 @@ padding:32px;
   <!-- Domain 01 -->
   <div class="domain-row" id="software">
     <div class="dr-image reveal-left">
-      <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1400&q=80" alt="AI & Software">
+      <img src="images/internship/Software-Engineering-Domain 01.jpg.jpeg" alt="AI & Software">
       <div class="dr-badge"><span class="bl">Duration</span><span class="bv">2 – 3 Months</span></div>
     </div>
     <div class="dr-content reveal-right">
@@ -1846,7 +1847,7 @@ padding:32px;
   <!-- Domain 02 -->
   <div class="domain-row flip" id="embedded">
     <div class="dr-image reveal-right">
-      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80" alt="Embedded Systems">
+      <img src="images/internship/Domain-02.jpg.jpeg" alt="Embedded Systems">
       <div class="dr-badge"><span class="bl">Duration</span><span class="bv">2 – 3 Months</span></div>
     </div>
     <div class="dr-content reveal-left">
@@ -1867,7 +1868,7 @@ padding:32px;
   <!-- Domain 03 -->
   <div class="domain-row" id="semiconductor">
     <div class="dr-image reveal-left">
-      <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=80" alt="VLSI Design">
+      <img src="images/internship/Domain-03.jpg.jpeg" alt="VLSI Design">
       <div class="dr-badge"><span class="bl">Duration</span><span class="bv">3 or 6 Months</span></div>
     </div>
     <div class="dr-content reveal-right">
@@ -1915,7 +1916,7 @@ padding:32px;
     <div class="slider-track" id="sliderTrack">
 
       <div class="slide">
-        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1800&q=80" alt="Engineering Labs">
+        <img src="images/internship/Engineering-Labs-slide1.jpg.jpeg" alt="Engineering Labs">
         <div class="slide-overlay"></div>
         <div class="slide-body">
           <div class="slide-text-wrap">
@@ -1928,7 +1929,7 @@ padding:32px;
       </div>
 
       <div class="slide">
-        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1800&q=80" alt="Project Development">
+        <img src="images/internship/Project-Development-slide2.jpg.jpeg" alt="Project Development">
         <div class="slide-overlay"></div>
         <div class="slide-body">
           <div class="slide-text-wrap">
@@ -1941,7 +1942,7 @@ padding:32px;
       </div>
 
       <div class="slide">
-        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1800&q=80" alt="Industry Mentorship">
+        <img src="images/internship/Industry-Mentorship-slide3.jpg.jpeg" alt="Industry Mentorship">
         <div class="slide-overlay"></div>
         <div class="slide-body">
           <div class="slide-text-wrap">
@@ -1954,7 +1955,7 @@ padding:32px;
       </div>
 
       <div class="slide">
-        <img src="https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=1800&q=80" alt="Design Verification">
+        <img src="images/internship/Design-Verification-slide4.png" alt="Design Verification">
         <div class="slide-overlay"></div>
         <div class="slide-body">
           <div class="slide-text-wrap">
@@ -1967,7 +1968,7 @@ padding:32px;
       </div>
 
       <div class="slide">
-        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=1800&q=80" alt="Team Collaboration">
+        <img src="images/internship/Team-Collaboration-slide5.jpg.jpeg" alt="Team Collaboration">
         <div class="slide-overlay"></div>
         <div class="slide-body">
           <div class="slide-text-wrap">
@@ -2154,7 +2155,7 @@ INTERNSHIP ELIGIBILITY
      S06 — ENTERPRISE CTA
 ══════════════════════════════════════════════════════ -->
 <!-- ═════════════ UNIVERSAL CTA ═════════════ -->
-<section class="ys-cta">
+<section class="ys-cta" id="cta">
 
     <div class="ys-cta-glow"></div>
 
@@ -2177,7 +2178,7 @@ Join YSQUARE's internship programs and gain hands-on experience with live projec
 
 <div class="ys-cta-buttons">
 
-<a href="internship-apply.html" class="ys-cta-btn">
+<a href="apply.php" class="ys-cta-btn">
 Apply Now
 <i class="fa-solid fa-arrow-right-long"></i>
 </a>
@@ -2341,6 +2342,30 @@ if(tlTrack) tlObserver.observe(tlTrack);
   window.addEventListener('resize',update);
   update();
   timer = setInterval(()=>goTo(index+1), 5000);
+})();
+
+
+
+
+
+/* Sticky nav active state */
+(function(){
+  const links = document.querySelectorAll('.hbn-link');
+  const sectionIds = ['overview','domains','experience','benefits','cta'];
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id);
+      if(el && window.scrollY >= el.offsetTop - 220) current = id;
+    });
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+  }, { passive: true });
+  links.forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if(target){ e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
 })();
 
 /* ── Header utilities ────────────────────────────── */
