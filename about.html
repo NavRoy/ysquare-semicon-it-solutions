@@ -929,7 +929,7 @@ html{scroll-behavior:smooth;}
 <!-- ══════════════════════════════════════════════════════
      TECHNOLOGY DNA
 ══════════════════════════════════════════════════════ -->
-<section class="dna-section">
+<section class="dna-section" id="ecosystem">
   <canvas class="dna-particles" id="dnaParticles"></canvas>
   <svg class="dna-pcb-grid" id="dnaPcbGrid" xmlns="http://www.w3.org/2000/svg"></svg>
 
@@ -2231,7 +2231,7 @@ window.addEventListener('scroll', () => {
 /* Sticky nav active state */
 (function(){
   const links = document.querySelectorAll('.hbn-link');
-  const sectionIds = ['who','ecosystem','vision','why','values','impact'];
+  const sectionIds = ['leadership','ecosystem','vision','why','culture'];
   window.addEventListener('scroll', () => {
     let current = '';
     sectionIds.forEach(id => {
