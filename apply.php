@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Apply for Engineering Internship – YSQUARE Semicon IT Solutions</title>
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+<meta name="robots" content="noindex, follow">
+<meta name="description" content="Apply for an engineering internship at YSQUARE Semicon IT Solutions across Software, Embedded Systems, Semiconductor and Digital Engineering.">
+<link rel="canonical" href="https://ysquare-semicon-it-solutions.vercel.app/apply.php">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
